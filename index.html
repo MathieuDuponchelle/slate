@@ -1,1 +1,187 @@
-My Page
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>GStreamer Editing Services API Reference</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["c","shell","python"]);
+        });
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="c">c</a>
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>Gstreamer-Editing-Services is a C library providing a high-level API
+for multimedia editing.</p>
+
+          <h1 id="ges.asset">GES.Asset</h1>
+
+<p><a href="#index">index</a></p>
+
+<p>The Assets in the GStreamer Editing Services represent the resources
+that can be used. You can create assets for any type that implements the <a href="#ges.extractable">GES.Extractable</a>
+interface, for example (FIXME: broken link)GESClips, <a href="#ges.formatter">GES.Formatter</a>, and <a href="#ges.trackelement">GES.TrackElement</a> do implement it.
+This means that assets will represent for example a (FIXME: broken link)GESUriClips, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
+and then you can extract objects of those types with the appropriate parameters from the asset
+using the (FIXME: broken link)ges_asset_extract method:</p>
+<pre><code class="highlight c">
+<span class="n">GESAsset</span> <span class="o">*</span><span class="n">effect_asset</span><span class="p">;</span>
+<span class="n">GESEffect</span> <span class="o">*</span><span class="n">effect</span><span class="p">;</span>
+
+<span class="c1">// You create an asset for an effect
+</span><span class="n">effect_asset</span> <span class="o">=</span> <span class="n">ges_asset_request</span> <span class="p">(</span><span class="n">GES_TYPE_EFFECT</span><span class="p">,</span> <span class="s">"agingtv"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="c1">// And now you can extract an instance of GESEffect from that asset
+</span><span class="n">effect</span> <span class="o">=</span> <span class="n">GES_EFFECT</span> <span class="p">(</span><span class="n">ges_asset_extract</span> <span class="p">(</span><span class="n">effect_asset</span><span class="p">));</span>
+
+
+</code></pre>
+
+<p>In that example, the advantages of having a <a href="#ges.asset">GES.Asset</a> are that you can know what effects
+you are working with and let your user know about the avalaible ones, you can add metadata
+to the <a href="#ges.asset">GES.Asset</a> through the <a href="#ges.metacontainer">GES.MetaContainer</a> interface and you have a model for your
+custom effects. Note that <a href="#ges.asset">GES.Asset</a> management is making easier thanks to the <a href="#ges.project">GES.Project</a> class.</p>
+
+<p>Each asset is represented by a pair of @extractable_type and @id (string). Actually the @extractable_type
+is the type that implements the <a href="#ges.extractable">GES.Extractable</a> interface, that means that for example for a <a href="#ges.uriclip">GES.UriClip</a>,
+the type that implements the <a href="#ges.extractable">GES.Extractable</a> interface is <a href="#ges.clip">GES.Clip</a>.
+The identifier represents different things depending on the @extractable_type and you should check
+the documentation of each type to know what the ID of <a href="#ges.asset">GES.Asset</a> actually represents for that type. By default,
+we only have one <a href="#ges.asset">GES.Asset</a> per type, and the @id is the name of the type, but this behaviour is overriden
+to be more useful. For example, for GESTransitionClips, the ID is the vtype of the transition
+you will extract from it (ie crossfade, box-wipe-rc etc..) For <a href="#ges.effect">GES.Effect</a> the ID is the
+@bin-description property of the extracted objects (ie the gst-launch style description of the bin that
+will be used).</p>
+
+<p>Each and every <a href="#ges.asset">GES.Asset</a> is cached into GES, and you can query those with the (FIXME: broken link)ges_list_assets function.
+Also the system will automatically register (FIXME: broken link)GESAssets for (FIXME: broken link)GESFormatters and (FIXME: broken link)GESTransitionClips
+and standard effects (actually not implemented yet) and you can simply query those calling:</p>
+<pre><code class="highlight c">
+   <span class="n">GList</span> <span class="o">*</span><span class="n">formatter_assets</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
+
+   <span class="c1">//  List all  the transitions
+</span>   <span class="n">formatter_assets</span> <span class="o">=</span> <span class="n">ges_list_assets</span> <span class="p">(</span><span class="n">GES_TYPE_FORMATTER</span><span class="p">);</span>
+
+   <span class="c1">// Print some infos about the formatter GESAsset
+</span>   <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">formatter_assets</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">g_print</span> <span class="p">(</span><span class="s">"Name of the formatter: %s, file extension it produces: %s"</span><span class="p">,</span>
+       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_NAME</span><span class="p">),</span>
+       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_EXTENSION</span><span class="p">));</span>
+   <span class="p">}</span>
+
+   <span class="n">g_list_free</span> <span class="p">(</span><span class="n">transition_assets</span><span class="p">);</span>
+
+
+</code></pre>
+
+<p>You can request the creation of (FIXME: broken link)GESAssets using either (FIXME: broken link)ges_asset_request_async or
+(FIXME: broken link)ges_asset_request_async. All the (FIXME: broken link)GESAssets are cached and thus any asset that has already
+been created can be requested again without overhead.</p>
+
+<h2 id="ges.asset.extract">GES.Asset.extract</h2>
+
+<p><a href="#ges.asset">GES.Asset</a></p>
+
+<p>Extracts a new <a href="../gobject-2.0/gobject.object.html">GObject.Object</a> from @asset. The type of the object is
+defined by the extractable-type of @asset, you can check what
+type will be extracted from @asset using
+(FIXME: broken link)ges_asset_get_extractable_type
+<code class="prettyprint">c
+self
+</code></p>
+
+<p>The <a href="#ges.asset">GES.Asset</a> to get extract an object from
+<code class="prettyprint">c
+Returns
+</code></p>
+
+<p>A newly created <a href="#ges.extractable">GES.Extractable</a></p>
+
+<h2 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h2>
+
+<p><a href="#ges.asset">GES.Asset</a></p>
+
+<p>Gets the type of object that can be extracted from 
+<code class="prettyprint">c
+self
+</code>
+<code class="prettyprint">c
+self
+</code></p>
+
+<p>The <a href="#ges.asset">GES.Asset</a>
+<code class="prettyprint">c
+Returns
+</code></p>
+
+<p>the type of object that can be extracted from 
+<code class="prettyprint">c
+self
+</code></p>
+
+<h2 id="ges.asset.get_id">GES.Asset.get_id</h2>
+
+<p><a href="#ges.asset">GES.Asset</a></p>
+
+<p>Gets the ID of a <a href="#ges.asset">GES.Asset</a>
+<code class="prettyprint">c
+self
+</code></p>
+
+<p>The <a href="#ges.asset">GES.Asset</a> to get ID from
+<code class="prettyprint">c
+Returns
+</code></p>
+
+<p>The ID of 
+<code class="prettyprint">c
+self
+</code></p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="c">c</a>
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
