@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.layer">GES.Layer</h1>
+
+<p>Responsible for the ordering of the various contained Clip(s). A
+timeline layer has a &ldquo;priority&rdquo; property, which is used to manage the
+priorities of individual Clips. Two layers should not have the
+same priority within a given timeline.</p>
+
+<h2 id="ges.layer.get_timeline">GES.Layer.get_timeline</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to get the parent <a href="#ges.timeline">GES.Timeline</a> from</p>
+
+<p><em>Returns</em>: the <a href="#ges.timeline">GES.Timeline</a> in which <a href="#ges.layer">GES.Layer</a>
+currently is or <strong>NULL</strong> if not in any timeline yet.</p>
+
+<p>Get the <a href="#ges.timeline">GES.Timeline</a> in which <a href="#ges.layer">GES.Layer</a> currently is.</p>
+
+<h2 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h2>
+
+<p><strong>(layer, auto_transition)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>auto_transition</em>: whether the auto_transition is active</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
+property auto_transition for more information.</p>
+
+<h2 id="ges.layer.set_timeline">GES.Layer.set_timeline</h2>
+
+<p><strong>(layer, timeline)</strong></p>
+
+<p><em>layer</em>: FIXME empty description
+<em>timeline</em>: FIXME empty description
+<em>Returns</em>: FIXME empty description</p>
+
+<h2 id="ges.layer.set_priority">GES.Layer.set_priority</h2>
+
+<p><strong>(layer, priority)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>priority</em>: the priority to set</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the layer to the given <strong>priority</strong>. See the documentation of the
+priority property for more information.</p>
+
+<h2 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if transitions are automatically added, else <strong>FALSE</strong>.</p>
+
+<p>Gets whether transitions are automatically added when objects
+overlap or not.</p>
+
+<h2 id="ges.layer.is_empty">GES.Layer.is_empty</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to check</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if <strong>layer</strong> is empty, <strong>FALSE</strong> if it already contains at least
+one <a href="#ges.clip">GES.Clip</a></p>
+
+<p>Convenience method to check if <strong>layer</strong> is empty (doesn&rsquo;t contain any clip),
+or not.</p>
+
+<h2 id="ges.layer.get_priority">GES.Layer.get_priority</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>Returns</em>: The priority of the <strong>layer</strong> within the timeline.</p>
+
+<p>Get the priority of <strong>layer</strong> within the timeline.</p>
+
+<h2 id="ges.layer.remove_clip">GES.Layer.remove_clip</h2>
+
+<p><strong>(layer, clip)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>clip</em>: the <a href="#ges.clip">GES.Clip</a> to remove</p>
+
+<p><em>Returns</em>: TRUE if the clip could be removed, FALSE if the layer does
+not want to remove the clip.</p>
+
+<p>Removes the given <strong>clip</strong> from the <strong>layer</strong> and unparents it.
+Unparenting it means the reference owned by <strong>layer</strong> on the <strong>clip</strong> will be
+removed. If you wish to use the <strong>clip</strong> after this function, make sure you
+call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>layer</strong>.</p>
+
+<h2 id="ges.layer.add_asset">GES.Layer.add_asset</h2>
+
+<p><strong>(layer, asset, start, inpoint, duration, track_types)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>asset</em>: The asset to add to</p>
+
+<p><em>start</em>: The start value to set on the new <a href="#ges.clip">GES.Clip</a>,
+if <strong>start</strong> == GST_CLOCK_TIME_NONE, it will be set to
+the current duration of <strong>layer</strong></p>
+
+<p><em>inpoint</em>: The inpoint value to set on the new <a href="#ges.clip">GES.Clip</a></p>
+
+<p><em>duration</em>: The duration value to set on the new <a href="#ges.clip">GES.Clip</a></p>
+
+<p><em>track_types</em>: The <a href="#ges.tracktype">GES.TrackType</a> to set on the the new <a href="#ges.clip">GES.Clip</a></p>
+
+<p><em>Returns</em>: Created <a href="#ges.clip">GES.Clip</a></p>
+
+<p>Creates Clip from asset, adds it to layer and
+returns a reference to it.</p>
+
+<h2 id="ges.layer.add_clip">GES.Layer.add_clip</h2>
+
+<p><strong>(layer, clip)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>clip</em>: the <a href="#ges.clip">GES.Clip</a> to add.</p>
+
+<p><em>Returns</em>: TRUE if the clip was properly added to the layer, or FALSE
+if the <strong>layer</strong> refuses to add the clip.</p>
+
+<p>Adds the given clip to the layer. Sets the clip&rsquo;s parent, and thus
+takes ownership of the clip.</p>
+
+<p>An clip can only be added to one layer.</p>
+
+<p>Calling this method will construct and properly set all the media related
+elements on <strong>clip</strong>. If you need to know when those objects (actually <a href="#ges.trackelement">GES.TrackElement</a>)
+are constructed, you should connect to the container::child-added signal which
+is emited right after those elements are ready to be used.</p>
+
+<h2 id="ges.layer.get_duration">GES.Layer.get_duration</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to get the duration from</p>
+
+<p><em>Returns</em>: The duration of a layer</p>
+
+<p>Lets you retrieve the duration of the layer, which means
+the end time of the last clip inside it</p>
+
+<h2 id="ges.layer.get_clips">GES.Layer.get_clips</h2>
+
+<p><strong>(layer)</strong></p>
+
+<p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
+
+<p><em>Returns</em>: a <a href="https://developer.gnome.org/glib/unstable//glib-Doubly-Linked-Lists.html#GList">GLib.List</a> of
+clips. The user is responsible for
+unreffing the contained objects and freeing the list.</p>
+
+<p>Get the clips this layer contains.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

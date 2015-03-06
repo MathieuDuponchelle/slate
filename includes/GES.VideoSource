@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.videosource">GES.VideoSource</h1>
+
+<p><refsect1 id="GESVideoSource.children_properties" role="properties">
+<title role="children_properties.title">Children Properties</title>
+<para>You can use the following children properties through the
+(FIXME broken link)ges_track_element_set_child_property and alike set of methods:</para>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="200px"/>
+<colspec colname="properties_flags" colwidth="400px"/>
+<tbody>
+<row>
+ <entry role="property_type"><link linkend="gdouble"><type>double</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--alpha">alpha</link></entry>
+ <entry>The desired alpha for the stream.</entry>
+</row>
+<row>
+ <entry role="property_type"><link linkend="gint"><type>gint</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--posx">posx</link></entry>
+ <entry>The desired x position for the stream.</entry>
+</row>
+<row>
+ <entry role="property_type"><link linkend="gint"><type>gint</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--posy">posy</link></entry>
+ <entry>The desired y position for the stream</entry>
+</row>
+<row>
+ <entry role="property_type"><link linkend="guint"><type>guint</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--zorder">zorder</link></entry>
+ <entry>The desired z order for the stream</entry>
+</row>
+<row>
+ <entry role="property_type"><link linkend="gint"><type>gint</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--width">width</link></entry>
+ <entry>The desired width for that source. Set to 0 if size is not mandatory, will be set to width of the current track.</entry>
+</row>
+<row>
+ <entry role="property_type"><link linkend="gint"><type>gint</type></link></entry>
+ <entry role="property_name"><link linkend="GESVideoSource--height">height</link></entry>
+ <entry>The desired height for that source. Set to 0 if size is not mandatory, will be set to height of the current track.</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

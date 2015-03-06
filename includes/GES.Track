@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.track">GES.Track</h1>
+
+<p>Corresponds to one output format (i.e. audio OR video).</p>
+
+<p>Contains the compatible TrackElement(s).</p>
+
+<h2 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h2>
+
+<p><strong>(track, caps)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to update with</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Updates the restriction caps by modifying all the fields present in <strong>caps</strong>
+in the original restriction caps. If for example the current restriction caps
+are video/x-raw, format=I420, width=360 and <strong>caps</strong> is video/x-raw, format=RGB,
+the restriction caps will be updated to video/x-raw, format=RGB, width=360.</p>
+
+<p>Modification happens for each structure in the new caps, and
+one can add new fields or structures through that function.</p>
+
+<h2 id="ges.track.remove_element">GES.Track.remove_element</h2>
+
+<p><strong>(track, object)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>object</em>: the <a href="#ges.trackelement">GES.TrackElement</a> to remove</p>
+
+<p><em>Returns</em>: (FIXME broken link)TRUE if the object was removed, else (FIXME broken link)FALSE if the track
+could not remove the object (like if it didn&rsquo;t belong to the track).</p>
+
+<p>Removes the object from the track and unparents it.
+Unparenting it means the reference owned by <strong>track</strong> on the <strong>object</strong> will be
+removed. If you wish to use the <strong>object</strong> after this function, make sure you
+call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>track</strong>.</p>
+
+<h2 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h2>
+
+<p><strong>(track, func)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>func</em>: The <a href="#ges.createelementforgapfunc">GES.CreateElementForGapFunc</a> that will be used
+to create <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> to fill gaps</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the function that should be used to create the GstElement used to fill gaps.
+To avoid to provide such a function we advice you to use the
+(FIXME broken link)ges_audio_track_new and (FIXME broken link)ges_video_track_new constructor when possible.</p>
+
+<h2 id="ges.track.commit">GES.Track.commit</h2>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if something as been commited <strong>FALSE</strong> if nothing needed
+to be commited</p>
+
+<p>Commits all the pending changes of the TrackElement contained in the
+track.</p>
+
+<p>When timing changes happen in a timeline, the changes are not
+directly done inside NLE. This method needs to be called so any changes
+on a clip contained in the timeline actually happen at the media
+processing level.</p>
+
+<h2 id="ges.track.get_timeline">GES.Track.get_timeline</h2>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>Returns</em>: The <a href="#ges.timeline">GES.Timeline</a> this track belongs to. Can be <strong>NULL</strong>.</p>
+
+<p>Get the <a href="#ges.timeline">GES.Timeline</a> this track belongs to. Can be <strong>NULL</strong>.</p>
+
+<h2 id="ges.track.set_mixing">GES.Track.set_mixing</h2>
+
+<p><strong>(track, mixing)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>mixing</em>: TRUE if the track should be mixing, FALSE otherwise.</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets if the <a href="#ges.track">GES.Track</a> should be mixing.</p>
+
+<h2 id="ges.track.get_caps">GES.Track.get_caps</h2>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>Returns</em>: The <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> this track is configured to output.</p>
+
+<p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> this track is configured to output.</p>
+
+<h2 id="ges.track.add_element">GES.Track.add_element</h2>
+
+<p><strong>(track, object)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>object</em>: the <a href="#ges.trackelement">GES.TrackElement</a> to add</p>
+
+<p><em>Returns</em>: (FIXME broken link)TRUE if the object was properly added. (FIXME broken link)FALSE if the track does not
+want to accept the object.</p>
+
+<p>Adds the given object to the track. Sets the object&rsquo;s controlling track,
+and thus takes ownership of the <strong>object</strong>.</p>
+
+<p>An object can only be added to one track.</p>
+
+<h2 id="ges.track.get_elements">GES.Track.get_elements</h2>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>Returns</em>: the list of
+<a href="#ges.trackelement">GES.TrackElement</a> present in the Track sorted by priority and start.</p>
+
+<p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
+
+<h2 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h2>
+
+<p><strong>(track, caps)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to set</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
+
+<h2 id="ges.track.set_timeline">GES.Track.set_timeline</h2>
+
+<p><strong>(track, timeline)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets <strong>timeline</strong> as the timeline controlling <strong>track</strong>.</p>
+
+<h2 id="ges.track.get_mixing">GES.Track.get_mixing</h2>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>Returns</em>: (FIXME broken link)True if there is a mixer, (FIXME broken link)False otherwise.</p>
+
+<p>Gets if the underlying (FIXME broken link)NleComposition contains an expandable mixer.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

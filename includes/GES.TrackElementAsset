@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.trackelementasset">GES.TrackElementAsset</h1>
+
+<h2 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h2>
+
+<p><strong>(asset, type)</strong></p>
+
+<p><em>asset</em>: A (FIXME broken link)GESAssetObject</p>
+
+<p><em>type</em>: A <a href="#ges.tracktype">GES.TrackType</a></p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Set the (FIXME broken link)GESAssetTrackType the <a href="#ges.trackelement">GES.TrackElement</a> extracted from @self
+should get into</p>
+
+<h2 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h2>
+
+<p><strong>(asset)</strong></p>
+
+<p><em>asset</em>: A (FIXME broken link)GESAssetObject</p>
+
+<p><em>Returns</em>: a <a href="#ges.tracktype">GES.TrackType</a></p>
+
+<p>Get the GESAssetTrackType the <a href="#ges.trackelement">GES.TrackElement</a> extracted from @self
+should get into</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

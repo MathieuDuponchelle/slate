@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.project">GES.Project</h1>
+
+<p>The <a href="#ges.project">GES.Project</a> is used to control a set of <a href="#ges.asset">GES.Asset</a> and is a
+<a href="#ges.asset">GES.Asset</a> with (FIXME broken link)GES_TYPE_TIMELINE as @extractable_type itself. That
+means that you can extract <a href="#ges.timeline">GES.Timeline</a> from a project as followed:</p>
+<pre><code class="highlight c"> <span class="n">GESProject</span> <span class="o">*</span><span class="n">project</span><span class="p">;</span>
+ <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
+
+ <span class="n">project</span> <span class="o">=</span> <span class="n">ges_project_new</span> <span class="p">(</span><span class="s">"file:///path/to/a/valid/project/uri"</span><span class="p">);</span>
+
+ <span class="c1">// Here you can connect to the various signal to get more infos about
+</span> <span class="c1">// what is happening and recover from errors if possible
+</span> <span class="p">...</span>
+
+ <span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_asset_extract</span> <span class="p">(</span><span class="n">GES_ASSET</span> <span class="p">(</span><span class="n">project</span><span class="p">));</span>
+
+</code></pre>
+
+<p>The <a href="#ges.project">GES.Project</a> class offers a higher level API to handle <a href="#ges.asset">GES.Asset</a>-s.
+It lets you request new asset, and it informs you about new assets through
+a set of signals. Also it handles problem such as missing files/missing
+<a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> and lets you try to recover from those.</p>
+
+<h2 id="ges.project.add_asset">GES.Project.add_asset</h2>
+
+<p><strong>(project, asset)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>asset</em>: A <a href="#ges.asset">GES.Asset</a> to add to <strong>project</strong></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the asset could be added <strong>FALSE</strong> it was already
+in the project</p>
+
+<p>Adds a (FIXME broken link)Asset to <strong>project</strong>, the project will keep a reference on
+<strong>asset</strong>.</p>
+
+<h2 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h2>
+
+<p><strong>(project, id, extractable_type)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>id</em>: The id of the asset to create and add to <strong>project</strong></p>
+
+<p><em>extractable_type</em>: The <a href="FIXME%20broken%20link%20to%20Type">GLib.Type</a> of the asset to create</p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.asset">GES.Asset</a></p>
+
+<p>Create and add a <a href="#ges.asset">GES.Asset</a> to <strong>project</strong>. You should connect to the
+&ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
+<strong>project</strong></p>
+
+<h2 id="ges.project.remove_asset">GES.Project.remove_asset</h2>
+
+<p><strong>(project, asset)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>asset</em>: A <a href="#ges.asset">GES.Asset</a> to remove from <strong>project</strong></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the asset could be removed <strong>FALSE</strong> otherwise</p>
+
+<p>remove a <strong>asset</strong> to from <strong>project</strong>.</p>
+
+<h2 id="ges.project.get_uri">GES.Project.get_uri</h2>
+
+<p><strong>(project)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>Returns</em>: The uri that is set on <strong>project</strong></p>
+
+<p>Retrieve the uri that is currently set on <strong>project</strong></p>
+
+<h2 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h2>
+
+<p><strong>(project)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>Returns</em>: A set of loading asset
+that will be added to <strong>project</strong>. Note that those Asset are <em>not</em> loaded yet,
+and thus can not be used</p>
+
+<p>Get the assets that are being loaded</p>
+
+<h2 id="ges.project.create_asset">GES.Project.create_asset</h2>
+
+<p><strong>(project, id, extractable_type)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>id</em>: The id of the asset to create and add to <strong>project</strong></p>
+
+<p><em>extractable_type</em>: The <a href="FIXME%20broken%20link%20to%20Type">GLib.Type</a> of the asset to create</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the asset started to be added <strong>FALSE</strong> it was already
+in the project</p>
+
+<p>Create and add a <a href="#ges.asset">GES.Asset</a> to <strong>project</strong>. You should connect to the
+&ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
+<strong>project</strong></p>
+
+<h2 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h2>
+
+<p><strong>(project)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>Returns</em>: The
+list of <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.EncodingProfile</a> used in <strong>project</strong></p>
+
+<p>Lists the encoding profile that have been set to <strong>project</strong>. The first one
+is the latest added.</p>
+
+<h2 id="ges.project.get_asset">GES.Project.get_asset</h2>
+
+<p><strong>(project, id, extractable_type)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>id</em>: The id of the asset to retrieve</p>
+
+<p><em>extractable_type</em>: The extractable_type of the asset
+to retrieve from @object</p>
+
+<p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> with
+<strong>id</strong> or <strong>NULL</strong> if no asset with <strong>id</strong> as an ID</p>
+
+<h2 id="ges.project.load">GES.Project.load</h2>
+
+<p><strong>(project, timeline)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a> that has an @uri set already</p>
+
+<p><em>timeline</em>: A blank timeline to load <strong>project</strong> into</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the project could be loaded <strong>FALSE</strong> otherwize.</p>
+
+<p>Loads <strong>project</strong> into <strong>timeline</strong></p>
+
+<h2 id="ges.project.list_assets">GES.Project.list_assets</h2>
+
+<p><strong>(project, filter)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>filter</em>: Type of assets to list, (FIXME broken link)GES_TYPE_EXTRACTABLE will list
+all assets</p>
+
+<p><em>Returns</em>: The list of
+<a href="#ges.asset">GES.Asset</a> the object contains</p>
+
+<p>List all @asset contained in <strong>project</strong> filtering per extractable_type
+as defined by <strong>filter</strong>. It copies the asset and thus will not be updated
+in time.</p>
+
+<h2 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h2>
+
+<p><strong>(project, profile)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
+
+<p><em>profile</em>: A <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.EncodingProfile</a> to add to the project. If a profile with
+the same name already exists, it will be replaced</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if <strong>profile</strong> could be added, <strong>FALSE</strong> otherwize</p>
+
+<p>Adds <strong>profile</strong> to the project. It lets you save in what format
+the project has been renders and keep a reference to those formats.
+Also, those formats will be saves to the project file when possible.</p>
+
+<h2 id="ges.project.save">GES.Project.save</h2>
+
+<p><strong>(project, timeline, uri, formatter_asset, overwrite)</strong></p>
+
+<p><em>project</em>: A <a href="#ges.project">GES.Project</a> to save</p>
+
+<p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a> to save, it must have been extracted from <strong>project</strong></p>
+
+<p><em>uri</em>: The uri where to save <strong>project</strong> and <strong>timeline</strong></p>
+
+<p><em>formatter_asset</em>: The formatter asset to use or <strong>NULL</strong>. If <strong>NULL</strong>,
+will try to save in the same format as the one from which the timeline as been loaded
+or default to the formatter with highest rank</p>
+
+<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the project could be save, <strong>FALSE</strong> otherwize</p>
+
+<p>Save the timeline of <strong>project</strong> to <strong>uri</strong>. You should make sure that <strong>timeline</strong>
+is one of the timelines that have been extracted from <strong>project</strong>
+(using ges_asset_extract (<strong>project</strong>);)</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

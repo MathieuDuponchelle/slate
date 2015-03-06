@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.trackelement">GES.TrackElement</h1>
+
+<p><a href="#ges.trackelement">GES.TrackElement</a> is the Base Class for any object that can be contained in a
+<a href="#ges.track">GES.Track</a>.</p>
+
+<p>It contains the basic information as to the location of the object within
+its container, like the start position, the inpoint, the duration and the
+priority.</p>
+
+<h2 id="ges.trackelement.set_track_type">GES.TrackElement.set_track_type</h2>
+
+<p><strong>(object, type)</strong></p>
+
+<p><em>object</em>: FIXME empty description
+<em>type</em>: FIXME empty description
+<em>Returns</em>: FIXME empty description</p>
+
+<h2 id="ges.trackelement.get_control_binding">GES.TrackElement.get_control_binding</h2>
+
+<p><strong>(object, property_name)</strong></p>
+
+<p><em>object</em>: the <a href="#ges.trackelement">GES.TrackElement</a> in which to lookup the bindings.</p>
+
+<p><em>property_name</em>: The property_name to which the binding is associated.</p>
+
+<p><em>Returns</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlBinding.html">Gst.ControlBinding</a> associated with <strong>property_name</strong>, or <strong>NULL</strong>
+if that property is not controlled.</p>
+
+<p>Looks up the various controlled properties for that <a href="#ges.trackelement">GES.TrackElement</a>,
+and returns the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlBinding.html">Gst.ControlBinding</a> which controls <strong>property_name</strong>.</p>
+
+<h2 id="ges.trackelement.list_children_properties">GES.TrackElement.list_children_properties</h2>
+
+<p><strong>(object, n_properties)</strong></p>
+
+<p><em>object</em>: The <a href="#ges.trackelement">GES.TrackElement</a> to get the list of children properties from</p>
+
+<p><em>n_properties</em>: return location for the length of the returned array</p>
+
+<p><em>Returns</em>: an array of <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a>* which should be freed after use or
+<strong>NULL</strong> if something went wrong</p>
+
+<p>Gets an array of <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a>* for all configurable properties of the
+children of <strong>object</strong>.</p>
+
+<h2 id="ges.trackelement.edit">GES.TrackElement.edit</h2>
+
+<p><strong>(object, layers, mode, edge, position)</strong></p>
+
+<p><em>object</em>: the <a href="#ges.trackelement">GES.TrackElement</a> to edit</p>
+
+<p><em>layers</em>: The layers you want the edit to
+ happen in, <strong>NULL</strong> means that the edition is done in all the
+ #GESLayers contained in the current timeline.
+     FIXME: This is not implemented yet.</p>
+
+<p><em>mode</em>: The <a href="#ges.editmode">GES.EditMode</a> in which the editition will happen.</p>
+
+<p><em>edge</em>: The <a href="#ges.edge">GES.Edge</a> the edit should happen on.</p>
+
+<p><em>position</em>: The position at which to edit <strong>object</strong> (in nanosecond)</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the object as been edited properly, <strong>FALSE</strong> if an error
+occured</p>
+
+<p>Edit <strong>object</strong> in the different exisiting <a href="#ges.editmode">GES.EditMode</a> modes. In the case of
+slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
+
+<h2 id="ges.trackelement.set_child_property">GES.TrackElement.set_child_property</h2>
+
+<p><strong>(object, property_name, value)</strong></p>
+
+<p><em>object</em>: The origin <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>property_name</em>: The name of the property</p>
+
+<p><em>value</em>: the value</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the property was set, <strong>FALSE</strong> otherwize</p>
+
+<p>Sets a property of a GstElement contained in <strong>object</strong>.</p>
+
+<p>Note that (FIXME broken link)ges_track_element_set_child_property is really
+intended for language bindings, (FIXME broken link)ges_track_element_set_child_properties
+is much more convenient for C programming.</p>
+
+<h2 id="ges.trackelement.get_track_type">GES.TrackElement.get_track_type</h2>
+
+<p><strong>(object)</strong></p>
+
+<p><em>object</em>: FIXME empty description
+<em>Returns</em>: FIXME empty description</p>
+
+<h2 id="ges.trackelement.set_child_properties">GES.TrackElement.set_child_properties</h2>
+
+<p><strong>(object, first_property_name, &hellip;)</strong></p>
+
+<p><em>object</em>: The <a href="#ges.trackelement">GES.TrackElement</a> parent object</p>
+
+<p><em>first_property_name</em>: The name of the first property to set</p>
+
+<p><em>&hellip;</em>: value for the first property, followed optionally by more
+name/return location pairs, followed by NULL</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets a property of a child of <strong>object</strong>. If there are various child elements
+that have the same property name, you can distinguish them using the following
+syntax: &lsquo;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
+corresponding property of the first element found will be set.</p>
+
+<h2 id="ges.trackelement.get_all_control_bindings">GES.TrackElement.get_all_control_bindings</h2>
+
+<p><strong>(trackelement)</strong></p>
+
+<p><em>trackelement</em>: The (FIXME broken link)TrackElement from which to get all set bindings</p>
+
+<p><em>Returns</em>: A
+<a href="https://developer.gnome.org/glib/unstable//glib-Hash-Tables.html#GHashTable">GLib.HashTable</a> containing all property_name: GstControlBinding</p>
+
+<h2 id="ges.trackelement.is_active">GES.TrackElement.is_active</h2>
+
+<p><strong>(object)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if <strong>object</strong> is active, <strong>FALSE</strong> otherwize</p>
+
+<p>Lets you know if <strong>object</strong> will be used for playback and rendering,
+or not.</p>
+
+<h2 id="ges.trackelement.set_child_property_valist">GES.TrackElement.set_child_property_valist</h2>
+
+<p><strong>(object, first_property_name, var_args)</strong></p>
+
+<p><em>object</em>: The <a href="#ges.trackelement">GES.TrackElement</a> parent object</p>
+
+<p><em>first_property_name</em>: The name of the first property to set</p>
+
+<p><em>var_args</em>: value for the first property, followed optionally by more
+name/return location pairs, followed by NULL</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets a property of a child of <strong>object</strong>. If there are various child elements
+that have the same property name, you can distinguish them using the following
+syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
+corresponding property of the first element found will be set.</p>
+
+<h2 id="ges.trackelement.lookup_child">GES.TrackElement.lookup_child</h2>
+
+<p><strong>(object, prop_name, element, pspec)</strong></p>
+
+<p><em>object</em>: object to lookup the property in</p>
+
+<p><em>prop_name</em>: name of the property to look up. You can specify the name of the
+    class as such: &ldquo;ClassName::property-name&rdquo;, to guarantee that you get the
+    proper GParamSpec in case various GstElement-s contain the same property
+    name. If you don&rsquo;t do so, you will get the first element found, having
+    this property and the and the corresponding GParamSpec.</p>
+
+<p><em>element</em>: pointer to a <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> that
+    takes the real object to set property on</p>
+
+<p><em>pspec</em>: pointer to take the <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a>
+    describing the property</p>
+
+<p><em>Returns</em>: TRUE if <strong>element</strong> and <strong>pspec</strong> could be found. FALSE otherwise. In that
+case the values for <strong>pspec</strong> and <strong>element</strong> are not modified. Unref <strong>element</strong> after
+usage.</p>
+
+<p>Looks up which <strong>element</strong> and <strong>pspec</strong> would be effected by the given @name. If various
+contained elements have this property name you will get the first one, unless you
+specify the class name in @name.</p>
+
+<h2 id="ges.trackelement.set_control_source">GES.TrackElement.set_control_source</h2>
+
+<p><strong>(object, source, property_name, binding_type)</strong></p>
+
+<p><em>object</em>: the <a href="#ges.trackelement">GES.TrackElement</a> on which to set a control binding</p>
+
+<p><em>source</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlSource.html">Gst.ControlSource</a> to set on the binding.</p>
+
+<p><em>property_name</em>: The name of the property to control.</p>
+
+<p><em>binding_type</em>: The type of binding to create. Only &ldquo;direct&rdquo; is available for now.</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the binding could be created and added, <strong>FALSE</strong> if an error
+occured</p>
+
+<p>Creates a <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlBinding.html">Gst.ControlBinding</a> and adds it to the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> concerned by the
+property. Use the same syntax as (FIXME broken link)ges_track_element_lookup_child for
+the property name.</p>
+
+<h2 id="ges.trackelement.set_child_property_by_pspec">GES.TrackElement.set_child_property_by_pspec</h2>
+
+<p><strong>(object, pspec, value)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>pspec</em>: The <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a> that specifies the property you want to set</p>
+
+<p><em>value</em>: the value</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets a property of a child of <strong>object</strong>.</p>
+
+<h2 id="ges.trackelement.get_child_property">GES.TrackElement.get_child_property</h2>
+
+<p><strong>(object, property_name, value)</strong></p>
+
+<p><em>object</em>: The origin <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>property_name</em>: The name of the property</p>
+
+<p><em>value</em>: return location for the property value, it will
+be initialized if it is initialized with 0</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the property was found, <strong>FALSE</strong> otherwize</p>
+
+<p>In general, a copy is made of the property contents and
+the caller is responsible for freeing the memory by calling
+<a href="https://developer.gnome.org/gobject/unstable//gobject-Generic-values.html#g-value-unset">g_value_unset</a>.</p>
+
+<p>Gets a property of a GstElement contained in <strong>object</strong>.</p>
+
+<p>Note that (FIXME broken link)ges_track_element_get_child_property is really
+intended for language bindings, (FIXME broken link)ges_track_element_get_child_properties
+is much more convenient for C programming.</p>
+
+<h2 id="ges.trackelement.get_element">GES.TrackElement.get_element</h2>
+
+<p><strong>(object)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>Returns</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> this track element is controlling
+within GNonLin.</p>
+
+<p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> this track element is controlling within GNonLin.</p>
+
+<h2 id="ges.trackelement.get_child_property_valist">GES.TrackElement.get_child_property_valist</h2>
+
+<p><strong>(object, first_property_name, var_args)</strong></p>
+
+<p><em>object</em>: The <a href="#ges.trackelement">GES.TrackElement</a> parent object</p>
+
+<p><em>first_property_name</em>: The name of the first property to get</p>
+
+<p><em>var_args</em>: value for the first property, followed optionally by more
+name/return location pairs, followed by NULL</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Gets a property of a child of <strong>object</strong>. If there are various child elements
+that have the same property name, you can distinguish them using the following
+syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
+corresponding property of the first element found will be set.</p>
+
+<h2 id="ges.trackelement.get_track">GES.TrackElement.get_track</h2>
+
+<p><strong>(object)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>Returns</em>: The <a href="#ges.track">GES.Track</a> to which this object belongs. Can be <strong>NULL</strong> if it
+is not in any track</p>
+
+<p>Get the <a href="#ges.track">GES.Track</a> to which this object belongs.</p>
+
+<h2 id="ges.trackelement.get_child_property_by_pspec">GES.TrackElement.get_child_property_by_pspec</h2>
+
+<p><strong>(object, pspec, value)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>pspec</em>: The <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a> that specifies the property you want to get</p>
+
+<p><em>value</em>: return location for the value</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Gets a property of a child of <strong>object</strong>.</p>
+
+<h2 id="ges.trackelement.get_child_properties">GES.TrackElement.get_child_properties</h2>
+
+<p><strong>(object, first_property_name, &hellip;)</strong></p>
+
+<p><em>object</em>: The origin <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>first_property_name</em>: The name of the first property to get</p>
+
+<p><em>&hellip;</em>: return location for the first property, followed optionally by more
+name/return location pairs, followed by NULL</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Gets properties of a child of <strong>object</strong>.</p>
+
+<h2 id="ges.trackelement.add_children_props">GES.TrackElement.add_children_props</h2>
+
+<p><strong>(self, element, wanted_categories, blacklist, whitelist)</strong></p>
+
+<p><em>self</em>: The <a href="#ges.trackelement">GES.TrackElement</a> to set chidlren props on</p>
+
+<p><em>element</em>: The GstElement to retrieve properties from</p>
+
+<p><em>wanted_categories</em>: 
+An array of categories of GstElement to
+take into account (as defined in the factory meta &ldquo;klass&rdquo; field)</p>
+
+<p><em>blacklist</em>: A
+blacklist of elements factory names to not take into account</p>
+
+<p><em>whitelist</em>: A list
+of propery names to add as children properties</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Looks for the properties defines with the various parametters and add
+them to the hashtable of children properties.</p>
+
+<p>To be used by subclasses only</p>
+
+<h2 id="ges.trackelement.get_nleobject">GES.TrackElement.get_nleobject</h2>
+
+<p><strong>(object)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>Returns</em>: the GNonLin object this object is controlling.</p>
+
+<p>Get the GNonLin object this object is controlling.</p>
+
+<h2 id="ges.trackelement.set_active">GES.TrackElement.set_active</h2>
+
+<p><strong>(object, active)</strong></p>
+
+<p><em>object</em>: a <a href="#ges.trackelement">GES.TrackElement</a></p>
+
+<p><em>active</em>: visibility</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the property was toggled, else <strong>FALSE</strong></p>
+
+<p>Sets the usage of the <strong>object</strong>. If <strong>active</strong> is <strong>TRUE</strong>, the object will be used for
+playback and rendering, else it will be ignored.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

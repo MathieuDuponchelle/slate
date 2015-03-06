@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.pipeline">GES.Pipeline</h1>
+
+<p><a href="#ges.pipeline">GES.Pipeline</a> allows developers to view and render <a href="#ges.timeline">GES.Timeline</a>
+in a simple fashion.
+Its usage is inspired by the &lsquo;playbin&rsquo; element from gst-plugins-base.</p>
+
+<h2 id="ges.pipeline.get_thumbnail_rgb24">GES.Pipeline.get_thumbnail_rgb24</h2>
+
+<p><strong>(self, width, height)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a> in <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.playing or <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.paused</p>
+
+<p><em>width</em>: the requested width or -1 for native size</p>
+
+<p><em>height</em>: the requested height or -1 for native size</p>
+
+<p><em>Returns</em>: a <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstSample.html">Gst.Sample</a> or <strong>NULL</strong></p>
+
+<p>A convenience method for @ges_pipeline_get_thumbnail which
+returns a buffer in 24-bit RGB, optionally scaled to the specified width
+and height. If -1 is specified for either dimension, it will be left at
+native size. You can retreive this information from the caps associated
+with the buffer.</p>
+
+<p>The caller is responsible for unreffing the returned sample with
+(FIXME broken link)gst_sample_unref.</p>
+
+<h2 id="ges.pipeline.save_thumbnail">GES.Pipeline.save_thumbnail</h2>
+
+<p><strong>(self, width, height, format, location)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a> in <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.playing or <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.paused</p>
+
+<p><em>width</em>: the requested width or -1 for native size</p>
+
+<p><em>height</em>: the requested height or -1 for native size</p>
+
+<p><em>format</em>: a string specifying the desired mime type (for example,
+image/jpeg)</p>
+
+<p><em>location</em>: the path to save the thumbnail</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the thumbnail was properly save, else <strong>FALSE</strong>.</p>
+
+<p>Saves the current frame to the specified <strong>location</strong>.</p>
+
+<h2 id="ges.pipeline.set_render_settings">GES.Pipeline.set_render_settings</h2>
+
+<p><strong>(pipeline, output_uri, profile)</strong></p>
+
+<p><em>pipeline</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>output_uri</em>: the URI to which the timeline will be rendered</p>
+
+<p><em>profile</em>: the <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.EncodingProfile</a> to use to render the timeline.</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the settings were aknowledged properly, else <strong>FALSE</strong></p>
+
+<p>Specify where the pipeline shall be rendered and with what settings.</p>
+
+<p>A copy of <strong>profile</strong> and <strong>output_uri</strong> will be done internally, the caller can
+safely free those values afterwards.</p>
+
+<p>This method must be called before setting the pipeline mode to
+(FIXME broken link)GES_PIPELINE_MODE_RENDER</p>
+
+<h2 id="ges.pipeline.preview_get_audio_sink">GES.Pipeline.preview_get_audio_sink</h2>
+
+<p><strong>(self)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>Returns</em>: a pointer to the playsink audio sink <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a></p>
+
+<p>Obtains a pointer to playsink&rsquo;s audio sink element that is used for
+displaying audio when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
+
+<p>The caller is responsible for unreffing the returned element with
+(FIXME broken link)gst_object_unref.</p>
+
+<h2 id="ges.pipeline.preview_set_video_sink">GES.Pipeline.preview_set_video_sink</h2>
+
+<p><strong>(self, sink)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a> in <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.null</p>
+
+<p><em>sink</em>: a video sink <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a></p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets playsink&rsquo;s video sink element that is used for displaying video when
+the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
+
+<h2 id="ges.pipeline.get_thumbnail">GES.Pipeline.get_thumbnail</h2>
+
+<p><strong>(self, caps)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a> in <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.playing or <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.paused</p>
+
+<p><em>caps</em>: caps specifying current format. Use %GST_CAPS_ANY
+for native size.</p>
+
+<p><em>Returns</em>: a <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstSample.html">Gst.Sample</a> or <strong>NULL</strong></p>
+
+<p>Returns a <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstSample.html">Gst.Sample</a> with the currently playing image in the format specified by
+caps. The caller should free the sample with (FIXME broken link)gst_sample_unref when finished. If ANY
+caps are specified, the information will be returned in the whatever format
+is currently used by the sink. This information can be retrieve from caps
+associated with the buffer.</p>
+
+<h2 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h2>
+
+<p><strong>(self, sink)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a> in <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html#GstState">Gst.State</a>.null</p>
+
+<p><em>sink</em>: a audio sink <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a></p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets playsink&rsquo;s audio sink element that is used for displaying audio when
+the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
+
+<h2 id="ges.pipeline.set_timeline">GES.Pipeline.set_timeline</h2>
+
+<p><strong>(pipeline, timeline)</strong></p>
+
+<p><em>pipeline</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>timeline</em>: the <a href="#ges.timeline">GES.Timeline</a> to set on the <strong>pipeline</strong>.</p>
+
+<p><em>Returns</em>: TRUE if the <strong>timeline</strong> could be successfully set on the <strong>pipeline</strong>,
+else FALSE.</p>
+
+<p>Sets the timeline to use in this pipeline.</p>
+
+<p>The reference to the <strong>timeline</strong> will be stolen by the <strong>pipeline</strong>.</p>
+
+<h2 id="ges.pipeline.set_mode">GES.Pipeline.set_mode</h2>
+
+<p><strong>(pipeline, mode)</strong></p>
+
+<p><em>pipeline</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>mode</em>: the <a href="#ges.pipelineflags">GES.PipelineFlags</a> to use</p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the mode was properly set, else <strong>FALSE</strong>.</p>
+
+<p>switches the <strong>pipeline</strong> to the specified <strong>mode</strong>. The default mode when
+creating a <a href="#ges.pipeline">GES.Pipeline</a> is (FIXME broken link)GES_PIPELINE_MODE_PREVIEW.</p>
+
+<p>Note: The <strong>pipeline</strong> will be set to #GST_STATE_NULL during this call due to
+the internal changes that happen. The caller will therefore have to
+set the <strong>pipeline</strong> to the requested state after calling this method.</p>
+
+<h2 id="ges.pipeline.get_mode">GES.Pipeline.get_mode</h2>
+
+<p><strong>(pipeline)</strong></p>
+
+<p><em>pipeline</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>Returns</em>: the <a href="#ges.pipelineflags">GES.PipelineFlags</a> currently in use.</p>
+
+<h2 id="ges.pipeline.preview_get_video_sink">GES.Pipeline.preview_get_video_sink</h2>
+
+<p><strong>(self)</strong></p>
+
+<p><em>self</em>: a <a href="#ges.pipeline">GES.Pipeline</a></p>
+
+<p><em>Returns</em>: a pointer to the playsink video sink <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a></p>
+
+<p>Obtains a pointer to playsink&rsquo;s video sink element that is used for
+displaying video when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
+
+<p>The caller is responsible for unreffing the returned element with
+(FIXME broken link)gst_object_unref.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

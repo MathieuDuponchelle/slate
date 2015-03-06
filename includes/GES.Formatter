@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_GES">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="ges.formatter">GES.Formatter</h1>
+
+<p>Base class for timeline data serialization and deserialization.</p>
+
+<h2 id="ges.formatter.get_default">GES.Formatter.get_default</h2>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> for the formatter with highest @rank</p>
+
+<p>Get the default <a href="#ges.asset">GES.Asset</a> to use as formatter. It will return
+the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highest @rank</p>
+
+<h2 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h2>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: a (FIXME broken link)gchar * pointing to a URI</p>
+
+<p><em>Returns</em>: TRUE if the given <strong>uri</strong> is supported, else FALSE.</p>
+
+<p>Returns TRUE if there is a <a href="#ges.formatter">GES.Formatter</a> available which can save a
+<a href="#ges.timeline">GES.Timeline</a> to the given URI.</p>
+
+<h2 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h2>
+
+<p><strong>(formatter, timeline, uri, overwrite)</strong></p>
+
+<p><em>formatter</em>: a <a href="#ges.formatter">GES.Formatter</a></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>uri</em>: a (FIXME broken link)gchar * pointing to a URI</p>
+
+<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
+
+<p><em>Returns</em>: TRUE if the timeline data was successfully saved to the URI
+else FALSE.</p>
+
+<p>Save data from timeline to the given URI.</p>
+
+<h2 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h2>
+
+<p><strong>(formatter, timeline, uri)</strong></p>
+
+<p><em>formatter</em>: a <a href="#ges.formatter">GES.Formatter</a></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>uri</em>: a (FIXME broken link)gchar * pointing to a URI</p>
+
+<p><em>Returns</em>: TRUE if the timeline data was successfully loaded from the URI,
+else FALSE.</p>
+
+<p>Load data from the given URI into timeline.</p>
+
+<h2 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h2>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: a (FIXME broken link)gchar * pointing to the URI</p>
+
+<p><em>Returns</em>: TRUE if there is a <a href="#ges.formatter">GES.Formatter</a> that can support the given uri
+or FALSE if not.</p>
+
+<p>Checks if there is a <a href="#ges.formatter">GES.Formatter</a> available which can load a <a href="#ges.timeline">GES.Timeline</a>
+from the given URI.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
