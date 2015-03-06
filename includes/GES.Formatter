@@ -28,11 +28,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.formatter">GES.Formatter</h1>
+        <h2 id="ges.formatter">GES.Formatter</h2>
 
 <p>Base class for timeline data serialization and deserialization.</p>
 
-<h2 id="ges.formatter.get_default">GES.Formatter.get_default</h2>
+<h3 id="ges.formatter.get_default">GES.Formatter.get_default</h3>
 
 <p><strong>()</strong></p>
 
@@ -41,7 +41,7 @@
 <p>Get the default <a href="#ges.asset">GES.Asset</a> to use as formatter. It will return
 the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highest @rank</p>
 
-<h2 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h2>
+<h3 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h3>
 
 <p><strong>(uri)</strong></p>
 
@@ -52,7 +52,7 @@ the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highes
 <p>Returns TRUE if there is a <a href="#ges.formatter">GES.Formatter</a> available which can save a
 <a href="#ges.timeline">GES.Timeline</a> to the given URI.</p>
 
-<h2 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h2>
+<h3 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h3>
 
 <p><strong>(formatter, timeline, uri, overwrite)</strong></p>
 
@@ -69,7 +69,7 @@ else FALSE.</p>
 
 <p>Save data from timeline to the given URI.</p>
 
-<h2 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h2>
+<h3 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h3>
 
 <p><strong>(formatter, timeline, uri)</strong></p>
 
@@ -84,7 +84,7 @@ else FALSE.</p>
 
 <p>Load data from the given URI into timeline.</p>
 
-<h2 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h2>
+<h3 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h3>
 
 <p><strong>(uri)</strong></p>
 

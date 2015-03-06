@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.imagesource">GES.ImageSource</h1>
+        <h2 id="ges.imagesource">GES.ImageSource</h2>
 
 <p>Outputs the video stream from a given file as a still frame. The frame
 chosen will be determined by the in-point property on the track element. For

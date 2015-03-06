@@ -28,12 +28,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.urisourceasset">GES.UriSourceAsset</h1>
+        <h2 id="ges.urisourceasset">GES.UriSourceAsset</h2>
 
 <p>NOTE: You should never request such a <a href="#ges.asset">GES.Asset</a> as they will be created automatically
 by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
-<h2 id="ges.urisourceasset.get_stream_info">GES.UriSourceAsset.get_stream_info</h2>
+<h3 id="ges.urisourceasset.get_stream_info">GES.UriSourceAsset.get_stream_info</h3>
 
 <p><strong>(asset)</strong></p>
 
@@ -43,14 +43,14 @@ by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
 <p>Get the <a href="FIXME%20broken%20link%20to%20DiscovererStreamInfo">GstPbutils.DiscovererStreamInfo</a> user by <strong>asset</strong></p>
 
-<h2 id="ges.urisourceasset.get_stream_uri">GES.UriSourceAsset.get_stream_uri</h2>
+<h3 id="ges.urisourceasset.get_stream_uri">GES.UriSourceAsset.get_stream_uri</h3>
 
 <p><strong>(asset)</strong></p>
 
 <p><em>asset</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.urisourceasset.get_filesource_asset">GES.UriSourceAsset.get_filesource_asset</h2>
+<h3 id="ges.urisourceasset.get_filesource_asset">GES.UriSourceAsset.get_filesource_asset</h3>
 
 <p><strong>(asset)</strong></p>
 

@@ -28,9 +28,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.textoverlay">GES.TextOverlay</h1>
+        <h2 id="ges.textoverlay">GES.TextOverlay</h2>
 
-<h2 id="ges.textoverlay.get_xpos">GES.TextOverlay.get_xpos</h2>
+<h3 id="ges.textoverlay.get_xpos">GES.TextOverlay.get_xpos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -40,7 +40,7 @@
 
 <p>Get the horizontal position used by @source.</p>
 
-<h2 id="ges.textoverlay.get_valignment">GES.TextOverlay.get_valignment</h2>
+<h3 id="ges.textoverlay.get_valignment">GES.TextOverlay.get_valignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -50,7 +50,7 @@
 
 <p>Get the vertical aligment used by @source.</p>
 
-<h2 id="ges.textoverlay.get_color">GES.TextOverlay.get_color</h2>
+<h3 id="ges.textoverlay.get_color">GES.TextOverlay.get_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -60,7 +60,7 @@
 
 <p>Get the color used by @source.</p>
 
-<h2 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h2>
+<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -72,7 +72,7 @@
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h2>
+<h3 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -84,7 +84,7 @@
 
 <p>Sets the horizontal position of the text.</p>
 
-<h2 id="ges.textoverlay.set_text">GES.TextOverlay.set_text</h2>
+<h3 id="ges.textoverlay.set_text">GES.TextOverlay.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -97,7 +97,7 @@ made.</p>
 
 <p>Sets the text this track element will render.</p>
 
-<h2 id="ges.textoverlay.get_ypos">GES.TextOverlay.get_ypos</h2>
+<h3 id="ges.textoverlay.get_ypos">GES.TextOverlay.get_ypos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -107,7 +107,7 @@ made.</p>
 
 <p>Get the vertical position used by @source.</p>
 
-<h2 id="ges.textoverlay.set_ypos">GES.TextOverlay.set_ypos</h2>
+<h3 id="ges.textoverlay.set_ypos">GES.TextOverlay.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -119,7 +119,7 @@ made.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.textoverlay.get_font_desc">GES.TextOverlay.get_font_desc</h2>
+<h3 id="ges.textoverlay.get_font_desc">GES.TextOverlay.get_font_desc</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -129,7 +129,7 @@ made.</p>
 
 <p>Get the pango font description currently set on @source.</p>
 
-<h2 id="ges.textoverlay.get_halignment">GES.TextOverlay.get_halignment</h2>
+<h3 id="ges.textoverlay.get_halignment">GES.TextOverlay.get_halignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -139,7 +139,7 @@ made.</p>
 
 <p>Get the horizontal aligment used by @source.</p>
 
-<h2 id="ges.textoverlay.set_halignment">GES.TextOverlay.set_halignment</h2>
+<h3 id="ges.textoverlay.set_halignment">GES.TextOverlay.set_halignment</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -152,7 +152,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h2 id="ges.textoverlay.set_valignment">GES.TextOverlay.set_valignment</h2>
+<h3 id="ges.textoverlay.set_valignment">GES.TextOverlay.set_valignment</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -165,7 +165,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h2>
+<h3 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -175,7 +175,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Get the text currently set on @source.</p>
 
-<h2 id="ges.textoverlay.set_font_desc">GES.TextOverlay.set_font_desc</h2>
+<h3 id="ges.textoverlay.set_font_desc">GES.TextOverlay.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 

@@ -28,14 +28,14 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.testclip">GES.TestClip</h1>
+        <h2 id="ges.testclip">GES.TestClip</h2>
 
 <p>Useful for testing purposes.</p>
 
 <p>You can use the ges_asset_request_simple API to create an Asset
 capable of extracting GESTestClip-s</p>
 
-<h2 id="ges.testclip.get_vpattern">GES.TestClip.get_vpattern</h2>
+<h3 id="ges.testclip.get_vpattern">GES.TestClip.get_vpattern</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -45,7 +45,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the <a href="#ges.videotestpattern">GES.VideoTestPattern</a> which is applied on <strong>self</strong>.</p>
 
-<h2 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h2>
+<h3 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -55,7 +55,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the frequency <strong>self</strong> generates.</p>
 
-<h2 id="ges.testclip.set_frequency">GES.TestClip.set_frequency</h2>
+<h3 id="ges.testclip.set_frequency">GES.TestClip.set_frequency</h3>
 
 <p><strong>(self, freq)</strong></p>
 
@@ -67,7 +67,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets the frequency to generate. See audiotestsrc element.</p>
 
-<h2 id="ges.testclip.is_muted">GES.TestClip.is_muted</h2>
+<h3 id="ges.testclip.is_muted">GES.TestClip.is_muted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -77,7 +77,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Let you know if the audio track of <strong>self</strong> is muted or not.</p>
 
-<h2 id="ges.testclip.set_mute">GES.TestClip.set_mute</h2>
+<h3 id="ges.testclip.set_mute">GES.TestClip.set_mute</h3>
 
 <p><strong>(self, mute)</strong></p>
 
@@ -89,7 +89,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets whether the audio track of this clip is muted or not.</p>
 
-<h2 id="ges.testclip.set_volume">GES.TestClip.set_volume</h2>
+<h3 id="ges.testclip.set_volume">GES.TestClip.set_volume</h3>
 
 <p><strong>(self, volume)</strong></p>
 
@@ -101,7 +101,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets the volume of the test audio signal.</p>
 
-<h2 id="ges.testclip.get_volume">GES.TestClip.get_volume</h2>
+<h3 id="ges.testclip.get_volume">GES.TestClip.get_volume</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -111,7 +111,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the volume of the test audio signal applied on <strong>self</strong>.</p>
 
-<h2 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h2>
+<h3 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h3>
 
 <p><strong>(self, vpattern)</strong></p>
 

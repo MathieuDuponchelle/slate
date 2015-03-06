@@ -28,13 +28,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.clipasset">GES.ClipAsset</h1>
+        <h2 id="ges.clipasset">GES.ClipAsset</h2>
 
 <p>The <a href="#ges.uriclipasset">GES.UriClipAsset</a> is a special <a href="#ges.asset">GES.Asset</a> specilized in <a href="#ges.clip">GES.Clip</a>.
 it is mostly used to get information about the <a href="#ges.tracktype">GES.TrackType</a>-s the objects extracted
 from it can potentialy create <a href="#ges.trackelement">GES.TrackElement</a> for.</p>
 
-<h2 id="ges.clipasset.get_supported_formats">GES.ClipAsset.get_supported_formats</h2>
+<h3 id="ges.clipasset.get_supported_formats">GES.ClipAsset.get_supported_formats</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -45,7 +45,7 @@ a layer</p>
 
 <p>Gets track types for which objects extracted from <strong>self</strong> can create <a href="#ges.trackelement">GES.TrackElement</a></p>
 
-<h2 id="ges.clipasset.set_supported_formats">GES.ClipAsset.set_supported_formats</h2>
+<h3 id="ges.clipasset.set_supported_formats">GES.ClipAsset.set_supported_formats</h3>
 
 <p><strong>(self, supportedformats)</strong></p>
 

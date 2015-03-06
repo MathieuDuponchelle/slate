@@ -28,9 +28,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.uriclip">GES.UriClip</h1>
+        <h2 id="ges.uriclip">GES.UriClip</h2>
 
-<h2 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h2>
+<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
 
 <p><strong>(self, mute)</strong></p>
 
@@ -42,7 +42,7 @@
 
 <p>Sets whether the audio track of this clip is muted or not.</p>
 
-<h2 id="ges.uriclip.is_image">GES.UriClip.is_image</h2>
+<h3 id="ges.uriclip.is_image">GES.UriClip.is_image</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -52,7 +52,7 @@
 
 <p>Lets you know if <strong>self</strong> is an image or not.</p>
 
-<h2 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h2>
+<h3 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h3>
 
 <p><strong>(self, is_image)</strong></p>
 
@@ -64,7 +64,7 @@
 
 <p>Sets whether the clip is a still image or not.</p>
 
-<h2 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h2>
+<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -74,7 +74,7 @@
 
 <p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
 
-<h2 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h2>
+<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
 
 <p><strong>(self)</strong></p>
 

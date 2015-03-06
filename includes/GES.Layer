@@ -28,14 +28,14 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.layer">GES.Layer</h1>
+        <h2 id="ges.layer">GES.Layer</h2>
 
 <p>Responsible for the ordering of the various contained Clip(s). A
 timeline layer has a &ldquo;priority&rdquo; property, which is used to manage the
 priorities of individual Clips. Two layers should not have the
 same priority within a given timeline.</p>
 
-<h2 id="ges.layer.get_timeline">GES.Layer.get_timeline</h2>
+<h3 id="ges.layer.get_timeline">GES.Layer.get_timeline</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -46,7 +46,7 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> in which <a href="#ges.layer">GES.Layer</a> currently is.</p>
 
-<h2 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h2>
+<h3 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h3>
 
 <p><strong>(layer, auto_transition)</strong></p>
 
@@ -59,7 +59,7 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h2 id="ges.layer.set_timeline">GES.Layer.set_timeline</h2>
+<h3 id="ges.layer.set_timeline">GES.Layer.set_timeline</h3>
 
 <p><strong>(layer, timeline)</strong></p>
 
@@ -67,7 +67,7 @@ property auto_transition for more information.</p>
 <em>timeline</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.layer.set_priority">GES.Layer.set_priority</h2>
+<h3 id="ges.layer.set_priority">GES.Layer.set_priority</h3>
 
 <p><strong>(layer, priority)</strong></p>
 
@@ -80,7 +80,7 @@ property auto_transition for more information.</p>
 <p>Sets the layer to the given <strong>priority</strong>. See the documentation of the
 priority property for more information.</p>
 
-<h2 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h2>
+<h3 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -91,7 +91,7 @@ priority property for more information.</p>
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
 
-<h2 id="ges.layer.is_empty">GES.Layer.is_empty</h2>
+<h3 id="ges.layer.is_empty">GES.Layer.is_empty</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -103,7 +103,7 @@ one <a href="#ges.clip">GES.Clip</a></p>
 <p>Convenience method to check if <strong>layer</strong> is empty (doesn&rsquo;t contain any clip),
 or not.</p>
 
-<h2 id="ges.layer.get_priority">GES.Layer.get_priority</h2>
+<h3 id="ges.layer.get_priority">GES.Layer.get_priority</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -113,7 +113,7 @@ or not.</p>
 
 <p>Get the priority of <strong>layer</strong> within the timeline.</p>
 
-<h2 id="ges.layer.remove_clip">GES.Layer.remove_clip</h2>
+<h3 id="ges.layer.remove_clip">GES.Layer.remove_clip</h3>
 
 <p><strong>(layer, clip)</strong></p>
 
@@ -129,7 +129,7 @@ Unparenting it means the reference owned by <strong>layer</strong> on the <stron
 removed. If you wish to use the <strong>clip</strong> after this function, make sure you
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>layer</strong>.</p>
 
-<h2 id="ges.layer.add_asset">GES.Layer.add_asset</h2>
+<h3 id="ges.layer.add_asset">GES.Layer.add_asset</h3>
 
 <p><strong>(layer, asset, start, inpoint, duration, track_types)</strong></p>
 
@@ -152,7 +152,7 @@ the current duration of <strong>layer</strong></p>
 <p>Creates Clip from asset, adds it to layer and
 returns a reference to it.</p>
 
-<h2 id="ges.layer.add_clip">GES.Layer.add_clip</h2>
+<h3 id="ges.layer.add_clip">GES.Layer.add_clip</h3>
 
 <p><strong>(layer, clip)</strong></p>
 
@@ -173,7 +173,7 @@ elements on <strong>clip</strong>. If you need to know when those objects (actua
 are constructed, you should connect to the container::child-added signal which
 is emited right after those elements are ready to be used.</p>
 
-<h2 id="ges.layer.get_duration">GES.Layer.get_duration</h2>
+<h3 id="ges.layer.get_duration">GES.Layer.get_duration</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -184,7 +184,7 @@ is emited right after those elements are ready to be used.</p>
 <p>Lets you retrieve the duration of the layer, which means
 the end time of the last clip inside it</p>
 
-<h2 id="ges.layer.get_clips">GES.Layer.get_clips</h2>
+<h3 id="ges.layer.get_clips">GES.Layer.get_clips</h3>
 
 <p><strong>(layer)</strong></p>
 

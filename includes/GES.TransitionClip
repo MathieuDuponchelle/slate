@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.transitionclip">GES.TransitionClip</h1>
+        <h2 id="ges.transitionclip">GES.TransitionClip</h2>
 
 <p>Creates an object that mixes together the two underlying objects, A and B.
 The A object is assumed to have a higher prioirity (lower number) than the

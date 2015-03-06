@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.timeline">GES.Timeline</h1>
+        <h2 id="ges.timeline">GES.Timeline</h2>
 
 <p><a href="#ges.timeline">GES.Timeline</a> is the central object for any multimedia timeline.</p>
 
@@ -44,7 +44,7 @@ the <a href="#ges.timeline">GES.Timeline</a>.</p>
 <p>Note that any change you make in the timeline will not actually be taken
 into account until you call the (FIXME broken link)ges_timeline_commit method.</p>
 
-<h2 id="ges.timeline.append_layer">GES.Timeline.append_layer</h2>
+<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -56,7 +56,7 @@ into account until you call the (FIXME broken link)ges_timeline_commit method.</
 <p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
 Note that you do not own any reference to the returned layer.</p>
 
-<h2 id="ges.timeline.add_layer">GES.Timeline.add_layer</h2>
+<h3 id="ges.timeline.add_layer">GES.Timeline.add_layer</h3>
 
 <p><strong>(timeline, layer)</strong></p>
 
@@ -69,7 +69,7 @@ Note that you do not own any reference to the returned layer.</p>
 <p>Add the layer to the timeline. The reference to the <strong>layer</strong> will be stolen
 by the <strong>timeline</strong>.</p>
 
-<h2 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h2>
+<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
 
 <p><strong>(timeline, uri)</strong></p>
 
@@ -82,7 +82,7 @@ could not be loaded.</p>
 
 <p>Loads the contents of URI into the given timeline.</p>
 
-<h2 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h2>
+<h3 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 
@@ -95,7 +95,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Search the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>track</strong>.</p>
 
-<h2 id="ges.timeline.set_snapping_distance">GES.Timeline.set_snapping_distance</h2>
+<h3 id="ges.timeline.set_snapping_distance">GES.Timeline.set_snapping_distance</h3>
 
 <p><strong>(timeline, snapping_distance)</strong></p>
 
@@ -108,7 +108,7 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Sets the <strong>snapping_distance</strong> of the timeline. See the documentation of the
 property snapping_distance for more information.</p>
 
-<h2 id="ges.timeline.is_empty">GES.Timeline.is_empty</h2>
+<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -118,7 +118,7 @@ property snapping_distance for more information.</p>
 
 <p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
 
-<h2 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h2>
+<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -129,7 +129,7 @@ The caller should unref each track once he is done with them.</p>
 
 <p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
 
-<h2 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h2>
+<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
 
 <p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
 
@@ -148,7 +148,7 @@ else FALSE.</p>
 
 <p>Saves the timeline to the given location</p>
 
-<h2 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h2>
+<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -159,7 +159,7 @@ else FALSE.</p>
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
 
-<h2 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h2>
+<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
 
 <p><strong>(timeline, pad)</strong></p>
 
@@ -172,7 +172,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
 
-<h2 id="ges.timeline.get_duration">GES.Timeline.get_duration</h2>
+<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -182,7 +182,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Get the current duration of <strong>timeline</strong></p>
 
-<h2 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h2>
+<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
 
 <p><strong>(timeline, layer)</strong></p>
 
@@ -196,7 +196,7 @@ or <strong>NULL</strong> if there is an error.</p>
 the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
 method, you need to take a reference before calling.</p>
 
-<h2 id="ges.timeline.commit">GES.Timeline.commit</h2>
+<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -213,7 +213,7 @@ directly done inside NLE. This method needs to be called so any changes
 on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
-<h2 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h2>
+<h3 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -225,7 +225,7 @@ processing level.</p>
 the documentation of the property snapping_distance for more
 information.</p>
 
-<h2 id="ges.timeline.add_track">GES.Timeline.add_track</h2>
+<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 
@@ -238,7 +238,7 @@ information.</p>
 <p>Add a track to the timeline. The reference to the track will be stolen by the
 pipeline.</p>
 
-<h2 id="ges.timeline.get_element">GES.Timeline.get_element</h2>
+<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
 
 <p><strong>(timeline, name)</strong></p>
 
@@ -250,7 +250,7 @@ not found.</p>
 
 <p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
 
-<h2 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h2>
+<h3 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h3>
 
 <p><strong>(timeline, auto_transition)</strong></p>
 
@@ -263,7 +263,7 @@ not found.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h2 id="ges.timeline.get_layers">GES.Timeline.get_layers</h2>
+<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -275,7 +275,7 @@ The caller should unref each Layer once he is done with them.</p>
 
 <p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
 
-<h2 id="ges.timeline.remove_track">GES.Timeline.remove_track</h2>
+<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 

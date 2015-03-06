@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.transition">GES.Transition</h1>
+        <h2 id="ges.transition">GES.Transition</h2>
 
 <p>Base class for media transitions.</p>
 

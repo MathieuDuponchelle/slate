@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.operationclip">GES.OperationClip</h1>
+        <h2 id="ges.operationclip">GES.OperationClip</h2>
 
 <p>Operations are any kind of object that both outputs AND consumes data.</p>
 

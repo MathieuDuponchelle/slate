@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.trackelement">GES.TrackElement</h1>
+        <h2 id="ges.trackelement">GES.TrackElement</h2>
 
 <p><a href="#ges.trackelement">GES.TrackElement</a> is the Base Class for any object that can be contained in a
 <a href="#ges.track">GES.Track</a>.</p>
@@ -37,7 +37,7 @@
 its container, like the start position, the inpoint, the duration and the
 priority.</p>
 
-<h2 id="ges.trackelement.set_track_type">GES.TrackElement.set_track_type</h2>
+<h3 id="ges.trackelement.set_track_type">GES.TrackElement.set_track_type</h3>
 
 <p><strong>(object, type)</strong></p>
 
@@ -45,7 +45,7 @@ priority.</p>
 <em>type</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.trackelement.get_control_binding">GES.TrackElement.get_control_binding</h2>
+<h3 id="ges.trackelement.get_control_binding">GES.TrackElement.get_control_binding</h3>
 
 <p><strong>(object, property_name)</strong></p>
 
@@ -59,7 +59,7 @@ if that property is not controlled.</p>
 <p>Looks up the various controlled properties for that <a href="#ges.trackelement">GES.TrackElement</a>,
 and returns the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlBinding.html">Gst.ControlBinding</a> which controls <strong>property_name</strong>.</p>
 
-<h2 id="ges.trackelement.list_children_properties">GES.TrackElement.list_children_properties</h2>
+<h3 id="ges.trackelement.list_children_properties">GES.TrackElement.list_children_properties</h3>
 
 <p><strong>(object, n_properties)</strong></p>
 
@@ -73,7 +73,7 @@ and returns the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/hea
 <p>Gets an array of <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a>* for all configurable properties of the
 children of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.edit">GES.TrackElement.edit</h2>
+<h3 id="ges.trackelement.edit">GES.TrackElement.edit</h3>
 
 <p><strong>(object, layers, mode, edge, position)</strong></p>
 
@@ -96,7 +96,7 @@ occured</p>
 <p>Edit <strong>object</strong> in the different exisiting <a href="#ges.editmode">GES.EditMode</a> modes. In the case of
 slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 
-<h2 id="ges.trackelement.set_child_property">GES.TrackElement.set_child_property</h2>
+<h3 id="ges.trackelement.set_child_property">GES.TrackElement.set_child_property</h3>
 
 <p><strong>(object, property_name, value)</strong></p>
 
@@ -114,14 +114,14 @@ slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 intended for language bindings, (FIXME broken link)ges_track_element_set_child_properties
 is much more convenient for C programming.</p>
 
-<h2 id="ges.trackelement.get_track_type">GES.TrackElement.get_track_type</h2>
+<h3 id="ges.trackelement.get_track_type">GES.TrackElement.get_track_type</h3>
 
 <p><strong>(object)</strong></p>
 
 <p><em>object</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.trackelement.set_child_properties">GES.TrackElement.set_child_properties</h2>
+<h3 id="ges.trackelement.set_child_properties">GES.TrackElement.set_child_properties</h3>
 
 <p><strong>(object, first_property_name, &hellip;)</strong></p>
 
@@ -139,7 +139,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &lsquo;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.get_all_control_bindings">GES.TrackElement.get_all_control_bindings</h2>
+<h3 id="ges.trackelement.get_all_control_bindings">GES.TrackElement.get_all_control_bindings</h3>
 
 <p><strong>(trackelement)</strong></p>
 
@@ -148,7 +148,7 @@ corresponding property of the first element found will be set.</p>
 <p><em>Returns</em>: A
 <a href="https://developer.gnome.org/glib/unstable//glib-Hash-Tables.html#GHashTable">GLib.HashTable</a> containing all property_name: GstControlBinding</p>
 
-<h2 id="ges.trackelement.is_active">GES.TrackElement.is_active</h2>
+<h3 id="ges.trackelement.is_active">GES.TrackElement.is_active</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -159,7 +159,7 @@ corresponding property of the first element found will be set.</p>
 <p>Lets you know if <strong>object</strong> will be used for playback and rendering,
 or not.</p>
 
-<h2 id="ges.trackelement.set_child_property_valist">GES.TrackElement.set_child_property_valist</h2>
+<h3 id="ges.trackelement.set_child_property_valist">GES.TrackElement.set_child_property_valist</h3>
 
 <p><strong>(object, first_property_name, var_args)</strong></p>
 
@@ -177,7 +177,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.lookup_child">GES.TrackElement.lookup_child</h2>
+<h3 id="ges.trackelement.lookup_child">GES.TrackElement.lookup_child</h3>
 
 <p><strong>(object, prop_name, element, pspec)</strong></p>
 
@@ -203,7 +203,7 @@ usage.</p>
 contained elements have this property name you will get the first one, unless you
 specify the class name in @name.</p>
 
-<h2 id="ges.trackelement.set_control_source">GES.TrackElement.set_control_source</h2>
+<h3 id="ges.trackelement.set_control_source">GES.TrackElement.set_control_source</h3>
 
 <p><strong>(object, source, property_name, binding_type)</strong></p>
 
@@ -222,7 +222,7 @@ occured</p>
 property. Use the same syntax as (FIXME broken link)ges_track_element_lookup_child for
 the property name.</p>
 
-<h2 id="ges.trackelement.set_child_property_by_pspec">GES.TrackElement.set_child_property_by_pspec</h2>
+<h3 id="ges.trackelement.set_child_property_by_pspec">GES.TrackElement.set_child_property_by_pspec</h3>
 
 <p><strong>(object, pspec, value)</strong></p>
 
@@ -236,7 +236,7 @@ the property name.</p>
 
 <p>Sets a property of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.get_child_property">GES.TrackElement.get_child_property</h2>
+<h3 id="ges.trackelement.get_child_property">GES.TrackElement.get_child_property</h3>
 
 <p><strong>(object, property_name, value)</strong></p>
 
@@ -259,7 +259,7 @@ the caller is responsible for freeing the memory by calling
 intended for language bindings, (FIXME broken link)ges_track_element_get_child_properties
 is much more convenient for C programming.</p>
 
-<h2 id="ges.trackelement.get_element">GES.TrackElement.get_element</h2>
+<h3 id="ges.trackelement.get_element">GES.TrackElement.get_element</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -270,7 +270,7 @@ within GNonLin.</p>
 
 <p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> this track element is controlling within GNonLin.</p>
 
-<h2 id="ges.trackelement.get_child_property_valist">GES.TrackElement.get_child_property_valist</h2>
+<h3 id="ges.trackelement.get_child_property_valist">GES.TrackElement.get_child_property_valist</h3>
 
 <p><strong>(object, first_property_name, var_args)</strong></p>
 
@@ -288,7 +288,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.get_track">GES.TrackElement.get_track</h2>
+<h3 id="ges.trackelement.get_track">GES.TrackElement.get_track</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -299,7 +299,7 @@ is not in any track</p>
 
 <p>Get the <a href="#ges.track">GES.Track</a> to which this object belongs.</p>
 
-<h2 id="ges.trackelement.get_child_property_by_pspec">GES.TrackElement.get_child_property_by_pspec</h2>
+<h3 id="ges.trackelement.get_child_property_by_pspec">GES.TrackElement.get_child_property_by_pspec</h3>
 
 <p><strong>(object, pspec, value)</strong></p>
 
@@ -313,7 +313,7 @@ is not in any track</p>
 
 <p>Gets a property of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.get_child_properties">GES.TrackElement.get_child_properties</h2>
+<h3 id="ges.trackelement.get_child_properties">GES.TrackElement.get_child_properties</h3>
 
 <p><strong>(object, first_property_name, &hellip;)</strong></p>
 
@@ -328,7 +328,7 @@ name/return location pairs, followed by NULL</p>
 
 <p>Gets properties of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.add_children_props">GES.TrackElement.add_children_props</h2>
+<h3 id="ges.trackelement.add_children_props">GES.TrackElement.add_children_props</h3>
 
 <p><strong>(self, element, wanted_categories, blacklist, whitelist)</strong></p>
 
@@ -353,7 +353,7 @@ them to the hashtable of children properties.</p>
 
 <p>To be used by subclasses only</p>
 
-<h2 id="ges.trackelement.get_nleobject">GES.TrackElement.get_nleobject</h2>
+<h3 id="ges.trackelement.get_nleobject">GES.TrackElement.get_nleobject</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -363,7 +363,7 @@ them to the hashtable of children properties.</p>
 
 <p>Get the GNonLin object this object is controlling.</p>
 
-<h2 id="ges.trackelement.set_active">GES.TrackElement.set_active</h2>
+<h3 id="ges.trackelement.set_active">GES.TrackElement.set_active</h3>
 
 <p><strong>(object, active)</strong></p>
 

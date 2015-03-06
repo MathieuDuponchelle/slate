@@ -28,13 +28,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.pipeline">GES.Pipeline</h1>
+        <h2 id="ges.pipeline">GES.Pipeline</h2>
 
 <p><a href="#ges.pipeline">GES.Pipeline</a> allows developers to view and render <a href="#ges.timeline">GES.Timeline</a>
 in a simple fashion.
 Its usage is inspired by the &lsquo;playbin&rsquo; element from gst-plugins-base.</p>
 
-<h2 id="ges.pipeline.get_thumbnail_rgb24">GES.Pipeline.get_thumbnail_rgb24</h2>
+<h3 id="ges.pipeline.get_thumbnail_rgb24">GES.Pipeline.get_thumbnail_rgb24</h3>
 
 <p><strong>(self, width, height)</strong></p>
 
@@ -55,7 +55,7 @@ with the buffer.</p>
 <p>The caller is responsible for unreffing the returned sample with
 (FIXME broken link)gst_sample_unref.</p>
 
-<h2 id="ges.pipeline.save_thumbnail">GES.Pipeline.save_thumbnail</h2>
+<h3 id="ges.pipeline.save_thumbnail">GES.Pipeline.save_thumbnail</h3>
 
 <p><strong>(self, width, height, format, location)</strong></p>
 
@@ -74,7 +74,7 @@ image/jpeg)</p>
 
 <p>Saves the current frame to the specified <strong>location</strong>.</p>
 
-<h2 id="ges.pipeline.set_render_settings">GES.Pipeline.set_render_settings</h2>
+<h3 id="ges.pipeline.set_render_settings">GES.Pipeline.set_render_settings</h3>
 
 <p><strong>(pipeline, output_uri, profile)</strong></p>
 
@@ -94,7 +94,7 @@ safely free those values afterwards.</p>
 <p>This method must be called before setting the pipeline mode to
 (FIXME broken link)GES_PIPELINE_MODE_RENDER</p>
 
-<h2 id="ges.pipeline.preview_get_audio_sink">GES.Pipeline.preview_get_audio_sink</h2>
+<h3 id="ges.pipeline.preview_get_audio_sink">GES.Pipeline.preview_get_audio_sink</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -108,7 +108,7 @@ displaying audio when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 <p>The caller is responsible for unreffing the returned element with
 (FIXME broken link)gst_object_unref.</p>
 
-<h2 id="ges.pipeline.preview_set_video_sink">GES.Pipeline.preview_set_video_sink</h2>
+<h3 id="ges.pipeline.preview_set_video_sink">GES.Pipeline.preview_set_video_sink</h3>
 
 <p><strong>(self, sink)</strong></p>
 
@@ -121,7 +121,7 @@ displaying audio when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 <p>Sets playsink&rsquo;s video sink element that is used for displaying video when
 the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
 
-<h2 id="ges.pipeline.get_thumbnail">GES.Pipeline.get_thumbnail</h2>
+<h3 id="ges.pipeline.get_thumbnail">GES.Pipeline.get_thumbnail</h3>
 
 <p><strong>(self, caps)</strong></p>
 
@@ -138,7 +138,7 @@ caps are specified, the information will be returned in the whatever format
 is currently used by the sink. This information can be retrieve from caps
 associated with the buffer.</p>
 
-<h2 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h2>
+<h3 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h3>
 
 <p><strong>(self, sink)</strong></p>
 
@@ -151,7 +151,7 @@ associated with the buffer.</p>
 <p>Sets playsink&rsquo;s audio sink element that is used for displaying audio when
 the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
 
-<h2 id="ges.pipeline.set_timeline">GES.Pipeline.set_timeline</h2>
+<h3 id="ges.pipeline.set_timeline">GES.Pipeline.set_timeline</h3>
 
 <p><strong>(pipeline, timeline)</strong></p>
 
@@ -166,7 +166,7 @@ else FALSE.</p>
 
 <p>The reference to the <strong>timeline</strong> will be stolen by the <strong>pipeline</strong>.</p>
 
-<h2 id="ges.pipeline.set_mode">GES.Pipeline.set_mode</h2>
+<h3 id="ges.pipeline.set_mode">GES.Pipeline.set_mode</h3>
 
 <p><strong>(pipeline, mode)</strong></p>
 
@@ -183,7 +183,7 @@ creating a <a href="#ges.pipeline">GES.Pipeline</a> is (FIXME broken link)GES_PI
 the internal changes that happen. The caller will therefore have to
 set the <strong>pipeline</strong> to the requested state after calling this method.</p>
 
-<h2 id="ges.pipeline.get_mode">GES.Pipeline.get_mode</h2>
+<h3 id="ges.pipeline.get_mode">GES.Pipeline.get_mode</h3>
 
 <p><strong>(pipeline)</strong></p>
 
@@ -191,7 +191,7 @@ set the <strong>pipeline</strong> to the requested state after calling this meth
 
 <p><em>Returns</em>: the <a href="#ges.pipelineflags">GES.PipelineFlags</a> currently in use.</p>
 
-<h2 id="ges.pipeline.preview_get_video_sink">GES.Pipeline.preview_get_video_sink</h2>
+<h3 id="ges.pipeline.preview_get_video_sink">GES.Pipeline.preview_get_video_sink</h3>
 
 <p><strong>(self)</strong></p>
 

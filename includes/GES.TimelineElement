@@ -28,13 +28,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.timelineelement">GES.TimelineElement</h1>
+        <h2 id="ges.timelineelement">GES.TimelineElement</h2>
 
 <p>The GESTimelineElement base class implements the notion of timing as well
 as priority. A GESTimelineElement can have a parent object which will be
 responsible for controlling its timing properties.</p>
 
-<h2 id="ges.timelineelement.get_start">GES.TimelineElement.get_start</h2>
+<h3 id="ges.timelineelement.get_start">GES.TimelineElement.get_start</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -42,7 +42,7 @@ responsible for controlling its timing properties.</p>
 
 <p><em>Returns</em>: The @start of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_max_duration">GES.TimelineElement.set_max_duration</h2>
+<h3 id="ges.timelineelement.set_max_duration">GES.TimelineElement.set_max_duration</h3>
 
 <p><strong>(self, maxduration)</strong></p>
 
@@ -54,7 +54,7 @@ responsible for controlling its timing properties.</p>
 
 <p>Set the maximun duration of the object</p>
 
-<h2 id="ges.timelineelement.set_parent">GES.TimelineElement.set_parent</h2>
+<h3 id="ges.timelineelement.set_parent">GES.TimelineElement.set_parent</h3>
 
 <p><strong>(self, parent)</strong></p>
 
@@ -68,7 +68,7 @@ already had a parent or <strong>self</strong> and <strong>parent</strong> are th
 <p>Sets the parent of <strong>self</strong> to <strong>parent</strong>. The object&rsquo;s reference count will
 be incremented, and any floating reference will be removed (see <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref-sink">gst_object_ref_sink</a>).</p>
 
-<h2 id="ges.timelineelement.roll_end">GES.TimelineElement.roll_end</h2>
+<h3 id="ges.timelineelement.roll_end">GES.TimelineElement.roll_end</h3>
 
 <p><strong>(self, end)</strong></p>
 
@@ -84,7 +84,7 @@ duration of a <strong>self</strong> and trim (basicly change the start + inpoint
 in this case) the following neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.ripple">GES.TimelineElement.ripple</h2>
+<h3 id="ges.timelineelement.ripple">GES.TimelineElement.ripple</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -99,7 +99,7 @@ occured</p>
 start of <strong>self</strong> and move the following neighbours accordingly.
 This will change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.ripple_end">GES.TimelineElement.ripple_end</h2>
+<h3 id="ges.timelineelement.ripple_end">GES.TimelineElement.ripple_end</h3>
 
 <p><strong>(self, end)</strong></p>
 
@@ -115,7 +115,7 @@ occured</p>
 duration of a <strong>self</strong> and move the following neighbours accordingly.
 This will change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.get_inpoint">GES.TimelineElement.get_inpoint</h2>
+<h3 id="ges.timelineelement.get_inpoint">GES.TimelineElement.get_inpoint</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -123,7 +123,7 @@ This will change the overall timeline duration.</p>
 
 <p><em>Returns</em>: The @inpoint of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_inpoint">GES.TimelineElement.set_inpoint</h2>
+<h3 id="ges.timelineelement.set_inpoint">GES.TimelineElement.set_inpoint</h3>
 
 <p><strong>(self, inpoint)</strong></p>
 
@@ -136,7 +136,7 @@ This will change the overall timeline duration.</p>
 <p>Set the in-point, that is the moment at which the <strong>self</strong> will start
 outputting data from its contents.</p>
 
-<h2 id="ges.timelineelement.trim">GES.TimelineElement.trim</h2>
+<h3 id="ges.timelineelement.trim">GES.TimelineElement.trim</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -156,7 +156,7 @@ This will not change the overall timeline duration.</p>
 as this method, it will take into account the snapping-distance property of the
 timeline in which <strong>self</strong> is.</p>
 
-<h2 id="ges.timelineelement.get_parent">GES.TimelineElement.get_parent</h2>
+<h3 id="ges.timelineelement.get_parent">GES.TimelineElement.get_parent</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -168,7 +168,7 @@ timeline in which <strong>self</strong> is.</p>
 <p>Returns the parent of <strong>self</strong>. This function increases the refcount
 of the parent object so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
-<h2 id="ges.timelineelement.get_timeline">GES.TimelineElement.get_timeline</h2>
+<h3 id="ges.timelineelement.get_timeline">GES.TimelineElement.get_timeline</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -180,7 +180,7 @@ of the parent object so you should <a href="http://gstreamer.freedesktop.org/dat
 <p>Returns the timeline of <strong>self</strong>. This function increases the refcount
 of the timeline so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
-<h2 id="ges.timelineelement.roll_start">GES.TimelineElement.roll_start</h2>
+<h3 id="ges.timelineelement.roll_start">GES.TimelineElement.roll_start</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -197,7 +197,7 @@ start and inpoint of a <strong>self</strong> and &ldquo;resize&rdquo; (basicly c
 in this case) of the previous neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.set_name">GES.TimelineElement.set_name</h2>
+<h3 id="ges.timelineelement.set_name">GES.TimelineElement.set_name</h3>
 
 <p><strong>(self, name)</strong></p>
 
@@ -211,7 +211,7 @@ This will not change the overall timeline duration.</p>
 This function makes a copy of the provided name, so the caller retains ownership
 of the name it sent.</p>
 
-<h2 id="ges.timelineelement.set_duration">GES.TimelineElement.set_duration</h2>
+<h3 id="ges.timelineelement.set_duration">GES.TimelineElement.set_duration</h3>
 
 <p><strong>(self, duration)</strong></p>
 
@@ -226,7 +226,7 @@ of the name it sent.</p>
 <p>Note that if the timeline snap-distance property of the timeline containing
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
-<h2 id="ges.timelineelement.get_name">GES.TimelineElement.get_name</h2>
+<h3 id="ges.timelineelement.get_name">GES.TimelineElement.get_name</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -237,7 +237,7 @@ of the name it sent.</p>
 <p>Returns a copy of the name of <strong>self</strong>.
 Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Allocation.html#g-free">g_free</a> the return value after usage.</p>
 
-<h2 id="ges.timelineelement.set_priority">GES.TimelineElement.set_priority</h2>
+<h3 id="ges.timelineelement.set_priority">GES.TimelineElement.set_priority</h3>
 
 <p><strong>(self, priority)</strong></p>
 
@@ -249,7 +249,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Sets the priority of the object within the containing layer</p>
 
-<h2 id="ges.timelineelement.set_start">GES.TimelineElement.set_start</h2>
+<h3 id="ges.timelineelement.set_start">GES.TimelineElement.set_start</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -264,7 +264,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <p>Note that if the timeline snap-distance property of the timeline containing
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
-<h2 id="ges.timelineelement.get_duration">GES.TimelineElement.get_duration</h2>
+<h3 id="ges.timelineelement.get_duration">GES.TimelineElement.get_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -272,7 +272,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @duration of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.copy">GES.TimelineElement.copy</h2>
+<h3 id="ges.timelineelement.copy">GES.TimelineElement.copy</h3>
 
 <p><strong>(self, deep)</strong></p>
 
@@ -284,7 +284,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Copies <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_max_duration">GES.TimelineElement.get_max_duration</h2>
+<h3 id="ges.timelineelement.get_max_duration">GES.TimelineElement.get_max_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -292,7 +292,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @maxduration of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_toplevel_parent">GES.TimelineElement.get_toplevel_parent</h2>
+<h3 id="ges.timelineelement.get_toplevel_parent">GES.TimelineElement.get_toplevel_parent</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -302,7 +302,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Gets the toplevel <a href="#ges.timelineelement">GES.TimelineElement</a> controlling <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_priority">GES.TimelineElement.get_priority</h2>
+<h3 id="ges.timelineelement.get_priority">GES.TimelineElement.get_priority</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -310,7 +310,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @priority of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_timeline">GES.TimelineElement.set_timeline</h2>
+<h3 id="ges.timelineelement.set_timeline">GES.TimelineElement.set_timeline</h3>
 
 <p><strong>(self, timeline)</strong></p>
 

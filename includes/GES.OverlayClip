@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.overlayclip">GES.OverlayClip</h1>
+        <h2 id="ges.overlayclip">GES.OverlayClip</h2>
 
 <p>Overlays are objects which modify the underlying layer(s).</p>
 

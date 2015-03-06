@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.titlesource">GES.TitleSource</h1>
+        <h2 id="ges.titlesource">GES.TitleSource</h2>
 
 <p><a href="#ges.titlesource">GES.TitleSource</a> is a GESTimelineElement that implements the notion
 of titles in GES.</p>
@@ -95,7 +95,7 @@ of titles in GES.</p>
 </informaltable>
 </refsect1></p>
 
-<h2 id="ges.titlesource.get_text">GES.TitleSource.get_text</h2>
+<h3 id="ges.titlesource.get_text">GES.TitleSource.get_text</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -105,7 +105,7 @@ of titles in GES.</p>
 
 <p>Get the text currently set on the <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_ypos">GES.TitleSource.get_ypos</h2>
+<h3 id="ges.titlesource.get_ypos">GES.TitleSource.get_ypos</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -115,7 +115,7 @@ of titles in GES.</p>
 
 <p>Get the vertical position used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_font_desc">GES.TitleSource.set_font_desc</h2>
+<h3 id="ges.titlesource.set_font_desc">GES.TitleSource.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -128,7 +128,7 @@ of titles in GES.</p>
 <p>Set the pango font description this source will use to render
 the text.</p>
 
-<h2 id="ges.titlesource.get_halignment">GES.TitleSource.get_halignment</h2>
+<h3 id="ges.titlesource.get_halignment">GES.TitleSource.get_halignment</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -138,7 +138,7 @@ the text.</p>
 
 <p>Get the horizontal aligment used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_xpos">GES.TitleSource.set_xpos</h2>
+<h3 id="ges.titlesource.set_xpos">GES.TitleSource.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -150,7 +150,7 @@ the text.</p>
 
 <p>Sets the horizontal position of the text.</p>
 
-<h2 id="ges.titlesource.set_halignment">GES.TitleSource.set_halignment</h2>
+<h3 id="ges.titlesource.set_halignment">GES.TitleSource.set_halignment</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -162,7 +162,7 @@ the text.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.titlesource.set_ypos">GES.TitleSource.set_ypos</h2>
+<h3 id="ges.titlesource.set_ypos">GES.TitleSource.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -174,7 +174,7 @@ the text.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.titlesource.set_text">GES.TitleSource.set_text</h2>
+<h3 id="ges.titlesource.set_text">GES.TitleSource.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -187,7 +187,7 @@ made.</p>
 
 <p>Sets the text this track element will render.</p>
 
-<h2 id="ges.titlesource.get_background_color">GES.TitleSource.get_background_color</h2>
+<h3 id="ges.titlesource.get_background_color">GES.TitleSource.get_background_color</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -197,7 +197,7 @@ made.</p>
 
 <p>Get the background used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_valignment">GES.TitleSource.set_valignment</h2>
+<h3 id="ges.titlesource.set_valignment">GES.TitleSource.set_valignment</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -209,7 +209,7 @@ made.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.titlesource.set_background_color">GES.TitleSource.set_background_color</h2>
+<h3 id="ges.titlesource.set_background_color">GES.TitleSource.set_background_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -221,7 +221,7 @@ made.</p>
 
 <p>Sets the color of the background</p>
 
-<h2 id="ges.titlesource.get_valignment">GES.TitleSource.get_valignment</h2>
+<h3 id="ges.titlesource.get_valignment">GES.TitleSource.get_valignment</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -231,7 +231,7 @@ made.</p>
 
 <p>Get the vertical aligment used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_text_color">GES.TitleSource.get_text_color</h2>
+<h3 id="ges.titlesource.get_text_color">GES.TitleSource.get_text_color</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -241,7 +241,7 @@ made.</p>
 
 <p>Get the color used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_text_color">GES.TitleSource.set_text_color</h2>
+<h3 id="ges.titlesource.set_text_color">GES.TitleSource.set_text_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -253,7 +253,7 @@ made.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.titlesource.get_xpos">GES.TitleSource.get_xpos</h2>
+<h3 id="ges.titlesource.get_xpos">GES.TitleSource.get_xpos</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -263,7 +263,7 @@ made.</p>
 
 <p>Get the horizontal position used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_font_desc">GES.TitleSource.get_font_desc</h2>
+<h3 id="ges.titlesource.get_font_desc">GES.TitleSource.get_font_desc</h3>
 
 <p><strong>(source)</strong></p>
 

@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.audiosource">GES.AudioSource</h1>
+        <h2 id="ges.audiosource">GES.AudioSource</h2>
 
 <p><refsect1 id="GESVideoSource.children_properties" role="properties">
 <title role="children_properties.title">Children Properties</title>

@@ -28,9 +28,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.trackelementasset">GES.TrackElementAsset</h1>
+        <h2 id="ges.trackelementasset">GES.TrackElementAsset</h2>
 
-<h2 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h2>
+<h3 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h3>
 
 <p><strong>(asset, type)</strong></p>
 
@@ -43,7 +43,7 @@
 <p>Set the (FIXME broken link)GESAssetTrackType the <a href="#ges.trackelement">GES.TrackElement</a> extracted from @self
 should get into</p>
 
-<h2 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h2>
+<h3 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h3>
 
 <p><strong>(asset)</strong></p>
 

@@ -28,13 +28,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.track">GES.Track</h1>
+        <h2 id="ges.track">GES.Track</h2>
 
 <p>Corresponds to one output format (i.e. audio OR video).</p>
 
 <p>Contains the compatible TrackElement(s).</p>
 
-<h2 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h2>
+<h3 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h3>
 
 <p><strong>(track, caps)</strong></p>
 
@@ -52,7 +52,7 @@ the restriction caps will be updated to video/x-raw, format=RGB, width=360.</p>
 <p>Modification happens for each structure in the new caps, and
 one can add new fields or structures through that function.</p>
 
-<h2 id="ges.track.remove_element">GES.Track.remove_element</h2>
+<h3 id="ges.track.remove_element">GES.Track.remove_element</h3>
 
 <p><strong>(track, object)</strong></p>
 
@@ -68,7 +68,7 @@ Unparenting it means the reference owned by <strong>track</strong> on the <stron
 removed. If you wish to use the <strong>object</strong> after this function, make sure you
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>track</strong>.</p>
 
-<h2 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h2>
+<h3 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h3>
 
 <p><strong>(track, func)</strong></p>
 
@@ -83,7 +83,7 @@ to create <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstr
 To avoid to provide such a function we advice you to use the
 (FIXME broken link)ges_audio_track_new and (FIXME broken link)ges_video_track_new constructor when possible.</p>
 
-<h2 id="ges.track.commit">GES.Track.commit</h2>
+<h3 id="ges.track.commit">GES.Track.commit</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -100,7 +100,7 @@ directly done inside NLE. This method needs to be called so any changes
 on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
-<h2 id="ges.track.get_timeline">GES.Track.get_timeline</h2>
+<h3 id="ges.track.get_timeline">GES.Track.get_timeline</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -110,7 +110,7 @@ processing level.</p>
 
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> this track belongs to. Can be <strong>NULL</strong>.</p>
 
-<h2 id="ges.track.set_mixing">GES.Track.set_mixing</h2>
+<h3 id="ges.track.set_mixing">GES.Track.set_mixing</h3>
 
 <p><strong>(track, mixing)</strong></p>
 
@@ -122,7 +122,7 @@ processing level.</p>
 
 <p>Sets if the <a href="#ges.track">GES.Track</a> should be mixing.</p>
 
-<h2 id="ges.track.get_caps">GES.Track.get_caps</h2>
+<h3 id="ges.track.get_caps">GES.Track.get_caps</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -132,7 +132,7 @@ processing level.</p>
 
 <p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> this track is configured to output.</p>
 
-<h2 id="ges.track.add_element">GES.Track.add_element</h2>
+<h3 id="ges.track.add_element">GES.Track.add_element</h3>
 
 <p><strong>(track, object)</strong></p>
 
@@ -148,7 +148,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>An object can only be added to one track.</p>
 
-<h2 id="ges.track.get_elements">GES.Track.get_elements</h2>
+<h3 id="ges.track.get_elements">GES.Track.get_elements</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -159,7 +159,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
 
-<h2 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h2>
+<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
 
 <p><strong>(track, caps)</strong></p>
 
@@ -171,7 +171,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
 
-<h2 id="ges.track.set_timeline">GES.Track.set_timeline</h2>
+<h3 id="ges.track.set_timeline">GES.Track.set_timeline</h3>
 
 <p><strong>(track, timeline)</strong></p>
 
@@ -183,7 +183,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Sets <strong>timeline</strong> as the timeline controlling <strong>track</strong>.</p>
 
-<h2 id="ges.track.get_mixing">GES.Track.get_mixing</h2>
+<h3 id="ges.track.get_mixing">GES.Track.get_mixing</h3>
 
 <p><strong>(track)</strong></p>
 

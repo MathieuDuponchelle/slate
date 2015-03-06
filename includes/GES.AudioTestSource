@@ -28,13 +28,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.audiotestsource">GES.AudioTestSource</h1>
+        <h2 id="ges.audiotestsource">GES.AudioTestSource</h2>
 
 <p>Outputs a test audio stream using audiotestsrc. The default property values
 output silence. Useful for testing pipelines, or to fill gaps in an audio
 track.</p>
 
-<h2 id="ges.audiotestsource.set_volume">GES.AudioTestSource.set_volume</h2>
+<h3 id="ges.audiotestsource.set_volume">GES.AudioTestSource.set_volume</h3>
 
 <p><strong>(self, volume)</strong></p>
 
@@ -46,7 +46,7 @@ track.</p>
 
 <p>Sets the volume of the test audio signal.</p>
 
-<h2 id="ges.audiotestsource.set_freq">GES.AudioTestSource.set_freq</h2>
+<h3 id="ges.audiotestsource.set_freq">GES.AudioTestSource.set_freq</h3>
 
 <p><strong>(self, freq)</strong></p>
 
@@ -58,7 +58,7 @@ track.</p>
 
 <p>Lets you set the frequency applied on the track element</p>
 
-<h2 id="ges.audiotestsource.get_volume">GES.AudioTestSource.get_volume</h2>
+<h3 id="ges.audiotestsource.get_volume">GES.AudioTestSource.get_volume</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -68,7 +68,7 @@ track.</p>
 
 <p>Get the current volume of <strong>self</strong>.</p>
 
-<h2 id="ges.audiotestsource.get_freq">GES.AudioTestSource.get_freq</h2>
+<h3 id="ges.audiotestsource.get_freq">GES.AudioTestSource.get_freq</h3>
 
 <p><strong>(self)</strong></p>
 

@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.baseeffectclip">GES.BaseEffectClip</h1>
+        <h2 id="ges.baseeffectclip">GES.BaseEffectClip</h2>
 
 <p>The effect will be applied on the sources that have lower priorities
 (higher number) between the inpoint and the end of it.</p>

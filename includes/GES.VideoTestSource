@@ -28,9 +28,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.videotestsource">GES.VideoTestSource</h1>
+        <h2 id="ges.videotestsource">GES.VideoTestSource</h2>
 
-<h2 id="ges.videotestsource.set_pattern">GES.VideoTestSource.set_pattern</h2>
+<h3 id="ges.videotestsource.set_pattern">GES.VideoTestSource.set_pattern</h3>
 
 <p><strong>(self, pattern)</strong></p>
 
@@ -42,7 +42,7 @@
 
 <p>Sets the source to use the given <strong>pattern</strong>.</p>
 
-<h2 id="ges.videotestsource.get_pattern">GES.VideoTestSource.get_pattern</h2>
+<h3 id="ges.videotestsource.get_pattern">GES.VideoTestSource.get_pattern</h3>
 
 <p><strong>(source)</strong></p>
 

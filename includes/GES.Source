@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.source">GES.Source</h1>
+        <h2 id="ges.source">GES.Source</h2>
 
 <p>Base class for single-media sources</p>
 

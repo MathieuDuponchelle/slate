@@ -28,11 +28,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.container">GES.Container</h1>
+        <h2 id="ges.container">GES.Container</h2>
 
 <p>The <a href="#ges.container">GES.Container</a> base class.</p>
 
-<h2 id="ges.container.remove">GES.Container.remove</h2>
+<h3 id="ges.container.remove">GES.Container.remove</h3>
 
 <p><strong>(container, child)</strong></p>
 
@@ -44,7 +44,7 @@
 
 <p>Release the <strong>child</strong> from the control of <strong>container</strong>.</p>
 
-<h2 id="ges.container.edit">GES.Container.edit</h2>
+<h3 id="ges.container.edit">GES.Container.edit</h3>
 
 <p><strong>(container, layers, new_layer_priority, mode, edge, position)</strong></p>
 
@@ -70,7 +70,7 @@ occured</p>
 <p>Edit <strong>container</strong> in the different exisiting <a href="#ges.editmode">GES.EditMode</a> modes. In the case of
 slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 
-<h2 id="ges.container.ungroup">GES.Container.ungroup</h2>
+<h3 id="ges.container.ungroup">GES.Container.ungroup</h3>
 
 <p><strong>(container, recursive)</strong></p>
 
@@ -87,7 +87,7 @@ and freeing the list.</p>
 creating new <a href="#ges.container">GES.Container</a> containing those <a href="#ges.timelineelement">GES.TimelineElement</a>
 apropriately.</p>
 
-<h2 id="ges.container.add">GES.Container.add</h2>
+<h3 id="ges.container.add">GES.Container.add</h3>
 
 <p><strong>(container, child)</strong></p>
 
@@ -99,7 +99,7 @@ apropriately.</p>
 
 <p>Add the <a href="#ges.timelineelement">GES.TimelineElement</a> to the container.</p>
 
-<h2 id="ges.container.group">GES.Container.group</h2>
+<h3 id="ges.container.group">GES.Container.group</h3>
 
 <p><strong>(containers)</strong></p>
 
@@ -116,7 +116,7 @@ clip (all the <a href="#ges.trackelement">GES.TrackElement</a> they contain have
 start/inpoint/duration and are in the same layer), it will create a <a href="#ges.clip">GES.Clip</a>
 otherwise a <a href="#ges.group">GES.Group</a> will be created</p>
 
-<h2 id="ges.container.get_children">GES.Container.get_children</h2>
+<h3 id="ges.container.get_children">GES.Container.get_children</h3>
 
 <p><strong>(container, recursive)</strong></p>
 

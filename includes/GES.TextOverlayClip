@@ -28,11 +28,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.textoverlayclip">GES.TextOverlayClip</h1>
+        <h2 id="ges.textoverlayclip">GES.TextOverlayClip</h2>
 
 <p>Renders text onto the next lower priority stream using textrender.</p>
 
-<h2 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h2>
+<h3 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -42,7 +42,7 @@
 
 <p>Get the color used by @source.</p>
 
-<h2 id="ges.textoverlayclip.set_text">GES.TextOverlayClip.set_text</h2>
+<h3 id="ges.textoverlayclip.set_text">GES.TextOverlayClip.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -55,7 +55,7 @@ made.</p>
 
 <p>Sets the text this clip will render.</p>
 
-<h2 id="ges.textoverlayclip.get_font_desc">GES.TextOverlayClip.get_font_desc</h2>
+<h3 id="ges.textoverlayclip.get_font_desc">GES.TextOverlayClip.get_font_desc</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -65,7 +65,7 @@ made.</p>
 
 <p>Get the pango font description used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_text">GES.TextOverlayClip.get_text</h2>
+<h3 id="ges.textoverlayclip.get_text">GES.TextOverlayClip.get_text</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -75,7 +75,7 @@ made.</p>
 
 <p>Get the text currently set on <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_ypos">GES.TextOverlayClip.get_ypos</h2>
+<h3 id="ges.textoverlayclip.get_ypos">GES.TextOverlayClip.get_ypos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -85,7 +85,7 @@ made.</p>
 
 <p>Get the vertical position used by @source.</p>
 
-<h2 id="ges.textoverlayclip.get_valignment">GES.TextOverlayClip.get_valignment</h2>
+<h3 id="ges.textoverlayclip.get_valignment">GES.TextOverlayClip.get_valignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -95,7 +95,7 @@ made.</p>
 
 <p>Get the vertical aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_xpos">GES.TextOverlayClip.get_xpos</h2>
+<h3 id="ges.textoverlayclip.get_xpos">GES.TextOverlayClip.get_xpos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -105,7 +105,7 @@ made.</p>
 
 <p>Get the horizontal position used by @source.</p>
 
-<h2 id="ges.textoverlayclip.get_halignment">GES.TextOverlayClip.get_halignment</h2>
+<h3 id="ges.textoverlayclip.get_halignment">GES.TextOverlayClip.get_halignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -115,7 +115,7 @@ made.</p>
 
 <p>Get the horizontal aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.set_font_desc">GES.TextOverlayClip.set_font_desc</h2>
+<h3 id="ges.textoverlayclip.set_font_desc">GES.TextOverlayClip.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -127,7 +127,7 @@ made.</p>
 
 <p>Sets the pango font description of the text</p>
 
-<h2 id="ges.textoverlayclip.set_color">GES.TextOverlayClip.set_color</h2>
+<h3 id="ges.textoverlayclip.set_color">GES.TextOverlayClip.set_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -139,7 +139,7 @@ made.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_halign">GES.TextOverlayClip.set_halign</h2>
+<h3 id="ges.textoverlayclip.set_halign">GES.TextOverlayClip.set_halign</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -151,7 +151,7 @@ made.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h2>
+<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -163,7 +163,7 @@ made.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h2>
+<h3 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -175,7 +175,7 @@ made.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_xpos">GES.TextOverlayClip.set_xpos</h2>
+<h3 id="ges.textoverlayclip.set_xpos">GES.TextOverlayClip.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 

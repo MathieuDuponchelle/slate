@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.clip">GES.Clip</h1>
+        <h2 id="ges.clip">GES.Clip</h2>
 
 <p>A <a href="#ges.clip">GES.Clip</a> is a &lsquo;natural&rsquo; object which controls one or more
 <a href="#ges.trackelement">GES.TrackElement</a>(s) in one or more <a href="#ges.track">GES.Track</a>(s).</p>
@@ -36,7 +36,7 @@
 <p>Keeps a reference to the <a href="#ges.trackelement">GES.TrackElement</a>(s) it created and
 sets/updates their properties.</p>
 
-<h2 id="ges.clip.set_top_effect_priority">GES.Clip.set_top_effect_priority</h2>
+<h3 id="ges.clip.set_top_effect_priority">GES.Clip.set_top_effect_priority</h3>
 
 <p><strong>(clip, effect, newpriority)</strong></p>
 
@@ -45,7 +45,7 @@ sets/updates their properties.</p>
 <em>newpriority</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.clip.split">GES.Clip.split</h2>
+<h3 id="ges.clip.split">GES.Clip.split</h3>
 
 <p><strong>(clip, position)</strong></p>
 
@@ -62,7 +62,7 @@ The newly created clip will be added to the same layer as <strong>clip</strong> 
 This implies that <strong>clip</strong> must be in a <a href="#ges.layer">GES.Layer</a> for the operation to
 be possible.</p>
 
-<h2 id="ges.clip.get_layer">GES.Clip.get_layer</h2>
+<h3 id="ges.clip.get_layer">GES.Clip.get_layer</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -74,7 +74,7 @@ usage.</p>
 
 <p>Get the <a href="#ges.layer">GES.Layer</a> to which this clip belongs.</p>
 
-<h2 id="ges.clip.find_track_elements">GES.Clip.find_track_elements</h2>
+<h3 id="ges.clip.find_track_elements">GES.Clip.find_track_elements</h3>
 
 <p><strong>(clip, track, track_type, type)</strong></p>
 
@@ -96,7 +96,7 @@ unref each <a href="#ges.trackelement">GES.TrackElement</a> and free the <a href
 <p>Finds all the <a href="#ges.trackelement">GES.TrackElement</a> controlled by <strong>clip</strong> that is used in <strong>track</strong>. You
 may optionally specify a GType to further narrow search criteria.</p>
 
-<h2 id="ges.clip.get_top_effect_position">GES.Clip.get_top_effect_position</h2>
+<h3 id="ges.clip.get_top_effect_position">GES.Clip.get_top_effect_position</h3>
 
 <p><strong>(clip, effect)</strong></p>
 
@@ -104,7 +104,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 <em>effect</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.clip.get_top_effect_index">GES.Clip.get_top_effect_index</h2>
+<h3 id="ges.clip.get_top_effect_index">GES.Clip.get_top_effect_index</h3>
 
 <p><strong>(clip, effect)</strong></p>
 
@@ -116,7 +116,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 
 <p>Gets the index position of an effect.</p>
 
-<h2 id="ges.clip.get_supported_formats">GES.Clip.get_supported_formats</h2>
+<h3 id="ges.clip.get_supported_formats">GES.Clip.get_supported_formats</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -126,7 +126,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 
 <p>Get the formats supported by <strong>clip</strong>.</p>
 
-<h2 id="ges.clip.add_asset">GES.Clip.add_asset</h2>
+<h3 id="ges.clip.add_asset">GES.Clip.add_asset</h3>
 
 <p><strong>(clip, asset)</strong></p>
 
@@ -144,7 +144,7 @@ ni other cases TrackElement are added automatically when adding the
 
 <p>Takes a reference on @track_element.</p>
 
-<h2 id="ges.clip.set_supported_formats">GES.Clip.set_supported_formats</h2>
+<h3 id="ges.clip.set_supported_formats">GES.Clip.set_supported_formats</h3>
 
 <p><strong>(clip, supportedformats)</strong></p>
 
@@ -156,7 +156,7 @@ ni other cases TrackElement are added automatically when adding the
 
 <p>Sets the formats supported by the file.</p>
 
-<h2 id="ges.clip.find_track_element">GES.Clip.find_track_element</h2>
+<h3 id="ges.clip.find_track_element">GES.Clip.find_track_element</h3>
 
 <p><strong>(clip, track, type)</strong></p>
 
@@ -176,7 +176,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 <p>Note: If many objects match, then the one with the highest priority will be
 returned.</p>
 
-<h2 id="ges.clip.get_top_effects">GES.Clip.get_top_effects</h2>
+<h3 id="ges.clip.get_top_effects">GES.Clip.get_top_effects</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -189,7 +189,7 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 
 <p>Get effects applied on <strong>clip</strong></p>
 
-<h2 id="ges.clip.set_top_effect_index">GES.Clip.set_top_effect_index</h2>
+<h3 id="ges.clip.set_top_effect_index">GES.Clip.set_top_effect_index</h3>
 
 <p><strong>(clip, effect, newindex)</strong></p>
 
@@ -204,7 +204,7 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 
 <p>This is a convenience method that lets you set the index of a top effect.</p>
 
-<h2 id="ges.clip.move_to_layer">GES.Clip.move_to_layer</h2>
+<h3 id="ges.clip.move_to_layer">GES.Clip.move_to_layer</h3>
 
 <p><strong>(clip, layer)</strong></p>
 

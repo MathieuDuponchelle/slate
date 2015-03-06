@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.asset">GES.Asset</h1>
+        <h2 id="ges.asset">GES.Asset</h2>
 
 <p>The Assets in the GStreamer Editing Services represent the resources
 that can be used. You can create assets for any type that implements the <a href="#ges.extractable">GES.Extractable</a>
@@ -88,7 +88,7 @@ and standard effects (actually not implemented yet) and you can simply query tho
 (FIXME broken link)ges_asset_request_async. All the (FIXME broken link)GESAssets are cached and thus any asset that has already
 been created can be requested again without overhead.</p>
 
-<h2 id="ges.asset.request_finish">GES.Asset.request_finish</h2>
+<h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>
 
 <p><strong>(res)</strong></p>
 
@@ -98,7 +98,7 @@ been created can be requested again without overhead.</p>
 
 <p>Finalize the request of an async <a href="#ges.asset">GES.Asset</a></p>
 
-<h2 id="ges.asset.get_id">GES.Asset.get_id</h2>
+<h3 id="ges.asset.get_id">GES.Asset.get_id</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -108,7 +108,7 @@ been created can be requested again without overhead.</p>
 
 <p>Gets the ID of a <a href="#ges.asset">GES.Asset</a></p>
 
-<h2 id="ges.asset.request">GES.Asset.request</h2>
+<h3 id="ges.asset.request">GES.Asset.request</h3>
 
 <p><strong>(extractable_type, id)</strong></p>
 
@@ -125,7 +125,7 @@ documentation to see if that constructor can be called for this particular type<
 it will not work with this method, but you can instead use the specific
 (FIXME broken link)ges_uri_clip_asset_request_sync method if you really want to.</p>
 
-<h2 id="ges.asset.extract">GES.Asset.extract</h2>
+<h3 id="ges.asset.extract">GES.Asset.extract</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -138,7 +138,7 @@ defined by the extractable-type of @asset, you can check what
 type will be extracted from @asset using
 (FIXME broken link)ges_asset_get_extractable_type</p>
 
-<h2 id="ges.asset.request_async">GES.Asset.request_async</h2>
+<h3 id="ges.asset.request_async">GES.Asset.request_async</h3>
 
 <p><strong>(extractable_type, id, cancellable, callback, user_data)</strong></p>
 
@@ -191,7 +191,7 @@ ready to be used or if an error occured.</p>
 
 </code></pre>
 
-<h2 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h2>
+<h3 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h3>
 
 <p><strong>(self)</strong></p>
 

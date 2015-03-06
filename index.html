@@ -45,12 +45,17 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="overview">Overview</h1>
+        
+          <h1 id="overview">Overview</h1>
 
 <p>Gstreamer-Editing-Services is a C library providing a high-level API
 for multimedia editing.</p>
 
-          <h1 id="ges.timeline">GES.Timeline</h1>
+          <h1 id="high-level-api">High Level API</h1>
+
+<p>We will now look at the basic API of GES.</p>
+
+          <h2 id="ges.timeline">GES.Timeline</h2>
 
 <p><a href="#ges.timeline">GES.Timeline</a> is the central object for any multimedia timeline.</p>
 
@@ -66,7 +71,7 @@ the <a href="#ges.timeline">GES.Timeline</a>.</p>
 <p>Note that any change you make in the timeline will not actually be taken
 into account until you call the (FIXME broken link)ges_timeline_commit method.</p>
 
-<h2 id="ges.timeline.append_layer">GES.Timeline.append_layer</h2>
+<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -78,7 +83,7 @@ into account until you call the (FIXME broken link)ges_timeline_commit method.</
 <p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
 Note that you do not own any reference to the returned layer.</p>
 
-<h2 id="ges.timeline.add_layer">GES.Timeline.add_layer</h2>
+<h3 id="ges.timeline.add_layer">GES.Timeline.add_layer</h3>
 
 <p><strong>(timeline, layer)</strong></p>
 
@@ -91,7 +96,7 @@ Note that you do not own any reference to the returned layer.</p>
 <p>Add the layer to the timeline. The reference to the <strong>layer</strong> will be stolen
 by the <strong>timeline</strong>.</p>
 
-<h2 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h2>
+<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
 
 <p><strong>(timeline, uri)</strong></p>
 
@@ -104,7 +109,7 @@ could not be loaded.</p>
 
 <p>Loads the contents of URI into the given timeline.</p>
 
-<h2 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h2>
+<h3 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 
@@ -117,7 +122,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Search the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>track</strong>.</p>
 
-<h2 id="ges.timeline.set_snapping_distance">GES.Timeline.set_snapping_distance</h2>
+<h3 id="ges.timeline.set_snapping_distance">GES.Timeline.set_snapping_distance</h3>
 
 <p><strong>(timeline, snapping_distance)</strong></p>
 
@@ -130,7 +135,7 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Sets the <strong>snapping_distance</strong> of the timeline. See the documentation of the
 property snapping_distance for more information.</p>
 
-<h2 id="ges.timeline.is_empty">GES.Timeline.is_empty</h2>
+<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -140,7 +145,7 @@ property snapping_distance for more information.</p>
 
 <p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
 
-<h2 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h2>
+<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -151,7 +156,7 @@ The caller should unref each track once he is done with them.</p>
 
 <p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
 
-<h2 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h2>
+<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
 
 <p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
 
@@ -170,7 +175,7 @@ else FALSE.</p>
 
 <p>Saves the timeline to the given location</p>
 
-<h2 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h2>
+<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -181,7 +186,7 @@ else FALSE.</p>
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
 
-<h2 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h2>
+<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
 
 <p><strong>(timeline, pad)</strong></p>
 
@@ -194,7 +199,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
 
-<h2 id="ges.timeline.get_duration">GES.Timeline.get_duration</h2>
+<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -204,7 +209,7 @@ or <strong>NULL</strong> if there is an error.</p>
 
 <p>Get the current duration of <strong>timeline</strong></p>
 
-<h2 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h2>
+<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
 
 <p><strong>(timeline, layer)</strong></p>
 
@@ -218,7 +223,7 @@ or <strong>NULL</strong> if there is an error.</p>
 the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
 method, you need to take a reference before calling.</p>
 
-<h2 id="ges.timeline.commit">GES.Timeline.commit</h2>
+<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -235,7 +240,7 @@ directly done inside NLE. This method needs to be called so any changes
 on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
-<h2 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h2>
+<h3 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -247,7 +252,7 @@ processing level.</p>
 the documentation of the property snapping_distance for more
 information.</p>
 
-<h2 id="ges.timeline.add_track">GES.Timeline.add_track</h2>
+<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 
@@ -260,7 +265,7 @@ information.</p>
 <p>Add a track to the timeline. The reference to the track will be stolen by the
 pipeline.</p>
 
-<h2 id="ges.timeline.get_element">GES.Timeline.get_element</h2>
+<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
 
 <p><strong>(timeline, name)</strong></p>
 
@@ -272,7 +277,7 @@ not found.</p>
 
 <p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
 
-<h2 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h2>
+<h3 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h3>
 
 <p><strong>(timeline, auto_transition)</strong></p>
 
@@ -285,7 +290,7 @@ not found.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h2 id="ges.timeline.get_layers">GES.Timeline.get_layers</h2>
+<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
 
 <p><strong>(timeline)</strong></p>
 
@@ -297,7 +302,7 @@ The caller should unref each Layer once he is done with them.</p>
 
 <p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
 
-<h2 id="ges.timeline.remove_track">GES.Timeline.remove_track</h2>
+<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
 
 <p><strong>(timeline, track)</strong></p>
 
@@ -311,14 +316,14 @@ The caller should unref each Layer once he is done with them.</p>
 <strong>track</strong> will be removed. If you wish to use the <strong>track</strong> after calling this
 function you must ensure that you have a reference to it.</p>
 
-          <h1 id="ges.layer">GES.Layer</h1>
+          <h2 id="ges.layer">GES.Layer</h2>
 
 <p>Responsible for the ordering of the various contained Clip(s). A
 timeline layer has a &ldquo;priority&rdquo; property, which is used to manage the
 priorities of individual Clips. Two layers should not have the
 same priority within a given timeline.</p>
 
-<h2 id="ges.layer.get_timeline">GES.Layer.get_timeline</h2>
+<h3 id="ges.layer.get_timeline">GES.Layer.get_timeline</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -329,7 +334,7 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> in which <a href="#ges.layer">GES.Layer</a> currently is.</p>
 
-<h2 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h2>
+<h3 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h3>
 
 <p><strong>(layer, auto_transition)</strong></p>
 
@@ -342,7 +347,7 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h2 id="ges.layer.set_timeline">GES.Layer.set_timeline</h2>
+<h3 id="ges.layer.set_timeline">GES.Layer.set_timeline</h3>
 
 <p><strong>(layer, timeline)</strong></p>
 
@@ -350,7 +355,7 @@ property auto_transition for more information.</p>
 <em>timeline</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.layer.set_priority">GES.Layer.set_priority</h2>
+<h3 id="ges.layer.set_priority">GES.Layer.set_priority</h3>
 
 <p><strong>(layer, priority)</strong></p>
 
@@ -363,7 +368,7 @@ property auto_transition for more information.</p>
 <p>Sets the layer to the given <strong>priority</strong>. See the documentation of the
 priority property for more information.</p>
 
-<h2 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h2>
+<h3 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -374,7 +379,7 @@ priority property for more information.</p>
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
 
-<h2 id="ges.layer.is_empty">GES.Layer.is_empty</h2>
+<h3 id="ges.layer.is_empty">GES.Layer.is_empty</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -386,7 +391,7 @@ one <a href="#ges.clip">GES.Clip</a></p>
 <p>Convenience method to check if <strong>layer</strong> is empty (doesn&rsquo;t contain any clip),
 or not.</p>
 
-<h2 id="ges.layer.get_priority">GES.Layer.get_priority</h2>
+<h3 id="ges.layer.get_priority">GES.Layer.get_priority</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -396,7 +401,7 @@ or not.</p>
 
 <p>Get the priority of <strong>layer</strong> within the timeline.</p>
 
-<h2 id="ges.layer.remove_clip">GES.Layer.remove_clip</h2>
+<h3 id="ges.layer.remove_clip">GES.Layer.remove_clip</h3>
 
 <p><strong>(layer, clip)</strong></p>
 
@@ -412,7 +417,7 @@ Unparenting it means the reference owned by <strong>layer</strong> on the <stron
 removed. If you wish to use the <strong>clip</strong> after this function, make sure you
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>layer</strong>.</p>
 
-<h2 id="ges.layer.add_asset">GES.Layer.add_asset</h2>
+<h3 id="ges.layer.add_asset">GES.Layer.add_asset</h3>
 
 <p><strong>(layer, asset, start, inpoint, duration, track_types)</strong></p>
 
@@ -435,7 +440,7 @@ the current duration of <strong>layer</strong></p>
 <p>Creates Clip from asset, adds it to layer and
 returns a reference to it.</p>
 
-<h2 id="ges.layer.add_clip">GES.Layer.add_clip</h2>
+<h3 id="ges.layer.add_clip">GES.Layer.add_clip</h3>
 
 <p><strong>(layer, clip)</strong></p>
 
@@ -456,7 +461,7 @@ elements on <strong>clip</strong>. If you need to know when those objects (actua
 are constructed, you should connect to the container::child-added signal which
 is emited right after those elements are ready to be used.</p>
 
-<h2 id="ges.layer.get_duration">GES.Layer.get_duration</h2>
+<h3 id="ges.layer.get_duration">GES.Layer.get_duration</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -467,7 +472,7 @@ is emited right after those elements are ready to be used.</p>
 <p>Lets you retrieve the duration of the layer, which means
 the end time of the last clip inside it</p>
 
-<h2 id="ges.layer.get_clips">GES.Layer.get_clips</h2>
+<h3 id="ges.layer.get_clips">GES.Layer.get_clips</h3>
 
 <p><strong>(layer)</strong></p>
 
@@ -479,13 +484,13 @@ unreffing the contained objects and freeing the list.</p>
 
 <p>Get the clips this layer contains.</p>
 
-          <h1 id="ges.timelineelement">GES.TimelineElement</h1>
+          <h2 id="ges.timelineelement">GES.TimelineElement</h2>
 
 <p>The GESTimelineElement base class implements the notion of timing as well
 as priority. A GESTimelineElement can have a parent object which will be
 responsible for controlling its timing properties.</p>
 
-<h2 id="ges.timelineelement.get_start">GES.TimelineElement.get_start</h2>
+<h3 id="ges.timelineelement.get_start">GES.TimelineElement.get_start</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -493,7 +498,7 @@ responsible for controlling its timing properties.</p>
 
 <p><em>Returns</em>: The @start of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_max_duration">GES.TimelineElement.set_max_duration</h2>
+<h3 id="ges.timelineelement.set_max_duration">GES.TimelineElement.set_max_duration</h3>
 
 <p><strong>(self, maxduration)</strong></p>
 
@@ -505,7 +510,7 @@ responsible for controlling its timing properties.</p>
 
 <p>Set the maximun duration of the object</p>
 
-<h2 id="ges.timelineelement.set_parent">GES.TimelineElement.set_parent</h2>
+<h3 id="ges.timelineelement.set_parent">GES.TimelineElement.set_parent</h3>
 
 <p><strong>(self, parent)</strong></p>
 
@@ -519,7 +524,7 @@ already had a parent or <strong>self</strong> and <strong>parent</strong> are th
 <p>Sets the parent of <strong>self</strong> to <strong>parent</strong>. The object&rsquo;s reference count will
 be incremented, and any floating reference will be removed (see <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref-sink">gst_object_ref_sink</a>).</p>
 
-<h2 id="ges.timelineelement.roll_end">GES.TimelineElement.roll_end</h2>
+<h3 id="ges.timelineelement.roll_end">GES.TimelineElement.roll_end</h3>
 
 <p><strong>(self, end)</strong></p>
 
@@ -535,7 +540,7 @@ duration of a <strong>self</strong> and trim (basicly change the start + inpoint
 in this case) the following neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.ripple">GES.TimelineElement.ripple</h2>
+<h3 id="ges.timelineelement.ripple">GES.TimelineElement.ripple</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -550,7 +555,7 @@ occured</p>
 start of <strong>self</strong> and move the following neighbours accordingly.
 This will change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.ripple_end">GES.TimelineElement.ripple_end</h2>
+<h3 id="ges.timelineelement.ripple_end">GES.TimelineElement.ripple_end</h3>
 
 <p><strong>(self, end)</strong></p>
 
@@ -566,7 +571,7 @@ occured</p>
 duration of a <strong>self</strong> and move the following neighbours accordingly.
 This will change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.get_inpoint">GES.TimelineElement.get_inpoint</h2>
+<h3 id="ges.timelineelement.get_inpoint">GES.TimelineElement.get_inpoint</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -574,7 +579,7 @@ This will change the overall timeline duration.</p>
 
 <p><em>Returns</em>: The @inpoint of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_inpoint">GES.TimelineElement.set_inpoint</h2>
+<h3 id="ges.timelineelement.set_inpoint">GES.TimelineElement.set_inpoint</h3>
 
 <p><strong>(self, inpoint)</strong></p>
 
@@ -587,7 +592,7 @@ This will change the overall timeline duration.</p>
 <p>Set the in-point, that is the moment at which the <strong>self</strong> will start
 outputting data from its contents.</p>
 
-<h2 id="ges.timelineelement.trim">GES.TimelineElement.trim</h2>
+<h3 id="ges.timelineelement.trim">GES.TimelineElement.trim</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -607,7 +612,7 @@ This will not change the overall timeline duration.</p>
 as this method, it will take into account the snapping-distance property of the
 timeline in which <strong>self</strong> is.</p>
 
-<h2 id="ges.timelineelement.get_parent">GES.TimelineElement.get_parent</h2>
+<h3 id="ges.timelineelement.get_parent">GES.TimelineElement.get_parent</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -619,7 +624,7 @@ timeline in which <strong>self</strong> is.</p>
 <p>Returns the parent of <strong>self</strong>. This function increases the refcount
 of the parent object so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
-<h2 id="ges.timelineelement.get_timeline">GES.TimelineElement.get_timeline</h2>
+<h3 id="ges.timelineelement.get_timeline">GES.TimelineElement.get_timeline</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -631,7 +636,7 @@ of the parent object so you should <a href="http://gstreamer.freedesktop.org/dat
 <p>Returns the timeline of <strong>self</strong>. This function increases the refcount
 of the timeline so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
-<h2 id="ges.timelineelement.roll_start">GES.TimelineElement.roll_start</h2>
+<h3 id="ges.timelineelement.roll_start">GES.TimelineElement.roll_start</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -648,7 +653,7 @@ start and inpoint of a <strong>self</strong> and &ldquo;resize&rdquo; (basicly c
 in this case) of the previous neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
-<h2 id="ges.timelineelement.set_name">GES.TimelineElement.set_name</h2>
+<h3 id="ges.timelineelement.set_name">GES.TimelineElement.set_name</h3>
 
 <p><strong>(self, name)</strong></p>
 
@@ -662,7 +667,7 @@ This will not change the overall timeline duration.</p>
 This function makes a copy of the provided name, so the caller retains ownership
 of the name it sent.</p>
 
-<h2 id="ges.timelineelement.set_duration">GES.TimelineElement.set_duration</h2>
+<h3 id="ges.timelineelement.set_duration">GES.TimelineElement.set_duration</h3>
 
 <p><strong>(self, duration)</strong></p>
 
@@ -677,7 +682,7 @@ of the name it sent.</p>
 <p>Note that if the timeline snap-distance property of the timeline containing
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
-<h2 id="ges.timelineelement.get_name">GES.TimelineElement.get_name</h2>
+<h3 id="ges.timelineelement.get_name">GES.TimelineElement.get_name</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -688,7 +693,7 @@ of the name it sent.</p>
 <p>Returns a copy of the name of <strong>self</strong>.
 Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Allocation.html#g-free">g_free</a> the return value after usage.</p>
 
-<h2 id="ges.timelineelement.set_priority">GES.TimelineElement.set_priority</h2>
+<h3 id="ges.timelineelement.set_priority">GES.TimelineElement.set_priority</h3>
 
 <p><strong>(self, priority)</strong></p>
 
@@ -700,7 +705,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Sets the priority of the object within the containing layer</p>
 
-<h2 id="ges.timelineelement.set_start">GES.TimelineElement.set_start</h2>
+<h3 id="ges.timelineelement.set_start">GES.TimelineElement.set_start</h3>
 
 <p><strong>(self, start)</strong></p>
 
@@ -715,7 +720,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <p>Note that if the timeline snap-distance property of the timeline containing
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
-<h2 id="ges.timelineelement.get_duration">GES.TimelineElement.get_duration</h2>
+<h3 id="ges.timelineelement.get_duration">GES.TimelineElement.get_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -723,7 +728,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @duration of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.copy">GES.TimelineElement.copy</h2>
+<h3 id="ges.timelineelement.copy">GES.TimelineElement.copy</h3>
 
 <p><strong>(self, deep)</strong></p>
 
@@ -735,7 +740,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Copies <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_max_duration">GES.TimelineElement.get_max_duration</h2>
+<h3 id="ges.timelineelement.get_max_duration">GES.TimelineElement.get_max_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -743,7 +748,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @maxduration of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_toplevel_parent">GES.TimelineElement.get_toplevel_parent</h2>
+<h3 id="ges.timelineelement.get_toplevel_parent">GES.TimelineElement.get_toplevel_parent</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -753,7 +758,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p>Gets the toplevel <a href="#ges.timelineelement">GES.TimelineElement</a> controlling <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.get_priority">GES.TimelineElement.get_priority</h2>
+<h3 id="ges.timelineelement.get_priority">GES.TimelineElement.get_priority</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -761,7 +766,7 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 
 <p><em>Returns</em>: The @priority of <strong>self</strong></p>
 
-<h2 id="ges.timelineelement.set_timeline">GES.TimelineElement.set_timeline</h2>
+<h3 id="ges.timelineelement.set_timeline">GES.TimelineElement.set_timeline</h3>
 
 <p><strong>(self, timeline)</strong></p>
 
@@ -774,11 +779,11 @@ already had a timeline.</p>
 
 <p>Sets the timeline of <strong>self</strong> to <strong>timeline</strong>.</p>
 
-          <h1 id="ges.container">GES.Container</h1>
+          <h2 id="ges.container">GES.Container</h2>
 
 <p>The <a href="#ges.container">GES.Container</a> base class.</p>
 
-<h2 id="ges.container.remove">GES.Container.remove</h2>
+<h3 id="ges.container.remove">GES.Container.remove</h3>
 
 <p><strong>(container, child)</strong></p>
 
@@ -790,7 +795,7 @@ already had a timeline.</p>
 
 <p>Release the <strong>child</strong> from the control of <strong>container</strong>.</p>
 
-<h2 id="ges.container.edit">GES.Container.edit</h2>
+<h3 id="ges.container.edit">GES.Container.edit</h3>
 
 <p><strong>(container, layers, new_layer_priority, mode, edge, position)</strong></p>
 
@@ -816,7 +821,7 @@ occured</p>
 <p>Edit <strong>container</strong> in the different exisiting <a href="#ges.editmode">GES.EditMode</a> modes. In the case of
 slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 
-<h2 id="ges.container.ungroup">GES.Container.ungroup</h2>
+<h3 id="ges.container.ungroup">GES.Container.ungroup</h3>
 
 <p><strong>(container, recursive)</strong></p>
 
@@ -833,7 +838,7 @@ and freeing the list.</p>
 creating new <a href="#ges.container">GES.Container</a> containing those <a href="#ges.timelineelement">GES.TimelineElement</a>
 apropriately.</p>
 
-<h2 id="ges.container.add">GES.Container.add</h2>
+<h3 id="ges.container.add">GES.Container.add</h3>
 
 <p><strong>(container, child)</strong></p>
 
@@ -845,7 +850,7 @@ apropriately.</p>
 
 <p>Add the <a href="#ges.timelineelement">GES.TimelineElement</a> to the container.</p>
 
-<h2 id="ges.container.group">GES.Container.group</h2>
+<h3 id="ges.container.group">GES.Container.group</h3>
 
 <p><strong>(containers)</strong></p>
 
@@ -862,7 +867,7 @@ clip (all the <a href="#ges.trackelement">GES.TrackElement</a> they contain have
 start/inpoint/duration and are in the same layer), it will create a <a href="#ges.clip">GES.Clip</a>
 otherwise a <a href="#ges.group">GES.Group</a> will be created</p>
 
-<h2 id="ges.container.get_children">GES.Container.get_children</h2>
+<h3 id="ges.container.get_children">GES.Container.get_children</h3>
 
 <p><strong>(container, recursive)</strong></p>
 
@@ -877,7 +882,7 @@ timeline element contained in <strong>container</strong>.</p>
 The user is responsible for unreffing the contained objects
 and freeing the list.</p>
 
-          <h1 id="ges.clip">GES.Clip</h1>
+          <h2 id="ges.clip">GES.Clip</h2>
 
 <p>A <a href="#ges.clip">GES.Clip</a> is a &lsquo;natural&rsquo; object which controls one or more
 <a href="#ges.trackelement">GES.TrackElement</a>(s) in one or more <a href="#ges.track">GES.Track</a>(s).</p>
@@ -885,7 +890,7 @@ and freeing the list.</p>
 <p>Keeps a reference to the <a href="#ges.trackelement">GES.TrackElement</a>(s) it created and
 sets/updates their properties.</p>
 
-<h2 id="ges.clip.set_top_effect_priority">GES.Clip.set_top_effect_priority</h2>
+<h3 id="ges.clip.set_top_effect_priority">GES.Clip.set_top_effect_priority</h3>
 
 <p><strong>(clip, effect, newpriority)</strong></p>
 
@@ -894,7 +899,7 @@ sets/updates their properties.</p>
 <em>newpriority</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.clip.split">GES.Clip.split</h2>
+<h3 id="ges.clip.split">GES.Clip.split</h3>
 
 <p><strong>(clip, position)</strong></p>
 
@@ -911,7 +916,7 @@ The newly created clip will be added to the same layer as <strong>clip</strong> 
 This implies that <strong>clip</strong> must be in a <a href="#ges.layer">GES.Layer</a> for the operation to
 be possible.</p>
 
-<h2 id="ges.clip.get_layer">GES.Clip.get_layer</h2>
+<h3 id="ges.clip.get_layer">GES.Clip.get_layer</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -923,7 +928,7 @@ usage.</p>
 
 <p>Get the <a href="#ges.layer">GES.Layer</a> to which this clip belongs.</p>
 
-<h2 id="ges.clip.find_track_elements">GES.Clip.find_track_elements</h2>
+<h3 id="ges.clip.find_track_elements">GES.Clip.find_track_elements</h3>
 
 <p><strong>(clip, track, track_type, type)</strong></p>
 
@@ -945,7 +950,7 @@ unref each <a href="#ges.trackelement">GES.TrackElement</a> and free the <a href
 <p>Finds all the <a href="#ges.trackelement">GES.TrackElement</a> controlled by <strong>clip</strong> that is used in <strong>track</strong>. You
 may optionally specify a GType to further narrow search criteria.</p>
 
-<h2 id="ges.clip.get_top_effect_position">GES.Clip.get_top_effect_position</h2>
+<h3 id="ges.clip.get_top_effect_position">GES.Clip.get_top_effect_position</h3>
 
 <p><strong>(clip, effect)</strong></p>
 
@@ -953,7 +958,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 <em>effect</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.clip.get_top_effect_index">GES.Clip.get_top_effect_index</h2>
+<h3 id="ges.clip.get_top_effect_index">GES.Clip.get_top_effect_index</h3>
 
 <p><strong>(clip, effect)</strong></p>
 
@@ -965,7 +970,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 
 <p>Gets the index position of an effect.</p>
 
-<h2 id="ges.clip.get_supported_formats">GES.Clip.get_supported_formats</h2>
+<h3 id="ges.clip.get_supported_formats">GES.Clip.get_supported_formats</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -975,7 +980,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 
 <p>Get the formats supported by <strong>clip</strong>.</p>
 
-<h2 id="ges.clip.add_asset">GES.Clip.add_asset</h2>
+<h3 id="ges.clip.add_asset">GES.Clip.add_asset</h3>
 
 <p><strong>(clip, asset)</strong></p>
 
@@ -993,7 +998,7 @@ ni other cases TrackElement are added automatically when adding the
 
 <p>Takes a reference on @track_element.</p>
 
-<h2 id="ges.clip.set_supported_formats">GES.Clip.set_supported_formats</h2>
+<h3 id="ges.clip.set_supported_formats">GES.Clip.set_supported_formats</h3>
 
 <p><strong>(clip, supportedformats)</strong></p>
 
@@ -1005,7 +1010,7 @@ ni other cases TrackElement are added automatically when adding the
 
 <p>Sets the formats supported by the file.</p>
 
-<h2 id="ges.clip.find_track_element">GES.Clip.find_track_element</h2>
+<h3 id="ges.clip.find_track_element">GES.Clip.find_track_element</h3>
 
 <p><strong>(clip, track, type)</strong></p>
 
@@ -1025,7 +1030,7 @@ may optionally specify a GType to further narrow search criteria.</p>
 <p>Note: If many objects match, then the one with the highest priority will be
 returned.</p>
 
-<h2 id="ges.clip.get_top_effects">GES.Clip.get_top_effects</h2>
+<h3 id="ges.clip.get_top_effects">GES.Clip.get_top_effects</h3>
 
 <p><strong>(clip)</strong></p>
 
@@ -1038,7 +1043,7 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 
 <p>Get effects applied on <strong>clip</strong></p>
 
-<h2 id="ges.clip.set_top_effect_index">GES.Clip.set_top_effect_index</h2>
+<h3 id="ges.clip.set_top_effect_index">GES.Clip.set_top_effect_index</h3>
 
 <p><strong>(clip, effect, newindex)</strong></p>
 
@@ -1053,7 +1058,7 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 
 <p>This is a convenience method that lets you set the index of a top effect.</p>
 
-<h2 id="ges.clip.move_to_layer">GES.Clip.move_to_layer</h2>
+<h3 id="ges.clip.move_to_layer">GES.Clip.move_to_layer</h3>
 
 <p><strong>(clip, layer)</strong></p>
 
@@ -1066,18 +1071,18 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 <p>Moves <strong>clip</strong> to <strong>layer</strong>. If <strong>clip</strong> is not in any layer, it adds it to
 <strong>layer</strong>, else, it removes it from its current layer, and adds it to <strong>layer</strong>.</p>
 
-          <h1 id="ges.sourceclip">GES.SourceClip</h1>
+          <h2 id="ges.sourceclip">GES.SourceClip</h2>
 
 <p>Base class for sources of a <a href="#ges.layer">GES.Layer</a></p>
 
-          <h1 id="ges.testclip">GES.TestClip</h1>
+          <h2 id="ges.testclip">GES.TestClip</h2>
 
 <p>Useful for testing purposes.</p>
 
 <p>You can use the ges_asset_request_simple API to create an Asset
 capable of extracting GESTestClip-s</p>
 
-<h2 id="ges.testclip.get_vpattern">GES.TestClip.get_vpattern</h2>
+<h3 id="ges.testclip.get_vpattern">GES.TestClip.get_vpattern</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1087,7 +1092,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the <a href="#ges.videotestpattern">GES.VideoTestPattern</a> which is applied on <strong>self</strong>.</p>
 
-<h2 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h2>
+<h3 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1097,7 +1102,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the frequency <strong>self</strong> generates.</p>
 
-<h2 id="ges.testclip.set_frequency">GES.TestClip.set_frequency</h2>
+<h3 id="ges.testclip.set_frequency">GES.TestClip.set_frequency</h3>
 
 <p><strong>(self, freq)</strong></p>
 
@@ -1109,7 +1114,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets the frequency to generate. See audiotestsrc element.</p>
 
-<h2 id="ges.testclip.is_muted">GES.TestClip.is_muted</h2>
+<h3 id="ges.testclip.is_muted">GES.TestClip.is_muted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1119,7 +1124,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Let you know if the audio track of <strong>self</strong> is muted or not.</p>
 
-<h2 id="ges.testclip.set_mute">GES.TestClip.set_mute</h2>
+<h3 id="ges.testclip.set_mute">GES.TestClip.set_mute</h3>
 
 <p><strong>(self, mute)</strong></p>
 
@@ -1131,7 +1136,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets whether the audio track of this clip is muted or not.</p>
 
-<h2 id="ges.testclip.set_volume">GES.TestClip.set_volume</h2>
+<h3 id="ges.testclip.set_volume">GES.TestClip.set_volume</h3>
 
 <p><strong>(self, volume)</strong></p>
 
@@ -1143,7 +1148,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets the volume of the test audio signal.</p>
 
-<h2 id="ges.testclip.get_volume">GES.TestClip.get_volume</h2>
+<h3 id="ges.testclip.get_volume">GES.TestClip.get_volume</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1153,7 +1158,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the volume of the test audio signal applied on <strong>self</strong>.</p>
 
-<h2 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h2>
+<h3 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h3>
 
 <p><strong>(self, vpattern)</strong></p>
 
@@ -1165,9 +1170,9 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets which video pattern to display on <strong>self</strong>.</p>
 
-          <h1 id="ges.uriclip">GES.UriClip</h1>
+          <h2 id="ges.uriclip">GES.UriClip</h2>
 
-<h2 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h2>
+<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
 
 <p><strong>(self, mute)</strong></p>
 
@@ -1179,7 +1184,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets whether the audio track of this clip is muted or not.</p>
 
-<h2 id="ges.uriclip.is_image">GES.UriClip.is_image</h2>
+<h3 id="ges.uriclip.is_image">GES.UriClip.is_image</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1189,7 +1194,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Lets you know if <strong>self</strong> is an image or not.</p>
 
-<h2 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h2>
+<h3 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h3>
 
 <p><strong>(self, is_image)</strong></p>
 
@@ -1201,7 +1206,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets whether the clip is a still image or not.</p>
 
-<h2 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h2>
+<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1211,7 +1216,7 @@ capable of extracting GESTestClip-s</p>
 
 <p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
 
-<h2 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h2>
+<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1221,12 +1226,12 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the location of the resource.</p>
 
-          <h1 id="ges.titleclip">GES.TitleClip</h1>
+          <h2 id="ges.titleclip">GES.TitleClip</h2>
 
 <p>Renders the given text in the specified font, at specified position, and
 with the specified background pattern.</p>
 
-<h2 id="ges.titleclip.get_font_desc">GES.TitleClip.get_font_desc</h2>
+<h3 id="ges.titleclip.get_font_desc">GES.TitleClip.get_font_desc</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1236,7 +1241,7 @@ with the specified background pattern.</p>
 
 <p>Get the pango font description used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.get_halignment">GES.TitleClip.get_halignment</h2>
+<h3 id="ges.titleclip.get_halignment">GES.TitleClip.get_halignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1246,7 +1251,7 @@ with the specified background pattern.</p>
 
 <p>Get the horizontal aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.set_valignment">GES.TitleClip.set_valignment</h2>
+<h3 id="ges.titleclip.set_valignment">GES.TitleClip.set_valignment</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -1258,7 +1263,7 @@ with the specified background pattern.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.titleclip.get_text">GES.TitleClip.get_text</h2>
+<h3 id="ges.titleclip.get_text">GES.TitleClip.get_text</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1268,7 +1273,7 @@ with the specified background pattern.</p>
 
 <p>Get the text currently set on <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.set_xpos">GES.TitleClip.set_xpos</h2>
+<h3 id="ges.titleclip.set_xpos">GES.TitleClip.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -1280,7 +1285,7 @@ with the specified background pattern.</p>
 
 <p>Sets the horizontal position of the text.</p>
 
-<h2 id="ges.titleclip.set_font_desc">GES.TitleClip.set_font_desc</h2>
+<h3 id="ges.titleclip.set_font_desc">GES.TitleClip.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -1292,7 +1297,7 @@ with the specified background pattern.</p>
 
 <p>Sets the pango font description of the text.</p>
 
-<h2 id="ges.titleclip.get_xpos">GES.TitleClip.get_xpos</h2>
+<h3 id="ges.titleclip.get_xpos">GES.TitleClip.get_xpos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1302,7 +1307,7 @@ with the specified background pattern.</p>
 
 <p>Get the horizontal position used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.get_text_color">GES.TitleClip.get_text_color</h2>
+<h3 id="ges.titleclip.get_text_color">GES.TitleClip.get_text_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1312,7 +1317,7 @@ with the specified background pattern.</p>
 
 <p>Get the color used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.set_color">GES.TitleClip.set_color</h2>
+<h3 id="ges.titleclip.set_color">GES.TitleClip.set_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -1324,7 +1329,7 @@ with the specified background pattern.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.titleclip.set_ypos">GES.TitleClip.set_ypos</h2>
+<h3 id="ges.titleclip.set_ypos">GES.TitleClip.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -1336,7 +1341,7 @@ with the specified background pattern.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.titleclip.get_valignment">GES.TitleClip.get_valignment</h2>
+<h3 id="ges.titleclip.get_valignment">GES.TitleClip.get_valignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1346,7 +1351,7 @@ with the specified background pattern.</p>
 
 <p>Get the vertical aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.get_ypos">GES.TitleClip.get_ypos</h2>
+<h3 id="ges.titleclip.get_ypos">GES.TitleClip.get_ypos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1356,7 +1361,7 @@ with the specified background pattern.</p>
 
 <p>Get the vertical position used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.set_background">GES.TitleClip.set_background</h2>
+<h3 id="ges.titleclip.set_background">GES.TitleClip.set_background</h3>
 
 <p><strong>(self, background)</strong></p>
 
@@ -1368,7 +1373,7 @@ with the specified background pattern.</p>
 
 <p>Sets the background of the text.</p>
 
-<h2 id="ges.titleclip.get_background_color">GES.TitleClip.get_background_color</h2>
+<h3 id="ges.titleclip.get_background_color">GES.TitleClip.get_background_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1378,7 +1383,7 @@ with the specified background pattern.</p>
 
 <p>Get the background used by <strong>self</strong>.</p>
 
-<h2 id="ges.titleclip.set_halignment">GES.TitleClip.set_halignment</h2>
+<h3 id="ges.titleclip.set_halignment">GES.TitleClip.set_halignment</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -1390,7 +1395,7 @@ with the specified background pattern.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h2 id="ges.titleclip.set_text">GES.TitleClip.set_text</h2>
+<h3 id="ges.titleclip.set_text">GES.TitleClip.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -1403,23 +1408,23 @@ made.</p>
 
 <p>Sets the text this clip will render.</p>
 
-          <h1 id="ges.baseeffectclip">GES.BaseEffectClip</h1>
+          <h2 id="ges.baseeffectclip">GES.BaseEffectClip</h2>
 
 <p>The effect will be applied on the sources that have lower priorities
 (higher number) between the inpoint and the end of it.</p>
 
-          <h1 id="ges.effectclip">GES.EffectClip</h1>
+          <h2 id="ges.effectclip">GES.EffectClip</h2>
 
 <p>The effect will be applied on the sources that have lower priorities
 (higher number) between the inpoint and the end of it.</p>
 
-          <h1 id="ges.operationclip">GES.OperationClip</h1>
+          <h2 id="ges.operationclip">GES.OperationClip</h2>
 
 <p>Operations are any kind of object that both outputs AND consumes data.</p>
 
-          <h1 id="ges.basetransitionclip">GES.BaseTransitionClip</h1>
+          <h2 id="ges.basetransitionclip">GES.BaseTransitionClip</h2>
 
-          <h1 id="ges.transitionclip">GES.TransitionClip</h1>
+          <h2 id="ges.transitionclip">GES.TransitionClip</h2>
 
 <p>Creates an object that mixes together the two underlying objects, A and B.
 The A object is assumed to have a higher prioirity (lower number) than the
@@ -1434,7 +1439,7 @@ supported.</p>
 that this value can be changed after creation and the GESExtractable.asset value
 will be updated when needed.</p>
 
-          <h1 id="ges.overlayclip">GES.OverlayClip</h1>
+          <h2 id="ges.overlayclip">GES.OverlayClip</h2>
 
 <p>Overlays are objects which modify the underlying layer(s).</p>
 
@@ -1443,11 +1448,11 @@ will be updated when needed.</p>
 <p>Transitions, which change from one source to another over time, are
 not considered overlays.</p>
 
-          <h1 id="ges.textoverlayclip">GES.TextOverlayClip</h1>
+          <h2 id="ges.textoverlayclip">GES.TextOverlayClip</h2>
 
 <p>Renders text onto the next lower priority stream using textrender.</p>
 
-<h2 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h2>
+<h3 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1457,7 +1462,7 @@ not considered overlays.</p>
 
 <p>Get the color used by @source.</p>
 
-<h2 id="ges.textoverlayclip.set_text">GES.TextOverlayClip.set_text</h2>
+<h3 id="ges.textoverlayclip.set_text">GES.TextOverlayClip.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -1470,7 +1475,7 @@ made.</p>
 
 <p>Sets the text this clip will render.</p>
 
-<h2 id="ges.textoverlayclip.get_font_desc">GES.TextOverlayClip.get_font_desc</h2>
+<h3 id="ges.textoverlayclip.get_font_desc">GES.TextOverlayClip.get_font_desc</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1480,7 +1485,7 @@ made.</p>
 
 <p>Get the pango font description used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_text">GES.TextOverlayClip.get_text</h2>
+<h3 id="ges.textoverlayclip.get_text">GES.TextOverlayClip.get_text</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1490,7 +1495,7 @@ made.</p>
 
 <p>Get the text currently set on <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_ypos">GES.TextOverlayClip.get_ypos</h2>
+<h3 id="ges.textoverlayclip.get_ypos">GES.TextOverlayClip.get_ypos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1500,7 +1505,7 @@ made.</p>
 
 <p>Get the vertical position used by @source.</p>
 
-<h2 id="ges.textoverlayclip.get_valignment">GES.TextOverlayClip.get_valignment</h2>
+<h3 id="ges.textoverlayclip.get_valignment">GES.TextOverlayClip.get_valignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1510,7 +1515,7 @@ made.</p>
 
 <p>Get the vertical aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.get_xpos">GES.TextOverlayClip.get_xpos</h2>
+<h3 id="ges.textoverlayclip.get_xpos">GES.TextOverlayClip.get_xpos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1520,7 +1525,7 @@ made.</p>
 
 <p>Get the horizontal position used by @source.</p>
 
-<h2 id="ges.textoverlayclip.get_halignment">GES.TextOverlayClip.get_halignment</h2>
+<h3 id="ges.textoverlayclip.get_halignment">GES.TextOverlayClip.get_halignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1530,7 +1535,7 @@ made.</p>
 
 <p>Get the horizontal aligment used by <strong>self</strong>.</p>
 
-<h2 id="ges.textoverlayclip.set_font_desc">GES.TextOverlayClip.set_font_desc</h2>
+<h3 id="ges.textoverlayclip.set_font_desc">GES.TextOverlayClip.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -1542,7 +1547,7 @@ made.</p>
 
 <p>Sets the pango font description of the text</p>
 
-<h2 id="ges.textoverlayclip.set_color">GES.TextOverlayClip.set_color</h2>
+<h3 id="ges.textoverlayclip.set_color">GES.TextOverlayClip.set_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -1554,7 +1559,7 @@ made.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_halign">GES.TextOverlayClip.set_halign</h2>
+<h3 id="ges.textoverlayclip.set_halign">GES.TextOverlayClip.set_halign</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -1566,7 +1571,7 @@ made.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h2>
+<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -1578,7 +1583,7 @@ made.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h2>
+<h3 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -1590,7 +1595,7 @@ made.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.textoverlayclip.set_xpos">GES.TextOverlayClip.set_xpos</h2>
+<h3 id="ges.textoverlayclip.set_xpos">GES.TextOverlayClip.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -1602,7 +1607,7 @@ made.</p>
 
 <p>Sets the horizontal position of the text.</p>
 
-          <h1 id="ges.group">GES.Group</h1>
+          <h2 id="ges.group">GES.Group</h2>
 
 <p>A <a href="#ges.group">GES.Group</a> is an object which controls one or more
 (FIXME broken link)GESClips in one or more <a href="#ges.layer">GES.Layer</a>(s).</p>
@@ -1612,13 +1617,13 @@ this will be responsible for deciding what subclass of <a href="#ges.container">
 should be instaciated to group the various <a href="#ges.timelineelement">GES.TimelineElement</a> passed
 in parametter.</p>
 
-          <h1 id="ges.track">GES.Track</h1>
+          <h2 id="ges.track">GES.Track</h2>
 
 <p>Corresponds to one output format (i.e. audio OR video).</p>
 
 <p>Contains the compatible TrackElement(s).</p>
 
-<h2 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h2>
+<h3 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h3>
 
 <p><strong>(track, caps)</strong></p>
 
@@ -1636,7 +1641,7 @@ the restriction caps will be updated to video/x-raw, format=RGB, width=360.</p>
 <p>Modification happens for each structure in the new caps, and
 one can add new fields or structures through that function.</p>
 
-<h2 id="ges.track.remove_element">GES.Track.remove_element</h2>
+<h3 id="ges.track.remove_element">GES.Track.remove_element</h3>
 
 <p><strong>(track, object)</strong></p>
 
@@ -1652,7 +1657,7 @@ Unparenting it means the reference owned by <strong>track</strong> on the <stron
 removed. If you wish to use the <strong>object</strong> after this function, make sure you
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>track</strong>.</p>
 
-<h2 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h2>
+<h3 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h3>
 
 <p><strong>(track, func)</strong></p>
 
@@ -1667,7 +1672,7 @@ to create <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstr
 To avoid to provide such a function we advice you to use the
 (FIXME broken link)ges_audio_track_new and (FIXME broken link)ges_video_track_new constructor when possible.</p>
 
-<h2 id="ges.track.commit">GES.Track.commit</h2>
+<h3 id="ges.track.commit">GES.Track.commit</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -1684,7 +1689,7 @@ directly done inside NLE. This method needs to be called so any changes
 on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
-<h2 id="ges.track.get_timeline">GES.Track.get_timeline</h2>
+<h3 id="ges.track.get_timeline">GES.Track.get_timeline</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -1694,7 +1699,7 @@ processing level.</p>
 
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> this track belongs to. Can be <strong>NULL</strong>.</p>
 
-<h2 id="ges.track.set_mixing">GES.Track.set_mixing</h2>
+<h3 id="ges.track.set_mixing">GES.Track.set_mixing</h3>
 
 <p><strong>(track, mixing)</strong></p>
 
@@ -1706,7 +1711,7 @@ processing level.</p>
 
 <p>Sets if the <a href="#ges.track">GES.Track</a> should be mixing.</p>
 
-<h2 id="ges.track.get_caps">GES.Track.get_caps</h2>
+<h3 id="ges.track.get_caps">GES.Track.get_caps</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -1716,7 +1721,7 @@ processing level.</p>
 
 <p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> this track is configured to output.</p>
 
-<h2 id="ges.track.add_element">GES.Track.add_element</h2>
+<h3 id="ges.track.add_element">GES.Track.add_element</h3>
 
 <p><strong>(track, object)</strong></p>
 
@@ -1732,7 +1737,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>An object can only be added to one track.</p>
 
-<h2 id="ges.track.get_elements">GES.Track.get_elements</h2>
+<h3 id="ges.track.get_elements">GES.Track.get_elements</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -1743,7 +1748,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
 
-<h2 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h2>
+<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
 
 <p><strong>(track, caps)</strong></p>
 
@@ -1755,7 +1760,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
 
-<h2 id="ges.track.set_timeline">GES.Track.set_timeline</h2>
+<h3 id="ges.track.set_timeline">GES.Track.set_timeline</h3>
 
 <p><strong>(track, timeline)</strong></p>
 
@@ -1767,7 +1772,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Sets <strong>timeline</strong> as the timeline controlling <strong>track</strong>.</p>
 
-<h2 id="ges.track.get_mixing">GES.Track.get_mixing</h2>
+<h3 id="ges.track.get_mixing">GES.Track.get_mixing</h3>
 
 <p><strong>(track)</strong></p>
 
@@ -1777,7 +1782,7 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Gets if the underlying (FIXME broken link)NleComposition contains an expandable mixer.</p>
 
-          <h1 id="ges.audiotrack">GES.AudioTrack</h1>
+          <h2 id="ges.audiotrack">GES.AudioTrack</h2>
 
 <p>Sane default properties to specify and fixate the output stream are
 set as restriction-caps.
@@ -1793,15 +1798,20 @@ if you actually know what you&rsquo;re doing :)</p>
 - rate: 44100
 - layout: interleaved</p>
 
-          <h1 id="ges.videotrack">GES.VideoTrack</h1>
+          <h2 id="ges.videotrack">GES.VideoTrack</h2>
 
-          <h1 id="ges.pipeline">GES.Pipeline</h1>
+          <h1 id="playback-and-rendering">Playback and Rendering</h1>
+
+<p>GES provides a high-level interface on top of the GstPipeline for
+playing back and rendering timelines.</p>
+
+          <h2 id="ges.pipeline">GES.Pipeline</h2>
 
 <p><a href="#ges.pipeline">GES.Pipeline</a> allows developers to view and render <a href="#ges.timeline">GES.Timeline</a>
 in a simple fashion.
 Its usage is inspired by the &lsquo;playbin&rsquo; element from gst-plugins-base.</p>
 
-<h2 id="ges.pipeline.get_thumbnail_rgb24">GES.Pipeline.get_thumbnail_rgb24</h2>
+<h3 id="ges.pipeline.get_thumbnail_rgb24">GES.Pipeline.get_thumbnail_rgb24</h3>
 
 <p><strong>(self, width, height)</strong></p>
 
@@ -1822,7 +1832,7 @@ with the buffer.</p>
 <p>The caller is responsible for unreffing the returned sample with
 (FIXME broken link)gst_sample_unref.</p>
 
-<h2 id="ges.pipeline.save_thumbnail">GES.Pipeline.save_thumbnail</h2>
+<h3 id="ges.pipeline.save_thumbnail">GES.Pipeline.save_thumbnail</h3>
 
 <p><strong>(self, width, height, format, location)</strong></p>
 
@@ -1841,7 +1851,7 @@ image/jpeg)</p>
 
 <p>Saves the current frame to the specified <strong>location</strong>.</p>
 
-<h2 id="ges.pipeline.set_render_settings">GES.Pipeline.set_render_settings</h2>
+<h3 id="ges.pipeline.set_render_settings">GES.Pipeline.set_render_settings</h3>
 
 <p><strong>(pipeline, output_uri, profile)</strong></p>
 
@@ -1861,7 +1871,7 @@ safely free those values afterwards.</p>
 <p>This method must be called before setting the pipeline mode to
 (FIXME broken link)GES_PIPELINE_MODE_RENDER</p>
 
-<h2 id="ges.pipeline.preview_get_audio_sink">GES.Pipeline.preview_get_audio_sink</h2>
+<h3 id="ges.pipeline.preview_get_audio_sink">GES.Pipeline.preview_get_audio_sink</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1875,7 +1885,7 @@ displaying audio when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 <p>The caller is responsible for unreffing the returned element with
 (FIXME broken link)gst_object_unref.</p>
 
-<h2 id="ges.pipeline.preview_set_video_sink">GES.Pipeline.preview_set_video_sink</h2>
+<h3 id="ges.pipeline.preview_set_video_sink">GES.Pipeline.preview_set_video_sink</h3>
 
 <p><strong>(self, sink)</strong></p>
 
@@ -1888,7 +1898,7 @@ displaying audio when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 <p>Sets playsink&rsquo;s video sink element that is used for displaying video when
 the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
 
-<h2 id="ges.pipeline.get_thumbnail">GES.Pipeline.get_thumbnail</h2>
+<h3 id="ges.pipeline.get_thumbnail">GES.Pipeline.get_thumbnail</h3>
 
 <p><strong>(self, caps)</strong></p>
 
@@ -1905,7 +1915,7 @@ caps are specified, the information will be returned in the whatever format
 is currently used by the sink. This information can be retrieve from caps
 associated with the buffer.</p>
 
-<h2 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h2>
+<h3 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h3>
 
 <p><strong>(self, sink)</strong></p>
 
@@ -1918,7 +1928,7 @@ associated with the buffer.</p>
 <p>Sets playsink&rsquo;s audio sink element that is used for displaying audio when
 the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href="#ges.pipelineflags">GES.PipelineFlags</a>.full_preview</p>
 
-<h2 id="ges.pipeline.set_timeline">GES.Pipeline.set_timeline</h2>
+<h3 id="ges.pipeline.set_timeline">GES.Pipeline.set_timeline</h3>
 
 <p><strong>(pipeline, timeline)</strong></p>
 
@@ -1933,7 +1943,7 @@ else FALSE.</p>
 
 <p>The reference to the <strong>timeline</strong> will be stolen by the <strong>pipeline</strong>.</p>
 
-<h2 id="ges.pipeline.set_mode">GES.Pipeline.set_mode</h2>
+<h3 id="ges.pipeline.set_mode">GES.Pipeline.set_mode</h3>
 
 <p><strong>(pipeline, mode)</strong></p>
 
@@ -1950,7 +1960,7 @@ creating a <a href="#ges.pipeline">GES.Pipeline</a> is (FIXME broken link)GES_PI
 the internal changes that happen. The caller will therefore have to
 set the <strong>pipeline</strong> to the requested state after calling this method.</p>
 
-<h2 id="ges.pipeline.get_mode">GES.Pipeline.get_mode</h2>
+<h3 id="ges.pipeline.get_mode">GES.Pipeline.get_mode</h3>
 
 <p><strong>(pipeline)</strong></p>
 
@@ -1958,7 +1968,7 @@ set the <strong>pipeline</strong> to the requested state after calling this meth
 
 <p><em>Returns</em>: the <a href="#ges.pipelineflags">GES.PipelineFlags</a> currently in use.</p>
 
-<h2 id="ges.pipeline.preview_get_video_sink">GES.Pipeline.preview_get_video_sink</h2>
+<h3 id="ges.pipeline.preview_get_video_sink">GES.Pipeline.preview_get_video_sink</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -1972,7 +1982,17 @@ displaying video when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 <p>The caller is responsible for unreffing the returned element with
 (FIXME broken link)gst_object_unref.</p>
 
-          <h1 id="ges.trackelement">GES.TrackElement</h1>
+          <h1 id="advanced-usage">Advanced Usage</h1>
+
+<p>Now that we&rsquo;ve got the basis covered, let&rsquo;s look at GES&rsquo; lower-level API,
+and the project management facilities it offers.</p>
+
+          <h1 id="low-level-api">Low Level API</h1>
+
+<p>These classes and methods allow curious developers to mess with GStreamer
+directly, for example to add new types of sources or operations.</p>
+
+          <h2 id="ges.trackelement">GES.TrackElement</h2>
 
 <p><a href="#ges.trackelement">GES.TrackElement</a> is the Base Class for any object that can be contained in a
 <a href="#ges.track">GES.Track</a>.</p>
@@ -1981,7 +2001,7 @@ displaying video when the <a href="#ges.pipeline">GES.Pipeline</a> is in <a href
 its container, like the start position, the inpoint, the duration and the
 priority.</p>
 
-<h2 id="ges.trackelement.set_track_type">GES.TrackElement.set_track_type</h2>
+<h3 id="ges.trackelement.set_track_type">GES.TrackElement.set_track_type</h3>
 
 <p><strong>(object, type)</strong></p>
 
@@ -1989,7 +2009,7 @@ priority.</p>
 <em>type</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.trackelement.get_control_binding">GES.TrackElement.get_control_binding</h2>
+<h3 id="ges.trackelement.get_control_binding">GES.TrackElement.get_control_binding</h3>
 
 <p><strong>(object, property_name)</strong></p>
 
@@ -2003,7 +2023,7 @@ if that property is not controlled.</p>
 <p>Looks up the various controlled properties for that <a href="#ges.trackelement">GES.TrackElement</a>,
 and returns the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstControlBinding.html">Gst.ControlBinding</a> which controls <strong>property_name</strong>.</p>
 
-<h2 id="ges.trackelement.list_children_properties">GES.TrackElement.list_children_properties</h2>
+<h3 id="ges.trackelement.list_children_properties">GES.TrackElement.list_children_properties</h3>
 
 <p><strong>(object, n_properties)</strong></p>
 
@@ -2017,7 +2037,7 @@ and returns the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/hea
 <p>Gets an array of <a href="https://developer.gnome.org/gobject/unstable//gobject-GParamSpec.html#GParamSpec">GObject.ParamSpec</a>* for all configurable properties of the
 children of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.edit">GES.TrackElement.edit</h2>
+<h3 id="ges.trackelement.edit">GES.TrackElement.edit</h3>
 
 <p><strong>(object, layers, mode, edge, position)</strong></p>
 
@@ -2040,7 +2060,7 @@ occured</p>
 <p>Edit <strong>object</strong> in the different exisiting <a href="#ges.editmode">GES.EditMode</a> modes. In the case of
 slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 
-<h2 id="ges.trackelement.set_child_property">GES.TrackElement.set_child_property</h2>
+<h3 id="ges.trackelement.set_child_property">GES.TrackElement.set_child_property</h3>
 
 <p><strong>(object, property_name, value)</strong></p>
 
@@ -2058,14 +2078,14 @@ slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 intended for language bindings, (FIXME broken link)ges_track_element_set_child_properties
 is much more convenient for C programming.</p>
 
-<h2 id="ges.trackelement.get_track_type">GES.TrackElement.get_track_type</h2>
+<h3 id="ges.trackelement.get_track_type">GES.TrackElement.get_track_type</h3>
 
 <p><strong>(object)</strong></p>
 
 <p><em>object</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.trackelement.set_child_properties">GES.TrackElement.set_child_properties</h2>
+<h3 id="ges.trackelement.set_child_properties">GES.TrackElement.set_child_properties</h3>
 
 <p><strong>(object, first_property_name, &hellip;)</strong></p>
 
@@ -2083,7 +2103,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &lsquo;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.get_all_control_bindings">GES.TrackElement.get_all_control_bindings</h2>
+<h3 id="ges.trackelement.get_all_control_bindings">GES.TrackElement.get_all_control_bindings</h3>
 
 <p><strong>(trackelement)</strong></p>
 
@@ -2092,7 +2112,7 @@ corresponding property of the first element found will be set.</p>
 <p><em>Returns</em>: A
 <a href="https://developer.gnome.org/glib/unstable//glib-Hash-Tables.html#GHashTable">GLib.HashTable</a> containing all property_name: GstControlBinding</p>
 
-<h2 id="ges.trackelement.is_active">GES.TrackElement.is_active</h2>
+<h3 id="ges.trackelement.is_active">GES.TrackElement.is_active</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -2103,7 +2123,7 @@ corresponding property of the first element found will be set.</p>
 <p>Lets you know if <strong>object</strong> will be used for playback and rendering,
 or not.</p>
 
-<h2 id="ges.trackelement.set_child_property_valist">GES.TrackElement.set_child_property_valist</h2>
+<h3 id="ges.trackelement.set_child_property_valist">GES.TrackElement.set_child_property_valist</h3>
 
 <p><strong>(object, first_property_name, var_args)</strong></p>
 
@@ -2121,7 +2141,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.lookup_child">GES.TrackElement.lookup_child</h2>
+<h3 id="ges.trackelement.lookup_child">GES.TrackElement.lookup_child</h3>
 
 <p><strong>(object, prop_name, element, pspec)</strong></p>
 
@@ -2147,7 +2167,7 @@ usage.</p>
 contained elements have this property name you will get the first one, unless you
 specify the class name in @name.</p>
 
-<h2 id="ges.trackelement.set_control_source">GES.TrackElement.set_control_source</h2>
+<h3 id="ges.trackelement.set_control_source">GES.TrackElement.set_control_source</h3>
 
 <p><strong>(object, source, property_name, binding_type)</strong></p>
 
@@ -2166,7 +2186,7 @@ occured</p>
 property. Use the same syntax as (FIXME broken link)ges_track_element_lookup_child for
 the property name.</p>
 
-<h2 id="ges.trackelement.set_child_property_by_pspec">GES.TrackElement.set_child_property_by_pspec</h2>
+<h3 id="ges.trackelement.set_child_property_by_pspec">GES.TrackElement.set_child_property_by_pspec</h3>
 
 <p><strong>(object, pspec, value)</strong></p>
 
@@ -2180,7 +2200,7 @@ the property name.</p>
 
 <p>Sets a property of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.get_child_property">GES.TrackElement.get_child_property</h2>
+<h3 id="ges.trackelement.get_child_property">GES.TrackElement.get_child_property</h3>
 
 <p><strong>(object, property_name, value)</strong></p>
 
@@ -2203,7 +2223,7 @@ the caller is responsible for freeing the memory by calling
 intended for language bindings, (FIXME broken link)ges_track_element_get_child_properties
 is much more convenient for C programming.</p>
 
-<h2 id="ges.trackelement.get_element">GES.TrackElement.get_element</h2>
+<h3 id="ges.trackelement.get_element">GES.TrackElement.get_element</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -2214,7 +2234,7 @@ within GNonLin.</p>
 
 <p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> this track element is controlling within GNonLin.</p>
 
-<h2 id="ges.trackelement.get_child_property_valist">GES.TrackElement.get_child_property_valist</h2>
+<h3 id="ges.trackelement.get_child_property_valist">GES.TrackElement.get_child_property_valist</h3>
 
 <p><strong>(object, first_property_name, var_args)</strong></p>
 
@@ -2232,7 +2252,7 @@ that have the same property name, you can distinguish them using the following
 syntax: &#39;ClasseName::property_name&rsquo; as property name. If you don&rsquo;t, the
 corresponding property of the first element found will be set.</p>
 
-<h2 id="ges.trackelement.get_track">GES.TrackElement.get_track</h2>
+<h3 id="ges.trackelement.get_track">GES.TrackElement.get_track</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -2243,7 +2263,7 @@ is not in any track</p>
 
 <p>Get the <a href="#ges.track">GES.Track</a> to which this object belongs.</p>
 
-<h2 id="ges.trackelement.get_child_property_by_pspec">GES.TrackElement.get_child_property_by_pspec</h2>
+<h3 id="ges.trackelement.get_child_property_by_pspec">GES.TrackElement.get_child_property_by_pspec</h3>
 
 <p><strong>(object, pspec, value)</strong></p>
 
@@ -2257,7 +2277,7 @@ is not in any track</p>
 
 <p>Gets a property of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.get_child_properties">GES.TrackElement.get_child_properties</h2>
+<h3 id="ges.trackelement.get_child_properties">GES.TrackElement.get_child_properties</h3>
 
 <p><strong>(object, first_property_name, &hellip;)</strong></p>
 
@@ -2272,7 +2292,7 @@ name/return location pairs, followed by NULL</p>
 
 <p>Gets properties of a child of <strong>object</strong>.</p>
 
-<h2 id="ges.trackelement.add_children_props">GES.TrackElement.add_children_props</h2>
+<h3 id="ges.trackelement.add_children_props">GES.TrackElement.add_children_props</h3>
 
 <p><strong>(self, element, wanted_categories, blacklist, whitelist)</strong></p>
 
@@ -2297,7 +2317,7 @@ them to the hashtable of children properties.</p>
 
 <p>To be used by subclasses only</p>
 
-<h2 id="ges.trackelement.get_nleobject">GES.TrackElement.get_nleobject</h2>
+<h3 id="ges.trackelement.get_nleobject">GES.TrackElement.get_nleobject</h3>
 
 <p><strong>(object)</strong></p>
 
@@ -2307,7 +2327,7 @@ them to the hashtable of children properties.</p>
 
 <p>Get the GNonLin object this object is controlling.</p>
 
-<h2 id="ges.trackelement.set_active">GES.TrackElement.set_active</h2>
+<h3 id="ges.trackelement.set_active">GES.TrackElement.set_active</h3>
 
 <p><strong>(object, active)</strong></p>
 
@@ -2320,11 +2340,11 @@ them to the hashtable of children properties.</p>
 <p>Sets the usage of the <strong>object</strong>. If <strong>active</strong> is <strong>TRUE</strong>, the object will be used for
 playback and rendering, else it will be ignored.</p>
 
-          <h1 id="ges.source">GES.Source</h1>
+          <h2 id="ges.source">GES.Source</h2>
 
 <p>Base class for single-media sources</p>
 
-          <h1 id="ges.audiosource">GES.AudioSource</h1>
+          <h2 id="ges.audiosource">GES.AudioSource</h2>
 
 <p><refsect1 id="GESVideoSource.children_properties" role="properties">
 <title role="children_properties.title">Children Properties</title>
@@ -2351,13 +2371,13 @@ playback and rendering, else it will be ignored.</p>
 </informaltable>
 </refsect1></p>
 
-          <h1 id="ges.audiotestsource">GES.AudioTestSource</h1>
+          <h2 id="ges.audiotestsource">GES.AudioTestSource</h2>
 
 <p>Outputs a test audio stream using audiotestsrc. The default property values
 output silence. Useful for testing pipelines, or to fill gaps in an audio
 track.</p>
 
-<h2 id="ges.audiotestsource.set_volume">GES.AudioTestSource.set_volume</h2>
+<h3 id="ges.audiotestsource.set_volume">GES.AudioTestSource.set_volume</h3>
 
 <p><strong>(self, volume)</strong></p>
 
@@ -2369,7 +2389,7 @@ track.</p>
 
 <p>Sets the volume of the test audio signal.</p>
 
-<h2 id="ges.audiotestsource.set_freq">GES.AudioTestSource.set_freq</h2>
+<h3 id="ges.audiotestsource.set_freq">GES.AudioTestSource.set_freq</h3>
 
 <p><strong>(self, freq)</strong></p>
 
@@ -2381,7 +2401,7 @@ track.</p>
 
 <p>Lets you set the frequency applied on the track element</p>
 
-<h2 id="ges.audiotestsource.get_volume">GES.AudioTestSource.get_volume</h2>
+<h3 id="ges.audiotestsource.get_volume">GES.AudioTestSource.get_volume</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2391,7 +2411,7 @@ track.</p>
 
 <p>Get the current volume of <strong>self</strong>.</p>
 
-<h2 id="ges.audiotestsource.get_freq">GES.AudioTestSource.get_freq</h2>
+<h3 id="ges.audiotestsource.get_freq">GES.AudioTestSource.get_freq</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2401,9 +2421,9 @@ track.</p>
 
 <p>Get the current frequency of <strong>self</strong>.</p>
 
-          <h1 id="ges.audiourisource">GES.AudioUriSource</h1>
+          <h2 id="ges.audiourisource">GES.AudioUriSource</h2>
 
-          <h1 id="ges.videosource">GES.VideoSource</h1>
+          <h2 id="ges.videosource">GES.VideoSource</h2>
 
 <p><refsect1 id="GESVideoSource.children_properties" role="properties">
 <title role="children_properties.title">Children Properties</title>
@@ -2450,9 +2470,9 @@ track.</p>
 </informaltable>
 </refsect1></p>
 
-          <h1 id="ges.videotestsource">GES.VideoTestSource</h1>
+          <h2 id="ges.videotestsource">GES.VideoTestSource</h2>
 
-<h2 id="ges.videotestsource.set_pattern">GES.VideoTestSource.set_pattern</h2>
+<h3 id="ges.videotestsource.set_pattern">GES.VideoTestSource.set_pattern</h3>
 
 <p><strong>(self, pattern)</strong></p>
 
@@ -2464,7 +2484,7 @@ track.</p>
 
 <p>Sets the source to use the given <strong>pattern</strong>.</p>
 
-<h2 id="ges.videotestsource.get_pattern">GES.VideoTestSource.get_pattern</h2>
+<h3 id="ges.videotestsource.get_pattern">GES.VideoTestSource.get_pattern</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2474,15 +2494,15 @@ track.</p>
 
 <p>Get the video pattern used by the <strong>source</strong>.</p>
 
-          <h1 id="ges.videourisource">GES.VideoUriSource</h1>
+          <h2 id="ges.videourisource">GES.VideoUriSource</h2>
 
-          <h1 id="ges.imagesource">GES.ImageSource</h1>
+          <h2 id="ges.imagesource">GES.ImageSource</h2>
 
 <p>Outputs the video stream from a given file as a still frame. The frame
 chosen will be determined by the in-point property on the track element. For
 image files, do not set the in-point property.</p>
 
-          <h1 id="ges.titlesource">GES.TitleSource</h1>
+          <h2 id="ges.titlesource">GES.TitleSource</h2>
 
 <p><a href="#ges.titlesource">GES.TitleSource</a> is a GESTimelineElement that implements the notion
 of titles in GES.</p>
@@ -2549,7 +2569,7 @@ of titles in GES.</p>
 </informaltable>
 </refsect1></p>
 
-<h2 id="ges.titlesource.get_text">GES.TitleSource.get_text</h2>
+<h3 id="ges.titlesource.get_text">GES.TitleSource.get_text</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2559,7 +2579,7 @@ of titles in GES.</p>
 
 <p>Get the text currently set on the <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_ypos">GES.TitleSource.get_ypos</h2>
+<h3 id="ges.titlesource.get_ypos">GES.TitleSource.get_ypos</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2569,7 +2589,7 @@ of titles in GES.</p>
 
 <p>Get the vertical position used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_font_desc">GES.TitleSource.set_font_desc</h2>
+<h3 id="ges.titlesource.set_font_desc">GES.TitleSource.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -2582,7 +2602,7 @@ of titles in GES.</p>
 <p>Set the pango font description this source will use to render
 the text.</p>
 
-<h2 id="ges.titlesource.get_halignment">GES.TitleSource.get_halignment</h2>
+<h3 id="ges.titlesource.get_halignment">GES.TitleSource.get_halignment</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2592,7 +2612,7 @@ the text.</p>
 
 <p>Get the horizontal aligment used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_xpos">GES.TitleSource.set_xpos</h2>
+<h3 id="ges.titlesource.set_xpos">GES.TitleSource.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -2604,7 +2624,7 @@ the text.</p>
 
 <p>Sets the horizontal position of the text.</p>
 
-<h2 id="ges.titlesource.set_halignment">GES.TitleSource.set_halignment</h2>
+<h3 id="ges.titlesource.set_halignment">GES.TitleSource.set_halignment</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -2616,7 +2636,7 @@ the text.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.titlesource.set_ypos">GES.TitleSource.set_ypos</h2>
+<h3 id="ges.titlesource.set_ypos">GES.TitleSource.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -2628,7 +2648,7 @@ the text.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.titlesource.set_text">GES.TitleSource.set_text</h2>
+<h3 id="ges.titlesource.set_text">GES.TitleSource.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -2641,7 +2661,7 @@ made.</p>
 
 <p>Sets the text this track element will render.</p>
 
-<h2 id="ges.titlesource.get_background_color">GES.TitleSource.get_background_color</h2>
+<h3 id="ges.titlesource.get_background_color">GES.TitleSource.get_background_color</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2651,7 +2671,7 @@ made.</p>
 
 <p>Get the background used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_valignment">GES.TitleSource.set_valignment</h2>
+<h3 id="ges.titlesource.set_valignment">GES.TitleSource.set_valignment</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -2663,7 +2683,7 @@ made.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.titlesource.set_background_color">GES.TitleSource.set_background_color</h2>
+<h3 id="ges.titlesource.set_background_color">GES.TitleSource.set_background_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -2675,7 +2695,7 @@ made.</p>
 
 <p>Sets the color of the background</p>
 
-<h2 id="ges.titlesource.get_valignment">GES.TitleSource.get_valignment</h2>
+<h3 id="ges.titlesource.get_valignment">GES.TitleSource.get_valignment</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2685,7 +2705,7 @@ made.</p>
 
 <p>Get the vertical aligment used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_text_color">GES.TitleSource.get_text_color</h2>
+<h3 id="ges.titlesource.get_text_color">GES.TitleSource.get_text_color</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2695,7 +2715,7 @@ made.</p>
 
 <p>Get the color used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.set_text_color">GES.TitleSource.set_text_color</h2>
+<h3 id="ges.titlesource.set_text_color">GES.TitleSource.set_text_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -2707,7 +2727,7 @@ made.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.titlesource.get_xpos">GES.TitleSource.get_xpos</h2>
+<h3 id="ges.titlesource.get_xpos">GES.TitleSource.get_xpos</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2717,7 +2737,7 @@ made.</p>
 
 <p>Get the horizontal position used by <strong>source</strong>.</p>
 
-<h2 id="ges.titlesource.get_font_desc">GES.TitleSource.get_font_desc</h2>
+<h3 id="ges.titlesource.get_font_desc">GES.TitleSource.get_font_desc</h3>
 
 <p><strong>(source)</strong></p>
 
@@ -2728,22 +2748,22 @@ made.</p>
 
 <p>Get the pango font description used by <strong>source</strong>.</p>
 
-          <h1 id="ges.multifilesource">GES.MultiFileSource</h1>
+          <h2 id="ges.multifilesource">GES.MultiFileSource</h2>
 
 <p>Outputs the video stream from a given image sequence. The start frame
 chosen will be determined by the in-point property on the track element.</p>
 
-          <h1 id="ges.operation">GES.Operation</h1>
+          <h2 id="ges.operation">GES.Operation</h2>
 
 <p>Base class for overlays, transitions, and effects</p>
 
-          <h1 id="ges.baseeffect">GES.BaseEffect</h1>
+          <h2 id="ges.baseeffect">GES.BaseEffect</h2>
 
-          <h1 id="ges.effect">GES.Effect</h1>
+          <h2 id="ges.effect">GES.Effect</h2>
 
-          <h1 id="ges.textoverlay">GES.TextOverlay</h1>
+          <h2 id="ges.textoverlay">GES.TextOverlay</h2>
 
-<h2 id="ges.textoverlay.get_xpos">GES.TextOverlay.get_xpos</h2>
+<h3 id="ges.textoverlay.get_xpos">GES.TextOverlay.get_xpos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2753,7 +2773,7 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Get the horizontal position used by @source.</p>
 
-<h2 id="ges.textoverlay.get_valignment">GES.TextOverlay.get_valignment</h2>
+<h3 id="ges.textoverlay.get_valignment">GES.TextOverlay.get_valignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2763,7 +2783,7 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Get the vertical aligment used by @source.</p>
 
-<h2 id="ges.textoverlay.get_color">GES.TextOverlay.get_color</h2>
+<h3 id="ges.textoverlay.get_color">GES.TextOverlay.get_color</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2773,7 +2793,7 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Get the color used by @source.</p>
 
-<h2 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h2>
+<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
 
 <p><strong>(self, color)</strong></p>
 
@@ -2785,7 +2805,7 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Sets the color of the text.</p>
 
-<h2 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h2>
+<h3 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -2797,7 +2817,7 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Sets the horizontal position of the text.</p>
 
-<h2 id="ges.textoverlay.set_text">GES.TextOverlay.set_text</h2>
+<h3 id="ges.textoverlay.set_text">GES.TextOverlay.set_text</h3>
 
 <p><strong>(self, text)</strong></p>
 
@@ -2810,7 +2830,7 @@ made.</p>
 
 <p>Sets the text this track element will render.</p>
 
-<h2 id="ges.textoverlay.get_ypos">GES.TextOverlay.get_ypos</h2>
+<h3 id="ges.textoverlay.get_ypos">GES.TextOverlay.get_ypos</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2820,7 +2840,7 @@ made.</p>
 
 <p>Get the vertical position used by @source.</p>
 
-<h2 id="ges.textoverlay.set_ypos">GES.TextOverlay.set_ypos</h2>
+<h3 id="ges.textoverlay.set_ypos">GES.TextOverlay.set_ypos</h3>
 
 <p><strong>(self, position)</strong></p>
 
@@ -2832,7 +2852,7 @@ made.</p>
 
 <p>Sets the vertical position of the text.</p>
 
-<h2 id="ges.textoverlay.get_font_desc">GES.TextOverlay.get_font_desc</h2>
+<h3 id="ges.textoverlay.get_font_desc">GES.TextOverlay.get_font_desc</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2842,7 +2862,7 @@ made.</p>
 
 <p>Get the pango font description currently set on @source.</p>
 
-<h2 id="ges.textoverlay.get_halignment">GES.TextOverlay.get_halignment</h2>
+<h3 id="ges.textoverlay.get_halignment">GES.TextOverlay.get_halignment</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2852,7 +2872,7 @@ made.</p>
 
 <p>Get the horizontal aligment used by @source.</p>
 
-<h2 id="ges.textoverlay.set_halignment">GES.TextOverlay.set_halignment</h2>
+<h3 id="ges.textoverlay.set_halignment">GES.TextOverlay.set_halignment</h3>
 
 <p><strong>(self, halign)</strong></p>
 
@@ -2865,7 +2885,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h2 id="ges.textoverlay.set_valignment">GES.TextOverlay.set_valignment</h2>
+<h3 id="ges.textoverlay.set_valignment">GES.TextOverlay.set_valignment</h3>
 
 <p><strong>(self, valign)</strong></p>
 
@@ -2878,7 +2898,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
-<h2 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h2>
+<h3 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2888,7 +2908,7 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Get the text currently set on @source.</p>
 
-<h2 id="ges.textoverlay.set_font_desc">GES.TextOverlay.set_font_desc</h2>
+<h3 id="ges.textoverlay.set_font_desc">GES.TextOverlay.set_font_desc</h3>
 
 <p><strong>(self, font_desc)</strong></p>
 
@@ -2901,15 +2921,15 @@ of the text render by <strong>self</strong>.</p>
 <p>Sets the pango font description of the text this track element
 will render.</p>
 
-          <h1 id="ges.transition">GES.Transition</h1>
+          <h2 id="ges.transition">GES.Transition</h2>
 
 <p>Base class for media transitions.</p>
 
-          <h1 id="ges.audiotransition">GES.AudioTransition</h1>
+          <h2 id="ges.audiotransition">GES.AudioTransition</h2>
 
-          <h1 id="ges.videotransition">GES.VideoTransition</h1>
+          <h2 id="ges.videotransition">GES.VideoTransition</h2>
 
-<h2 id="ges.videotransition.set_border">GES.VideoTransition.set_border</h2>
+<h3 id="ges.videotransition.set_border">GES.VideoTransition.set_border</h3>
 
 <p><strong>(self, value)</strong></p>
 
@@ -2924,7 +2944,7 @@ the border width of the transition. In case this value does
 not make sense for the current transition type, it is cached
 for later use.</p>
 
-<h2 id="ges.videotransition.is_inverted">GES.VideoTransition.is_inverted</h2>
+<h3 id="ges.videotransition.is_inverted">GES.VideoTransition.is_inverted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2935,7 +2955,7 @@ for later use.</p>
 <p>Get the invert property of <strong>self</strong>, this value represents
 the direction of the transition.</p>
 
-<h2 id="ges.videotransition.set_transition_type">GES.VideoTransition.set_transition_type</h2>
+<h3 id="ges.videotransition.set_transition_type">GES.VideoTransition.set_transition_type</h3>
 
 <p><strong>(self, type)</strong></p>
 
@@ -2947,7 +2967,7 @@ the direction of the transition.</p>
 
 <p>Sets the transition being used to <strong>type</strong>.</p>
 
-<h2 id="ges.videotransition.get_border">GES.VideoTransition.get_border</h2>
+<h3 id="ges.videotransition.get_border">GES.VideoTransition.get_border</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -2959,7 +2979,7 @@ the direction of the transition.</p>
 <p>Get the border property of <strong>self</strong>, this value represents
 the border width of the transition.</p>
 
-<h2 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h2>
+<h3 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h3>
 
 <p><strong>(self, inverted)</strong></p>
 
@@ -2974,7 +2994,7 @@ the direction of the transition. In case this value does
 not make sense for the current transition type, it is cached
 for later use.</p>
 
-<h2 id="ges.videotransition.get_transition_type">GES.VideoTransition.get_transition_type</h2>
+<h3 id="ges.videotransition.get_transition_type">GES.VideoTransition.get_transition_type</h3>
 
 <p><strong>(trans)</strong></p>
 
@@ -2984,11 +3004,16 @@ for later use.</p>
 
 <p>Get the transition type used by <strong>trans</strong>.</p>
 
-          <h1 id="ges.extractableinterface">GES.ExtractableInterface</h1>
+          <h1 id="project-management">Project Management</h1>
 
-          <h1 id="ges.metacontainerinterface">GES.MetaContainerInterface</h1>
+<p>These various classes and methods will handle complex scenarios such as asset management or
+filters listing for you.</p>
 
-          <h1 id="ges.asset">GES.Asset</h1>
+          <h2 id="ges.extractableinterface">GES.ExtractableInterface</h2>
+
+          <h2 id="ges.metacontainerinterface">GES.MetaContainerInterface</h2>
+
+          <h2 id="ges.asset">GES.Asset</h2>
 
 <p>The Assets in the GStreamer Editing Services represent the resources
 that can be used. You can create assets for any type that implements the <a href="#ges.extractable">GES.Extractable</a>
@@ -3048,7 +3073,7 @@ and standard effects (actually not implemented yet) and you can simply query tho
 (FIXME broken link)ges_asset_request_async. All the (FIXME broken link)GESAssets are cached and thus any asset that has already
 been created can be requested again without overhead.</p>
 
-<h2 id="ges.asset.request_finish">GES.Asset.request_finish</h2>
+<h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>
 
 <p><strong>(res)</strong></p>
 
@@ -3058,7 +3083,7 @@ been created can be requested again without overhead.</p>
 
 <p>Finalize the request of an async <a href="#ges.asset">GES.Asset</a></p>
 
-<h2 id="ges.asset.get_id">GES.Asset.get_id</h2>
+<h3 id="ges.asset.get_id">GES.Asset.get_id</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3068,7 +3093,7 @@ been created can be requested again without overhead.</p>
 
 <p>Gets the ID of a <a href="#ges.asset">GES.Asset</a></p>
 
-<h2 id="ges.asset.request">GES.Asset.request</h2>
+<h3 id="ges.asset.request">GES.Asset.request</h3>
 
 <p><strong>(extractable_type, id)</strong></p>
 
@@ -3085,7 +3110,7 @@ documentation to see if that constructor can be called for this particular type<
 it will not work with this method, but you can instead use the specific
 (FIXME broken link)ges_uri_clip_asset_request_sync method if you really want to.</p>
 
-<h2 id="ges.asset.extract">GES.Asset.extract</h2>
+<h3 id="ges.asset.extract">GES.Asset.extract</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3098,7 +3123,7 @@ defined by the extractable-type of @asset, you can check what
 type will be extracted from @asset using
 (FIXME broken link)ges_asset_get_extractable_type</p>
 
-<h2 id="ges.asset.request_async">GES.Asset.request_async</h2>
+<h3 id="ges.asset.request_async">GES.Asset.request_async</h3>
 
 <p><strong>(extractable_type, id, cancellable, callback, user_data)</strong></p>
 
@@ -3151,7 +3176,7 @@ ready to be used or if an error occured.</p>
 
 </code></pre>
 
-<h2 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h2>
+<h3 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3161,13 +3186,13 @@ ready to be used or if an error occured.</p>
 
 <p>Gets the type of object that can be extracted from <strong>self</strong></p>
 
-          <h1 id="ges.clipasset">GES.ClipAsset</h1>
+          <h2 id="ges.clipasset">GES.ClipAsset</h2>
 
 <p>The <a href="#ges.uriclipasset">GES.UriClipAsset</a> is a special <a href="#ges.asset">GES.Asset</a> specilized in <a href="#ges.clip">GES.Clip</a>.
 it is mostly used to get information about the <a href="#ges.tracktype">GES.TrackType</a>-s the objects extracted
 from it can potentialy create <a href="#ges.trackelement">GES.TrackElement</a> for.</p>
 
-<h2 id="ges.clipasset.get_supported_formats">GES.ClipAsset.get_supported_formats</h2>
+<h3 id="ges.clipasset.get_supported_formats">GES.ClipAsset.get_supported_formats</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3178,7 +3203,7 @@ a layer</p>
 
 <p>Gets track types for which objects extracted from <strong>self</strong> can create <a href="#ges.trackelement">GES.TrackElement</a></p>
 
-<h2 id="ges.clipasset.set_supported_formats">GES.ClipAsset.set_supported_formats</h2>
+<h3 id="ges.clipasset.set_supported_formats">GES.ClipAsset.set_supported_formats</h3>
 
 <p><strong>(self, supportedformats)</strong></p>
 
@@ -3190,14 +3215,14 @@ a layer</p>
 
 <p>Sets track types for which objects extracted from <strong>self</strong> can create <a href="#ges.trackelement">GES.TrackElement</a></p>
 
-          <h1 id="ges.uriclipasset">GES.UriClipAsset</h1>
+          <h2 id="ges.uriclipasset">GES.UriClipAsset</h2>
 
 <p>The <a href="#ges.uriclipasset">GES.UriClipAsset</a> is a special <a href="#ges.asset">GES.Asset</a> that lets you handle
 the media file to use inside the GStreamer Editing Services. It has APIs that
 let you get information about the medias. Also, the tags found in the media file are
 set as Metadatas of the Asser.</p>
 
-<h2 id="ges.uriclipasset.get_stream_assets">GES.UriClipAsset.get_stream_assets</h2>
+<h3 id="ges.uriclipasset.get_stream_assets">GES.UriClipAsset.get_stream_assets</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3208,7 +3233,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Get the GESUriSourceAsset <strong>self</strong> containes</p>
 
-<h2 id="ges.uriclipasset.new">GES.UriClipAsset.new</h2>
+<h3 id="ges.uriclipasset.new">GES.UriClipAsset.new</h3>
 
 <p><strong>(uri, cancellable, callback, user_data)</strong></p>
 
@@ -3251,7 +3276,7 @@ set as Metadatas of the Asser.</p>
 
 </code></pre>
 
-<h2 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h2>
+<h3 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3261,7 +3286,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Gets <a href="FIXME%20broken%20link%20to%20DiscovererInfo">GstPbutils.DiscovererInfo</a> about the file</p>
 
-<h2 id="ges.uriclipasset.get_duration">GES.UriClipAsset.get_duration</h2>
+<h3 id="ges.uriclipasset.get_duration">GES.UriClipAsset.get_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3271,7 +3296,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Gets duration of the file represented by <strong>self</strong></p>
 
-<h2 id="ges.uriclipasset.request_sync">GES.UriClipAsset.request_sync</h2>
+<h3 id="ges.uriclipasset.request_sync">GES.UriClipAsset.request_sync</h3>
 
 <p><strong>(uri)</strong></p>
 
@@ -3283,7 +3308,7 @@ You can also use multi file uris for <a href="#ges.multifilesource">GES.MultiFil
 <p>Creates a <a href="#ges.uriclipasset">GES.UriClipAsset</a> for <strong>uri</strong> syncronously. You should avoid
 to use it in application, and rather create <a href="#ges.uriclipasset">GES.UriClipAsset</a> asynchronously</p>
 
-<h2 id="ges.uriclipasset.is_image">GES.UriClipAsset.is_image</h2>
+<h3 id="ges.uriclipasset.is_image">GES.UriClipAsset.is_image</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -3294,9 +3319,9 @@ GESUriClipAsset</p>
 
 <p>Gets Whether the file represented by <strong>self</strong> is an image or not</p>
 
-          <h1 id="ges.trackelementasset">GES.TrackElementAsset</h1>
+          <h2 id="ges.trackelementasset">GES.TrackElementAsset</h2>
 
-<h2 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h2>
+<h3 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h3>
 
 <p><strong>(asset, type)</strong></p>
 
@@ -3309,7 +3334,7 @@ GESUriClipAsset</p>
 <p>Set the (FIXME broken link)GESAssetTrackType the <a href="#ges.trackelement">GES.TrackElement</a> extracted from @self
 should get into</p>
 
-<h2 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h2>
+<h3 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h3>
 
 <p><strong>(asset)</strong></p>
 
@@ -3320,12 +3345,12 @@ should get into</p>
 <p>Get the GESAssetTrackType the <a href="#ges.trackelement">GES.TrackElement</a> extracted from @self
 should get into</p>
 
-          <h1 id="ges.urisourceasset">GES.UriSourceAsset</h1>
+          <h2 id="ges.urisourceasset">GES.UriSourceAsset</h2>
 
 <p>NOTE: You should never request such a <a href="#ges.asset">GES.Asset</a> as they will be created automatically
 by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
-<h2 id="ges.urisourceasset.get_stream_info">GES.UriSourceAsset.get_stream_info</h2>
+<h3 id="ges.urisourceasset.get_stream_info">GES.UriSourceAsset.get_stream_info</h3>
 
 <p><strong>(asset)</strong></p>
 
@@ -3335,14 +3360,14 @@ by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
 <p>Get the <a href="FIXME%20broken%20link%20to%20DiscovererStreamInfo">GstPbutils.DiscovererStreamInfo</a> user by <strong>asset</strong></p>
 
-<h2 id="ges.urisourceasset.get_stream_uri">GES.UriSourceAsset.get_stream_uri</h2>
+<h3 id="ges.urisourceasset.get_stream_uri">GES.UriSourceAsset.get_stream_uri</h3>
 
 <p><strong>(asset)</strong></p>
 
 <p><em>asset</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
-<h2 id="ges.urisourceasset.get_filesource_asset">GES.UriSourceAsset.get_filesource_asset</h2>
+<h3 id="ges.urisourceasset.get_filesource_asset">GES.UriSourceAsset.get_filesource_asset</h3>
 
 <p><strong>(asset)</strong></p>
 
@@ -3352,9 +3377,9 @@ by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
 <p>Get the <a href="#ges.uriclipasset">GES.UriClipAsset</a> @self is contained in</p>
 
-          <h1 id="ges.effectasset">GES.EffectAsset</h1>
+          <h2 id="ges.effectasset">GES.EffectAsset</h2>
 
-          <h1 id="ges.project">GES.Project</h1>
+          <h2 id="ges.project">GES.Project</h2>
 
 <p>The <a href="#ges.project">GES.Project</a> is used to control a set of <a href="#ges.asset">GES.Asset</a> and is a
 <a href="#ges.asset">GES.Asset</a> with (FIXME broken link)GES_TYPE_TIMELINE as @extractable_type itself. That
@@ -3377,7 +3402,7 @@ It lets you request new asset, and it informs you about new assets through
 a set of signals. Also it handles problem such as missing files/missing
 <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> and lets you try to recover from those.</p>
 
-<h2 id="ges.project.add_asset">GES.Project.add_asset</h2>
+<h3 id="ges.project.add_asset">GES.Project.add_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
 
@@ -3391,7 +3416,7 @@ in the project</p>
 <p>Adds a (FIXME broken link)Asset to <strong>project</strong>, the project will keep a reference on
 <strong>asset</strong>.</p>
 
-<h2 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h2>
+<h3 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -3407,7 +3432,7 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
-<h2 id="ges.project.remove_asset">GES.Project.remove_asset</h2>
+<h3 id="ges.project.remove_asset">GES.Project.remove_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
 
@@ -3419,7 +3444,7 @@ in the project</p>
 
 <p>remove a <strong>asset</strong> to from <strong>project</strong>.</p>
 
-<h2 id="ges.project.get_uri">GES.Project.get_uri</h2>
+<h3 id="ges.project.get_uri">GES.Project.get_uri</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -3429,7 +3454,7 @@ in the project</p>
 
 <p>Retrieve the uri that is currently set on <strong>project</strong></p>
 
-<h2 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h2>
+<h3 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -3441,7 +3466,7 @@ and thus can not be used</p>
 
 <p>Get the assets that are being loaded</p>
 
-<h2 id="ges.project.create_asset">GES.Project.create_asset</h2>
+<h3 id="ges.project.create_asset">GES.Project.create_asset</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -3458,7 +3483,7 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
-<h2 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h2>
+<h3 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -3470,7 +3495,7 @@ list of <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.Encodi
 <p>Lists the encoding profile that have been set to <strong>project</strong>. The first one
 is the latest added.</p>
 
-<h2 id="ges.project.get_asset">GES.Project.get_asset</h2>
+<h3 id="ges.project.get_asset">GES.Project.get_asset</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -3484,7 +3509,7 @@ to retrieve from @object</p>
 <p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> with
 <strong>id</strong> or <strong>NULL</strong> if no asset with <strong>id</strong> as an ID</p>
 
-<h2 id="ges.project.load">GES.Project.load</h2>
+<h3 id="ges.project.load">GES.Project.load</h3>
 
 <p><strong>(project, timeline)</strong></p>
 
@@ -3496,7 +3521,7 @@ to retrieve from @object</p>
 
 <p>Loads <strong>project</strong> into <strong>timeline</strong></p>
 
-<h2 id="ges.project.list_assets">GES.Project.list_assets</h2>
+<h3 id="ges.project.list_assets">GES.Project.list_assets</h3>
 
 <p><strong>(project, filter)</strong></p>
 
@@ -3512,7 +3537,7 @@ all assets</p>
 as defined by <strong>filter</strong>. It copies the asset and thus will not be updated
 in time.</p>
 
-<h2 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h2>
+<h3 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h3>
 
 <p><strong>(project, profile)</strong></p>
 
@@ -3527,7 +3552,7 @@ the same name already exists, it will be replaced</p>
 the project has been renders and keep a reference to those formats.
 Also, those formats will be saves to the project file when possible.</p>
 
-<h2 id="ges.project.save">GES.Project.save</h2>
+<h3 id="ges.project.save">GES.Project.save</h3>
 
 <p><strong>(project, timeline, uri, formatter_asset, overwrite)</strong></p>
 
@@ -3549,15 +3574,15 @@ or default to the formatter with highest rank</p>
 is one of the timelines that have been extracted from <strong>project</strong>
 (using ges_asset_extract (<strong>project</strong>);)</p>
 
-          <h1 id="ges.basexmlformatter">GES.BaseXmlFormatter</h1>
+          <h2 id="ges.basexmlformatter">GES.BaseXmlFormatter</h2>
 
-          <h1 id="ges.xmlformatter">GES.XmlFormatter</h1>
+          <h2 id="ges.xmlformatter">GES.XmlFormatter</h2>
 
-          <h1 id="ges.formatter">GES.Formatter</h1>
+          <h2 id="ges.formatter">GES.Formatter</h2>
 
 <p>Base class for timeline data serialization and deserialization.</p>
 
-<h2 id="ges.formatter.get_default">GES.Formatter.get_default</h2>
+<h3 id="ges.formatter.get_default">GES.Formatter.get_default</h3>
 
 <p><strong>()</strong></p>
 
@@ -3566,7 +3591,7 @@ is one of the timelines that have been extracted from <strong>project</strong>
 <p>Get the default <a href="#ges.asset">GES.Asset</a> to use as formatter. It will return
 the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highest @rank</p>
 
-<h2 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h2>
+<h3 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h3>
 
 <p><strong>(uri)</strong></p>
 
@@ -3577,7 +3602,7 @@ the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highes
 <p>Returns TRUE if there is a <a href="#ges.formatter">GES.Formatter</a> available which can save a
 <a href="#ges.timeline">GES.Timeline</a> to the given URI.</p>
 
-<h2 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h2>
+<h3 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h3>
 
 <p><strong>(formatter, timeline, uri, overwrite)</strong></p>
 
@@ -3594,7 +3619,7 @@ else FALSE.</p>
 
 <p>Save data from timeline to the given URI.</p>
 
-<h2 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h2>
+<h3 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h3>
 
 <p><strong>(formatter, timeline, uri)</strong></p>
 
@@ -3609,7 +3634,7 @@ else FALSE.</p>
 
 <p>Load data from the given URI into timeline.</p>
 
-<h2 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h2>
+<h3 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h3>
 
 <p><strong>(uri)</strong></p>
 
@@ -3621,7 +3646,7 @@ or FALSE if not.</p>
 <p>Checks if there is a <a href="#ges.formatter">GES.Formatter</a> available which can load a <a href="#ges.timeline">GES.Timeline</a>
 from the given URI.</p>
 
-          <h1 id="ges.pitiviformatter">GES.PitiviFormatter</h1>
+          <h2 id="ges.pitiviformatter">GES.PitiviFormatter</h2>
 
 <p>This is a legacy format and you should avoid to use it. The formatter
 is really not in good shape and is deprecated.</p>

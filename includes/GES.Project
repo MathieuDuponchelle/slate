@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.project">GES.Project</h1>
+        <h2 id="ges.project">GES.Project</h2>
 
 <p>The <a href="#ges.project">GES.Project</a> is used to control a set of <a href="#ges.asset">GES.Asset</a> and is a
 <a href="#ges.asset">GES.Asset</a> with (FIXME broken link)GES_TYPE_TIMELINE as @extractable_type itself. That
@@ -51,7 +51,7 @@ It lets you request new asset, and it informs you about new assets through
 a set of signals. Also it handles problem such as missing files/missing
 <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> and lets you try to recover from those.</p>
 
-<h2 id="ges.project.add_asset">GES.Project.add_asset</h2>
+<h3 id="ges.project.add_asset">GES.Project.add_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
 
@@ -65,7 +65,7 @@ in the project</p>
 <p>Adds a (FIXME broken link)Asset to <strong>project</strong>, the project will keep a reference on
 <strong>asset</strong>.</p>
 
-<h2 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h2>
+<h3 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -81,7 +81,7 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
-<h2 id="ges.project.remove_asset">GES.Project.remove_asset</h2>
+<h3 id="ges.project.remove_asset">GES.Project.remove_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
 
@@ -93,7 +93,7 @@ in the project</p>
 
 <p>remove a <strong>asset</strong> to from <strong>project</strong>.</p>
 
-<h2 id="ges.project.get_uri">GES.Project.get_uri</h2>
+<h3 id="ges.project.get_uri">GES.Project.get_uri</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -103,7 +103,7 @@ in the project</p>
 
 <p>Retrieve the uri that is currently set on <strong>project</strong></p>
 
-<h2 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h2>
+<h3 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -115,7 +115,7 @@ and thus can not be used</p>
 
 <p>Get the assets that are being loaded</p>
 
-<h2 id="ges.project.create_asset">GES.Project.create_asset</h2>
+<h3 id="ges.project.create_asset">GES.Project.create_asset</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -132,7 +132,7 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
-<h2 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h2>
+<h3 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h3>
 
 <p><strong>(project)</strong></p>
 
@@ -144,7 +144,7 @@ list of <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.Encodi
 <p>Lists the encoding profile that have been set to <strong>project</strong>. The first one
 is the latest added.</p>
 
-<h2 id="ges.project.get_asset">GES.Project.get_asset</h2>
+<h3 id="ges.project.get_asset">GES.Project.get_asset</h3>
 
 <p><strong>(project, id, extractable_type)</strong></p>
 
@@ -158,7 +158,7 @@ to retrieve from @object</p>
 <p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> with
 <strong>id</strong> or <strong>NULL</strong> if no asset with <strong>id</strong> as an ID</p>
 
-<h2 id="ges.project.load">GES.Project.load</h2>
+<h3 id="ges.project.load">GES.Project.load</h3>
 
 <p><strong>(project, timeline)</strong></p>
 
@@ -170,7 +170,7 @@ to retrieve from @object</p>
 
 <p>Loads <strong>project</strong> into <strong>timeline</strong></p>
 
-<h2 id="ges.project.list_assets">GES.Project.list_assets</h2>
+<h3 id="ges.project.list_assets">GES.Project.list_assets</h3>
 
 <p><strong>(project, filter)</strong></p>
 
@@ -186,7 +186,7 @@ all assets</p>
 as defined by <strong>filter</strong>. It copies the asset and thus will not be updated
 in time.</p>
 
-<h2 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h2>
+<h3 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h3>
 
 <p><strong>(project, profile)</strong></p>
 
@@ -201,7 +201,7 @@ the same name already exists, it will be replaced</p>
 the project has been renders and keep a reference to those formats.
 Also, those formats will be saves to the project file when possible.</p>
 
-<h2 id="ges.project.save">GES.Project.save</h2>
+<h3 id="ges.project.save">GES.Project.save</h3>
 
 <p><strong>(project, timeline, uri, formatter_asset, overwrite)</strong></p>
 

@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.sourceclip">GES.SourceClip</h1>
+        <h2 id="ges.sourceclip">GES.SourceClip</h2>
 
 <p>Base class for sources of a <a href="#ges.layer">GES.Layer</a></p>
 

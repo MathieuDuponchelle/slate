@@ -28,9 +28,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.videotransition">GES.VideoTransition</h1>
+        <h2 id="ges.videotransition">GES.VideoTransition</h2>
 
-<h2 id="ges.videotransition.set_border">GES.VideoTransition.set_border</h2>
+<h3 id="ges.videotransition.set_border">GES.VideoTransition.set_border</h3>
 
 <p><strong>(self, value)</strong></p>
 
@@ -45,7 +45,7 @@ the border width of the transition. In case this value does
 not make sense for the current transition type, it is cached
 for later use.</p>
 
-<h2 id="ges.videotransition.is_inverted">GES.VideoTransition.is_inverted</h2>
+<h3 id="ges.videotransition.is_inverted">GES.VideoTransition.is_inverted</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -56,7 +56,7 @@ for later use.</p>
 <p>Get the invert property of <strong>self</strong>, this value represents
 the direction of the transition.</p>
 
-<h2 id="ges.videotransition.set_transition_type">GES.VideoTransition.set_transition_type</h2>
+<h3 id="ges.videotransition.set_transition_type">GES.VideoTransition.set_transition_type</h3>
 
 <p><strong>(self, type)</strong></p>
 
@@ -68,7 +68,7 @@ the direction of the transition.</p>
 
 <p>Sets the transition being used to <strong>type</strong>.</p>
 
-<h2 id="ges.videotransition.get_border">GES.VideoTransition.get_border</h2>
+<h3 id="ges.videotransition.get_border">GES.VideoTransition.get_border</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -80,7 +80,7 @@ the direction of the transition.</p>
 <p>Get the border property of <strong>self</strong>, this value represents
 the border width of the transition.</p>
 
-<h2 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h2>
+<h3 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h3>
 
 <p><strong>(self, inverted)</strong></p>
 
@@ -95,7 +95,7 @@ the direction of the transition. In case this value does
 not make sense for the current transition type, it is cached
 for later use.</p>
 
-<h2 id="ges.videotransition.get_transition_type">GES.VideoTransition.get_transition_type</h2>
+<h3 id="ges.videotransition.get_transition_type">GES.VideoTransition.get_transition_type</h3>
 
 <p><strong>(trans)</strong></p>
 

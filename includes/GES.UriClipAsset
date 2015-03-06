@@ -28,14 +28,14 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.uriclipasset">GES.UriClipAsset</h1>
+        <h2 id="ges.uriclipasset">GES.UriClipAsset</h2>
 
 <p>The <a href="#ges.uriclipasset">GES.UriClipAsset</a> is a special <a href="#ges.asset">GES.Asset</a> that lets you handle
 the media file to use inside the GStreamer Editing Services. It has APIs that
 let you get information about the medias. Also, the tags found in the media file are
 set as Metadatas of the Asser.</p>
 
-<h2 id="ges.uriclipasset.get_stream_assets">GES.UriClipAsset.get_stream_assets</h2>
+<h3 id="ges.uriclipasset.get_stream_assets">GES.UriClipAsset.get_stream_assets</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -46,7 +46,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Get the GESUriSourceAsset <strong>self</strong> containes</p>
 
-<h2 id="ges.uriclipasset.new">GES.UriClipAsset.new</h2>
+<h3 id="ges.uriclipasset.new">GES.UriClipAsset.new</h3>
 
 <p><strong>(uri, cancellable, callback, user_data)</strong></p>
 
@@ -89,7 +89,7 @@ set as Metadatas of the Asser.</p>
 
 </code></pre>
 
-<h2 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h2>
+<h3 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -99,7 +99,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Gets <a href="FIXME%20broken%20link%20to%20DiscovererInfo">GstPbutils.DiscovererInfo</a> about the file</p>
 
-<h2 id="ges.uriclipasset.get_duration">GES.UriClipAsset.get_duration</h2>
+<h3 id="ges.uriclipasset.get_duration">GES.UriClipAsset.get_duration</h3>
 
 <p><strong>(self)</strong></p>
 
@@ -109,7 +109,7 @@ set as Metadatas of the Asser.</p>
 
 <p>Gets duration of the file represented by <strong>self</strong></p>
 
-<h2 id="ges.uriclipasset.request_sync">GES.UriClipAsset.request_sync</h2>
+<h3 id="ges.uriclipasset.request_sync">GES.UriClipAsset.request_sync</h3>
 
 <p><strong>(uri)</strong></p>
 
@@ -121,7 +121,7 @@ You can also use multi file uris for <a href="#ges.multifilesource">GES.MultiFil
 <p>Creates a <a href="#ges.uriclipasset">GES.UriClipAsset</a> for <strong>uri</strong> syncronously. You should avoid
 to use it in application, and rather create <a href="#ges.uriclipasset">GES.UriClipAsset</a> asynchronously</p>
 
-<h2 id="ges.uriclipasset.is_image">GES.UriClipAsset.is_image</h2>
+<h3 id="ges.uriclipasset.is_image">GES.UriClipAsset.is_image</h3>
 
 <p><strong>(self)</strong></p>
 

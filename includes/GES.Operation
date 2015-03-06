@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ges.operation">GES.Operation</h1>
+        <h2 id="ges.operation">GES.Operation</h2>
 
 <p>Base class for overlays, transitions, and effects</p>
 
