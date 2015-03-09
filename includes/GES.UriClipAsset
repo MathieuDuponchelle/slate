@@ -63,31 +63,32 @@ set as Metadatas of the Asser.</p>
 <p>Creates a <a href="#ges.uriclipasset">GES.UriClipAsset</a> for <strong>uri</strong></p>
 
 <p>Example of request of a GESUriClipAsset:</p>
-<pre><code class="highlight c"><span class="c1">// The request callback
-</span><span class="k">static</span> <span class="kt">void</span>
-<span class="nf">filesource_asset_loaded_cb</span> <span class="p">(</span><span class="n">GESAsset</span> <span class="o">*</span> <span class="n">source</span><span class="p">,</span> <span class="n">GAsyncResult</span> <span class="o">*</span> <span class="n">res</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-  <span class="n">GESUriClipAsset</span> <span class="o">*</span><span class="n">filesource_asset</span><span class="p">;</span>
 
-  <span class="n">filesource_asset</span> <span class="o">=</span> <span class="n">GES_URI_CLIP_ASSET</span> <span class="p">(</span><span class="n">ges_asset_request_finish</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">));</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is usable as a FileSource, it is%s an image and lasts %"</span> <span class="n">GST_TIME_FORMAT</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">GES_ASSET</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">))</span>
-       <span class="n">ges_uri_clip_asset_is_image</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">)</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">" not"</span><span class="p">,</span>
-       <span class="n">GST_TIME_ARGS</span> <span class="p">(</span><span class="n">ges_uri_clip_asset_get_duration</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is *not* usable as a FileSource because: %s"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="n">error</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span>
-  <span class="p">}</span>
+<pre class="inlined_code">
+// The request callback
+static void
+filesource_asset_loaded_cb (GESAsset * source, GAsyncResult * res, gpointer user_data)
+{
+  GError *error = NULL;
+  GESUriClipAsset *filesource_asset;
 
-  <span class="n">gst_object_unref</span> <span class="p">(</span><span class="n">mfs</span><span class="p">);</span>
-<span class="p">}</span>
+  filesource_asset = GES_URI_CLIP_ASSET (ges_asset_request_finish (res, &error));
+  if (filesource_asset) {
+   g_print ("The file: %s is usable as a FileSource, it is%s an image and lasts %" GST_TIME_FORMAT,
+       ges_asset_get_id (GES_ASSET (filesource_asset))
+       ges_uri_clip_asset_is_image (filesource_asset) ? "" : " not",
+       GST_TIME_ARGS (ges_uri_clip_asset_get_duration (filesource_asset));
+  } else {
+   g_print ("The file: %s is *not* usable as a FileSource because: %s",
+       ges_asset_get_id (source), error->message);
+  }
 
-<span class="c1">// The request:
-</span><span class="n">ges_uri_clip_asset_new</span> <span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="p">(</span><span class="n">GAsyncReadyCallback</span><span class="p">)</span> <span class="n">filesource_asset_loaded_cb</span><span class="p">,</span> <span class="n">user_data</span><span class="p">);</span>
+  gst_object_unref (mfs);
+}
 
-</code></pre>
+// The request:
+ges_uri_clip_asset_new (uri, (GAsyncReadyCallback) filesource_asset_loaded_cb, user_data);
+</pre>
 
 <h3 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h3>
 

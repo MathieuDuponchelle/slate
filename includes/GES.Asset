@@ -67,22 +67,23 @@ will be used).</p>
 <p>Each and every <a href="#ges.asset">GES.Asset</a> is cached into GES, and you can query those with the (FIXME broken link)ges_list_assets function.
 Also the system will automatically register <a href="#ges.asset">GES.Assets</a> for <a href="#ges.formatter">GES.Formatters</a> and <a href="#ges.transitionclip">GES.TransitionClips</a>
 and standard effects (actually not implemented yet) and you can simply query those calling:</p>
-<pre><code class="highlight c">   <span class="n">GList</span> <span class="o">*</span><span class="n">formatter_assets</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 
-   <span class="c1">//  List all  the transitions
-</span>   <span class="n">formatter_assets</span> <span class="o">=</span> <span class="n">ges_list_assets</span> <span class="p">(</span><span class="n">GES_TYPE_FORMATTER</span><span class="p">);</span>
+<pre class="inlined_code">
+   GList *formatter_assets, *tmp;
 
-   <span class="c1">// Print some infos about the formatter GESAsset
-</span>   <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">formatter_assets</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">g_print</span> <span class="p">(</span><span class="s">"Name of the formatter: %s, file extension it produces: %s"</span><span class="p">,</span>
-       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_NAME</span><span class="p">),</span>
-       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_EXTENSION</span><span class="p">));</span>
-   <span class="p">}</span>
+   //  List all  the transitions
+   formatter_assets = ges_list_assets (GES_TYPE_FORMATTER);
 
-   <span class="n">g_list_free</span> <span class="p">(</span><span class="n">transition_assets</span><span class="p">);</span>
+   // Print some infos about the formatter GESAsset
+   for (tmp = formatter_assets; tmp; tmp = tmp->next) {
+     g_print ("Name of the formatter: %s, file extension it produces: %s",
+       ges_meta_container_get_string (GES_META_CONTAINER (tmp->data), GES_META_FORMATTER_NAME),
+       ges_meta_container_get_string (GES_META_CONTAINER (tmp->data), GES_META_FORMATTER_EXTENSION));
+   }
 
+   g_list_free (transition_assets);
 
-</code></pre>
+</pre>
 
 <p>You can request the creation of <a href="#ges.asset">GES.Assets</a> using either (FIXME broken link)ges_asset_request_async or
 (FIXME broken link)ges_asset_request_async. All the <a href="#ges.asset">GES.Assets</a> are cached and thus any asset that has already
@@ -166,30 +167,31 @@ method. This asset can not be used as is.</p>
 ready to be used or if an error occured.</p>
 
 <p>Example of request of a GESAsset async:</p>
-<pre><code class="highlight c"><span class="c1">// The request callback
-</span><span class="k">static</span> <span class="kt">void</span>
-<span class="nf">asset_loaded_cb</span> <span class="p">(</span><span class="n">GESAsset</span> <span class="o">*</span> <span class="n">source</span><span class="p">,</span> <span class="n">GAsyncResult</span> <span class="o">*</span> <span class="n">res</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GESAsset</span> <span class="o">*</span><span class="n">asset</span><span class="p">;</span>
-  <span class="n">GError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 
-  <span class="n">asset</span> <span class="o">=</span> <span class="n">ges_asset_request_finish</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">asset</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is usable as a FileSource"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">asset</span><span class="p">));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is *not* usable as a FileSource because: %s"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="n">error</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span>
-  <span class="p">}</span>
+<pre class="inlined_code">
+// The request callback
+static void
+asset_loaded_cb (GESAsset * source, GAsyncResult * res, gpointer user_data)
+{
+  GESAsset *asset;
+  GError *error = NULL;
 
-  <span class="n">gst_object_unref</span> <span class="p">(</span><span class="n">mfs</span><span class="p">);</span>
-<span class="p">}</span>
+  asset = ges_asset_request_finish (res, &error);
+  if (asset) {
+   g_print ("The file: %s is usable as a FileSource",
+       ges_asset_get_id (asset));
+  } else {
+   g_print ("The file: %s is *not* usable as a FileSource because: %s",
+       ges_asset_get_id (source), error->message);
+  }
 
-<span class="c1">// The request:
-</span><span class="n">ges_asset_request_async</span> <span class="p">(</span><span class="n">GES_TYPE_URI_CLIP</span><span class="p">,</span> <span class="n">some_uri</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span>
-   <span class="p">(</span><span class="n">GAsyncReadyCallback</span><span class="p">)</span> <span class="n">asset_loaded_cb</span><span class="p">,</span> <span class="n">user_data</span><span class="p">);</span>
+  gst_object_unref (mfs);
+}
 
-</code></pre>
+// The request:
+ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
+   (GAsyncReadyCallback) asset_loaded_cb, user_data);
+</pre>
 
 <h3 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h3>
 

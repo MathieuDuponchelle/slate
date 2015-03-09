@@ -100,25 +100,229 @@ more <a href="#ges.track">GES.Tracks</a>.</p>
 <p>A <a href="#ges.track">GES.Track</a> represents a media type, for example audio, video or text. For the
 moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers</a> contain <a href="#ges.clip">GES.Clips</a>, and represent the relative priorities of these clips.</p>
 
-<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
-<pre><code class="highlight c">  <span class="n">Timeline</span><span class="p">,</span> <span class="n">duration</span> <span class="o">:</span> <span class="mi">0</span> <span class="n">seconds</span>
-  <span class="o">+--------------------------------------------------------+</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">1</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">2</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">+--------------------------------------------------------+</span>
+<h4 id="layers">Layers</h4>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="n">GESTimeline</span> <span class="o">*</span><span class="nf">create_timeline_with_n_layers</span> <span class="p">(</span><span class="n">guint</span> <span class="n">n_layers</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_timeline_new</span><span class="p">();</span>
+  <span class="n">guint</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n_layers</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ges_timeline_append_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">timeline</span><span class="p">;</span>
+<span class="p">}</span>
+
 
 </code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">create_timeline_with_n_layers</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">n_layers</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">timeline</span><span class="o">.</span><span class="n">append_layer</span><span class="p">()</span>
+        <span class="n">n_layers</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">timeline</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">Can<span class="s1">'t create an empty timeline with ges-launch-1.0!
+
+</span></code></pre>
+
+<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
+
+<pre class="inlined_code">
+  Timeline, duration : 0 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         |                                           |  |
+| Layer 1 |                                           |  |
+|         |                                           |  |
+|         +-------------------------------------------+  |
+|                                                        |
+|         +-------------------------------------------+  |
+|         |                                           |  |
+| Layer 2 |                                           |  |
+|         |                                           |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+</pre>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">,</span> <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GList</span> <span class="o">*</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">layers</span> <span class="o">=</span> <span class="n">ges_timeline_get_layers</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">layers</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GESClip</span> <span class="o">*</span><span class="n">clip</span> <span class="o">=</span> <span class="n">GES_CLIP</span><span class="p">(</span><span class="n">ges_test_clip_new</span><span class="p">());</span>
+    <span class="n">GESLayer</span> <span class="o">*</span><span class="n">layer</span> <span class="o">=</span> <span class="n">GES_LAYER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+
+    <span class="n">ges_layer_add_clip</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">clip</span><span class="p">);</span>
+    <span class="n">g_object_set</span> <span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="s">"duration"</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="s">"start"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/* We commit the timeline to have our changes taken into account */</span>
+  <span class="n">ges_timeline_commit</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">timeline</span><span class="o">.</span><span class="n">get_layers</span><span class="p">():</span>
+        <span class="n">clip</span> <span class="o">=</span> <span class="n">GES</span><span class="o">.</span><span class="n">TestClip</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="n">layer</span><span class="o">.</span><span class="n">add_clip</span> <span class="p">(</span><span class="n">clip</span><span class="p">)</span>
+        <span class="n">clip</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="n">clip</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c"># We commit the timeline to have our changes taken into account</span>
+    <span class="n">timeline</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME : we are about to change the CLI
+
+
+</code></pre>
+
+<p>If we add two clips in layer 1 and layer 2, each starting at 0 with a
+duration of 10 seconds, our timeline now looks like this:</p>
+
+<pre class="inlined_code">
+
+  Timeline, duration : 10 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 1 | |              Clip 1                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 2 | |              Clip 2                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+
+</pre>
+
+<p>In that timeline, Clip 1 is said to have the highest &ldquo;priority&rdquo;. In the case
+of video streams, it means that it will be rendered on top of Clip 2, which in turn signifies
+that if Clip 1 and Clip 2 share the same width and height, Clip 2 will be completely
+invisible.</p>
+
+<p>In the case of video streams, one can therefore think of the layer priority as a z-index.</p>
+
+<h4 id="tracks">Tracks</h4>
+
+<p>Let&rsquo;s continue with that timeline. For now it indeed mixes various layers together, but it
+doesn&rsquo;t output anything. That&rsquo;s what <a href="#ges.track">GES.Tracks</a> are for.</p>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTrack</span> <span class="o">*</span><span class="n">track</span> <span class="o">=</span> <span class="n">GES_TRACK</span> <span class="p">(</span><span class="n">ges_video_track_new</span> <span class="p">());</span>
+
+  <span class="n">ges_timeline_add_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="n">track</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">):</span>
+    <span class="n">timeline</span><span class="o">.</span><span class="n">add_track</span> <span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTrack</span><span class="o">.</span><span class="n">new</span><span class="p">())</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME
+
+</code></pre>
+
+<p>If we add a video track to our timeline, it can be represented that way:</p>
+
+<pre class="inlined_code">
+
+  Timeline, duration : 10 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 1 | |              Clip 1                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |--------> Video Track
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 2 | |              Clip 2                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+
+</pre>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+#include "add_one_clip_in_each_layer.c"
+#include "add_one_video_track.c"
+#include "create_timeline_with_n_layers.c"
+#include "play_timeline.c"
+</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
+
+  <span class="n">gst_init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">ges_init</span><span class="p">();</span>
+
+  <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GST_SECOND</span><span class="p">);</span>
+  <span class="n">add_one_video_track</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="n">play_timeline</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span><span class="p">,</span> <span class="n">Gst</span>
+
+<span class="kn">from</span> <span class="nn">create_timeline_with_n_layers</span> <span class="kn">import</span> <span class="n">create_timeline_with_n_layers</span>
+<span class="kn">from</span> <span class="nn">add_one_clip_in_each_layer</span> <span class="kn">import</span> <span class="n">add_one_clip_in_each_layer</span>
+<span class="kn">from</span> <span class="nn">add_one_video_track</span> <span class="kn">import</span> <span class="n">add_one_video_track</span>
+<span class="kn">from</span> <span class="nn">play_timeline</span> <span class="kn">import</span> <span class="n">play_timeline</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">Gst</span><span class="o">.</span><span class="n">init</span><span class="p">([])</span>
+    <span class="n">GES</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">Gst</span><span class="o">.</span><span class="n">SECOND</span><span class="p">)</span>
+    <span class="n">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+    <span class="c"># Convenience function for the sake of examples.</span>
+    <span class="n">play_timeline</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME
+
+</code></pre>
+
+<p>Assuming both clips contain video streams, our timeline will now output the
+result of their compositing together on the video track. Any audio streams they contain are
+ignored.</p>
+
+<p>One can of course add an audio track to get audio output.</p>
+
+<p>Having multiple tracks with the same type, for example 3 audio tracks, is
+useful if one wants to link the timeline to a container that can store various languages, for
+example a DVD creator might store English, Dutch and French audio tracks.</p>
 
 <h3 id="ges.timeline.new">GES.Timeline.new</h3>
 
@@ -199,8 +403,7 @@ by the <strong>timeline</strong>.</p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
-<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
+<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>.</p>
 
 <p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
 Note that you do not own any reference to the returned layer.</p>
@@ -3319,22 +3522,23 @@ will be used).</p>
 <p>Each and every <a href="#ges.asset">GES.Asset</a> is cached into GES, and you can query those with the (FIXME broken link)ges_list_assets function.
 Also the system will automatically register <a href="#ges.asset">GES.Assets</a> for <a href="#ges.formatter">GES.Formatters</a> and <a href="#ges.transitionclip">GES.TransitionClips</a>
 and standard effects (actually not implemented yet) and you can simply query those calling:</p>
-<pre><code class="highlight c">   <span class="n">GList</span> <span class="o">*</span><span class="n">formatter_assets</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 
-   <span class="c1">//  List all  the transitions
-</span>   <span class="n">formatter_assets</span> <span class="o">=</span> <span class="n">ges_list_assets</span> <span class="p">(</span><span class="n">GES_TYPE_FORMATTER</span><span class="p">);</span>
+<pre class="inlined_code">
+   GList *formatter_assets, *tmp;
 
-   <span class="c1">// Print some infos about the formatter GESAsset
-</span>   <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">formatter_assets</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">g_print</span> <span class="p">(</span><span class="s">"Name of the formatter: %s, file extension it produces: %s"</span><span class="p">,</span>
-       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_NAME</span><span class="p">),</span>
-       <span class="n">ges_meta_container_get_string</span> <span class="p">(</span><span class="n">GES_META_CONTAINER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="n">GES_META_FORMATTER_EXTENSION</span><span class="p">));</span>
-   <span class="p">}</span>
+   //  List all  the transitions
+   formatter_assets = ges_list_assets (GES_TYPE_FORMATTER);
 
-   <span class="n">g_list_free</span> <span class="p">(</span><span class="n">transition_assets</span><span class="p">);</span>
+   // Print some infos about the formatter GESAsset
+   for (tmp = formatter_assets; tmp; tmp = tmp->next) {
+     g_print ("Name of the formatter: %s, file extension it produces: %s",
+       ges_meta_container_get_string (GES_META_CONTAINER (tmp->data), GES_META_FORMATTER_NAME),
+       ges_meta_container_get_string (GES_META_CONTAINER (tmp->data), GES_META_FORMATTER_EXTENSION));
+   }
 
+   g_list_free (transition_assets);
 
-</code></pre>
+</pre>
 
 <p>You can request the creation of <a href="#ges.asset">GES.Assets</a> using either (FIXME broken link)ges_asset_request_async or
 (FIXME broken link)ges_asset_request_async. All the <a href="#ges.asset">GES.Assets</a> are cached and thus any asset that has already
@@ -3418,30 +3622,31 @@ method. This asset can not be used as is.</p>
 ready to be used or if an error occured.</p>
 
 <p>Example of request of a GESAsset async:</p>
-<pre><code class="highlight c"><span class="c1">// The request callback
-</span><span class="k">static</span> <span class="kt">void</span>
-<span class="nf">asset_loaded_cb</span> <span class="p">(</span><span class="n">GESAsset</span> <span class="o">*</span> <span class="n">source</span><span class="p">,</span> <span class="n">GAsyncResult</span> <span class="o">*</span> <span class="n">res</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GESAsset</span> <span class="o">*</span><span class="n">asset</span><span class="p">;</span>
-  <span class="n">GError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 
-  <span class="n">asset</span> <span class="o">=</span> <span class="n">ges_asset_request_finish</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">asset</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is usable as a FileSource"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">asset</span><span class="p">));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is *not* usable as a FileSource because: %s"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="n">error</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span>
-  <span class="p">}</span>
+<pre class="inlined_code">
+// The request callback
+static void
+asset_loaded_cb (GESAsset * source, GAsyncResult * res, gpointer user_data)
+{
+  GESAsset *asset;
+  GError *error = NULL;
 
-  <span class="n">gst_object_unref</span> <span class="p">(</span><span class="n">mfs</span><span class="p">);</span>
-<span class="p">}</span>
+  asset = ges_asset_request_finish (res, &error);
+  if (asset) {
+   g_print ("The file: %s is usable as a FileSource",
+       ges_asset_get_id (asset));
+  } else {
+   g_print ("The file: %s is *not* usable as a FileSource because: %s",
+       ges_asset_get_id (source), error->message);
+  }
 
-<span class="c1">// The request:
-</span><span class="n">ges_asset_request_async</span> <span class="p">(</span><span class="n">GES_TYPE_URI_CLIP</span><span class="p">,</span> <span class="n">some_uri</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span>
-   <span class="p">(</span><span class="n">GAsyncReadyCallback</span><span class="p">)</span> <span class="n">asset_loaded_cb</span><span class="p">,</span> <span class="n">user_data</span><span class="p">);</span>
+  gst_object_unref (mfs);
+}
 
-</code></pre>
+// The request:
+ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
+   (GAsyncReadyCallback) asset_loaded_cb, user_data);
+</pre>
 
 <h3 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h3>
 
@@ -3517,31 +3722,32 @@ set as Metadatas of the Asser.</p>
 <p>Creates a <a href="#ges.uriclipasset">GES.UriClipAsset</a> for <strong>uri</strong></p>
 
 <p>Example of request of a GESUriClipAsset:</p>
-<pre><code class="highlight c"><span class="c1">// The request callback
-</span><span class="k">static</span> <span class="kt">void</span>
-<span class="nf">filesource_asset_loaded_cb</span> <span class="p">(</span><span class="n">GESAsset</span> <span class="o">*</span> <span class="n">source</span><span class="p">,</span> <span class="n">GAsyncResult</span> <span class="o">*</span> <span class="n">res</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-  <span class="n">GESUriClipAsset</span> <span class="o">*</span><span class="n">filesource_asset</span><span class="p">;</span>
 
-  <span class="n">filesource_asset</span> <span class="o">=</span> <span class="n">GES_URI_CLIP_ASSET</span> <span class="p">(</span><span class="n">ges_asset_request_finish</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">));</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is usable as a FileSource, it is%s an image and lasts %"</span> <span class="n">GST_TIME_FORMAT</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">GES_ASSET</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">))</span>
-       <span class="n">ges_uri_clip_asset_is_image</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">)</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">" not"</span><span class="p">,</span>
-       <span class="n">GST_TIME_ARGS</span> <span class="p">(</span><span class="n">ges_uri_clip_asset_get_duration</span> <span class="p">(</span><span class="n">filesource_asset</span><span class="p">));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-   <span class="n">g_print</span> <span class="p">(</span><span class="s">"The file: %s is *not* usable as a FileSource because: %s"</span><span class="p">,</span>
-       <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="n">error</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span>
-  <span class="p">}</span>
+<pre class="inlined_code">
+// The request callback
+static void
+filesource_asset_loaded_cb (GESAsset * source, GAsyncResult * res, gpointer user_data)
+{
+  GError *error = NULL;
+  GESUriClipAsset *filesource_asset;
 
-  <span class="n">gst_object_unref</span> <span class="p">(</span><span class="n">mfs</span><span class="p">);</span>
-<span class="p">}</span>
+  filesource_asset = GES_URI_CLIP_ASSET (ges_asset_request_finish (res, &error));
+  if (filesource_asset) {
+   g_print ("The file: %s is usable as a FileSource, it is%s an image and lasts %" GST_TIME_FORMAT,
+       ges_asset_get_id (GES_ASSET (filesource_asset))
+       ges_uri_clip_asset_is_image (filesource_asset) ? "" : " not",
+       GST_TIME_ARGS (ges_uri_clip_asset_get_duration (filesource_asset));
+  } else {
+   g_print ("The file: %s is *not* usable as a FileSource because: %s",
+       ges_asset_get_id (source), error->message);
+  }
 
-<span class="c1">// The request:
-</span><span class="n">ges_uri_clip_asset_new</span> <span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="p">(</span><span class="n">GAsyncReadyCallback</span><span class="p">)</span> <span class="n">filesource_asset_loaded_cb</span><span class="p">,</span> <span class="n">user_data</span><span class="p">);</span>
+  gst_object_unref (mfs);
+}
 
-</code></pre>
+// The request:
+ges_uri_clip_asset_new (uri, (GAsyncReadyCallback) filesource_asset_loaded_cb, user_data);
+</pre>
 
 <h3 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h3>
 
@@ -3651,18 +3857,19 @@ by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 <p>The <a href="#ges.project">GES.Project</a> is used to control a set of <a href="#ges.asset">GES.Asset</a> and is a
 <a href="#ges.asset">GES.Asset</a> with (FIXME broken link)GES_TYPE_TIMELINE as @extractable_type itself. That
 means that you can extract <a href="#ges.timeline">GES.Timeline</a> from a project as followed:</p>
-<pre><code class="highlight c"> <span class="n">GESProject</span> <span class="o">*</span><span class="n">project</span><span class="p">;</span>
- <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
 
- <span class="n">project</span> <span class="o">=</span> <span class="n">ges_project_new</span> <span class="p">(</span><span class="s">"file:///path/to/a/valid/project/uri"</span><span class="p">);</span>
+<pre class="inlined_code">
+ GESProject *project;
+ GESTimeline *timeline;
 
- <span class="c1">// Here you can connect to the various signal to get more infos about
-</span> <span class="c1">// what is happening and recover from errors if possible
-</span> <span class="p">...</span>
+ project = ges_project_new ("file:///path/to/a/valid/project/uri");
 
- <span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_asset_extract</span> <span class="p">(</span><span class="n">GES_ASSET</span> <span class="p">(</span><span class="n">project</span><span class="p">));</span>
+ // Here you can connect to the various signal to get more infos about
+ // what is happening and recover from errors if possible
+ ...
 
-</code></pre>
+ timeline = ges_asset_extract (GES_ASSET (project));
+</pre>
 
 <p>The <a href="#ges.project">GES.Project</a> class offers a higher level API to handle <a href="#ges.asset">GES.Asset</a>-s.
 It lets you request new asset, and it informs you about new assets through

@@ -36,25 +36,229 @@ more <a href="#ges.track">GES.Tracks</a>.</p>
 <p>A <a href="#ges.track">GES.Track</a> represents a media type, for example audio, video or text. For the
 moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers</a> contain <a href="#ges.clip">GES.Clips</a>, and represent the relative priorities of these clips.</p>
 
-<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
-<pre><code class="highlight c">  <span class="n">Timeline</span><span class="p">,</span> <span class="n">duration</span> <span class="o">:</span> <span class="mi">0</span> <span class="n">seconds</span>
-  <span class="o">+--------------------------------------------------------+</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">1</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">2</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
-  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
-  <span class="o">|</span>                                                        <span class="o">|</span>
-  <span class="o">+--------------------------------------------------------+</span>
+<h4 id="layers">Layers</h4>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="n">GESTimeline</span> <span class="o">*</span><span class="nf">create_timeline_with_n_layers</span> <span class="p">(</span><span class="n">guint</span> <span class="n">n_layers</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_timeline_new</span><span class="p">();</span>
+  <span class="n">guint</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n_layers</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ges_timeline_append_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">timeline</span><span class="p">;</span>
+<span class="p">}</span>
+
 
 </code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">create_timeline_with_n_layers</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">n_layers</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">timeline</span><span class="o">.</span><span class="n">append_layer</span><span class="p">()</span>
+        <span class="n">n_layers</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">timeline</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">Can<span class="s1">'t create an empty timeline with ges-launch-1.0!
+
+</span></code></pre>
+
+<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
+
+<pre class="inlined_code">
+  Timeline, duration : 0 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         |                                           |  |
+| Layer 1 |                                           |  |
+|         |                                           |  |
+|         +-------------------------------------------+  |
+|                                                        |
+|         +-------------------------------------------+  |
+|         |                                           |  |
+| Layer 2 |                                           |  |
+|         |                                           |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+</pre>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">,</span> <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GList</span> <span class="o">*</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">layers</span> <span class="o">=</span> <span class="n">ges_timeline_get_layers</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">layers</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GESClip</span> <span class="o">*</span><span class="n">clip</span> <span class="o">=</span> <span class="n">GES_CLIP</span><span class="p">(</span><span class="n">ges_test_clip_new</span><span class="p">());</span>
+    <span class="n">GESLayer</span> <span class="o">*</span><span class="n">layer</span> <span class="o">=</span> <span class="n">GES_LAYER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+
+    <span class="n">ges_layer_add_clip</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">clip</span><span class="p">);</span>
+    <span class="n">g_object_set</span> <span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="s">"duration"</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="s">"start"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/* We commit the timeline to have our changes taken into account */</span>
+  <span class="n">ges_timeline_commit</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">timeline</span><span class="o">.</span><span class="n">get_layers</span><span class="p">():</span>
+        <span class="n">clip</span> <span class="o">=</span> <span class="n">GES</span><span class="o">.</span><span class="n">TestClip</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="n">layer</span><span class="o">.</span><span class="n">add_clip</span> <span class="p">(</span><span class="n">clip</span><span class="p">)</span>
+        <span class="n">clip</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="n">clip</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c"># We commit the timeline to have our changes taken into account</span>
+    <span class="n">timeline</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME : we are about to change the CLI
+
+
+</code></pre>
+
+<p>If we add two clips in layer 1 and layer 2, each starting at 0 with a
+duration of 10 seconds, our timeline now looks like this:</p>
+
+<pre class="inlined_code">
+
+  Timeline, duration : 10 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 1 | |              Clip 1                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 2 | |              Clip 2                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+
+</pre>
+
+<p>In that timeline, Clip 1 is said to have the highest &ldquo;priority&rdquo;. In the case
+of video streams, it means that it will be rendered on top of Clip 2, which in turn signifies
+that if Clip 1 and Clip 2 share the same width and height, Clip 2 will be completely
+invisible.</p>
+
+<p>In the case of video streams, one can therefore think of the layer priority as a z-index.</p>
+
+<h4 id="tracks">Tracks</h4>
+
+<p>Let&rsquo;s continue with that timeline. For now it indeed mixes various layers together, but it
+doesn&rsquo;t output anything. That&rsquo;s what <a href="#ges.track">GES.Tracks</a> are for.</p>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTrack</span> <span class="o">*</span><span class="n">track</span> <span class="o">=</span> <span class="n">GES_TRACK</span> <span class="p">(</span><span class="n">ges_video_track_new</span> <span class="p">());</span>
+
+  <span class="n">ges_timeline_add_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="n">track</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span>
+
+<span class="k">def</span> <span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">):</span>
+    <span class="n">timeline</span><span class="o">.</span><span class="n">add_track</span> <span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTrack</span><span class="o">.</span><span class="n">new</span><span class="p">())</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME
+
+</code></pre>
+
+<p>If we add a video track to our timeline, it can be represented that way:</p>
+
+<pre class="inlined_code">
+
+  Timeline, duration : 10 seconds
++--------------------------------------------------------+
+|                                                        |
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 1 | |              Clip 1                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |--------> Video Track
+|         +-------------------------------------------+  |
+|         | +=======================================+ |  |
+| Layer 2 | |              Clip 2                   | |  |
+|         | +=======================================+ |  |
+|         +-------------------------------------------+  |
+|                                                        |
++--------------------------------------------------------+
+
+</pre>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+#include "add_one_clip_in_each_layer.c"
+#include "add_one_video_track.c"
+#include "create_timeline_with_n_layers.c"
+#include "play_timeline.c"
+</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
+
+  <span class="n">gst_init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">ges_init</span><span class="p">();</span>
+
+  <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GST_SECOND</span><span class="p">);</span>
+  <span class="n">add_one_video_track</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="n">play_timeline</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span><span class="p">,</span> <span class="n">Gst</span>
+
+<span class="kn">from</span> <span class="nn">create_timeline_with_n_layers</span> <span class="kn">import</span> <span class="n">create_timeline_with_n_layers</span>
+<span class="kn">from</span> <span class="nn">add_one_clip_in_each_layer</span> <span class="kn">import</span> <span class="n">add_one_clip_in_each_layer</span>
+<span class="kn">from</span> <span class="nn">add_one_video_track</span> <span class="kn">import</span> <span class="n">add_one_video_track</span>
+<span class="kn">from</span> <span class="nn">play_timeline</span> <span class="kn">import</span> <span class="n">play_timeline</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">Gst</span><span class="o">.</span><span class="n">init</span><span class="p">([])</span>
+    <span class="n">GES</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">Gst</span><span class="o">.</span><span class="n">SECOND</span><span class="p">)</span>
+    <span class="n">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+    <span class="c"># Convenience function for the sake of examples.</span>
+    <span class="n">play_timeline</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME
+
+</code></pre>
+
+<p>Assuming both clips contain video streams, our timeline will now output the
+result of their compositing together on the video track. Any audio streams they contain are
+ignored.</p>
+
+<p>One can of course add an audio track to get audio output.</p>
+
+<p>Having multiple tracks with the same type, for example 3 audio tracks, is
+useful if one wants to link the timeline to a container that can store various languages, for
+example a DVD creator might store English, Dutch and French audio tracks.</p>
 
 <h3 id="ges.timeline.new">GES.Timeline.new</h3>
 
@@ -135,8 +339,7 @@ by the <strong>timeline</strong>.</p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
-<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
+<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>.</p>
 
 <p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
 Note that you do not own any reference to the returned layer.</p>
