@@ -46,42 +46,139 @@
       <div class="dark-box"></div>
       <div class="content">
         
-          <h1 id="overview">Overview</h1>
+          <h1 id="introduction">Introduction</h1>
 
-<p>Gstreamer-Editing-Services is a C library providing a high-level API
-for multimedia editing.</p>
+<p>Welcome to the Gstreamer-Editing-Services (GES) documentation.</p>
+
+<p>This is the API used under the hood by <a href="http://www.pitivi.org/">Pitivi</a>, so
+anything possible in Pitivi&rsquo;s UI can be done with GES as well.</p>
+
+<p>This document&rsquo;s objective is to serve both as as an API reference and a step-by-step
+tutorial / guide. We will start with the basic concepts, illustrating them with examples in
+various languages, and by the end you should be able to write a non-linear video editing software
+for the platform of your choice.</p>
+
+<p>A search box is available on the left-hand side for quick lookup of classes or methods, and you can
+choose the language of the examples using the tab in the right-hand side column.</p>
+
+<p>All the examples are available in the <a href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/tests/examples">examples directory of GES</a>, during the course of this tutorial we will create specialized functions that we will reuse in latter examples, these functions will be cross-referenced all along the document, so you don&rsquo;t need to follow the tutorial in a strictly sequential order, even though it is recommended to get a complete understanding of the API.</p>
+
+<h3 id="about-ges">About GES</h3>
+
+<p>Gstreamer-Editing-Services (GES) is a C library providing a high-level API
+for multimedia editing, it is based on <a href="http://gstreamer.freedesktop.org/">GStreamer</a>, a very powerful,
+versatile and portable multimedia framework.</p>
+
+<p>GES is Open Source, licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL v2</a>, you are encouraged to look at the source code and contribute to its development by submitting patches to our <a href="FIXME">phabricator instance</a>!</p>
+
+<p>GES can be deployed on iOS, Windows, Linux, Android and OSX.</p>
+
+<h3 id="features">Features</h3>
+
+<p>GES lets you edit and compose together any number of multimedia resources,
+apply filters on them and animate their properties.</p>
+
+<p>The range of tasks GES can perform is very wide, from simple three-point editing
+(playing or rendering a source clip from an in-point to an out-point), to
+complex timelines with hundreds of source clips composited together on multiple layers,
+filters with animatable properties and many different types of transitions.</p>
+
+<p>GES provides you with an easy-to-use rendering and playing back abstraction, and
+an executable, ges-launch-1.0, which allows access to a significant part of its features
+through the command-line, ideal for quick prototyping and testing.</p>
+
+<p>Finally, GES also exposes a lower-level API, for the adventurous developer who
+wishes to implement new kinds of sources, effects or transitions.</p>
 
           <h1 id="high-level-api">High Level API</h1>
 
-<p>We will now look at the basic API of GES.</p>
-
           <h2 id="ges.timeline">GES.Timeline</h2>
 
-<p><a href="#ges.timeline">GES.Timeline</a> is the central object for any multimedia timeline.</p>
+<p>A <a href="#ges.timeline">GES.Timeline</a> is composed of one or more <a href="#ges.layer">GES.Layers</a>, and produces data on one or
+more <a href="#ges.track">GES.Tracks</a>.</p>
 
-<p>Contains a list of <a href="#ges.layer">GES.Layer</a> which users should use to arrange the
-various clips through time.</p>
+<p>A <a href="#ges.track">GES.Track</a> represents a media type, for example audio, video or text. For the
+moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers</a> contain <a href="#ges.clip">GES.Clips</a>, and represent the relative priorities of these clips.</p>
 
-<p>The output type is determined by the <a href="#ges.track">GES.Track</a> that are set on
-the <a href="#ges.timeline">GES.Timeline</a>.</p>
+<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
+<pre><code class="highlight c">  <span class="n">Timeline</span><span class="p">,</span> <span class="n">duration</span> <span class="o">:</span> <span class="mi">0</span> <span class="n">seconds</span>
+  <span class="o">+--------------------------------------------------------+</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">1</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">2</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">+--------------------------------------------------------+</span>
 
-<p>To save/load a timeline, you can use the <a href="#ges.timeline.load_from_uri">GES.Timeline.load_from_uri</a> and
-<a href="#ges.timeline.save_to_uri">GES.Timeline.save_to_uri</a> methods to use the default format. If you wish</p>
+</code></pre>
 
-<p>Note that any change you make in the timeline will not actually be taken
-into account until you call the (FIXME broken link)ges_timeline_commit method.</p>
+<h3 id="ges.timeline.new">GES.Timeline.new</h3>
 
-<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
+<p><strong>()</strong></p>
 
-<p><strong>(timeline)</strong></p>
+<p><em>Returns</em>: The new timeline.</p>
+
+<p>Creates a new empty <a href="#ges.timeline">GES.Timeline</a>.</p>
+
+<h3 id="ges.timeline.new_audio_video">GES.Timeline.new_audio_video</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.timeline">GES.Timeline</a>.</p>
+
+<p>Creates a new <a href="#ges.timeline">GES.Timeline</a> containing a raw audio and a
+raw video track.</p>
+
+<h3 id="ges.timeline.new_from_uri">GES.Timeline.new_from_uri</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI to load from</p>
+
+<p><em>Returns</em>: A new timeline if the uri was loaded successfully, or NULL if the
+uri could not be loaded</p>
+
+<p>Creates a timeline from the given URI.</p>
+
+<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
+
+<p><strong>(timeline, uri)</strong></p>
+
+<p><em>timeline</em>: an empty <a href="#ges.timeline">GES.Timeline</a> into which to load the formatter</p>
+
+<p><em>uri</em>: The URI to load from</p>
+
+<p><em>Returns</em>: TRUE if the timeline was loaded successfully, or FALSE if the uri
+could not be loaded.</p>
+
+<p>Loads the contents of URI into the given timeline.</p>
+
+<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
+
+<p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
-<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
+<p><em>uri</em>: The location to save to</p>
 
-<p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
-Note that you do not own any reference to the returned layer.</p>
+<p><em>formatter_asset</em>: The formatter asset to use or <strong>NULL</strong>. If <strong>NULL</strong>,
+will try to save in the same format as the one from which the timeline as been loaded
+or default to the formatter with highest rank</p>
+
+<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
+
+<p><em>Returns</em>: TRUE if the timeline was successfully saved to the given location,
+else FALSE.</p>
+
+<p>Saves the timeline to the given location</p>
 
 <h3 id="ges.timeline.add_layer">GES.Timeline.add_layer</h3>
 
@@ -96,18 +193,143 @@ Note that you do not own any reference to the returned layer.</p>
 <p>Add the layer to the timeline. The reference to the <strong>layer</strong> will be stolen
 by the <strong>timeline</strong>.</p>
 
-<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
+<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
 
-<p><strong>(timeline, uri)</strong></p>
+<p><strong>(timeline)</strong></p>
 
-<p><em>timeline</em>: an empty <a href="#ges.timeline">GES.Timeline</a> into which to load the formatter</p>
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>uri</em>: The URI to load from</p>
+<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
+<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
 
-<p><em>Returns</em>: TRUE if the timeline was loaded successfully, or FALSE if the uri
-could not be loaded.</p>
+<p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
+Note that you do not own any reference to the returned layer.</p>
 
-<p>Loads the contents of URI into the given timeline.</p>
+<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
+
+<p><strong>(timeline, layer)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>layer</em>: the <a href="#ges.layer">GES.Layer</a> to remove</p>
+
+<p><em>Returns</em>: TRUE if the layer was properly removed, else FALSE.</p>
+
+<p>Removes the layer from the timeline. The reference that the <strong>timeline</strong> holds on
+the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
+method, you need to take a reference before calling.</p>
+
+<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: the list of
+<a href="#ges.layer">GES.Layer</a> present in the Timeline sorted by priority.
+The caller should unref each Layer once he is done with them.</p>
+
+<p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
+
+<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
+
+<p><strong>(timeline, track)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to add</p>
+
+<p><em>Returns</em>: TRUE if the track was properly added, else FALSE.</p>
+
+<p>Add a track to the timeline. The reference to the track will be stolen by the
+pipeline.</p>
+
+<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
+
+<p><strong>(timeline, track)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to remove</p>
+
+<p><em>Returns</em>: TRUE if the <strong>track</strong> was properly removed, else FALSE.</p>
+
+<p>Remove the <strong>track</strong> from the <strong>timeline</strong>. The reference stolen when adding the
+<strong>track</strong> will be removed. If you wish to use the <strong>track</strong> after calling this
+function you must ensure that you have a reference to it.</p>
+
+<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: A list of <a href="#ges.track">GES.Track</a>.
+The caller should unref each track once he is done with them.</p>
+
+<p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
+
+<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if something as been commited <strong>FALSE</strong> if nothing needed
+to be commited</p>
+
+<p>Commits all the pending changes of the clips contained in the
+<strong>timeline</strong>.</p>
+
+<p>When timing changes happen in a timeline, the changes are not
+directly done inside NLE. This method needs to be called so any changes
+on a clip contained in the timeline actually happen at the media
+processing level.</p>
+
+<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the timeline is empty <strong>FALSE</strong> otherwize</p>
+
+<p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
+
+<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
+
+<p><strong>(timeline, name)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>name</em>: FIXME empty description
+<em>Returns</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> or <strong>NULL</strong> if
+not found.</p>
+
+<p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
+
+<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: The current duration of <strong>timeline</strong></p>
+
+<p>Get the current duration of <strong>timeline</strong></p>
+
+<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
+
+<p><strong>(timeline, pad)</strong></p>
+
+<p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>pad</em>: The <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a></p>
+
+<p><em>Returns</em>: The corresponding <a href="#ges.track">GES.Track</a> if it is found,
+or <strong>NULL</strong> if there is an error.</p>
+
+<p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
 
 <h3 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h3>
 
@@ -135,111 +357,6 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Sets the <strong>snapping_distance</strong> of the timeline. See the documentation of the
 property snapping_distance for more information.</p>
 
-<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if the timeline is empty <strong>FALSE</strong> otherwize</p>
-
-<p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
-
-<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: A list of <a href="#ges.track">GES.Track</a>.
-The caller should unref each track once he is done with them.</p>
-
-<p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
-
-<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
-
-<p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>uri</em>: The location to save to</p>
-
-<p><em>formatter_asset</em>: The formatter asset to use or <strong>NULL</strong>. If <strong>NULL</strong>,
-will try to save in the same format as the one from which the timeline as been loaded
-or default to the formatter with highest rank</p>
-
-<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
-
-<p><em>Returns</em>: TRUE if the timeline was successfully saved to the given location,
-else FALSE.</p>
-
-<p>Saves the timeline to the given location</p>
-
-<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if transitions are automatically added, else <strong>FALSE</strong>.</p>
-
-<p>Gets whether transitions are automatically added when objects
-overlap or not.</p>
-
-<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
-
-<p><strong>(timeline, pad)</strong></p>
-
-<p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>pad</em>: The <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a></p>
-
-<p><em>Returns</em>: The corresponding <a href="#ges.track">GES.Track</a> if it is found,
-or <strong>NULL</strong> if there is an error.</p>
-
-<p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
-
-<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: The current duration of <strong>timeline</strong></p>
-
-<p>Get the current duration of <strong>timeline</strong></p>
-
-<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
-
-<p><strong>(timeline, layer)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>layer</em>: the <a href="#ges.layer">GES.Layer</a> to remove</p>
-
-<p><em>Returns</em>: TRUE if the layer was properly removed, else FALSE.</p>
-
-<p>Removes the layer from the timeline. The reference that the <strong>timeline</strong> holds on
-the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
-method, you need to take a reference before calling.</p>
-
-<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if something as been commited <strong>FALSE</strong> if nothing needed
-to be commited</p>
-
-<p>Commits all the pending changes of the clips contained in the
-<strong>timeline</strong>.</p>
-
-<p>When timing changes happen in a timeline, the changes are not
-directly done inside NLE. This method needs to be called so any changes
-on a clip contained in the timeline actually happen at the media
-processing level.</p>
-
 <h3 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h3>
 
 <p><strong>(timeline)</strong></p>
@@ -251,31 +368,6 @@ processing level.</p>
 <p>Gets the configured snapping distance of the timeline. See
 the documentation of the property snapping_distance for more
 information.</p>
-
-<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
-
-<p><strong>(timeline, track)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to add</p>
-
-<p><em>Returns</em>: TRUE if the track was properly added, else FALSE.</p>
-
-<p>Add a track to the timeline. The reference to the track will be stolen by the
-pipeline.</p>
-
-<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
-
-<p><strong>(timeline, name)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>name</em>: FIXME empty description
-<em>Returns</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> or <strong>NULL</strong> if
-not found.</p>
-
-<p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
 
 <h3 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h3>
 
@@ -290,31 +382,16 @@ not found.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
+<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
 
 <p><strong>(timeline)</strong></p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: the list of
-<a href="#ges.layer">GES.Layer</a> present in the Timeline sorted by priority.
-The caller should unref each Layer once he is done with them.</p>
+<p><em>Returns</em>: <strong>TRUE</strong> if transitions are automatically added, else <strong>FALSE</strong>.</p>
 
-<p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
-
-<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
-
-<p><strong>(timeline, track)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to remove</p>
-
-<p><em>Returns</em>: TRUE if the <strong>track</strong> was properly removed, else FALSE.</p>
-
-<p>Remove the <strong>track</strong> from the <strong>timeline</strong>. The reference stolen when adding the
-<strong>track</strong> will be removed. If you wish to use the <strong>track</strong> after calling this
-function you must ensure that you have a reference to it.</p>
+<p>Gets whether transitions are automatically added when objects
+overlap or not.</p>
 
           <h2 id="ges.layer">GES.Layer</h2>
 
@@ -378,6 +455,14 @@ priority property for more information.</p>
 
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
+
+<h3 id="ges.layer.new">GES.Layer.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.layer">GES.Layer</a></p>
+
+<p>Creates a new <a href="#ges.layer">GES.Layer</a>.</p>
 
 <h3 id="ges.layer.is_empty">GES.Layer.is_empty</h3>
 
@@ -803,7 +888,7 @@ already had a timeline.</p>
 
 <p><em>layers</em>: The layers you want the edit to
  happen in, <strong>NULL</strong> means that the edition is done in all the
- #GESLayers contained in the current timeline.</p>
+ <a href="#ges.layer">GES.Layers</a> contained in the current timeline.</p>
 
 <p><em>new_layer_priority</em>: The priority of the layer <strong>container</strong> should land in.
  If the layer you&rsquo;re trying to move the container to doesn&rsquo;t exist, it will
@@ -1092,6 +1177,15 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the <a href="#ges.videotestpattern">GES.VideoTestPattern</a> which is applied on <strong>self</strong>.</p>
 
+<h3 id="ges.testclip.new">GES.TestClip.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.testclip">GES.TestClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.testclip">GES.TestClip</a>.</p>
+
 <h3 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h3>
 
 <p><strong>(self)</strong></p>
@@ -1158,6 +1252,17 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the volume of the test audio signal applied on <strong>self</strong>.</p>
 
+<h3 id="ges.testclip.new_for_nick">GES.TestClip.new_for_nick</h3>
+
+<p><strong>(nick)</strong></p>
+
+<p><em>nick</em>: the nickname for which to create the <a href="#ges.testclip">GES.TestClip</a></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.testclip">GES.TestClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.testclip">GES.TestClip</a> for the provided <strong>nick</strong>.</p>
+
 <h3 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h3>
 
 <p><strong>(self, vpattern)</strong></p>
@@ -1172,17 +1277,15 @@ capable of extracting GESTestClip-s</p>
 
           <h2 id="ges.uriclip">GES.UriClip</h2>
 
-<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
+<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
 
-<p><strong>(self, mute)</strong></p>
+<p><strong>(self)</strong></p>
 
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a> on which to mute or unmute the audio track</p>
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
 
-<p><em>mute</em>: <strong>TRUE</strong> to mute <strong>self</strong> audio track, <strong>FALSE</strong> to unmute it</p>
+<p><em>Returns</em>: <strong>TRUE</strong> if the audio track of <strong>self</strong> is muted, <strong>FALSE</strong> otherwise.</p>
 
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets whether the audio track of this clip is muted or not.</p>
+<p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
 
 <h3 id="ges.uriclip.is_image">GES.UriClip.is_image</h3>
 
@@ -1193,6 +1296,27 @@ capable of extracting GESTestClip-s</p>
 <p><em>Returns</em>: <strong>TRUE</strong> if <strong>self</strong> is a still image <strong>FALSE</strong> otherwise.</p>
 
 <p>Lets you know if <strong>self</strong> is an image or not.</p>
+
+<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
+
+<p><strong>(self)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
+
+<p><em>Returns</em>: The location of the resource.</p>
+
+<p>Get the location of the resource.</p>
+
+<h3 id="ges.uriclip.new">GES.UriClip.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI the source should control</p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.uriclip">GES.UriClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.uriclip">GES.UriClip</a> for the provided <strong>uri</strong>.</p>
 
 <h3 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h3>
 
@@ -1206,25 +1330,17 @@ capable of extracting GESTestClip-s</p>
 
 <p>Sets whether the clip is a still image or not.</p>
 
-<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
+<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
 
-<p><strong>(self)</strong></p>
+<p><strong>(self, mute)</strong></p>
 
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a> on which to mute or unmute the audio track</p>
 
-<p><em>Returns</em>: <strong>TRUE</strong> if the audio track of <strong>self</strong> is muted, <strong>FALSE</strong> otherwise.</p>
+<p><em>mute</em>: <strong>TRUE</strong> to mute <strong>self</strong> audio track, <strong>FALSE</strong> to unmute it</p>
 
-<p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
+<p><em>Returns</em>: FIXME empty description</p>
 
-<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
-
-<p><strong>(self)</strong></p>
-
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
-
-<p><em>Returns</em>: The location of the resource.</p>
-
-<p>Get the location of the resource.</p>
+<p>Sets whether the audio track of this clip is muted or not.</p>
 
           <h2 id="ges.titleclip">GES.TitleClip</h2>
 
@@ -1361,6 +1477,15 @@ with the specified background pattern.</p>
 
 <p>Get the vertical position used by <strong>self</strong>.</p>
 
+<h3 id="ges.titleclip.new">GES.TitleClip.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.titleclip">GES.TitleClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.titleclip">GES.TitleClip</a></p>
+
 <h3 id="ges.titleclip.set_background">GES.TitleClip.set_background</h3>
 
 <p><strong>(self, background)</strong></p>
@@ -1418,6 +1543,19 @@ made.</p>
 <p>The effect will be applied on the sources that have lower priorities
 (higher number) between the inpoint and the end of it.</p>
 
+<h3 id="ges.effectclip.new">GES.EffectClip.new</h3>
+
+<p><strong>(video_bin_description, audio_bin_description)</strong></p>
+
+<p><em>video_bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>audio_bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.effectclip">GES.EffectClip</a>, or
+<strong>NULL</strong> if something went wrong.</p>
+
+<p>Creates a new <a href="#ges.effectclip">GES.EffectClip</a> from the description of the bin.</p>
+
           <h2 id="ges.operationclip">GES.OperationClip</h2>
 
 <p>Operations are any kind of object that both outputs AND consumes data.</p>
@@ -1439,6 +1577,28 @@ supported.</p>
 that this value can be changed after creation and the GESExtractable.asset value
 will be updated when needed.</p>
 
+<h3 id="ges.transitionclip.new_for_nick">GES.TransitionClip.new_for_nick</h3>
+
+<p><strong>(nick)</strong></p>
+
+<p><em>nick</em>: a string representing the type of transition to create</p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.transitionclip">GES.TransitionClip</a>, or <strong>NULL</strong> if something
+went wrong</p>
+
+<p>Creates a new <a href="#ges.transitionclip">GES.TransitionClip</a> for the provided <strong>nick</strong>.</p>
+
+<h3 id="ges.transitionclip.new">GES.TransitionClip.new</h3>
+
+<p><strong>(vtype)</strong></p>
+
+<p><em>vtype</em>: the type of transition to create</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.transitionclip">GES.TransitionClip</a>, or <strong>NULL</strong> if something
+went wrong.</p>
+
+<p>Creates a new <a href="#ges.transitionclip">GES.TransitionClip</a>.</p>
+
           <h2 id="ges.overlayclip">GES.OverlayClip</h2>
 
 <p>Overlays are objects which modify the underlying layer(s).</p>
@@ -1451,6 +1611,18 @@ not considered overlays.</p>
           <h2 id="ges.textoverlayclip">GES.TextOverlayClip</h2>
 
 <p>Renders text onto the next lower priority stream using textrender.</p>
+
+<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
+
+<p><strong>(self, position)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>* to set</p>
+
+<p><em>position</em>: The vertical position <strong>self</strong> is being set to</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the vertical position of the text.</p>
 
 <h3 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h3>
 
@@ -1571,17 +1743,14 @@ made.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
+<h3 id="ges.textoverlayclip.new">GES.TextOverlayClip.new</h3>
 
-<p><strong>(self, position)</strong></p>
+<p><strong>()</strong></p>
 
-<p><em>self</em>: the <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>* to set</p>
+<p><em>Returns</em>: The newly created <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>, or NULL if there was an
+error.</p>
 
-<p><em>position</em>: The vertical position <strong>self</strong> is being set to</p>
-
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets the vertical position of the text.</p>
+<p>Creates a new <a href="#ges.textoverlayclip">GES.TextOverlayClip</a></p>
 
 <h3 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h3>
 
@@ -1610,18 +1779,40 @@ made.</p>
           <h2 id="ges.group">GES.Group</h2>
 
 <p>A <a href="#ges.group">GES.Group</a> is an object which controls one or more
-(FIXME broken link)GESClips in one or more <a href="#ges.layer">GES.Layer</a>(s).</p>
+<a href="#ges.clip">GES.Clips</a> in one or more <a href="#ges.layer">GES.Layer</a>(s).</p>
 
 <p>To instanciate a group, you should use the ges_container_group method,
 this will be responsible for deciding what subclass of <a href="#ges.container">GES.Container</a>
 should be instaciated to group the various <a href="#ges.timelineelement">GES.TimelineElement</a> passed
 in parametter.</p>
 
+<h3 id="ges.group.new">GES.Group.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The new empty group.</p>
+
+<p>Created a new empty <a href="#ges.group">GES.Group</a>, if you want to group several container
+together, it is recommanded to use the (FIXME broken link)ges_container_group method so the
+proper subclass is selected.</p>
+
           <h2 id="ges.track">GES.Track</h2>
 
 <p>Corresponds to one output format (i.e. audio OR video).</p>
 
 <p>Contains the compatible TrackElement(s).</p>
+
+<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
+
+<p><strong>(track, caps)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to set</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
 
 <h3 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h3>
 
@@ -1748,17 +1939,20 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
 
-<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
+<h3 id="ges.track.new">GES.Track.new</h3>
 
-<p><strong>(track, caps)</strong></p>
+<p><strong>(type, caps)</strong></p>
 
-<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+<p><em>type</em>: The type of track</p>
 
-<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to set</p>
+<p><em>caps</em>: The caps to restrict the output of the track to.</p>
 
-<p><em>Returns</em>: FIXME empty description</p>
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a>.</p>
 
-<p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
+<p>Creates a new <a href="#ges.track">GES.Track</a> with the given <strong>type</strong> and <strong>caps</strong>.</p>
+
+<p>The newly created track will steal a reference to the caps. If you wish to
+use those caps elsewhere, you will have to take an extra reference.</p>
 
 <h3 id="ges.track.set_timeline">GES.Track.set_timeline</h3>
 
@@ -1798,7 +1992,25 @@ if you actually know what you&rsquo;re doing :)</p>
 - rate: 44100
 - layout: interleaved</p>
 
+<h3 id="ges.audiotrack.new">GES.AudioTrack.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a></p>
+
+<p>Creates a new <a href="#ges.audiotrack">GES.AudioTrack</a> of type (FIXME broken link)GES_TRACK_TYPE_AUDIO and with generic
+raw audio caps (&ldquo;audio/x-raw&rdquo;);</p>
+
           <h2 id="ges.videotrack">GES.VideoTrack</h2>
+
+<h3 id="ges.videotrack.new">GES.VideoTrack.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a>.</p>
+
+<p>Creates a new <a href="#ges.videotrack">GES.VideoTrack</a> of type (FIXME broken link)GES_TRACK_TYPE_VIDEO and with generic
+raw video caps (&ldquo;video/x-raw&rdquo;);</p>
 
           <h1 id="playback-and-rendering">Playback and Rendering</h1>
 
@@ -1914,6 +2126,14 @@ caps. The caller should free the sample with (FIXME broken link)gst_sample_unref
 caps are specified, the information will be returned in the whatever format
 is currently used by the sink. This information can be retrieve from caps
 associated with the buffer.</p>
+
+<h3 id="ges.pipeline.new">GES.Pipeline.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: the new <a href="#ges.pipeline">GES.Pipeline</a>.</p>
+
+<p>Creates a new conveninence <a href="#ges.pipeline">GES.Pipeline</a>.</p>
 
 <h3 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h3>
 
@@ -2045,7 +2265,7 @@ children of <strong>object</strong>.</p>
 
 <p><em>layers</em>: The layers you want the edit to
  happen in, <strong>NULL</strong> means that the edition is done in all the
- #GESLayers contained in the current timeline.
+ <a href="#ges.layer">GES.Layers</a> contained in the current timeline.
      FIXME: This is not implemented yet.</p>
 
 <p><em>mode</em>: The <a href="#ges.editmode">GES.EditMode</a> in which the editition will happen.</p>
@@ -2753,6 +2973,16 @@ made.</p>
 <p>Outputs the video stream from a given image sequence. The start frame
 chosen will be determined by the in-point property on the track element.</p>
 
+<h3 id="ges.multifilesource.new">GES.MultiFileSource.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI the source should control</p>
+
+<p><em>Returns</em>: A new <a href="#ges.multifilesource">GES.MultiFileSource</a>.</p>
+
+<p>Creates a new <a href="#ges.multifilesource">GES.MultiFileSource</a> for the provided <strong>uri</strong>.</p>
+
           <h2 id="ges.operation">GES.Operation</h2>
 
 <p>Base class for overlays, transitions, and effects</p>
@@ -2760,6 +2990,17 @@ chosen will be determined by the in-point property on the track element.</p>
           <h2 id="ges.baseeffect">GES.BaseEffect</h2>
 
           <h2 id="ges.effect">GES.Effect</h2>
+
+<h3 id="ges.effect.new">GES.Effect.new</h3>
+
+<p><strong>(bin_description)</strong></p>
+
+<p><em>bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.effect">GES.Effect</a>, or <strong>NULL</strong> if something went
+wrong.</p>
+
+<p>Creates a new <a href="#ges.effect">GES.Effect</a> from the description of the bin.</p>
 
           <h2 id="ges.textoverlay">GES.TextOverlay</h2>
 
@@ -2793,17 +3034,14 @@ chosen will be determined by the in-point property on the track element.</p>
 
 <p>Get the color used by @source.</p>
 
-<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
+<h3 id="ges.textoverlay.new">GES.TextOverlay.new</h3>
 
-<p><strong>(self, color)</strong></p>
+<p><strong>()</strong></p>
 
-<p><em>self</em>: the <a href="#ges.textoverlay">GES.TextOverlay</a>* to set</p>
+<p><em>Returns</em>: The newly created <a href="#ges.textoverlay">GES.TextOverlay</a> or <strong>NULL</strong> if something went
+wrong.</p>
 
-<p><em>color</em>: The color <strong>self</strong> is being set to</p>
-
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets the color of the text.</p>
+<p>Creates a new <a href="#ges.textoverlay">GES.TextOverlay</a>.</p>
 
 <h3 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h3>
 
@@ -2898,6 +3136,18 @@ of the text render by <strong>self</strong>.</p>
 
 <p>Sets the vertical aligment of the text.</p>
 
+<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
+
+<p><strong>(self, color)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.textoverlay">GES.TextOverlay</a>* to set</p>
+
+<p><em>color</em>: The color <strong>self</strong> is being set to</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the color of the text.</p>
+
 <h3 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h3>
 
 <p><strong>(self)</strong></p>
@@ -2926,6 +3176,14 @@ will render.</p>
 <p>Base class for media transitions.</p>
 
           <h2 id="ges.audiotransition">GES.AudioTransition</h2>
+
+<h3 id="ges.audiotransition.new">GES.AudioTransition.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.audiotransition">GES.AudioTransition</a>.</p>
+
+<p>Creates a new <a href="#ges.audiotransition">GES.AudioTransition</a>.</p>
 
           <h2 id="ges.videotransition">GES.VideoTransition</h2>
 
@@ -2979,6 +3237,15 @@ the direction of the transition.</p>
 <p>Get the border property of <strong>self</strong>, this value represents
 the border width of the transition.</p>
 
+<h3 id="ges.videotransition.new">GES.VideoTransition.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.videotransition">GES.VideoTransition</a>, or <strong>NULL</strong> if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.videotransition">GES.VideoTransition</a>.</p>
+
 <h3 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h3>
 
 <p><strong>(self, inverted)</strong></p>
@@ -3017,8 +3284,8 @@ filters listing for you.</p>
 
 <p>The Assets in the GStreamer Editing Services represent the resources
 that can be used. You can create assets for any type that implements the <a href="#ges.extractable">GES.Extractable</a>
-interface, for example (FIXME broken link)GESClips, <a href="#ges.formatter">GES.Formatter</a>, and <a href="#ges.trackelement">GES.TrackElement</a> do implement it.
-This means that assets will represent for example a (FIXME broken link)GESUriClips, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
+interface, for example <a href="#ges.clip">GES.Clips</a>, <a href="#ges.formatter">GES.Formatter</a>, and <a href="#ges.trackelement">GES.TrackElement</a> do implement it.
+This means that assets will represent for example a <a href="#ges.uriclip">GES.UriClips</a>, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
 and then you can extract objects of those types with the appropriate parameters from the asset
 using the (FIXME broken link)ges_asset_extract method:</p>
 <pre><code class="highlight c"><span class="n">GESAsset</span> <span class="o">*</span><span class="n">effect_asset</span><span class="p">;</span>
@@ -3050,7 +3317,7 @@ you will extract from it (ie crossfade, box-wipe-rc etc..) For <a href="#ges.eff
 will be used).</p>
 
 <p>Each and every <a href="#ges.asset">GES.Asset</a> is cached into GES, and you can query those with the (FIXME broken link)ges_list_assets function.
-Also the system will automatically register (FIXME broken link)GESAssets for (FIXME broken link)GESFormatters and (FIXME broken link)GESTransitionClips
+Also the system will automatically register <a href="#ges.asset">GES.Assets</a> for <a href="#ges.formatter">GES.Formatters</a> and <a href="#ges.transitionclip">GES.TransitionClips</a>
 and standard effects (actually not implemented yet) and you can simply query those calling:</p>
 <pre><code class="highlight c">   <span class="n">GList</span> <span class="o">*</span><span class="n">formatter_assets</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 
@@ -3069,8 +3336,8 @@ and standard effects (actually not implemented yet) and you can simply query tho
 
 </code></pre>
 
-<p>You can request the creation of (FIXME broken link)GESAssets using either (FIXME broken link)ges_asset_request_async or
-(FIXME broken link)ges_asset_request_async. All the (FIXME broken link)GESAssets are cached and thus any asset that has already
+<p>You can request the creation of <a href="#ges.asset">GES.Assets</a> using either (FIXME broken link)ges_asset_request_async or
+(FIXME broken link)ges_asset_request_async. All the <a href="#ges.asset">GES.Assets</a> are cached and thus any asset that has already
 been created can be requested again without overhead.</p>
 
 <h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>
@@ -3432,6 +3699,20 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
+<h3 id="ges.project.new">GES.Project.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: The uri to be set after creating the project.</p>
+
+<p><em>Returns</em>: A newly created <a href="#ges.project">GES.Project</a></p>
+
+<p>Creates a new <a href="#ges.project">GES.Project</a> and sets its uri to <strong>uri</strong> if provided. Note that
+if <strong>uri</strong> is not valid or <strong>NULL</strong>, the uri of the project will then be set
+the first time you save the project. If you then save the project to
+other locations, it will never be updated again and the first valid URI is
+the URI it will keep refering to.</p>
+
 <h3 id="ges.project.remove_asset">GES.Project.remove_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
@@ -3650,6 +3931,12 @@ from the given URI.</p>
 
 <p>This is a legacy format and you should avoid to use it. The formatter
 is really not in good shape and is deprecated.</p>
+
+<h3 id="ges.pitiviformatter.new">GES.PitiviFormatter.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: FIXME empty description</p>
 
       </div>
       <div class="dark-box">

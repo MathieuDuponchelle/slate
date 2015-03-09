@@ -43,6 +43,28 @@ supported.</p>
 that this value can be changed after creation and the GESExtractable.asset value
 will be updated when needed.</p>
 
+<h3 id="ges.transitionclip.new_for_nick">GES.TransitionClip.new_for_nick</h3>
+
+<p><strong>(nick)</strong></p>
+
+<p><em>nick</em>: a string representing the type of transition to create</p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.transitionclip">GES.TransitionClip</a>, or <strong>NULL</strong> if something
+went wrong</p>
+
+<p>Creates a new <a href="#ges.transitionclip">GES.TransitionClip</a> for the provided <strong>nick</strong>.</p>
+
+<h3 id="ges.transitionclip.new">GES.TransitionClip.new</h3>
+
+<p><strong>(vtype)</strong></p>
+
+<p><em>vtype</em>: the type of transition to create</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.transitionclip">GES.TransitionClip</a>, or <strong>NULL</strong> if something
+went wrong.</p>
+
+<p>Creates a new <a href="#ges.transitionclip">GES.TransitionClip</a>.</p>
+
       </div>
       <div class="dark-box">
       </div>

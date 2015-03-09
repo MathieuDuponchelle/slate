@@ -44,6 +44,15 @@ if you actually know what you&rsquo;re doing :)</p>
 - rate: 44100
 - layout: interleaved</p>
 
+<h3 id="ges.audiotrack.new">GES.AudioTrack.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a></p>
+
+<p>Creates a new <a href="#ges.audiotrack">GES.AudioTrack</a> of type (FIXME broken link)GES_TRACK_TYPE_AUDIO and with generic
+raw audio caps (&ldquo;audio/x-raw&rdquo;);</p>
+
       </div>
       <div class="dark-box">
       </div>

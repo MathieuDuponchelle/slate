@@ -163,6 +163,15 @@ with the specified background pattern.</p>
 
 <p>Get the vertical position used by <strong>self</strong>.</p>
 
+<h3 id="ges.titleclip.new">GES.TitleClip.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.titleclip">GES.TitleClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.titleclip">GES.TitleClip</a></p>
+
 <h3 id="ges.titleclip.set_background">GES.TitleClip.set_background</h3>
 
 <p><strong>(self, background)</strong></p>

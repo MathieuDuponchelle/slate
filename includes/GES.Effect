@@ -30,6 +30,17 @@
       <div class="content">
         <h2 id="ges.effect">GES.Effect</h2>
 
+<h3 id="ges.effect.new">GES.Effect.new</h3>
+
+<p><strong>(bin_description)</strong></p>
+
+<p><em>bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.effect">GES.Effect</a>, or <strong>NULL</strong> if something went
+wrong.</p>
+
+<p>Creates a new <a href="#ges.effect">GES.Effect</a> from the description of the bin.</p>
+
       </div>
       <div class="dark-box">
       </div>

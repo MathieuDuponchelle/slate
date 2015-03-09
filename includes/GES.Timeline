@@ -30,31 +30,91 @@
       <div class="content">
         <h2 id="ges.timeline">GES.Timeline</h2>
 
-<p><a href="#ges.timeline">GES.Timeline</a> is the central object for any multimedia timeline.</p>
+<p>A <a href="#ges.timeline">GES.Timeline</a> is composed of one or more <a href="#ges.layer">GES.Layers</a>, and produces data on one or
+more <a href="#ges.track">GES.Tracks</a>.</p>
 
-<p>Contains a list of <a href="#ges.layer">GES.Layer</a> which users should use to arrange the
-various clips through time.</p>
+<p>A <a href="#ges.track">GES.Track</a> represents a media type, for example audio, video or text. For the
+moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers</a> contain <a href="#ges.clip">GES.Clips</a>, and represent the relative priorities of these clips.</p>
 
-<p>The output type is determined by the <a href="#ges.track">GES.Track</a> that are set on
-the <a href="#ges.timeline">GES.Timeline</a>.</p>
+<p>Let&rsquo;s imagine a timeline that contains two layers:</p>
+<pre><code class="highlight c">  <span class="n">Timeline</span><span class="p">,</span> <span class="n">duration</span> <span class="o">:</span> <span class="mi">0</span> <span class="n">seconds</span>
+  <span class="o">+--------------------------------------------------------+</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">1</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span> <span class="n">Layer</span> <span class="mi">2</span> <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">|</span>                                           <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>         <span class="o">+-------------------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                                        <span class="o">|</span>
+  <span class="o">+--------------------------------------------------------+</span>
 
-<p>To save/load a timeline, you can use the <a href="#ges.timeline.load_from_uri">GES.Timeline.load_from_uri</a> and
-<a href="#ges.timeline.save_to_uri">GES.Timeline.save_to_uri</a> methods to use the default format. If you wish</p>
+</code></pre>
 
-<p>Note that any change you make in the timeline will not actually be taken
-into account until you call the (FIXME broken link)ges_timeline_commit method.</p>
+<h3 id="ges.timeline.new">GES.Timeline.new</h3>
 
-<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
+<p><strong>()</strong></p>
 
-<p><strong>(timeline)</strong></p>
+<p><em>Returns</em>: The new timeline.</p>
+
+<p>Creates a new empty <a href="#ges.timeline">GES.Timeline</a>.</p>
+
+<h3 id="ges.timeline.new_audio_video">GES.Timeline.new_audio_video</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.timeline">GES.Timeline</a>.</p>
+
+<p>Creates a new <a href="#ges.timeline">GES.Timeline</a> containing a raw audio and a
+raw video track.</p>
+
+<h3 id="ges.timeline.new_from_uri">GES.Timeline.new_from_uri</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI to load from</p>
+
+<p><em>Returns</em>: A new timeline if the uri was loaded successfully, or NULL if the
+uri could not be loaded</p>
+
+<p>Creates a timeline from the given URI.</p>
+
+<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
+
+<p><strong>(timeline, uri)</strong></p>
+
+<p><em>timeline</em>: an empty <a href="#ges.timeline">GES.Timeline</a> into which to load the formatter</p>
+
+<p><em>uri</em>: The URI to load from</p>
+
+<p><em>Returns</em>: TRUE if the timeline was loaded successfully, or FALSE if the uri
+could not be loaded.</p>
+
+<p>Loads the contents of URI into the given timeline.</p>
+
+<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
+
+<p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
-<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
+<p><em>uri</em>: The location to save to</p>
 
-<p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
-Note that you do not own any reference to the returned layer.</p>
+<p><em>formatter_asset</em>: The formatter asset to use or <strong>NULL</strong>. If <strong>NULL</strong>,
+will try to save in the same format as the one from which the timeline as been loaded
+or default to the formatter with highest rank</p>
+
+<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
+
+<p><em>Returns</em>: TRUE if the timeline was successfully saved to the given location,
+else FALSE.</p>
+
+<p>Saves the timeline to the given location</p>
 
 <h3 id="ges.timeline.add_layer">GES.Timeline.add_layer</h3>
 
@@ -69,18 +129,143 @@ Note that you do not own any reference to the returned layer.</p>
 <p>Add the layer to the timeline. The reference to the <strong>layer</strong> will be stolen
 by the <strong>timeline</strong>.</p>
 
-<h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
+<h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
 
-<p><strong>(timeline, uri)</strong></p>
+<p><strong>(timeline)</strong></p>
 
-<p><em>timeline</em>: an empty <a href="#ges.timeline">GES.Timeline</a> into which to load the formatter</p>
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>uri</em>: The URI to load from</p>
+<p><em>Returns</em>: The newly created <a href="#ges.layer">GES.Layer</a>, or the last (empty)
+<a href="#ges.layer">GES.Layer</a> of <strong>timeline</strong>.</p>
 
-<p><em>Returns</em>: TRUE if the timeline was loaded successfully, or FALSE if the uri
-could not be loaded.</p>
+<p>Append a newly created <a href="#ges.layer">GES.Layer</a> to <strong>timeline</strong>
+Note that you do not own any reference to the returned layer.</p>
 
-<p>Loads the contents of URI into the given timeline.</p>
+<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
+
+<p><strong>(timeline, layer)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>layer</em>: the <a href="#ges.layer">GES.Layer</a> to remove</p>
+
+<p><em>Returns</em>: TRUE if the layer was properly removed, else FALSE.</p>
+
+<p>Removes the layer from the timeline. The reference that the <strong>timeline</strong> holds on
+the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
+method, you need to take a reference before calling.</p>
+
+<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: the list of
+<a href="#ges.layer">GES.Layer</a> present in the Timeline sorted by priority.
+The caller should unref each Layer once he is done with them.</p>
+
+<p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
+
+<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
+
+<p><strong>(timeline, track)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to add</p>
+
+<p><em>Returns</em>: TRUE if the track was properly added, else FALSE.</p>
+
+<p>Add a track to the timeline. The reference to the track will be stolen by the
+pipeline.</p>
+
+<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
+
+<p><strong>(timeline, track)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to remove</p>
+
+<p><em>Returns</em>: TRUE if the <strong>track</strong> was properly removed, else FALSE.</p>
+
+<p>Remove the <strong>track</strong> from the <strong>timeline</strong>. The reference stolen when adding the
+<strong>track</strong> will be removed. If you wish to use the <strong>track</strong> after calling this
+function you must ensure that you have a reference to it.</p>
+
+<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: A list of <a href="#ges.track">GES.Track</a>.
+The caller should unref each track once he is done with them.</p>
+
+<p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
+
+<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if something as been commited <strong>FALSE</strong> if nothing needed
+to be commited</p>
+
+<p>Commits all the pending changes of the clips contained in the
+<strong>timeline</strong>.</p>
+
+<p>When timing changes happen in a timeline, the changes are not
+directly done inside NLE. This method needs to be called so any changes
+on a clip contained in the timeline actually happen at the media
+processing level.</p>
+
+<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: <strong>TRUE</strong> if the timeline is empty <strong>FALSE</strong> otherwize</p>
+
+<p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
+
+<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
+
+<p><strong>(timeline, name)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>name</em>: FIXME empty description
+<em>Returns</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> or <strong>NULL</strong> if
+not found.</p>
+
+<p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
+
+<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
+
+<p><strong>(timeline)</strong></p>
+
+<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>Returns</em>: The current duration of <strong>timeline</strong></p>
+
+<p>Get the current duration of <strong>timeline</strong></p>
+
+<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
+
+<p><strong>(timeline, pad)</strong></p>
+
+<p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
+
+<p><em>pad</em>: The <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a></p>
+
+<p><em>Returns</em>: The corresponding <a href="#ges.track">GES.Track</a> if it is found,
+or <strong>NULL</strong> if there is an error.</p>
+
+<p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
 
 <h3 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h3>
 
@@ -108,111 +293,6 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Sets the <strong>snapping_distance</strong> of the timeline. See the documentation of the
 property snapping_distance for more information.</p>
 
-<h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if the timeline is empty <strong>FALSE</strong> otherwize</p>
-
-<p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
-
-<h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: A list of <a href="#ges.track">GES.Track</a>.
-The caller should unref each track once he is done with them.</p>
-
-<p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
-
-<h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
-
-<p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>uri</em>: The location to save to</p>
-
-<p><em>formatter_asset</em>: The formatter asset to use or <strong>NULL</strong>. If <strong>NULL</strong>,
-will try to save in the same format as the one from which the timeline as been loaded
-or default to the formatter with highest rank</p>
-
-<p><em>overwrite</em>: <strong>TRUE</strong> to overwrite file if it exists</p>
-
-<p><em>Returns</em>: TRUE if the timeline was successfully saved to the given location,
-else FALSE.</p>
-
-<p>Saves the timeline to the given location</p>
-
-<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if transitions are automatically added, else <strong>FALSE</strong>.</p>
-
-<p>Gets whether transitions are automatically added when objects
-overlap or not.</p>
-
-<h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
-
-<p><strong>(timeline, pad)</strong></p>
-
-<p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>pad</em>: The <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a></p>
-
-<p><em>Returns</em>: The corresponding <a href="#ges.track">GES.Track</a> if it is found,
-or <strong>NULL</strong> if there is an error.</p>
-
-<p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
-
-<h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: The current duration of <strong>timeline</strong></p>
-
-<p>Get the current duration of <strong>timeline</strong></p>
-
-<h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
-
-<p><strong>(timeline, layer)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>layer</em>: the <a href="#ges.layer">GES.Layer</a> to remove</p>
-
-<p><em>Returns</em>: TRUE if the layer was properly removed, else FALSE.</p>
-
-<p>Removes the layer from the timeline. The reference that the <strong>timeline</strong> holds on
-the layer will be dropped. If you wish to use the <strong>layer</strong> after calling this
-method, you need to take a reference before calling.</p>
-
-<h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
-
-<p><strong>(timeline)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>Returns</em>: <strong>TRUE</strong> if something as been commited <strong>FALSE</strong> if nothing needed
-to be commited</p>
-
-<p>Commits all the pending changes of the clips contained in the
-<strong>timeline</strong>.</p>
-
-<p>When timing changes happen in a timeline, the changes are not
-directly done inside NLE. This method needs to be called so any changes
-on a clip contained in the timeline actually happen at the media
-processing level.</p>
-
 <h3 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h3>
 
 <p><strong>(timeline)</strong></p>
@@ -224,31 +304,6 @@ processing level.</p>
 <p>Gets the configured snapping distance of the timeline. See
 the documentation of the property snapping_distance for more
 information.</p>
-
-<h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
-
-<p><strong>(timeline, track)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to add</p>
-
-<p><em>Returns</em>: TRUE if the track was properly added, else FALSE.</p>
-
-<p>Add a track to the timeline. The reference to the track will be stolen by the
-pipeline.</p>
-
-<h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
-
-<p><strong>(timeline, name)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>name</em>: FIXME empty description
-<em>Returns</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> or <strong>NULL</strong> if
-not found.</p>
-
-<p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
 
 <h3 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h3>
 
@@ -263,31 +318,16 @@ not found.</p>
 <p>Sets the layer to the given <strong>auto_transition</strong>. See the documentation of the
 property auto_transition for more information.</p>
 
-<h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
+<h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
 
 <p><strong>(timeline)</strong></p>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
-<p><em>Returns</em>: the list of
-<a href="#ges.layer">GES.Layer</a> present in the Timeline sorted by priority.
-The caller should unref each Layer once he is done with them.</p>
+<p><em>Returns</em>: <strong>TRUE</strong> if transitions are automatically added, else <strong>FALSE</strong>.</p>
 
-<p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
-
-<h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
-
-<p><strong>(timeline, track)</strong></p>
-
-<p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
-
-<p><em>track</em>: the <a href="#ges.track">GES.Track</a> to remove</p>
-
-<p><em>Returns</em>: TRUE if the <strong>track</strong> was properly removed, else FALSE.</p>
-
-<p>Remove the <strong>track</strong> from the <strong>timeline</strong>. The reference stolen when adding the
-<strong>track</strong> will be removed. If you wish to use the <strong>track</strong> after calling this
-function you must ensure that you have a reference to it.</p>
+<p>Gets whether transitions are automatically added when objects
+overlap or not.</p>
 
       </div>
       <div class="dark-box">

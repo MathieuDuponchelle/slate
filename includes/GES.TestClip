@@ -45,6 +45,15 @@ capable of extracting GESTestClip-s</p>
 
 <p>Get the <a href="#ges.videotestpattern">GES.VideoTestPattern</a> which is applied on <strong>self</strong>.</p>
 
+<h3 id="ges.testclip.new">GES.TestClip.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.testclip">GES.TestClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.testclip">GES.TestClip</a>.</p>
+
 <h3 id="ges.testclip.get_frequency">GES.TestClip.get_frequency</h3>
 
 <p><strong>(self)</strong></p>
@@ -110,6 +119,17 @@ capable of extracting GESTestClip-s</p>
 <p><em>Returns</em>: The volume of the test audio signal applied on <strong>self</strong>.</p>
 
 <p>Get the volume of the test audio signal applied on <strong>self</strong>.</p>
+
+<h3 id="ges.testclip.new_for_nick">GES.TestClip.new_for_nick</h3>
+
+<p><strong>(nick)</strong></p>
+
+<p><em>nick</em>: the nickname for which to create the <a href="#ges.testclip">GES.TestClip</a></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.testclip">GES.TestClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.testclip">GES.TestClip</a> for the provided <strong>nick</strong>.</p>
 
 <h3 id="ges.testclip.set_vpattern">GES.TestClip.set_vpattern</h3>
 

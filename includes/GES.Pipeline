@@ -138,6 +138,14 @@ caps are specified, the information will be returned in the whatever format
 is currently used by the sink. This information can be retrieve from caps
 associated with the buffer.</p>
 
+<h3 id="ges.pipeline.new">GES.Pipeline.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: the new <a href="#ges.pipeline">GES.Pipeline</a>.</p>
+
+<p>Creates a new conveninence <a href="#ges.pipeline">GES.Pipeline</a>.</p>
+
 <h3 id="ges.pipeline.preview_set_audio_sink">GES.Pipeline.preview_set_audio_sink</h3>
 
 <p><strong>(self, sink)</strong></p>

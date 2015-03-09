@@ -60,17 +60,14 @@
 
 <p>Get the color used by @source.</p>
 
-<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
+<h3 id="ges.textoverlay.new">GES.TextOverlay.new</h3>
 
-<p><strong>(self, color)</strong></p>
+<p><strong>()</strong></p>
 
-<p><em>self</em>: the <a href="#ges.textoverlay">GES.TextOverlay</a>* to set</p>
+<p><em>Returns</em>: The newly created <a href="#ges.textoverlay">GES.TextOverlay</a> or <strong>NULL</strong> if something went
+wrong.</p>
 
-<p><em>color</em>: The color <strong>self</strong> is being set to</p>
-
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets the color of the text.</p>
+<p>Creates a new <a href="#ges.textoverlay">GES.TextOverlay</a>.</p>
 
 <h3 id="ges.textoverlay.set_xpos">GES.TextOverlay.set_xpos</h3>
 
@@ -164,6 +161,18 @@ of the text render by <strong>self</strong>.</p>
 <p><em>Returns</em>: FIXME empty description</p>
 
 <p>Sets the vertical aligment of the text.</p>
+
+<h3 id="ges.textoverlay.set_color">GES.TextOverlay.set_color</h3>
+
+<p><strong>(self, color)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.textoverlay">GES.TextOverlay</a>* to set</p>
+
+<p><em>color</em>: The color <strong>self</strong> is being set to</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the color of the text.</p>
 
 <h3 id="ges.textoverlay.get_text">GES.TextOverlay.get_text</h3>
 

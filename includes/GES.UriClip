@@ -30,17 +30,15 @@
       <div class="content">
         <h2 id="ges.uriclip">GES.UriClip</h2>
 
-<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
+<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
 
-<p><strong>(self, mute)</strong></p>
+<p><strong>(self)</strong></p>
 
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a> on which to mute or unmute the audio track</p>
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
 
-<p><em>mute</em>: <strong>TRUE</strong> to mute <strong>self</strong> audio track, <strong>FALSE</strong> to unmute it</p>
+<p><em>Returns</em>: <strong>TRUE</strong> if the audio track of <strong>self</strong> is muted, <strong>FALSE</strong> otherwise.</p>
 
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets whether the audio track of this clip is muted or not.</p>
+<p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
 
 <h3 id="ges.uriclip.is_image">GES.UriClip.is_image</h3>
 
@@ -51,6 +49,27 @@
 <p><em>Returns</em>: <strong>TRUE</strong> if <strong>self</strong> is a still image <strong>FALSE</strong> otherwise.</p>
 
 <p>Lets you know if <strong>self</strong> is an image or not.</p>
+
+<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
+
+<p><strong>(self)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
+
+<p><em>Returns</em>: The location of the resource.</p>
+
+<p>Get the location of the resource.</p>
+
+<h3 id="ges.uriclip.new">GES.UriClip.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI the source should control</p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.uriclip">GES.UriClip</a>, or NULL if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.uriclip">GES.UriClip</a> for the provided <strong>uri</strong>.</p>
 
 <h3 id="ges.uriclip.set_is_image">GES.UriClip.set_is_image</h3>
 
@@ -64,25 +83,17 @@
 
 <p>Sets whether the clip is a still image or not.</p>
 
-<h3 id="ges.uriclip.is_muted">GES.UriClip.is_muted</h3>
+<h3 id="ges.uriclip.set_mute">GES.UriClip.set_mute</h3>
 
-<p><strong>(self)</strong></p>
+<p><strong>(self, mute)</strong></p>
 
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
+<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a> on which to mute or unmute the audio track</p>
 
-<p><em>Returns</em>: <strong>TRUE</strong> if the audio track of <strong>self</strong> is muted, <strong>FALSE</strong> otherwise.</p>
+<p><em>mute</em>: <strong>TRUE</strong> to mute <strong>self</strong> audio track, <strong>FALSE</strong> to unmute it</p>
 
-<p>Lets you know if the audio track of <strong>self</strong> is muted or not.</p>
+<p><em>Returns</em>: FIXME empty description</p>
 
-<h3 id="ges.uriclip.get_uri">GES.UriClip.get_uri</h3>
-
-<p><strong>(self)</strong></p>
-
-<p><em>self</em>: the <a href="#ges.uriclip">GES.UriClip</a></p>
-
-<p><em>Returns</em>: The location of the resource.</p>
-
-<p>Get the location of the resource.</p>
+<p>Sets whether the audio track of this clip is muted or not.</p>
 
       </div>
       <div class="dark-box">

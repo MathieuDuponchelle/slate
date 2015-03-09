@@ -32,8 +32,8 @@
 
 <p>The Assets in the GStreamer Editing Services represent the resources
 that can be used. You can create assets for any type that implements the <a href="#ges.extractable">GES.Extractable</a>
-interface, for example (FIXME broken link)GESClips, <a href="#ges.formatter">GES.Formatter</a>, and <a href="#ges.trackelement">GES.TrackElement</a> do implement it.
-This means that assets will represent for example a (FIXME broken link)GESUriClips, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
+interface, for example <a href="#ges.clip">GES.Clips</a>, <a href="#ges.formatter">GES.Formatter</a>, and <a href="#ges.trackelement">GES.TrackElement</a> do implement it.
+This means that assets will represent for example a <a href="#ges.uriclip">GES.UriClips</a>, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
 and then you can extract objects of those types with the appropriate parameters from the asset
 using the (FIXME broken link)ges_asset_extract method:</p>
 <pre><code class="highlight c"><span class="n">GESAsset</span> <span class="o">*</span><span class="n">effect_asset</span><span class="p">;</span>
@@ -65,7 +65,7 @@ you will extract from it (ie crossfade, box-wipe-rc etc..) For <a href="#ges.eff
 will be used).</p>
 
 <p>Each and every <a href="#ges.asset">GES.Asset</a> is cached into GES, and you can query those with the (FIXME broken link)ges_list_assets function.
-Also the system will automatically register (FIXME broken link)GESAssets for (FIXME broken link)GESFormatters and (FIXME broken link)GESTransitionClips
+Also the system will automatically register <a href="#ges.asset">GES.Assets</a> for <a href="#ges.formatter">GES.Formatters</a> and <a href="#ges.transitionclip">GES.TransitionClips</a>
 and standard effects (actually not implemented yet) and you can simply query those calling:</p>
 <pre><code class="highlight c">   <span class="n">GList</span> <span class="o">*</span><span class="n">formatter_assets</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 
@@ -84,8 +84,8 @@ and standard effects (actually not implemented yet) and you can simply query tho
 
 </code></pre>
 
-<p>You can request the creation of (FIXME broken link)GESAssets using either (FIXME broken link)ges_asset_request_async or
-(FIXME broken link)ges_asset_request_async. All the (FIXME broken link)GESAssets are cached and thus any asset that has already
+<p>You can request the creation of <a href="#ges.asset">GES.Assets</a> using either (FIXME broken link)ges_asset_request_async or
+(FIXME broken link)ges_asset_request_async. All the <a href="#ges.asset">GES.Assets</a> are cached and thus any asset that has already
 been created can be requested again without overhead.</p>
 
 <h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>

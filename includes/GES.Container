@@ -52,7 +52,7 @@
 
 <p><em>layers</em>: The layers you want the edit to
  happen in, <strong>NULL</strong> means that the edition is done in all the
- #GESLayers contained in the current timeline.</p>
+ <a href="#ges.layer">GES.Layers</a> contained in the current timeline.</p>
 
 <p><em>new_layer_priority</em>: The priority of the layer <strong>container</strong> should land in.
  If the layer you&rsquo;re trying to move the container to doesn&rsquo;t exist, it will

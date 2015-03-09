@@ -32,6 +32,18 @@
 
 <p>Renders text onto the next lower priority stream using textrender.</p>
 
+<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
+
+<p><strong>(self, position)</strong></p>
+
+<p><em>self</em>: the <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>* to set</p>
+
+<p><em>position</em>: The vertical position <strong>self</strong> is being set to</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the vertical position of the text.</p>
+
 <h3 id="ges.textoverlayclip.get_color">GES.TextOverlayClip.get_color</h3>
 
 <p><strong>(self)</strong></p>
@@ -151,17 +163,14 @@ made.</p>
 
 <p>Sets the horizontal aligment of the text.</p>
 
-<h3 id="ges.textoverlayclip.set_ypos">GES.TextOverlayClip.set_ypos</h3>
+<h3 id="ges.textoverlayclip.new">GES.TextOverlayClip.new</h3>
 
-<p><strong>(self, position)</strong></p>
+<p><strong>()</strong></p>
 
-<p><em>self</em>: the <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>* to set</p>
+<p><em>Returns</em>: The newly created <a href="#ges.textoverlayclip">GES.TextOverlayClip</a>, or NULL if there was an
+error.</p>
 
-<p><em>position</em>: The vertical position <strong>self</strong> is being set to</p>
-
-<p><em>Returns</em>: FIXME empty description</p>
-
-<p>Sets the vertical position of the text.</p>
+<p>Creates a new <a href="#ges.textoverlayclip">GES.TextOverlayClip</a></p>
 
 <h3 id="ges.textoverlayclip.set_valign">GES.TextOverlayClip.set_valign</h3>
 

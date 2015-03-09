@@ -30,6 +30,15 @@
       <div class="content">
         <h2 id="ges.videotrack">GES.VideoTrack</h2>
 
+<h3 id="ges.videotrack.new">GES.VideoTrack.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a>.</p>
+
+<p>Creates a new <a href="#ges.videotrack">GES.VideoTrack</a> of type (FIXME broken link)GES_TRACK_TYPE_VIDEO and with generic
+raw video caps (&ldquo;video/x-raw&rdquo;);</p>
+
       </div>
       <div class="dark-box">
       </div>

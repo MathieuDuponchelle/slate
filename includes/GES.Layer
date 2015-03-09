@@ -91,6 +91,14 @@ priority property for more information.</p>
 <p>Gets whether transitions are automatically added when objects
 overlap or not.</p>
 
+<h3 id="ges.layer.new">GES.Layer.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: A new <a href="#ges.layer">GES.Layer</a></p>
+
+<p>Creates a new <a href="#ges.layer">GES.Layer</a>.</p>
+
 <h3 id="ges.layer.is_empty">GES.Layer.is_empty</h3>
 
 <p><strong>(layer)</strong></p>

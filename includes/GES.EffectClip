@@ -33,6 +33,19 @@
 <p>The effect will be applied on the sources that have lower priorities
 (higher number) between the inpoint and the end of it.</p>
 
+<h3 id="ges.effectclip.new">GES.EffectClip.new</h3>
+
+<p><strong>(video_bin_description, audio_bin_description)</strong></p>
+
+<p><em>video_bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>audio_bin_description</em>: The gst-launch like bin description of the effect</p>
+
+<p><em>Returns</em>: a newly created <a href="#ges.effectclip">GES.EffectClip</a>, or
+<strong>NULL</strong> if something went wrong.</p>
+
+<p>Creates a new <a href="#ges.effectclip">GES.EffectClip</a> from the description of the bin.</p>
+
       </div>
       <div class="dark-box">
       </div>

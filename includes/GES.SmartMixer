@@ -30,6 +30,13 @@
       <div class="content">
         <h2 id="ges.smartmixer">GES.SmartMixer</h2>
 
+<h3 id="ges.smartmixer.new">GES.SmartMixer.new</h3>
+
+<p><strong>(track)</strong></p>
+
+<p><em>track</em>: FIXME empty description
+<em>Returns</em>: FIXME empty description</p>
+
       </div>
       <div class="dark-box">
       </div>

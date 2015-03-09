@@ -30,6 +30,14 @@
       <div class="content">
         <h2 id="ges.audiotransition">GES.AudioTransition</h2>
 
+<h3 id="ges.audiotransition.new">GES.AudioTransition.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.audiotransition">GES.AudioTransition</a>.</p>
+
+<p>Creates a new <a href="#ges.audiotransition">GES.AudioTransition</a>.</p>
+
       </div>
       <div class="dark-box">
       </div>

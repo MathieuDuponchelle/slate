@@ -33,6 +33,16 @@
 <p>Outputs the video stream from a given image sequence. The start frame
 chosen will be determined by the in-point property on the track element.</p>
 
+<h3 id="ges.multifilesource.new">GES.MultiFileSource.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: the URI the source should control</p>
+
+<p><em>Returns</em>: A new <a href="#ges.multifilesource">GES.MultiFileSource</a>.</p>
+
+<p>Creates a new <a href="#ges.multifilesource">GES.MultiFileSource</a> for the provided <strong>uri</strong>.</p>
+
       </div>
       <div class="dark-box">
       </div>

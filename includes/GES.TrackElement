@@ -81,7 +81,7 @@ children of <strong>object</strong>.</p>
 
 <p><em>layers</em>: The layers you want the edit to
  happen in, <strong>NULL</strong> means that the edition is done in all the
- #GESLayers contained in the current timeline.
+ <a href="#ges.layer">GES.Layers</a> contained in the current timeline.
      FIXME: This is not implemented yet.</p>
 
 <p><em>mode</em>: The <a href="#ges.editmode">GES.EditMode</a> in which the editition will happen.</p>

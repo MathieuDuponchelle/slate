@@ -80,6 +80,15 @@ the direction of the transition.</p>
 <p>Get the border property of <strong>self</strong>, this value represents
 the border width of the transition.</p>
 
+<h3 id="ges.videotransition.new">GES.VideoTransition.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The newly created <a href="#ges.videotransition">GES.VideoTransition</a>, or <strong>NULL</strong> if there was an
+error.</p>
+
+<p>Creates a new <a href="#ges.videotransition">GES.VideoTransition</a>.</p>
+
 <h3 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h3>
 
 <p><strong>(self, inverted)</strong></p>

@@ -34,6 +34,18 @@
 
 <p>Contains the compatible TrackElement(s).</p>
 
+<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
+
+<p><strong>(track, caps)</strong></p>
+
+<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+
+<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to set</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
+
 <h3 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h3>
 
 <p><strong>(track, caps)</strong></p>
@@ -159,17 +171,20 @@ and thus takes ownership of the <strong>object</strong>.</p>
 
 <p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
 
-<h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
+<h3 id="ges.track.new">GES.Track.new</h3>
 
-<p><strong>(track, caps)</strong></p>
+<p><strong>(type, caps)</strong></p>
 
-<p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
+<p><em>type</em>: The type of track</p>
 
-<p><em>caps</em>: the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> to set</p>
+<p><em>caps</em>: The caps to restrict the output of the track to.</p>
 
-<p><em>Returns</em>: FIXME empty description</p>
+<p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a>.</p>
 
-<p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
+<p>Creates a new <a href="#ges.track">GES.Track</a> with the given <strong>type</strong> and <strong>caps</strong>.</p>
+
+<p>The newly created track will steal a reference to the caps. If you wish to
+use those caps elsewhere, you will have to take an extra reference.</p>
 
 <h3 id="ges.track.set_timeline">GES.Track.set_timeline</h3>
 

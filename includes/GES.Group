@@ -31,12 +31,22 @@
         <h2 id="ges.group">GES.Group</h2>
 
 <p>A <a href="#ges.group">GES.Group</a> is an object which controls one or more
-(FIXME broken link)GESClips in one or more <a href="#ges.layer">GES.Layer</a>(s).</p>
+<a href="#ges.clip">GES.Clips</a> in one or more <a href="#ges.layer">GES.Layer</a>(s).</p>
 
 <p>To instanciate a group, you should use the ges_container_group method,
 this will be responsible for deciding what subclass of <a href="#ges.container">GES.Container</a>
 should be instaciated to group the various <a href="#ges.timelineelement">GES.TimelineElement</a> passed
 in parametter.</p>
+
+<h3 id="ges.group.new">GES.Group.new</h3>
+
+<p><strong>()</strong></p>
+
+<p><em>Returns</em>: The new empty group.</p>
+
+<p>Created a new empty <a href="#ges.group">GES.Group</a>, if you want to group several container
+together, it is recommanded to use the (FIXME broken link)ges_container_group method so the
+proper subclass is selected.</p>
 
       </div>
       <div class="dark-box">

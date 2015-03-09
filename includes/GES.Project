@@ -81,6 +81,20 @@ in the project</p>
 &ldquo;asset-added&rdquo; signal to get the asset when it finally gets added to
 <strong>project</strong></p>
 
+<h3 id="ges.project.new">GES.Project.new</h3>
+
+<p><strong>(uri)</strong></p>
+
+<p><em>uri</em>: The uri to be set after creating the project.</p>
+
+<p><em>Returns</em>: A newly created <a href="#ges.project">GES.Project</a></p>
+
+<p>Creates a new <a href="#ges.project">GES.Project</a> and sets its uri to <strong>uri</strong> if provided. Note that
+if <strong>uri</strong> is not valid or <strong>NULL</strong>, the uri of the project will then be set
+the first time you save the project. If you then save the project to
+other locations, it will never be updated again and the first valid URI is
+the URI it will keep refering to.</p>
+
 <h3 id="ges.project.remove_asset">GES.Project.remove_asset</h3>
 
 <p><strong>(project, asset)</strong></p>
