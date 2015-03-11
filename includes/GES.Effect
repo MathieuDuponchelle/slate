@@ -31,8 +31,9 @@
         <h2 id="ges.effect">GES.Effect</h2>
 
 <h3 id="ges.effect.new">GES.Effect.new</h3>
+<pre><code class="highlight c"><span class="n">GESEffect</span><span class="o">*</span> <span class="n">ges_effect_new</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">bin_description</span><span class="p">);</span>
 
-<p><strong>(bin_description)</strong></p>
+</code></pre>
 
 <p><em>bin_description</em>: The gst-launch like bin description of the effect</p>
 

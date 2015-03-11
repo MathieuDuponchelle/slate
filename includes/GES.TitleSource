@@ -96,8 +96,15 @@ of titles in GES.</p>
 </refsect1></p>
 
 <h3 id="ges.titlesource.get_text">GES.TitleSource.get_text</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">ges_title_source_get_text</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_text()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -106,8 +113,15 @@ of titles in GES.</p>
 <p>Get the text currently set on the <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.get_ypos">GES.TitleSource.get_ypos</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gdouble</span> <span class="n">ges_title_source_get_ypos</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_ypos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_ypos()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -116,8 +130,16 @@ of titles in GES.</p>
 <p>Get the vertical position used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.set_font_desc">GES.TitleSource.set_font_desc</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_font_desc</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                     <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">font_desc</span><span class="p">);</span>
 
-<p><strong>(self, font_desc)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_font_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">font_desc</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_font_desc()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -129,8 +151,15 @@ of titles in GES.</p>
 the text.</p>
 
 <h3 id="ges.titlesource.get_halignment">GES.TitleSource.get_halignment</h3>
+<pre><code class="highlight c"><span class="n">GESTextHAlign</span> <span class="n">ges_title_source_get_halignment</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TextHAlign</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_halignment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_halignment()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -139,8 +168,16 @@ the text.</p>
 <p>Get the horizontal aligment used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.set_xpos">GES.TitleSource.set_xpos</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_xpos</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                <span class="n">gdouble</span> <span class="n">position</span><span class="p">);</span>
 
-<p><strong>(self, position)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_xpos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_xpos()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set</p>
 
@@ -151,8 +188,16 @@ the text.</p>
 <p>Sets the horizontal position of the text.</p>
 
 <h3 id="ges.titlesource.set_halignment">GES.TitleSource.set_halignment</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_halignment</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                      <span class="n">GESTextHAlign</span> <span class="n">halign</span><span class="p">);</span>
 
-<p><strong>(self, halign)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TextHAlign</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_halignment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">halign</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_halignment()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set text on</p>
 
@@ -163,8 +208,16 @@ the text.</p>
 <p>Sets the vertical aligment of the text.</p>
 
 <h3 id="ges.titlesource.set_ypos">GES.TitleSource.set_ypos</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_ypos</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                <span class="n">gdouble</span> <span class="n">position</span><span class="p">);</span>
 
-<p><strong>(self, position)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_ypos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_ypos()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set</p>
 
@@ -175,8 +228,16 @@ the text.</p>
 <p>Sets the vertical position of the text.</p>
 
 <h3 id="ges.titlesource.set_text">GES.TitleSource.set_text</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_text</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">text</span><span class="p">);</span>
 
-<p><strong>(self, text)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_text()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set text on</p>
 
@@ -188,8 +249,15 @@ made.</p>
 <p>Sets the text this track element will render.</p>
 
 <h3 id="ges.titlesource.get_background_color">GES.TitleSource.get_background_color</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">guint32</span> <span class="n">ges_title_source_get_background_color</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">guint32</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_background_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_background_color()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -198,8 +266,16 @@ made.</p>
 <p>Get the background used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.set_valignment">GES.TitleSource.set_valignment</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_valignment</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                      <span class="n">GESTextVAlign</span> <span class="n">valign</span><span class="p">);</span>
 
-<p><strong>(self, valign)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TextVAlign</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_valignment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valign</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_valignment()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set text on</p>
 
@@ -210,8 +286,16 @@ made.</p>
 <p>Sets the vertical aligment of the text.</p>
 
 <h3 id="ges.titlesource.set_background_color">GES.TitleSource.set_background_color</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_background_color</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                            <span class="n">guint32</span> <span class="n">color</span><span class="p">);</span>
 
-<p><strong>(self, color)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="n">guint32</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_background_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_background_color()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set</p>
 
@@ -222,8 +306,15 @@ made.</p>
 <p>Sets the color of the background</p>
 
 <h3 id="ges.titlesource.get_valignment">GES.TitleSource.get_valignment</h3>
+<pre><code class="highlight c"><span class="n">GESTextVAlign</span> <span class="n">ges_title_source_get_valignment</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TextVAlign</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_valignment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_valignment()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -232,8 +323,15 @@ made.</p>
 <p>Get the vertical aligment used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.get_text_color">GES.TitleSource.get_text_color</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">guint32</span> <span class="n">ges_title_source_get_text_color</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">guint32</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_text_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_text_color()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -242,8 +340,16 @@ made.</p>
 <p>Get the color used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.set_text_color">GES.TitleSource.set_text_color</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_title_source_set_text_color</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                      <span class="n">guint32</span> <span class="n">color</span><span class="p">);</span>
 
-<p><strong>(self, color)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">,</span> <span class="n">guint32</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_text_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_set_text_color()</span>
+
+</code></pre>
 
 <p><em>self</em>: the <a href="#ges.titlesource">GES.TitleSource</a>* to set</p>
 
@@ -254,8 +360,15 @@ made.</p>
 <p>Sets the color of the text.</p>
 
 <h3 id="ges.titlesource.get_xpos">GES.TitleSource.get_xpos</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gdouble</span> <span class="n">ges_title_source_get_xpos</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_xpos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_xpos()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 
@@ -264,8 +377,15 @@ made.</p>
 <p>Get the horizontal position used by <strong>source</strong>.</p>
 
 <h3 id="ges.titlesource.get_font_desc">GES.TitleSource.get_font_desc</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">ges_title_source_get_font_desc</span> <span class="p">(</span><span class="n">GESTitleSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TitleSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_font_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_title_source_get_font_desc()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.titlesource">GES.TitleSource</a></p>
 

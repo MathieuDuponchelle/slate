@@ -31,8 +31,9 @@
         <h2 id="ges.audiotransition">GES.AudioTransition</h2>
 
 <h3 id="ges.audiotransition.new">GES.AudioTransition.new</h3>
+<pre><code class="highlight c"><span class="n">GESAudioTransition</span><span class="o">*</span> <span class="n">ges_audio_transition_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: The newly created <a href="#ges.audiotransition">GES.AudioTransition</a>.</p>
 

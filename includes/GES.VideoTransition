@@ -31,8 +31,16 @@
         <h2 id="ges.videotransition">GES.VideoTransition</h2>
 
 <h3 id="ges.videotransition.set_border">GES.VideoTransition.set_border</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_video_transition_set_border</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                      <span class="n">guint</span> <span class="n">value</span><span class="p">);</span>
 
-<p><strong>(self, value)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_border</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_set_border()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.videotransition">GES.VideoTransition</a> to set the border to</p>
 
@@ -46,8 +54,15 @@ not make sense for the current transition type, it is cached
 for later use.</p>
 
 <h3 id="ges.videotransition.is_inverted">GES.VideoTransition.is_inverted</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_video_transition_is_inverted</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_is_inverted()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.videotransition">GES.VideoTransition</a> to get the inversion from</p>
 
@@ -57,8 +72,16 @@ for later use.</p>
 the direction of the transition.</p>
 
 <h3 id="ges.videotransition.set_transition_type">GES.VideoTransition.set_transition_type</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_video_transition_set_transition_type</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                                   <span class="n">GESVideoStandardTransitionType</span> <span class="n">type</span><span class="p">);</span>
 
-<p><strong>(self, type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">VideoStandardTransitionType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_transition_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_set_transition_type()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.videotransition">GES.VideoTransition</a></p>
 
@@ -69,8 +92,15 @@ the direction of the transition.</p>
 <p>Sets the transition being used to <strong>type</strong>.</p>
 
 <h3 id="ges.videotransition.get_border">GES.VideoTransition.get_border</h3>
+<pre><code class="highlight c"><span class="n">gint</span> <span class="n">ges_video_transition_get_border</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_border</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_get_border()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.videotransition">GES.VideoTransition</a> to get the border from</p>
 
@@ -81,8 +111,9 @@ the direction of the transition.</p>
 the border width of the transition.</p>
 
 <h3 id="ges.videotransition.new">GES.VideoTransition.new</h3>
+<pre><code class="highlight c"><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">ges_video_transition_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: The newly created <a href="#ges.videotransition">GES.VideoTransition</a>, or <strong>NULL</strong> if there was an
 error.</p>
@@ -90,8 +121,16 @@ error.</p>
 <p>Creates a new <a href="#ges.videotransition">GES.VideoTransition</a>.</p>
 
 <h3 id="ges.videotransition.set_inverted">GES.VideoTransition.set_inverted</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_video_transition_set_inverted</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="n">gboolean</span> <span class="n">inverted</span><span class="p">);</span>
 
-<p><strong>(self, inverted)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inverted</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_set_inverted()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.videotransition">GES.VideoTransition</a> to set invert on</p>
 
@@ -105,8 +144,15 @@ not make sense for the current transition type, it is cached
 for later use.</p>
 
 <h3 id="ges.videotransition.get_transition_type">GES.VideoTransition.get_transition_type</h3>
+<pre><code class="highlight c"><span class="n">GESVideoStandardTransitionType</span> <span class="n">ges_video_transition_get_transition_type</span> <span class="p">(</span><span class="n">GESVideoTransition</span><span class="o">*</span> <span class="n">trans</span><span class="p">);</span>
 
-<p><strong>(trans)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTransition</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoStandardTransitionType</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_transition_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_transition_get_transition_type()</span>
+
+</code></pre>
 
 <p><em>trans</em>: a <a href="#ges.videotransition">GES.VideoTransition</a></p>
 

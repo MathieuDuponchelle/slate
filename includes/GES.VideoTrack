@@ -31,8 +31,9 @@
         <h2 id="ges.videotrack">GES.VideoTrack</h2>
 
 <h3 id="ges.videotrack.new">GES.VideoTrack.new</h3>
+<pre><code class="highlight c"><span class="n">GESVideoTrack</span><span class="o">*</span> <span class="n">ges_video_track_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a>.</p>
 

@@ -35,16 +35,31 @@ as priority. A GESTimelineElement can have a parent object which will be
 responsible for controlling its timing properties.</p>
 
 <h3 id="ges.timelineelement.get_start">GES.TimelineElement.get_start</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_element_get_start</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_start()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
 <p><em>Returns</em>: The @start of <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.set_max_duration">GES.TimelineElement.set_max_duration</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_element_set_max_duration</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                            <span class="n">GstClockTime</span> <span class="n">maxduration</span><span class="p">);</span>
 
-<p><strong>(self, maxduration)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_max_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxduration</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_max_duration()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -55,8 +70,16 @@ responsible for controlling its timing properties.</p>
 <p>Set the maximun duration of the object</p>
 
 <h3 id="ges.timelineelement.set_parent">GES.TimelineElement.set_parent</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_set_parent</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                          <span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">parent</span><span class="p">);</span>
 
-<p><strong>(self, parent)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_parent()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -69,8 +92,16 @@ already had a parent or <strong>self</strong> and <strong>parent</strong> are th
 be incremented, and any floating reference will be removed (see <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref-sink">gst_object_ref_sink</a>).</p>
 
 <h3 id="ges.timelineelement.roll_end">GES.TimelineElement.roll_end</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_roll_end</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="n">GstClockTime</span> <span class="n">end</span><span class="p">);</span>
 
-<p><strong>(self, end)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">roll_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_roll_end()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to roll.</p>
 
@@ -85,8 +116,16 @@ in this case) the following neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
 <h3 id="ges.timelineelement.ripple">GES.TimelineElement.ripple</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_ripple</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                      <span class="n">GstClockTime</span> <span class="n">start</span><span class="p">);</span>
 
-<p><strong>(self, start)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ripple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_ripple()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to ripple.</p>
 
@@ -100,8 +139,16 @@ start of <strong>self</strong> and move the following neighbours accordingly.
 This will change the overall timeline duration.</p>
 
 <h3 id="ges.timelineelement.ripple_end">GES.TimelineElement.ripple_end</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_ripple_end</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                          <span class="n">GstClockTime</span> <span class="n">end</span><span class="p">);</span>
 
-<p><strong>(self, end)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ripple_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_ripple_end()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to ripple.</p>
 
@@ -116,16 +163,31 @@ duration of a <strong>self</strong> and move the following neighbours accordingl
 This will change the overall timeline duration.</p>
 
 <h3 id="ges.timelineelement.get_inpoint">GES.TimelineElement.get_inpoint</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_element_get_inpoint</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_inpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_inpoint()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
 <p><em>Returns</em>: The @inpoint of <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.set_inpoint">GES.TimelineElement.set_inpoint</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_element_set_inpoint</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                       <span class="n">GstClockTime</span> <span class="n">inpoint</span><span class="p">);</span>
 
-<p><strong>(self, inpoint)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_inpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inpoint</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_inpoint()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -137,8 +199,16 @@ This will change the overall timeline duration.</p>
 outputting data from its contents.</p>
 
 <h3 id="ges.timelineelement.trim">GES.TimelineElement.trim</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_trim</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                    <span class="n">GstClockTime</span> <span class="n">start</span><span class="p">);</span>
 
-<p><strong>(self, start)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">trim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_trim()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to trim.</p>
 
@@ -157,8 +227,15 @@ as this method, it will take into account the snapping-distance property of the
 timeline in which <strong>self</strong> is.</p>
 
 <h3 id="ges.timelineelement.get_parent">GES.TimelineElement.get_parent</h3>
+<pre><code class="highlight c"><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">ges_timeline_element_get_parent</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_parent()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -169,8 +246,15 @@ timeline in which <strong>self</strong> is.</p>
 of the parent object so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
 <h3 id="ges.timelineelement.get_timeline">GES.TimelineElement.get_timeline</h3>
+<pre><code class="highlight c"><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_timeline_element_get_timeline</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_timeline()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -181,8 +265,16 @@ of the parent object so you should <a href="http://gstreamer.freedesktop.org/dat
 of the timeline so you should <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-unref">gst_object_unref</a> it after usage.</p>
 
 <h3 id="ges.timelineelement.roll_start">GES.TimelineElement.roll_start</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_roll_start</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                          <span class="n">GstClockTime</span> <span class="n">start</span><span class="p">);</span>
 
-<p><strong>(self, start)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">roll_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_roll_start()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to roll</p>
 
@@ -198,8 +290,16 @@ in this case) of the previous neighbours accordingly.
 This will not change the overall timeline duration.</p>
 
 <h3 id="ges.timelineelement.set_name">GES.TimelineElement.set_name</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_set_name</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">name</span><span class="p">);</span>
 
-<p><strong>(self, name)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_name()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -212,8 +312,16 @@ This function makes a copy of the provided name, so the caller retains ownership
 of the name it sent.</p>
 
 <h3 id="ges.timelineelement.set_duration">GES.TimelineElement.set_duration</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_element_set_duration</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">);</span>
 
-<p><strong>(self, duration)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_duration()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -227,8 +335,15 @@ of the name it sent.</p>
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
 <h3 id="ges.timelineelement.get_name">GES.TimelineElement.get_name</h3>
+<pre><code class="highlight c"><span class="n">gchar</span><span class="o">*</span> <span class="n">ges_timeline_element_get_name</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_name()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -238,8 +353,16 @@ of the name it sent.</p>
 Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Allocation.html#g-free">g_free</a> the return value after usage.</p>
 
 <h3 id="ges.timelineelement.set_priority">GES.TimelineElement.set_priority</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_element_set_priority</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="n">guint32</span> <span class="n">priority</span><span class="p">);</span>
 
-<p><strong>(self, priority)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">guint32</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_priority()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -250,8 +373,16 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <p>Sets the priority of the object within the containing layer</p>
 
 <h3 id="ges.timelineelement.set_start">GES.TimelineElement.set_start</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_element_set_start</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                     <span class="n">GstClockTime</span> <span class="n">start</span><span class="p">);</span>
 
-<p><strong>(self, start)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_start()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
@@ -265,16 +396,31 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <strong>self</strong> is set, <strong>self</strong> will properly snap to its neighboors.</p>
 
 <h3 id="ges.timelineelement.get_duration">GES.TimelineElement.get_duration</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_element_get_duration</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_duration()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
 <p><em>Returns</em>: The @duration of <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.copy">GES.TimelineElement.copy</h3>
+<pre><code class="highlight c"><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">ges_timeline_element_copy</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                               <span class="n">gboolean</span> <span class="n">deep</span><span class="p">);</span>
 
-<p><strong>(self, deep)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_copy()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to copy</p>
 
@@ -285,16 +431,30 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <p>Copies <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.get_max_duration">GES.TimelineElement.get_max_duration</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_element_get_max_duration</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_max_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_max_duration()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
 <p><em>Returns</em>: The @maxduration of <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.get_toplevel_parent">GES.TimelineElement.get_toplevel_parent</h3>
+<pre><code class="highlight c"><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">ges_timeline_element_get_toplevel_parent</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_toplevel_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_toplevel_parent()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.timelineelement">GES.TimelineElement</a> to get the toplevel parent from</p>
 
@@ -303,16 +463,31 @@ Caller should <a href="https://developer.gnome.org/glib/unstable//glib-Memory-Al
 <p>Gets the toplevel <a href="#ges.timelineelement">GES.TimelineElement</a> controlling <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.get_priority">GES.TimelineElement.get_priority</h3>
+<pre><code class="highlight c"><span class="n">guint32</span> <span class="n">ges_timeline_element_get_priority</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">guint32</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_get_priority()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 
 <p><em>Returns</em>: The @priority of <strong>self</strong></p>
 
 <h3 id="ges.timelineelement.set_timeline">GES.TimelineElement.set_timeline</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_element_set_timeline</span> <span class="p">(</span><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                            <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(self, timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_element_set_timeline()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.timelineelement">GES.TimelineElement</a></p>
 

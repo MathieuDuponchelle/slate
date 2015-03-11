@@ -31,8 +31,9 @@
         <h2 id="ges.smartadder">GES.SmartAdder</h2>
 
 <h3 id="ges.smartadder.new">GES.SmartAdder.new</h3>
+<pre><code class="highlight c"><span class="n">GstElement</span><span class="o">*</span> <span class="n">ges_smart_adder_new</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
 
 <p><em>track</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>

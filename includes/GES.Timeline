@@ -39,13 +39,14 @@ moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers
 <h4 id="layers">Layers</h4>
 <pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
 </span>
-<span class="n">GESTimeline</span> <span class="o">*</span><span class="nf">create_timeline_with_n_layers</span> <span class="p">(</span><span class="n">guint</span> <span class="n">n_layers</span><span class="p">)</span>
+<span class="k">static</span> <span class="n">GESTimeline</span> <span class="o">*</span>
+<span class="nf">create_timeline_with_n_layers</span> <span class="p">(</span><span class="n">guint</span> <span class="n">n_layers</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_timeline_new</span><span class="p">();</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_timeline_new</span> <span class="p">();</span>
   <span class="n">guint</span> <span class="n">i</span><span class="p">;</span>
 
   <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n_layers</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">ges_timeline_append_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+    <span class="n">ges_timeline_append_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
   <span class="k">return</span> <span class="n">timeline</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -88,14 +89,19 @@ moment only audio and video tracks are supported.<a href="#ges.layer">GES.Layers
 |                                                        |
 +--------------------------------------------------------+
 </pre>
+
+<blockquote>
+<p>After modifying a timeline, you need to commit it to have the changes taken into account.</p>
+</blockquote>
 <pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
 </span>
-<span class="kt">void</span> <span class="nf">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">,</span> <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">)</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span> <span class="n">timeline</span><span class="p">,</span> <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">GList</span> <span class="o">*</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">layers</span> <span class="o">=</span> <span class="n">ges_timeline_get_layers</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="n">GList</span> <span class="o">*</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">layers</span> <span class="o">=</span> <span class="n">ges_timeline_get_layers</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
 
   <span class="k">for</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">layers</span><span class="p">;</span> <span class="n">tmp</span><span class="p">;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">GESClip</span> <span class="o">*</span><span class="n">clip</span> <span class="o">=</span> <span class="n">GES_CLIP</span><span class="p">(</span><span class="n">ges_test_clip_new</span><span class="p">());</span>
+    <span class="n">GESClip</span> <span class="o">*</span><span class="n">clip</span> <span class="o">=</span> <span class="n">GES_CLIP</span> <span class="p">(</span><span class="n">ges_test_clip_new</span> <span class="p">());</span>
     <span class="n">GESLayer</span> <span class="o">*</span><span class="n">layer</span> <span class="o">=</span> <span class="n">GES_LAYER</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 
     <span class="n">ges_layer_add_clip</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">clip</span><span class="p">);</span>
@@ -164,7 +170,8 @@ invisible.</p>
 doesn&rsquo;t output anything. That&rsquo;s what <a href="#ges.track">GES.Tracks</a> are for.</p>
 <pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
 </span>
-<span class="kt">void</span> <span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">)</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">add_one_video_track</span> <span class="p">(</span><span class="n">GESTimeline</span> <span class="o">*</span> <span class="n">timeline</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">GESTrack</span> <span class="o">*</span><span class="n">track</span> <span class="o">=</span> <span class="n">GES_TRACK</span> <span class="p">(</span><span class="n">ges_video_track_new</span> <span class="p">());</span>
 
@@ -206,23 +213,29 @@ doesn&rsquo;t output anything. That&rsquo;s what <a href="#ges.track">GES.Tracks
 +--------------------------------------------------------+
 
 </pre>
+
+<blockquote>
+<p>Playback and Rendering are documented in a separate section.</p>
+</blockquote>
 <pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
 #include "add_one_clip_in_each_layer.c"
 #include "add_one_video_track.c"
 #include "create_timeline_with_n_layers.c"
 #include "play_timeline.c"
 </span>
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
+<span class="kt">int</span>
+<span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
 
-  <span class="n">gst_init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-  <span class="n">ges_init</span><span class="p">();</span>
+  <span class="n">gst_init</span> <span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">ges_init</span> <span class="p">();</span>
 
-  <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
   <span class="n">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GST_SECOND</span><span class="p">);</span>
-  <span class="n">add_one_video_track</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
-  <span class="n">play_timeline</span><span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="n">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="n">play_timeline</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 
@@ -261,16 +274,18 @@ useful if one wants to link the timeline to a container that can store various l
 example a DVD creator might store English, Dutch and French audio tracks.</p>
 
 <h3 id="ges.timeline.new">GES.Timeline.new</h3>
+<pre><code class="highlight c"><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_timeline_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: The new timeline.</p>
 
 <p>Creates a new empty <a href="#ges.timeline">GES.Timeline</a>.</p>
 
 <h3 id="ges.timeline.new_audio_video">GES.Timeline.new_audio_video</h3>
+<pre><code class="highlight c"><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_timeline_new_audio_video</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: The newly created <a href="#ges.timeline">GES.Timeline</a>.</p>
 
@@ -278,8 +293,10 @@ example a DVD creator might store English, Dutch and French audio tracks.</p>
 raw video track.</p>
 
 <h3 id="ges.timeline.new_from_uri">GES.Timeline.new_from_uri</h3>
+<pre><code class="highlight c"><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_timeline_new_from_uri</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                        <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
 
 <p><em>uri</em>: the URI to load from</p>
 
@@ -289,8 +306,18 @@ uri could not be loaded</p>
 <p>Creates a timeline from the given URI.</p>
 
 <h3 id="ges.timeline.load_from_uri">GES.Timeline.load_from_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_load_from_uri</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                     <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                     <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(timeline, uri)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">load_from_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_load_from_uri()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: an empty <a href="#ges.timeline">GES.Timeline</a> into which to load the formatter</p>
 
@@ -302,8 +329,20 @@ could not be loaded.</p>
 <p>Loads the contents of URI into the given timeline.</p>
 
 <h3 id="ges.timeline.save_to_uri">GES.Timeline.save_to_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_save_to_uri</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                   <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                   <span class="n">GESAsset</span><span class="o">*</span> <span class="n">formatter_asset</span><span class="p">,</span>
+                                   <span class="n">gboolean</span> <span class="n">overwrite</span><span class="p">,</span>
+                                   <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(timeline, uri, formatter_asset, overwrite)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">save_to_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">formatter_asset</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_save_to_uri()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -318,11 +357,80 @@ or default to the formatter with highest rank</p>
 <p><em>Returns</em>: TRUE if the timeline was successfully saved to the given location,
 else FALSE.</p>
 
-<p>Saves the timeline to the given location</p>
+<blockquote>
+<p>Saving and loading a timeline is as easy as it gets</p>
+</blockquote>
+<pre><code class="highlight c"><span class="cp">#include &lt;ges/ges.h&gt;
+#include "add_one_clip_in_each_layer.c"
+#include "add_one_video_track.c"
+#include "create_timeline_with_n_layers.c"
+#include "play_timeline.c"
+</span>
+<span class="kt">int</span>
+<span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GESTimeline</span> <span class="o">*</span><span class="n">timeline</span><span class="p">;</span>
+
+  <span class="n">gst_init</span> <span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">ges_init</span> <span class="p">();</span>
+
+  <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">add_one_clip_in_each_layer</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">GST_SECOND</span><span class="p">);</span>
+  <span class="n">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ges_timeline_save_to_uri</span> <span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="s">"file:///tmp/test.xges"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="n">gst_object_unref</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+
+  <span class="n">timeline</span> <span class="o">=</span> <span class="n">ges_timeline_new_from_uri</span><span class="p">(</span><span class="s">"file:///tmp/test.xges"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">timeline</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="n">play_timeline</span> <span class="p">(</span><span class="n">timeline</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</code></pre>
+<pre><code class="highlight python"><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GES</span><span class="p">,</span> <span class="n">Gst</span><span class="p">,</span> <span class="n">GLib</span>
+
+<span class="kn">from</span> <span class="nn">create_timeline_with_n_layers</span> <span class="kn">import</span> <span class="n">create_timeline_with_n_layers</span>
+<span class="kn">from</span> <span class="nn">add_one_clip_in_each_layer</span> <span class="kn">import</span> <span class="n">add_one_clip_in_each_layer</span>
+<span class="kn">from</span> <span class="nn">add_one_video_track</span> <span class="kn">import</span> <span class="n">add_one_video_track</span>
+<span class="kn">from</span> <span class="nn">play_timeline</span> <span class="kn">import</span> <span class="n">play_timeline</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">Gst</span><span class="o">.</span><span class="n">init</span><span class="p">([])</span>
+    <span class="n">GES</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">create_timeline_with_n_layers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">add_one_clip_in_each_layer</span><span class="p">(</span><span class="n">timeline</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">Gst</span><span class="o">.</span><span class="n">SECOND</span><span class="p">)</span>
+    <span class="n">add_one_video_track</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+    <span class="n">timeline</span><span class="o">.</span><span class="n">save_to_uri</span> <span class="p">(</span><span class="s">"file:///tmp/test.xges"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">timeline</span> <span class="o">=</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="o">.</span><span class="n">new_from_uri</span> <span class="p">(</span><span class="s">"file:///tmp/test.xges"</span><span class="p">)</span>
+    <span class="c"># Convenience function for the sake of examples.</span>
+    <span class="n">play_timeline</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+
+
+</code></pre>
+<pre><code class="highlight shell">FIXME
+
+</code></pre>
+
+<p>Saves the timeline to the given location.</p>
 
 <h3 id="ges.timeline.add_layer">GES.Timeline.add_layer</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_add_layer</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                 <span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(timeline, layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_add_layer()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -334,8 +442,15 @@ else FALSE.</p>
 by the <strong>timeline</strong>.</p>
 
 <h3 id="ges.timeline.append_layer">GES.Timeline.append_layer</h3>
+<pre><code class="highlight c"><span class="n">GESLayer</span><span class="o">*</span> <span class="n">ges_timeline_append_layer</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">append_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_append_layer()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -345,8 +460,16 @@ by the <strong>timeline</strong>.</p>
 Note that you do not own any reference to the returned layer.</p>
 
 <h3 id="ges.timeline.remove_layer">GES.Timeline.remove_layer</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_remove_layer</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                    <span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(timeline, layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_remove_layer()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -359,8 +482,15 @@ the layer will be dropped. If you wish to use the <strong>layer</strong> after c
 method, you need to take a reference before calling.</p>
 
 <h3 id="ges.timeline.get_layers">GES.Timeline.get_layers</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_timeline_get_layers</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_layers()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -371,8 +501,16 @@ The caller should unref each Layer once he is done with them.</p>
 <p>Get the list of <a href="#ges.layer">GES.Layer</a> present in the Timeline.</p>
 
 <h3 id="ges.timeline.add_track">GES.Timeline.add_track</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_add_track</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                 <span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(timeline, track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_add_track()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -384,8 +522,16 @@ The caller should unref each Layer once he is done with them.</p>
 pipeline.</p>
 
 <h3 id="ges.timeline.remove_track">GES.Timeline.remove_track</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_remove_track</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                    <span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(timeline, track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_remove_track()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -398,8 +544,15 @@ pipeline.</p>
 function you must ensure that you have a reference to it.</p>
 
 <h3 id="ges.timeline.get_tracks">GES.Timeline.get_tracks</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_timeline_get_tracks</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_tracks()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -409,8 +562,15 @@ The caller should unref each track once he is done with them.</p>
 <p>Returns the list of <a href="#ges.track">GES.Track</a> used by the Timeline.</p>
 
 <h3 id="ges.timeline.commit">GES.Timeline.commit</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_commit</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_commit()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -426,8 +586,15 @@ on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
 <h3 id="ges.timeline.is_empty">GES.Timeline.is_empty</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_is_empty</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_is_empty()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -436,8 +603,16 @@ processing level.</p>
 <p>Check whether a <a href="#ges.timelineelement">GES.TimelineElement</a> is empty or not</p>
 
 <h3 id="ges.timeline.get_element">GES.Timeline.get_element</h3>
+<pre><code class="highlight c"><span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">ges_timeline_get_element</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                              <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">name</span><span class="p">);</span>
 
-<p><strong>(timeline, name)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_element()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -448,8 +623,15 @@ not found.</p>
 <p>Gets a <a href="#ges.timelineelement">GES.TimelineElement</a> contained in the timeline</p>
 
 <h3 id="ges.timeline.get_duration">GES.Timeline.get_duration</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_get_duration</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_duration()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -458,8 +640,16 @@ not found.</p>
 <p>Get the current duration of <strong>timeline</strong></p>
 
 <h3 id="ges.timeline.get_track_for_pad">GES.Timeline.get_track_for_pad</h3>
+<pre><code class="highlight c"><span class="n">GESTrack</span><span class="o">*</span> <span class="n">ges_timeline_get_track_for_pad</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                          <span class="n">GstPad</span><span class="o">*</span> <span class="n">pad</span><span class="p">);</span>
 
-<p><strong>(timeline, pad)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">Pad</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_track_for_pad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pad</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_track_for_pad()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -471,8 +661,16 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Search the <a href="#ges.track">GES.Track</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>pad</strong>.</p>
 
 <h3 id="ges.timeline.get_pad_for_track">GES.Timeline.get_pad_for_track</h3>
+<pre><code class="highlight c"><span class="n">GstPad</span><span class="o">*</span> <span class="n">ges_timeline_get_pad_for_track</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                        <span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(timeline, track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">Pad</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_pad_for_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_pad_for_track()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: The <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -484,8 +682,16 @@ or <strong>NULL</strong> if there is an error.</p>
 <p>Search the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstPad.html">Gst.Pad</a> corresponding to the given <strong>timeline</strong>&rsquo;s <strong>track</strong>.</p>
 
 <h3 id="ges.timeline.set_snapping_distance">GES.Timeline.set_snapping_distance</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_set_snapping_distance</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                         <span class="n">GstClockTime</span> <span class="n">snapping_distance</span><span class="p">);</span>
 
-<p><strong>(timeline, snapping_distance)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_snapping_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snapping_distance</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_set_snapping_distance()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -497,8 +703,15 @@ or <strong>NULL</strong> if there is an error.</p>
 property snapping_distance for more information.</p>
 
 <h3 id="ges.timeline.get_snapping_distance">GES.Timeline.get_snapping_distance</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_timeline_get_snapping_distance</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_snapping_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_snapping_distance()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 
@@ -509,8 +722,16 @@ the documentation of the property snapping_distance for more
 information.</p>
 
 <h3 id="ges.timeline.set_auto_transition">GES.Timeline.set_auto_transition</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_timeline_set_auto_transition</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                       <span class="n">gboolean</span> <span class="n">auto_transition</span><span class="p">);</span>
 
-<p><strong>(timeline, auto_transition)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_auto_transition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_transition</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_set_auto_transition()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -522,8 +743,15 @@ information.</p>
 property auto_transition for more information.</p>
 
 <h3 id="ges.timeline.get_auto_transition">GES.Timeline.get_auto_transition</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_timeline_get_auto_transition</span> <span class="p">(</span><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_auto_transition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_timeline_get_auto_transition()</span>
+
+</code></pre>
 
 <p><em>timeline</em>: a <a href="#ges.timeline">GES.Timeline</a></p>
 

@@ -35,8 +35,16 @@ output silence. Useful for testing pipelines, or to fill gaps in an audio
 track.</p>
 
 <h3 id="ges.audiotestsource.set_volume">GES.AudioTestSource.set_volume</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_audio_test_source_set_volume</span> <span class="p">(</span><span class="n">GESAudioTestSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                       <span class="n">gdouble</span> <span class="n">volume</span><span class="p">);</span>
 
-<p><strong>(self, volume)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">AudioTestSource</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_audio_test_source_set_volume()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.audiotestsource">GES.AudioTestSource</a></p>
 
@@ -47,8 +55,16 @@ track.</p>
 <p>Sets the volume of the test audio signal.</p>
 
 <h3 id="ges.audiotestsource.set_freq">GES.AudioTestSource.set_freq</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_audio_test_source_set_freq</span> <span class="p">(</span><span class="n">GESAudioTestSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                     <span class="n">gdouble</span> <span class="n">freq</span><span class="p">);</span>
 
-<p><strong>(self, freq)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">AudioTestSource</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_audio_test_source_set_freq()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.audiotestsource">GES.AudioTestSource</a></p>
 
@@ -59,8 +75,15 @@ track.</p>
 <p>Lets you set the frequency applied on the track element</p>
 
 <h3 id="ges.audiotestsource.get_volume">GES.AudioTestSource.get_volume</h3>
+<pre><code class="highlight c"><span class="kt">double</span> <span class="n">ges_audio_test_source_get_volume</span> <span class="p">(</span><span class="n">GESAudioTestSource</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">AudioTestSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_audio_test_source_get_volume()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.audiotestsource">GES.AudioTestSource</a></p>
 
@@ -69,8 +92,15 @@ track.</p>
 <p>Get the current volume of <strong>self</strong>.</p>
 
 <h3 id="ges.audiotestsource.get_freq">GES.AudioTestSource.get_freq</h3>
+<pre><code class="highlight c"><span class="kt">double</span> <span class="n">ges_audio_test_source_get_freq</span> <span class="p">(</span><span class="n">GESAudioTestSource</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">AudioTestSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_audio_test_source_get_freq()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.audiotestsource">GES.AudioTestSource</a></p>
 

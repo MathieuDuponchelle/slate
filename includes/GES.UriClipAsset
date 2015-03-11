@@ -36,8 +36,15 @@ let you get information about the medias. Also, the tags found in the media file
 set as Metadatas of the Asser.</p>
 
 <h3 id="ges.uriclipasset.get_stream_assets">GES.UriClipAsset.get_stream_assets</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="n">ges_uri_clip_asset_get_stream_assets</span> <span class="p">(</span><span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">UriSourceAsset</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_stream_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_get_stream_assets()</span>
+
+</code></pre>
 
 <p><em>self</em>: A <a href="#ges.uriclipasset">GES.UriClipAsset</a></p>
 
@@ -47,8 +54,18 @@ set as Metadatas of the Asser.</p>
 <p>Get the GESUriSourceAsset <strong>self</strong> containes</p>
 
 <h3 id="ges.uriclipasset.new">GES.UriClipAsset.new</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_uri_clip_asset_new</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                             <span class="n">GCancellable</span><span class="o">*</span> <span class="n">cancellable</span><span class="p">,</span>
+                             <span class="n">GAsyncReadyCallback</span> <span class="n">callback</span><span class="p">,</span>
+                             <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">);</span>
 
-<p><strong>(uri, cancellable, callback, user_data)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="nb">unicode</span><span class="p">,</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Cancellable</span><span class="p">,</span> <span class="n">Gio</span><span class="o">.</span><span class="n">AsyncReadyCallback</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">cancellable</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">user_data</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_new()</span>
+
+</code></pre>
 
 <p><em>uri</em>: The URI of the file for which to create a <a href="#ges.uriclipasset">GES.UriClipAsset</a></p>
 
@@ -91,8 +108,15 @@ ges_uri_clip_asset_new (uri, (GAsyncReadyCallback) filesource_asset_loaded_cb, u
 </pre>
 
 <h3 id="ges.uriclipasset.get_info">GES.UriClipAsset.get_info</h3>
+<pre><code class="highlight c"><span class="n">GstDiscovererInfo</span><span class="o">*</span> <span class="n">ges_uri_clip_asset_get_info</span> <span class="p">(</span><span class="k">const</span> <span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GstPbutils</span><span class="o">.</span><span class="n">DiscovererInfo</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_get_info()</span>
+
+</code></pre>
 
 <p><em>self</em>: Target asset</p>
 
@@ -101,8 +125,15 @@ ges_uri_clip_asset_new (uri, (GAsyncReadyCallback) filesource_asset_loaded_cb, u
 <p>Gets <a href="FIXME%20broken%20link%20to%20DiscovererInfo">GstPbutils.DiscovererInfo</a> about the file</p>
 
 <h3 id="ges.uriclipasset.get_duration">GES.UriClipAsset.get_duration</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_uri_clip_asset_get_duration</span> <span class="p">(</span><span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_get_duration()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.uriclipasset">GES.UriClipAsset</a></p>
 
@@ -111,8 +142,17 @@ ges_uri_clip_asset_new (uri, (GAsyncReadyCallback) filesource_asset_loaded_cb, u
 <p>Gets duration of the file represented by <strong>self</strong></p>
 
 <h3 id="ges.uriclipasset.request_sync">GES.UriClipAsset.request_sync</h3>
+<pre><code class="highlight c"><span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">ges_uri_clip_asset_request_sync</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                                  <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">request_sync</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_request_sync()</span>
+
+</code></pre>
 
 <p><em>uri</em>: The URI of the file for which to create a <a href="#ges.uriclipasset">GES.UriClipAsset</a>.
 You can also use multi file uris for <a href="#ges.multifilesource">GES.MultiFileSource</a>.</p>
@@ -123,8 +163,15 @@ You can also use multi file uris for <a href="#ges.multifilesource">GES.MultiFil
 to use it in application, and rather create <a href="#ges.uriclipasset">GES.UriClipAsset</a> asynchronously</p>
 
 <h3 id="ges.uriclipasset.is_image">GES.UriClipAsset.is_image</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_uri_clip_asset_is_image</span> <span class="p">(</span><span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_clip_asset_is_image()</span>
+
+</code></pre>
 
 <p><em>self</em>: a (FIXME broken link)indent: Standard input:311: Error:Unexpected end of file
 GESUriClipAsset</p>

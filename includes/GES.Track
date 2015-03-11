@@ -35,8 +35,16 @@
 <p>Contains the compatible TrackElement(s).</p>
 
 <h3 id="ges.track.set_restriction_caps">GES.Track.set_restriction_caps</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_set_restriction_caps</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                     <span class="k">const</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="n">caps</span><span class="p">);</span>
 
-<p><strong>(track, caps)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">Caps</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_restriction_caps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caps</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_set_restriction_caps()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -47,8 +55,16 @@
 <p>Sets the given <strong>caps</strong> as the caps the track has to output.</p>
 
 <h3 id="ges.track.update_restriction_caps">GES.Track.update_restriction_caps</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_update_restriction_caps</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                        <span class="k">const</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="n">caps</span><span class="p">);</span>
 
-<p><strong>(track, caps)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">Caps</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_restriction_caps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caps</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_update_restriction_caps()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -65,8 +81,16 @@ the restriction caps will be updated to video/x-raw, format=RGB, width=360.</p>
 one can add new fields or structures through that function.</p>
 
 <h3 id="ges.track.remove_element">GES.Track.remove_element</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_track_remove_element</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                   <span class="n">GESTrackElement</span><span class="o">*</span> <span class="n">object</span><span class="p">);</span>
 
-<p><strong>(track, object)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_remove_element()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -81,8 +105,10 @@ removed. If you wish to use the <strong>object</strong> after this function, mak
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>track</strong>.</p>
 
 <h3 id="ges.track.set_create_element_for_gap_func">GES.Track.set_create_element_for_gap_func</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_set_create_element_for_gap_func</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                                <span class="n">GESCreateElementForGapFunc</span> <span class="n">func</span><span class="p">);</span>
 
-<p><strong>(track, func)</strong></p>
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -96,8 +122,15 @@ To avoid to provide such a function we advice you to use the
 (FIXME broken link)ges_audio_track_new and (FIXME broken link)ges_video_track_new constructor when possible.</p>
 
 <h3 id="ges.track.commit">GES.Track.commit</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_track_commit</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_commit()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -113,8 +146,15 @@ on a clip contained in the timeline actually happen at the media
 processing level.</p>
 
 <h3 id="ges.track.get_timeline">GES.Track.get_timeline</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_track_get_timeline</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_get_timeline()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -123,8 +163,16 @@ processing level.</p>
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> this track belongs to. Can be <strong>NULL</strong>.</p>
 
 <h3 id="ges.track.set_mixing">GES.Track.set_mixing</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_set_mixing</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                           <span class="n">gboolean</span> <span class="n">mixing</span><span class="p">);</span>
 
-<p><strong>(track, mixing)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_mixing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mixing</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_set_mixing()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -135,8 +183,15 @@ processing level.</p>
 <p>Sets if the <a href="#ges.track">GES.Track</a> should be mixing.</p>
 
 <h3 id="ges.track.get_caps">GES.Track.get_caps</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="n">ges_track_get_caps</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">Caps</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_caps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_get_caps()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -145,8 +200,16 @@ processing level.</p>
 <p>Get the <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstCaps.html">Gst.Caps</a> this track is configured to output.</p>
 
 <h3 id="ges.track.add_element">GES.Track.add_element</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_track_add_element</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                <span class="n">GESTrackElement</span><span class="o">*</span> <span class="n">object</span><span class="p">);</span>
 
-<p><strong>(track, object)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_add_element()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -161,8 +224,15 @@ and thus takes ownership of the <strong>object</strong>.</p>
 <p>An object can only be added to one track.</p>
 
 <h3 id="ges.track.get_elements">GES.Track.get_elements</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_track_get_elements</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_get_elements()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -172,8 +242,10 @@ and thus takes ownership of the <strong>object</strong>.</p>
 <p>Gets the <a href="#ges.trackelement">GES.TrackElement</a> contained in <strong>track</strong></p>
 
 <h3 id="ges.track.new">GES.Track.new</h3>
+<pre><code class="highlight c"><span class="n">GESTrack</span><span class="o">*</span> <span class="n">ges_track_new</span> <span class="p">(</span><span class="n">GESTrackType</span> <span class="n">type</span><span class="p">,</span>
+                         <span class="n">GstCaps</span><span class="o">*</span> <span class="n">caps</span><span class="p">);</span>
 
-<p><strong>(type, caps)</strong></p>
+</code></pre>
 
 <p><em>type</em>: The type of track</p>
 
@@ -187,8 +259,16 @@ and thus takes ownership of the <strong>object</strong>.</p>
 use those caps elsewhere, you will have to take an extra reference.</p>
 
 <h3 id="ges.track.set_timeline">GES.Track.set_timeline</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_set_timeline</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                             <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(track, timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_set_timeline()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 
@@ -199,8 +279,15 @@ use those caps elsewhere, you will have to take an extra reference.</p>
 <p>Sets <strong>timeline</strong> as the timeline controlling <strong>track</strong>.</p>
 
 <h3 id="ges.track.get_mixing">GES.Track.get_mixing</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_track_get_mixing</span> <span class="p">(</span><span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">);</span>
 
-<p><strong>(track)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_mixing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_get_mixing()</span>
+
+</code></pre>
 
 <p><em>track</em>: a <a href="#ges.track">GES.Track</a></p>
 

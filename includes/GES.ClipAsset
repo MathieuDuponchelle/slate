@@ -35,8 +35,15 @@ it is mostly used to get information about the <a href="#ges.tracktype">GES.Trac
 from it can potentialy create <a href="#ges.trackelement">GES.TrackElement</a> for.</p>
 
 <h3 id="ges.clipasset.get_supported_formats">GES.ClipAsset.get_supported_formats</h3>
+<pre><code class="highlight c"><span class="n">GESTrackType</span> <span class="n">ges_clip_asset_get_supported_formats</span> <span class="p">(</span><span class="n">GESClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">ClipAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_asset_get_supported_formats()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.clipasset">GES.ClipAsset</a></p>
 
@@ -46,8 +53,16 @@ a layer</p>
 <p>Gets track types for which objects extracted from <strong>self</strong> can create <a href="#ges.trackelement">GES.TrackElement</a></p>
 
 <h3 id="ges.clipasset.set_supported_formats">GES.ClipAsset.set_supported_formats</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_clip_asset_set_supported_formats</span> <span class="p">(</span><span class="n">GESClipAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                           <span class="n">GESTrackType</span> <span class="n">supportedformats</span><span class="p">);</span>
 
-<p><strong>(self, supportedformats)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">ClipAsset</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supportedformats</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_asset_set_supported_formats()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.clipasset">GES.ClipAsset</a></p>
 

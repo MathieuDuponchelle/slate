@@ -45,8 +45,9 @@ if you actually know what you&rsquo;re doing :)</p>
 - layout: interleaved</p>
 
 <h3 id="ges.audiotrack.new">GES.AudioTrack.new</h3>
+<pre><code class="highlight c"><span class="n">GESAudioTrack</span><span class="o">*</span> <span class="n">ges_audio_track_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: A new <a href="#ges.track">GES.Track</a></p>
 

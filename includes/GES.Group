@@ -39,8 +39,9 @@ should be instaciated to group the various <a href="#ges.timelineelement">GES.Ti
 in parametter.</p>
 
 <h3 id="ges.group.new">GES.Group.new</h3>
+<pre><code class="highlight c"><span class="n">GESGroup</span><span class="o">*</span> <span class="n">ges_group_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: The new empty group.</p>
 

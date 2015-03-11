@@ -36,8 +36,15 @@ priorities of individual Clips. Two layers should not have the
 same priority within a given timeline.</p>
 
 <h3 id="ges.layer.get_timeline">GES.Layer.get_timeline</h3>
+<pre><code class="highlight c"><span class="n">GESTimeline</span><span class="o">*</span> <span class="n">ges_layer_get_timeline</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_get_timeline()</span>
+
+</code></pre>
 
 <p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to get the parent <a href="#ges.timeline">GES.Timeline</a> from</p>
 
@@ -47,8 +54,16 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 <p>Get the <a href="#ges.timeline">GES.Timeline</a> in which <a href="#ges.layer">GES.Layer</a> currently is.</p>
 
 <h3 id="ges.layer.set_auto_transition">GES.Layer.set_auto_transition</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_layer_set_auto_transition</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                                    <span class="n">gboolean</span> <span class="n">auto_transition</span><span class="p">);</span>
 
-<p><strong>(layer, auto_transition)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_auto_transition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_transition</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_set_auto_transition()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -60,16 +75,32 @@ currently is or <strong>NULL</strong> if not in any timeline yet.</p>
 property auto_transition for more information.</p>
 
 <h3 id="ges.layer.set_timeline">GES.Layer.set_timeline</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_layer_set_timeline</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                             <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">);</span>
 
-<p><strong>(layer, timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_set_timeline()</span>
+
+</code></pre>
 
 <p><em>layer</em>: FIXME empty description
 <em>timeline</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
 <h3 id="ges.layer.set_priority">GES.Layer.set_priority</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_layer_set_priority</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                             <span class="n">guint</span> <span class="n">priority</span><span class="p">);</span>
 
-<p><strong>(layer, priority)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_set_priority()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -81,8 +112,15 @@ property auto_transition for more information.</p>
 priority property for more information.</p>
 
 <h3 id="ges.layer.get_auto_transition">GES.Layer.get_auto_transition</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_layer_get_auto_transition</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_auto_transition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_get_auto_transition()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -92,16 +130,24 @@ priority property for more information.</p>
 overlap or not.</p>
 
 <h3 id="ges.layer.new">GES.Layer.new</h3>
+<pre><code class="highlight c"><span class="n">GESLayer</span><span class="o">*</span> <span class="n">ges_layer_new</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
 
 <p><em>Returns</em>: A new <a href="#ges.layer">GES.Layer</a></p>
 
 <p>Creates a new <a href="#ges.layer">GES.Layer</a>.</p>
 
 <h3 id="ges.layer.is_empty">GES.Layer.is_empty</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_layer_is_empty</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_is_empty()</span>
+
+</code></pre>
 
 <p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to check</p>
 
@@ -112,8 +158,15 @@ one <a href="#ges.clip">GES.Clip</a></p>
 or not.</p>
 
 <h3 id="ges.layer.get_priority">GES.Layer.get_priority</h3>
+<pre><code class="highlight c"><span class="n">guint</span> <span class="n">ges_layer_get_priority</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_get_priority()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -122,8 +175,16 @@ or not.</p>
 <p>Get the priority of <strong>layer</strong> within the timeline.</p>
 
 <h3 id="ges.layer.remove_clip">GES.Layer.remove_clip</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_layer_remove_clip</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                                <span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">);</span>
 
-<p><strong>(layer, clip)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clip</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_remove_clip()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -138,8 +199,20 @@ removed. If you wish to use the <strong>clip</strong> after this function, make 
 call <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstObject.html#gst-object-ref">gst_object_ref</a> before removing it from the <strong>layer</strong>.</p>
 
 <h3 id="ges.layer.add_asset">GES.Layer.add_asset</h3>
+<pre><code class="highlight c"><span class="n">GESClip</span><span class="o">*</span> <span class="n">ges_layer_add_asset</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                              <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">,</span>
+                              <span class="n">GstClockTime</span> <span class="n">start</span><span class="p">,</span>
+                              <span class="n">GstClockTime</span> <span class="n">inpoint</span><span class="p">,</span>
+                              <span class="n">GstClockTime</span> <span class="n">duration</span><span class="p">,</span>
+                              <span class="n">GESTrackType</span> <span class="n">track_types</span><span class="p">);</span>
 
-<p><strong>(layer, asset, start, inpoint, duration, track_types)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">,</span> <span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">inpoint</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">track_types</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_add_asset()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -161,8 +234,16 @@ the current duration of <strong>layer</strong></p>
 returns a reference to it.</p>
 
 <h3 id="ges.layer.add_clip">GES.Layer.add_clip</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_layer_add_clip</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">,</span>
+                             <span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">);</span>
 
-<p><strong>(layer, clip)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clip</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_add_clip()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 
@@ -182,8 +263,15 @@ are constructed, you should connect to the container::child-added signal which
 is emited right after those elements are ready to be used.</p>
 
 <h3 id="ges.layer.get_duration">GES.Layer.get_duration</h3>
+<pre><code class="highlight c"><span class="n">GstClockTime</span> <span class="n">ges_layer_get_duration</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">Gst</span><span class="o">.</span><span class="n">ClockTime</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_get_duration()</span>
+
+</code></pre>
 
 <p><em>layer</em>: The <a href="#ges.layer">GES.Layer</a> to get the duration from</p>
 
@@ -193,8 +281,15 @@ is emited right after those elements are ready to be used.</p>
 the end time of the last clip inside it</p>
 
 <h3 id="ges.layer.get_clips">GES.Layer.get_clips</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_layer_get_clips</span> <span class="p">(</span><span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_clips</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_layer_get_clips()</span>
+
+</code></pre>
 
 <p><em>layer</em>: a <a href="#ges.layer">GES.Layer</a></p>
 

@@ -33,8 +33,14 @@
 <p>Base class for timeline data serialization and deserialization.</p>
 
 <h3 id="ges.formatter.get_default">GES.Formatter.get_default</h3>
+<pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_formatter_get_default</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<p><strong>()</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_default</span><span class="p">():</span>
+    <span class="c"># Python wrapper for ges_formatter_get_default()</span>
+
+</code></pre>
 
 <p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> for the formatter with highest @rank</p>
 
@@ -42,8 +48,17 @@
 the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highest @rank</p>
 
 <h3 id="ges.formatter.can_save_uri">GES.Formatter.can_save_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_formatter_can_save_uri</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                     <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">can_save_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_formatter_can_save_uri()</span>
+
+</code></pre>
 
 <p><em>uri</em>: a (FIXME broken link)gchar * pointing to a URI</p>
 
@@ -53,8 +68,20 @@ the asset for the <a href="#ges.formatter">GES.Formatter</a> that has the highes
 <a href="#ges.timeline">GES.Timeline</a> to the given URI.</p>
 
 <h3 id="ges.formatter.save_to_uri">GES.Formatter.save_to_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_formatter_save_to_uri</span> <span class="p">(</span><span class="n">GESFormatter</span><span class="o">*</span> <span class="n">formatter</span><span class="p">,</span>
+                                    <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                    <span class="n">gboolean</span> <span class="n">overwrite</span><span class="p">,</span>
+                                    <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(formatter, timeline, uri, overwrite)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Formatter</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">save_to_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_formatter_save_to_uri()</span>
+
+</code></pre>
 
 <p><em>formatter</em>: a <a href="#ges.formatter">GES.Formatter</a></p>
 
@@ -70,8 +97,19 @@ else FALSE.</p>
 <p>Save data from timeline to the given URI.</p>
 
 <h3 id="ges.formatter.load_from_uri">GES.Formatter.load_from_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_formatter_load_from_uri</span> <span class="p">(</span><span class="n">GESFormatter</span><span class="o">*</span> <span class="n">formatter</span><span class="p">,</span>
+                                      <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                                      <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                      <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(formatter, timeline, uri)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Formatter</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">load_from_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">,</span> <span class="n">uri</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_formatter_load_from_uri()</span>
+
+</code></pre>
 
 <p><em>formatter</em>: a <a href="#ges.formatter">GES.Formatter</a></p>
 
@@ -85,8 +123,17 @@ else FALSE.</p>
 <p>Load data from the given URI into timeline.</p>
 
 <h3 id="ges.formatter.can_load_uri">GES.Formatter.can_load_uri</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_formatter_can_load_uri</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                                     <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">can_load_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_formatter_can_load_uri()</span>
+
+</code></pre>
 
 <p><em>uri</em>: a (FIXME broken link)gchar * pointing to the URI</p>
 

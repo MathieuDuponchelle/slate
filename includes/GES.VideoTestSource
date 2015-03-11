@@ -31,8 +31,16 @@
         <h2 id="ges.videotestsource">GES.VideoTestSource</h2>
 
 <h3 id="ges.videotestsource.set_pattern">GES.VideoTestSource.set_pattern</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_video_test_source_set_pattern</span> <span class="p">(</span><span class="n">GESVideoTestSource</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                        <span class="n">GESVideoTestPattern</span> <span class="n">pattern</span><span class="p">);</span>
 
-<p><strong>(self, pattern)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTestSource</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">VideoTestPattern</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_test_source_set_pattern()</span>
+
+</code></pre>
 
 <p><em>self</em>: a <a href="#ges.videotestsource">GES.VideoTestSource</a></p>
 
@@ -43,8 +51,15 @@
 <p>Sets the source to use the given <strong>pattern</strong>.</p>
 
 <h3 id="ges.videotestsource.get_pattern">GES.VideoTestSource.get_pattern</h3>
+<pre><code class="highlight c"><span class="n">GESVideoTestPattern</span> <span class="n">ges_video_test_source_get_pattern</span> <span class="p">(</span><span class="n">GESVideoTestSource</span><span class="o">*</span> <span class="n">source</span><span class="p">);</span>
 
-<p><strong>(source)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTestSource</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">VideoTestPattern</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_video_test_source_get_pattern()</span>
+
+</code></pre>
 
 <p><em>source</em>: a <a href="#ges.videotestpattern">GES.VideoTestPattern</a></p>
 

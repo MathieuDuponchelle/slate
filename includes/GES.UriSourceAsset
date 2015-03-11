@@ -34,8 +34,15 @@
 by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 
 <h3 id="ges.urisourceasset.get_stream_info">GES.UriSourceAsset.get_stream_info</h3>
+<pre><code class="highlight c"><span class="n">GstDiscovererStreamInfo</span><span class="o">*</span> <span class="n">ges_uri_source_asset_get_stream_info</span> <span class="p">(</span><span class="n">GESUriSourceAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriSourceAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GstPbutils</span><span class="o">.</span><span class="n">DiscovererStreamInfo</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_stream_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_source_asset_get_stream_info()</span>
+
+</code></pre>
 
 <p><em>asset</em>: A <a href="#ges.uriclipasset">GES.UriClipAsset</a></p>
 
@@ -44,15 +51,29 @@ by <a href="#ges.uriclipasset">GES.UriClipAsset</a>-s.</p>
 <p>Get the <a href="FIXME%20broken%20link%20to%20DiscovererStreamInfo">GstPbutils.DiscovererStreamInfo</a> user by <strong>asset</strong></p>
 
 <h3 id="ges.urisourceasset.get_stream_uri">GES.UriSourceAsset.get_stream_uri</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">ges_uri_source_asset_get_stream_uri</span> <span class="p">(</span><span class="n">GESUriSourceAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriSourceAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_stream_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_source_asset_get_stream_uri()</span>
+
+</code></pre>
 
 <p><em>asset</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
 <h3 id="ges.urisourceasset.get_filesource_asset">GES.UriSourceAsset.get_filesource_asset</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GESUriClipAsset</span><span class="o">*</span> <span class="n">ges_uri_source_asset_get_filesource_asset</span> <span class="p">(</span><span class="n">GESUriSourceAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriSourceAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">UriClipAsset</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_filesource_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_uri_source_asset_get_filesource_asset()</span>
+
+</code></pre>
 
 <p><em>asset</em>: A <a href="#ges.uriclipasset">GES.UriClipAsset</a></p>
 

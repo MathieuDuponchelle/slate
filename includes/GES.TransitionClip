@@ -44,8 +44,9 @@ that this value can be changed after creation and the GESExtractable.asset value
 will be updated when needed.</p>
 
 <h3 id="ges.transitionclip.new_for_nick">GES.TransitionClip.new_for_nick</h3>
+<pre><code class="highlight c"><span class="n">GESTransitionClip</span><span class="o">*</span> <span class="n">ges_transition_clip_new_for_nick</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">nick</span><span class="p">);</span>
 
-<p><strong>(nick)</strong></p>
+</code></pre>
 
 <p><em>nick</em>: a string representing the type of transition to create</p>
 
@@ -55,8 +56,9 @@ went wrong</p>
 <p>Creates a new <a href="#ges.transitionclip">GES.TransitionClip</a> for the provided <strong>nick</strong>.</p>
 
 <h3 id="ges.transitionclip.new">GES.TransitionClip.new</h3>
+<pre><code class="highlight c"><span class="n">GESTransitionClip</span><span class="o">*</span> <span class="n">ges_transition_clip_new</span> <span class="p">(</span><span class="n">GESVideoStandardTransitionType</span> <span class="n">vtype</span><span class="p">);</span>
 
-<p><strong>(vtype)</strong></p>
+</code></pre>
 
 <p><em>vtype</em>: the type of transition to create</p>
 

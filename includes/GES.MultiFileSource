@@ -34,8 +34,9 @@
 chosen will be determined by the in-point property on the track element.</p>
 
 <h3 id="ges.multifilesource.new">GES.MultiFileSource.new</h3>
+<pre><code class="highlight c"><span class="n">GESMultiFileSource</span><span class="o">*</span> <span class="n">ges_multi_file_source_new</span> <span class="p">(</span><span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
 
 <p><em>uri</em>: the URI the source should control</p>
 

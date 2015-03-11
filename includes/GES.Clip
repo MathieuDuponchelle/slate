@@ -37,8 +37,17 @@
 sets/updates their properties.</p>
 
 <h3 id="ges.clip.set_top_effect_priority">GES.Clip.set_top_effect_priority</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_clip_set_top_effect_priority</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                           <span class="n">GESBaseEffect</span><span class="o">*</span> <span class="n">effect</span><span class="p">,</span>
+                                           <span class="n">guint</span> <span class="n">newpriority</span><span class="p">);</span>
 
-<p><strong>(clip, effect, newpriority)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">BaseEffect</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_top_effect_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effect</span><span class="p">,</span> <span class="n">newpriority</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_set_top_effect_priority()</span>
+
+</code></pre>
 
 <p><em>clip</em>: FIXME empty description
 <em>effect</em>: FIXME empty description
@@ -46,8 +55,16 @@ sets/updates their properties.</p>
 <em>Returns</em>: FIXME empty description</p>
 
 <h3 id="ges.clip.split">GES.Clip.split</h3>
+<pre><code class="highlight c"><span class="n">GESClip</span><span class="o">*</span> <span class="n">ges_clip_split</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                         <span class="n">guint64</span> <span class="n">position</span><span class="p">);</span>
 
-<p><strong>(clip, position)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_split()</span>
+
+</code></pre>
 
 <p><em>clip</em>: the <a href="#ges.clip">GES.Clip</a> to split</p>
 
@@ -63,8 +80,15 @@ This implies that <strong>clip</strong> must be in a <a href="#ges.layer">GES.La
 be possible.</p>
 
 <h3 id="ges.clip.get_layer">GES.Clip.get_layer</h3>
+<pre><code class="highlight c"><span class="n">GESLayer</span><span class="o">*</span> <span class="n">ges_clip_get_layer</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">);</span>
 
-<p><strong>(clip)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_get_layer()</span>
+
+</code></pre>
 
 <p><em>clip</em>: a <a href="#ges.clip">GES.Clip</a></p>
 
@@ -75,8 +99,18 @@ usage.</p>
 <p>Get the <a href="#ges.layer">GES.Layer</a> to which this clip belongs.</p>
 
 <h3 id="ges.clip.find_track_elements">GES.Clip.find_track_elements</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_clip_find_track_elements</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                     <span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                     <span class="n">GESTrackType</span> <span class="n">track_type</span><span class="p">,</span>
+                                     <span class="n">GType</span> <span class="n">type</span><span class="p">);</span>
 
-<p><strong>(clip, track, track_type, type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">,</span> <span class="n">GType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">find_track_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">,</span> <span class="n">track_type</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_find_track_elements()</span>
+
+</code></pre>
 
 <p><em>clip</em>: a <a href="#ges.clip">GES.Clip</a></p>
 
@@ -97,16 +131,32 @@ unref each <a href="#ges.trackelement">GES.TrackElement</a> and free the <a href
 may optionally specify a GType to further narrow search criteria.</p>
 
 <h3 id="ges.clip.get_top_effect_position">GES.Clip.get_top_effect_position</h3>
+<pre><code class="highlight c"><span class="n">gint</span> <span class="n">ges_clip_get_top_effect_position</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                       <span class="n">GESBaseEffect</span><span class="o">*</span> <span class="n">effect</span><span class="p">);</span>
 
-<p><strong>(clip, effect)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">BaseEffect</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_top_effect_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effect</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_get_top_effect_position()</span>
+
+</code></pre>
 
 <p><em>clip</em>: FIXME empty description
 <em>effect</em>: FIXME empty description
 <em>Returns</em>: FIXME empty description</p>
 
 <h3 id="ges.clip.get_top_effect_index">GES.Clip.get_top_effect_index</h3>
+<pre><code class="highlight c"><span class="n">gint</span> <span class="n">ges_clip_get_top_effect_index</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                    <span class="n">GESBaseEffect</span><span class="o">*</span> <span class="n">effect</span><span class="p">);</span>
 
-<p><strong>(clip, effect)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">BaseEffect</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_top_effect_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effect</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_get_top_effect_index()</span>
+
+</code></pre>
 
 <p><em>clip</em>: The origin <a href="#ges.clip">GES.Clip</a></p>
 
@@ -117,8 +167,15 @@ may optionally specify a GType to further narrow search criteria.</p>
 <p>Gets the index position of an effect.</p>
 
 <h3 id="ges.clip.get_supported_formats">GES.Clip.get_supported_formats</h3>
+<pre><code class="highlight c"><span class="n">GESTrackType</span> <span class="n">ges_clip_get_supported_formats</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">);</span>
 
-<p><strong>(clip)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_get_supported_formats()</span>
+
+</code></pre>
 
 <p><em>clip</em>: the <a href="#ges.clip">GES.Clip</a></p>
 
@@ -127,8 +184,16 @@ may optionally specify a GType to further narrow search criteria.</p>
 <p>Get the formats supported by <strong>clip</strong>.</p>
 
 <h3 id="ges.clip.add_asset">GES.Clip.add_asset</h3>
+<pre><code class="highlight c"><span class="n">GESTrackElement</span><span class="o">*</span> <span class="n">ges_clip_add_asset</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                     <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(clip, asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_add_asset()</span>
+
+</code></pre>
 
 <p><em>clip</em>: a <a href="#ges.clip">GES.Clip</a></p>
 
@@ -145,8 +210,16 @@ ni other cases TrackElement are added automatically when adding the
 <p>Takes a reference on @track_element.</p>
 
 <h3 id="ges.clip.set_supported_formats">GES.Clip.set_supported_formats</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_clip_set_supported_formats</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                     <span class="n">GESTrackType</span> <span class="n">supportedformats</span><span class="p">);</span>
 
-<p><strong>(clip, supportedformats)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_supported_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supportedformats</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_set_supported_formats()</span>
+
+</code></pre>
 
 <p><em>clip</em>: the <a href="#ges.clip">GES.Clip</a> to set supported formats on</p>
 
@@ -157,8 +230,17 @@ ni other cases TrackElement are added automatically when adding the
 <p>Sets the formats supported by the file.</p>
 
 <h3 id="ges.clip.find_track_element">GES.Clip.find_track_element</h3>
+<pre><code class="highlight c"><span class="n">GESTrackElement</span><span class="o">*</span> <span class="n">ges_clip_find_track_element</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                              <span class="n">GESTrack</span><span class="o">*</span> <span class="n">track</span><span class="p">,</span>
+                                              <span class="n">GType</span> <span class="n">type</span><span class="p">);</span>
 
-<p><strong>(clip, track, type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Track</span><span class="p">,</span> <span class="n">GType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">find_track_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_find_track_element()</span>
+
+</code></pre>
 
 <p><em>clip</em>: a <a href="#ges.clip">GES.Clip</a></p>
 
@@ -177,8 +259,15 @@ may optionally specify a GType to further narrow search criteria.</p>
 returned.</p>
 
 <h3 id="ges.clip.get_top_effects">GES.Clip.get_top_effects</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_clip_get_top_effects</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">);</span>
 
-<p><strong>(clip)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElement</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_top_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_get_top_effects()</span>
+
+</code></pre>
 
 <p><em>clip</em>: The origin <a href="#ges.clip">GES.Clip</a></p>
 
@@ -190,8 +279,17 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 <p>Get effects applied on <strong>clip</strong></p>
 
 <h3 id="ges.clip.set_top_effect_index">GES.Clip.set_top_effect_index</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_clip_set_top_effect_index</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                        <span class="n">GESBaseEffect</span><span class="o">*</span> <span class="n">effect</span><span class="p">,</span>
+                                        <span class="n">guint</span> <span class="n">newindex</span><span class="p">);</span>
 
-<p><strong>(clip, effect, newindex)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">BaseEffect</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_top_effect_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effect</span><span class="p">,</span> <span class="n">newindex</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_set_top_effect_index()</span>
+
+</code></pre>
 
 <p><em>clip</em>: The origin <a href="#ges.clip">GES.Clip</a></p>
 
@@ -205,8 +303,16 @@ unref each <a href="#ges.baseeffect">GES.BaseEffect</a> and free the <a href="ht
 <p>This is a convenience method that lets you set the index of a top effect.</p>
 
 <h3 id="ges.clip.move_to_layer">GES.Clip.move_to_layer</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_clip_move_to_layer</span> <span class="p">(</span><span class="n">GESClip</span><span class="o">*</span> <span class="n">clip</span><span class="p">,</span>
+                                 <span class="n">GESLayer</span><span class="o">*</span> <span class="n">layer</span><span class="p">);</span>
 
-<p><strong>(clip, layer)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Clip</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">move_to_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_clip_move_to_layer()</span>
+
+</code></pre>
 
 <p><em>clip</em>: a <a href="#ges.clip">GES.Clip</a></p>
 

@@ -31,8 +31,16 @@
         <h2 id="ges.trackelementasset">GES.TrackElementAsset</h2>
 
 <h3 id="ges.trackelementasset.set_track_type">GES.TrackElementAsset.set_track_type</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_track_element_asset_set_track_type</span> <span class="p">(</span><span class="n">GESTrackElementAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">,</span>
+                                             <span class="n">GESTrackType</span> <span class="n">type</span><span class="p">);</span>
 
-<p><strong>(asset, type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElementAsset</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_track_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_element_asset_set_track_type()</span>
+
+</code></pre>
 
 <p><em>asset</em>: A (FIXME broken link)GESAssetObject</p>
 
@@ -44,8 +52,15 @@
 should get into</p>
 
 <h3 id="ges.trackelementasset.get_track_type">GES.TrackElementAsset.get_track_type</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GESTrackType</span> <span class="n">ges_track_element_asset_get_track_type</span> <span class="p">(</span><span class="n">GESTrackElementAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackElementAsset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">TrackType</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_track_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_track_element_asset_get_track_type()</span>
+
+</code></pre>
 
 <p><em>asset</em>: A (FIXME broken link)GESAssetObject</p>
 

@@ -53,8 +53,16 @@ a set of signals. Also it handles problem such as missing files/missing
 <a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html//GstElement.html">Gst.Element</a> and lets you try to recover from those.</p>
 
 <h3 id="ges.project.add_asset">GES.Project.add_asset</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_add_asset</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(project, asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_add_asset()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -67,8 +75,12 @@ in the project</p>
 <strong>asset</strong>.</p>
 
 <h3 id="ges.project.create_asset_sync">GES.Project.create_asset_sync</h3>
+<pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_project_create_asset_sync</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                         <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">id</span><span class="p">,</span>
+                                         <span class="n">GType</span> <span class="n">extractable_type</span><span class="p">,</span>
+                                         <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(project, id, extractable_type)</strong></p>
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -83,8 +95,9 @@ in the project</p>
 <strong>project</strong></p>
 
 <h3 id="ges.project.new">GES.Project.new</h3>
+<pre><code class="highlight c"><span class="n">GESProject</span><span class="o">*</span> <span class="n">ges_project_new</span> <span class="p">(</span><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">);</span>
 
-<p><strong>(uri)</strong></p>
+</code></pre>
 
 <p><em>uri</em>: The uri to be set after creating the project.</p>
 
@@ -97,8 +110,16 @@ other locations, it will never be updated again and the first valid URI is
 the URI it will keep refering to.</p>
 
 <h3 id="ges.project.remove_asset">GES.Project.remove_asset</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_remove_asset</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                   <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
-<p><strong>(project, asset)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_remove_asset()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -109,8 +130,15 @@ the URI it will keep refering to.</p>
 <p>remove a <strong>asset</strong> to from <strong>project</strong>.</p>
 
 <h3 id="ges.project.get_uri">GES.Project.get_uri</h3>
+<pre><code class="highlight c"><span class="n">gchar</span><span class="o">*</span> <span class="n">ges_project_get_uri</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">);</span>
 
-<p><strong>(project)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_get_uri()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -119,8 +147,15 @@ the URI it will keep refering to.</p>
 <p>Retrieve the uri that is currently set on <strong>project</strong></p>
 
 <h3 id="ges.project.get_loading_assets">GES.Project.get_loading_assets</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_project_get_loading_assets</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">);</span>
 
-<p><strong>(project)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_loading_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_get_loading_assets()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -131,8 +166,17 @@ and thus can not be used</p>
 <p>Get the assets that are being loaded</p>
 
 <h3 id="ges.project.create_asset">GES.Project.create_asset</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_create_asset</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                   <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">id</span><span class="p">,</span>
+                                   <span class="n">GType</span> <span class="n">extractable_type</span><span class="p">);</span>
 
-<p><strong>(project, id, extractable_type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="n">GType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">extractable_type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_create_asset()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -148,8 +192,15 @@ in the project</p>
 <strong>project</strong></p>
 
 <h3 id="ges.project.list_encoding_profiles">GES.Project.list_encoding_profiles</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="n">ges_project_list_encoding_profiles</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">);</span>
 
-<p><strong>(project)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GstPbutils</span><span class="o">.</span><span class="n">EncodingProfile</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">list_encoding_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_list_encoding_profiles()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -160,8 +211,17 @@ list of <a href="FIXME%20broken%20link%20to%20EncodingProfile">GstPbutils.Encodi
 is the latest added.</p>
 
 <h3 id="ges.project.get_asset">GES.Project.get_asset</h3>
+<pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_project_get_asset</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                 <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">id</span><span class="p">,</span>
+                                 <span class="n">GType</span> <span class="n">extractable_type</span><span class="p">);</span>
 
-<p><strong>(project, id, extractable_type)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="n">GType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">extractable_type</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_get_asset()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -174,8 +234,18 @@ to retrieve from @object</p>
 <strong>id</strong> or <strong>NULL</strong> if no asset with <strong>id</strong> as an ID</p>
 
 <h3 id="ges.project.load">GES.Project.load</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_load</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                           <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                           <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(project, timeline)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_load()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a> that has an @uri set already</p>
 
@@ -186,8 +256,16 @@ to retrieve from @object</p>
 <p>Loads <strong>project</strong> into <strong>timeline</strong></p>
 
 <h3 id="ges.project.list_assets">GES.Project.list_assets</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_project_list_assets</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                <span class="n">GType</span> <span class="n">filter</span><span class="p">);</span>
 
-<p><strong>(project, filter)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GType</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">list_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">filter</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_list_assets()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -202,8 +280,16 @@ as defined by <strong>filter</strong>. It copies the asset and thus will not be 
 in time.</p>
 
 <h3 id="ges.project.add_encoding_profile">GES.Project.add_encoding_profile</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_add_encoding_profile</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                                           <span class="n">GstEncodingProfile</span><span class="o">*</span> <span class="n">profile</span><span class="p">);</span>
 
-<p><strong>(project, profile)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GstPbutils</span><span class="o">.</span><span class="n">EncodingProfile</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_encoding_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profile</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_add_encoding_profile()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a></p>
 
@@ -217,8 +303,21 @@ the project has been renders and keep a reference to those formats.
 Also, those formats will be saves to the project file when possible.</p>
 
 <h3 id="ges.project.save">GES.Project.save</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_project_save</span> <span class="p">(</span><span class="n">GESProject</span><span class="o">*</span> <span class="n">project</span><span class="p">,</span>
+                           <span class="n">GESTimeline</span><span class="o">*</span> <span class="n">timeline</span><span class="p">,</span>
+                           <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">uri</span><span class="p">,</span>
+                           <span class="n">GESAsset</span><span class="o">*</span> <span class="n">formatter_asset</span><span class="p">,</span>
+                           <span class="n">gboolean</span> <span class="n">overwrite</span><span class="p">,</span>
+                           <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(project, timeline, uri, formatter_asset, overwrite)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Timeline</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeline</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">formatter_asset</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_project_save()</span>
+
+</code></pre>
 
 <p><em>project</em>: A <a href="#ges.project">GES.Project</a> to save</p>
 

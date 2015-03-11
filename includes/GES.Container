@@ -33,8 +33,16 @@
 <p>The <a href="#ges.container">GES.Container</a> base class.</p>
 
 <h3 id="ges.container.remove">GES.Container.remove</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_container_remove</span> <span class="p">(</span><span class="n">GESContainer</span><span class="o">*</span> <span class="n">container</span><span class="p">,</span>
+                               <span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">child</span><span class="p">);</span>
 
-<p><strong>(container, child)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_remove()</span>
+
+</code></pre>
 
 <p><em>container</em>: a <a href="#ges.container">GES.Container</a></p>
 
@@ -45,8 +53,20 @@
 <p>Release the <strong>child</strong> from the control of <strong>container</strong>.</p>
 
 <h3 id="ges.container.edit">GES.Container.edit</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_container_edit</span> <span class="p">(</span><span class="n">GESContainer</span><span class="o">*</span> <span class="n">container</span><span class="p">,</span>
+                             <span class="n">GList</span><span class="o">*</span> <span class="n">layers</span><span class="p">,</span>
+                             <span class="n">gint</span> <span class="n">new_layer_priority</span><span class="p">,</span>
+                             <span class="n">GESEditMode</span> <span class="n">mode</span><span class="p">,</span>
+                             <span class="n">GESEdge</span> <span class="n">edge</span><span class="p">,</span>
+                             <span class="n">guint64</span> <span class="n">position</span><span class="p">);</span>
 
-<p><strong>(container, layers, new_layer_priority, mode, edge, position)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="p">[</span><span class="n">GES</span><span class="o">.</span><span class="n">Layer</span><span class="p">],</span> <span class="nb">int</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">EditMode</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Edge</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">new_layer_priority</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">edge</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_edit()</span>
+
+</code></pre>
 
 <p><em>container</em>: the <a href="#ges.clip">GES.Clip</a> to edit</p>
 
@@ -71,8 +91,16 @@ occured</p>
 slide, and roll, you need to specify a <a href="#ges.edge">GES.Edge</a></p>
 
 <h3 id="ges.container.ungroup">GES.Container.ungroup</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_container_ungroup</span> <span class="p">(</span><span class="n">GESContainer</span><span class="o">*</span> <span class="n">container</span><span class="p">,</span>
+                              <span class="n">gboolean</span> <span class="n">recursive</span><span class="p">);</span>
 
-<p><strong>(container, recursive)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">ungroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recursive</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_ungroup()</span>
+
+</code></pre>
 
 <p><em>container</em>: The <a href="#ges.container">GES.Container</a> to ungroup</p>
 
@@ -88,8 +116,16 @@ creating new <a href="#ges.container">GES.Container</a> containing those <a href
 apropriately.</p>
 
 <h3 id="ges.container.add">GES.Container.add</h3>
+<pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_container_add</span> <span class="p">(</span><span class="n">GESContainer</span><span class="o">*</span> <span class="n">container</span><span class="p">,</span>
+                            <span class="n">GESTimelineElement</span><span class="o">*</span> <span class="n">child</span><span class="p">);</span>
 
-<p><strong>(container, child)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_add()</span>
+
+</code></pre>
 
 <p><em>container</em>: a <a href="#ges.container">GES.Container</a></p>
 
@@ -100,8 +136,15 @@ apropriately.</p>
 <p>Add the <a href="#ges.timelineelement">GES.TimelineElement</a> to the container.</p>
 
 <h3 id="ges.container.group">GES.Container.group</h3>
+<pre><code class="highlight c"><span class="n">GESContainer</span><span class="o">*</span> <span class="n">ges_container_group</span> <span class="p">(</span><span class="n">GList</span><span class="o">*</span> <span class="n">containers</span><span class="p">);</span>
 
-<p><strong>(containers)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">])</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="n">containers</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_group()</span>
+
+</code></pre>
 
 <p><em>containers</em>: The
 <a href="#ges.container">GES.Container</a> to group, they must all be in a same <a href="#ges.timeline">GES.Timeline</a></p>
@@ -117,8 +160,16 @@ start/inpoint/duration and are in the same layer), it will create a <a href="#ge
 otherwise a <a href="#ges.group">GES.Group</a> will be created</p>
 
 <h3 id="ges.container.get_children">GES.Container.get_children</h3>
+<pre><code class="highlight c"><span class="n">GList</span><span class="o">*</span> <span class="n">ges_container_get_children</span> <span class="p">(</span><span class="n">GESContainer</span><span class="o">*</span> <span class="n">container</span><span class="p">,</span>
+                                   <span class="n">gboolean</span> <span class="n">recursive</span><span class="p">);</span>
 
-<p><strong>(container, recursive)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">([</span><span class="n">GES</span><span class="o">.</span><span class="n">TimelineElement</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_children</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recursive</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_container_get_children()</span>
+
+</code></pre>
 
 <p><em>container</em>: a <a href="#ges.container">GES.Container</a></p>
 

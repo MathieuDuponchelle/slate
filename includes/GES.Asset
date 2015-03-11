@@ -36,17 +36,18 @@ interface, for example <a href="#ges.clip">GES.Clips</a>, <a href="#ges.formatte
 This means that assets will represent for example a <a href="#ges.uriclip">GES.UriClips</a>, <a href="#ges.baseeffect">GES.BaseEffect</a> etc,
 and then you can extract objects of those types with the appropriate parameters from the asset
 using the (FIXME broken link)ges_asset_extract method:</p>
-<pre><code class="highlight c"><span class="n">GESAsset</span> <span class="o">*</span><span class="n">effect_asset</span><span class="p">;</span>
-<span class="n">GESEffect</span> <span class="o">*</span><span class="n">effect</span><span class="p">;</span>
 
-<span class="c1">// You create an asset for an effect
-</span><span class="n">effect_asset</span> <span class="o">=</span> <span class="n">ges_asset_request</span> <span class="p">(</span><span class="n">GES_TYPE_EFFECT</span><span class="p">,</span> <span class="s">"agingtv"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<pre class="inlined_code">
+GESAsset *effect_asset;
+GESEffect *effect;
 
-<span class="c1">// And now you can extract an instance of GESEffect from that asset
-</span><span class="n">effect</span> <span class="o">=</span> <span class="n">GES_EFFECT</span> <span class="p">(</span><span class="n">ges_asset_extract</span> <span class="p">(</span><span class="n">effect_asset</span><span class="p">));</span>
+// You create an asset for an effect
+effect_asset = ges_asset_request (GES_TYPE_EFFECT, "agingtv", NULL);
 
+// And now you can extract an instance of GESEffect from that asset
+effect = GES_EFFECT (ges_asset_extract (effect_asset));
 
-</code></pre>
+</pre>
 
 <p>In that example, the advantages of having a <a href="#ges.asset">GES.Asset</a> are that you can know what effects
 you are working with and let your user know about the avalaible ones, you can add metadata
@@ -89,29 +90,19 @@ and standard effects (actually not implemented yet) and you can simply query tho
 (FIXME broken link)ges_asset_request_async. All the <a href="#ges.asset">GES.Assets</a> are cached and thus any asset that has already
 been created can be requested again without overhead.</p>
 
-<h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>
-
-<p><strong>(res)</strong></p>
-
-<p><em>res</em>: The <a href="https://developer.gnome.org/gio/unstable//GAsyncResult.html">Gio.AsyncResult</a> from which to get the newly created <a href="#ges.asset">GES.Asset</a></p>
-
-<p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> previously requested</p>
-
-<p>Finalize the request of an async <a href="#ges.asset">GES.Asset</a></p>
-
-<h3 id="ges.asset.get_id">GES.Asset.get_id</h3>
-
-<p><strong>(self)</strong></p>
-
-<p><em>self</em>: The <a href="#ges.asset">GES.Asset</a> to get ID from</p>
-
-<p><em>Returns</em>: The ID of <strong>self</strong></p>
-
-<p>Gets the ID of a <a href="#ges.asset">GES.Asset</a></p>
-
 <h3 id="ges.asset.request">GES.Asset.request</h3>
+<pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_asset_request</span> <span class="p">(</span><span class="n">GType</span> <span class="n">extractable_type</span><span class="p">,</span>
+                             <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">id</span><span class="p">,</span>
+                             <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
 
-<p><strong>(extractable_type, id)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GType</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">extractable_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_request()</span>
+
+</code></pre>
 
 <p><em>extractable_type</em>: The <a href="FIXME%20broken%20link%20to%20Type">GLib.Type</a> of the object that can be extracted from the new asset.</p>
 
@@ -126,9 +117,54 @@ documentation to see if that constructor can be called for this particular type<
 it will not work with this method, but you can instead use the specific
 (FIXME broken link)ges_uri_clip_asset_request_sync method if you really want to.</p>
 
-<h3 id="ges.asset.extract">GES.Asset.extract</h3>
+<h3 id="ges.asset.get_id">GES.Asset.get_id</h3>
+<pre><code class="highlight c"><span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">ges_asset_get_id</span> <span class="p">(</span><span class="n">GESAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_get_id()</span>
+
+</code></pre>
+
+<p><em>self</em>: The <a href="#ges.asset">GES.Asset</a> to get ID from</p>
+
+<p><em>Returns</em>: The ID of <strong>self</strong></p>
+
+<p>Gets the ID of a <a href="#ges.asset">GES.Asset</a></p>
+
+<h3 id="ges.asset.request_finish">GES.Asset.request_finish</h3>
+<pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_asset_request_finish</span> <span class="p">(</span><span class="n">GAsyncResult</span><span class="o">*</span> <span class="n">res</span><span class="p">,</span>
+                                    <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
+
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">Gio</span><span class="o">.</span><span class="n">AsyncResult</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">request_finish</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_request_finish()</span>
+
+</code></pre>
+
+<p><em>res</em>: The <a href="https://developer.gnome.org/gio/unstable//GAsyncResult.html">Gio.AsyncResult</a> from which to get the newly created <a href="#ges.asset">GES.Asset</a></p>
+
+<p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> previously requested</p>
+
+<p>Finalize the request of an async <a href="#ges.asset">GES.Asset</a></p>
+
+<h3 id="ges.asset.extract">GES.Asset.extract</h3>
+<pre><code class="highlight c"><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">ges_asset_extract</span> <span class="p">(</span><span class="n">GESAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
+                                   <span class="n">GError</span> <span class="o">**</span><span class="n">error</span><span class="p">);</span>
+
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Extractable</span><span class="p">)</span>
+<span class="nd">@throws</span><span class="p">(</span><span class="n">GLib</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_extract()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.asset">GES.Asset</a> to get extract an object from</p>
 
@@ -140,8 +176,19 @@ type will be extracted from @asset using
 (FIXME broken link)ges_asset_get_extractable_type</p>
 
 <h3 id="ges.asset.request_async">GES.Asset.request_async</h3>
+<pre><code class="highlight c"><span class="kt">void</span> <span class="n">ges_asset_request_async</span> <span class="p">(</span><span class="n">GType</span> <span class="n">extractable_type</span><span class="p">,</span>
+                              <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">id</span><span class="p">,</span>
+                              <span class="n">GCancellable</span><span class="o">*</span> <span class="n">cancellable</span><span class="p">,</span>
+                              <span class="n">GAsyncReadyCallback</span> <span class="n">callback</span><span class="p">,</span>
+                              <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">);</span>
 
-<p><strong>(extractable_type, id, cancellable, callback, user_data)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GType</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">,</span> <span class="n">Gio</span><span class="o">.</span><span class="n">Cancellable</span><span class="p">,</span> <span class="n">Gio</span><span class="o">.</span><span class="n">AsyncReadyCallback</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">request_async</span><span class="p">(</span><span class="n">extractable_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">cancellable</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">user_data</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_request_async()</span>
+
+</code></pre>
 
 <p><em>extractable_type</em>: The <a href="FIXME%20broken%20link%20to%20Type">GLib.Type</a> of the object that can be extracted from the
    new asset. The class must implement the <a href="#ges.extractable">GES.Extractable</a> interface.</p>
@@ -194,8 +241,15 @@ ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
 </pre>
 
 <h3 id="ges.asset.get_extractable_type">GES.Asset.get_extractable_type</h3>
+<pre><code class="highlight c"><span class="n">GType</span> <span class="n">ges_asset_get_extractable_type</span> <span class="p">(</span><span class="n">GESAsset</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
-<p><strong>(self)</strong></p>
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">GType</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_extractable_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># Python wrapper for ges_asset_get_extractable_type()</span>
+
+</code></pre>
 
 <p><em>self</em>: The <a href="#ges.asset">GES.Asset</a></p>
 
