@@ -8,6 +8,8 @@ lib/bundler/man
 pkg
 rdoc
 spec/reports
+source/includes/*
+source/index.md
 test/tmp
 test/version_tmp
 tmp
