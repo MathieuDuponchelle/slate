@@ -34,14 +34,14 @@
 <p>You may sometimes find some language-agnostic notes here as well</p>
 </blockquote>
 <pre><code class="highlight c"><span class="cm">/*
- * Here you will find all the examples, as well as the function
- * prototypes in C. You may want to click the "Python" or the shell tab now.
+ * Here you will find all the examples, as well as the function prototypes in
+ * C. You may want to click the "Python" or the shell tab now.
  */</span>
 </code></pre>
 <pre><code class="highlight python"><span class="c"># Here you go! Python is obviously the best choice, forget these other tabs!</span>
 </code></pre>
-<pre><code class="highlight shell"><span class="c"># Not all examples translate to shell, but you can emulate most of them</span>
-<span class="c"># thanks to ges-launch-1.0!</span>
+<pre><code class="highlight shell"><span class="c"># Not all examples translate to shell, but you can emulate most of them thanks</span>
+<span class="c"># to ges-launch-1.0!</span>
 </code></pre>
 
 <p>Welcome to the Gstreamer-Editing-Services (GES) documentation.</p>
@@ -49,23 +49,34 @@
 <p>This is the API used under the hood by <a href="http://www.pitivi.org/">Pitivi</a>, so
 anything possible in Pitivi&rsquo;s UI can be done with GES as well.</p>
 
-<p>This document&rsquo;s objective is to serve both as as an API reference and a step-by-step
-tutorial / guide. We will start with the basic concepts, illustrating them with examples in
-various languages, and by the end you should be able to write a non-linear video editing software
-for the platform of your choice.</p>
+<p>This document&rsquo;s objective is to serve both as as an API reference and a
+step-by-step tutorial / guide. We will start with the basic concepts,
+illustrating them with examples in various languages, and by the end you
+should be able to write a non-linear video editing software for the platform
+of your choice.</p>
 
-<p>A search box is available on the left-hand side for quick lookup of classes or methods, examples
-and prototypes can be found in the right-hand side column.</p>
+<p>A search box is available on the left-hand side for quick lookup of classes or
+methods, examples and prototypes can be found in the right-hand side column.</p>
 
-<p>All the examples are available in the <a href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/tests/examples">examples directory of GES</a>, during the course of this tutorial we will create specialized functions that we will reuse in latter examples, these functions will be cross-referenced all along the document, so you don&rsquo;t need to follow the tutorial in a strictly sequential order, even though it is recommended to get a complete understanding of the API.</p>
+<p>All the examples are available in the <a href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/tests/examples">examples directory of
+GES</a>,
+during the course of this tutorial we will create specialized functions that we
+will reuse in latter examples, these functions will be cross-referenced all
+along the document, so you don&rsquo;t need to follow the tutorial in a strictly
+sequential order, even though it is recommended to get a complete understanding
+of the API.</p>
 
 <h3 id="about-ges">About GES</h3>
 
-<p>Gstreamer-Editing-Services (GES) is a C library providing a high-level API
-for multimedia editing, it is based on <a href="http://gstreamer.freedesktop.org/">GStreamer</a>, a very powerful,
-versatile and portable multimedia framework.</p>
+<p>Gstreamer-Editing-Services (GES) is a C library providing a high-level API for
+multimedia editing, it is based on
+<a href="http://gstreamer.freedesktop.org/">GStreamer</a>, a very powerful, versatile and
+portable multimedia framework.</p>
 
-<p>GES is Open Source, licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL v2</a>, you are encouraged to look at the source code and contribute to its development by submitting patches to our <a href="FIXME">phabricator instance</a>!</p>
+<p>GES is Open Source, licensed under the <a href="http://www.gnu.org/licenses/lgpl-2.0.html">LGPL
+v2+</a> or (at your option) any later version.
+You are encouraged to look at the source code and contribute to its development by
+submitting patches to our <a href="http://phabricator.freedesktop.org/">phabricator instance</a>!</p>
 
 <p>GES can be deployed on iOS, Windows, Linux, Android and OSX.</p>
 
@@ -74,14 +85,16 @@ versatile and portable multimedia framework.</p>
 <p>GES lets you edit and compose together any number of multimedia resources,
 apply filters on them and animate their properties.</p>
 
-<p>The range of tasks GES can perform is very wide, from simple three-point editing
-(playing or rendering a source clip from an in-point to an out-point), to
-complex timelines with hundreds of source clips composited together on multiple layers,
-filters with animatable properties and many different types of transitions.</p>
+<p>The range of tasks GES can perform is very wide, from simple three-point
+editing (playing or rendering a source clip from an in-point to an out-point),
+to complex timelines with hundreds of source clips composited together
+on multiple layers, filters with animatable properties and many
+different types of transitions.</p>
 
-<p>GES provides you with an easy-to-use rendering and playing back abstraction, and
-an executable, ges-launch-1.0, which allows access to a significant part of its features
-through the command-line, ideal for quick prototyping and testing.</p>
+<p>GES provides you with an easy-to-use rendering and playing back abstraction,
+and an executable, ges-launch-1.0, which allows access to a significant
+part of its features through the command-line, ideal for quick prototyping
+and testing.</p>
 
 <p>Finally, GES also exposes a lower-level API, for the adventurous developer who
 wishes to implement new kinds of sources, effects or transitions.</p>
