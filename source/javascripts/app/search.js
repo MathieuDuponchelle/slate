@@ -5,26 +5,63 @@
   var content, darkBox, searchResults;
   var highlightOpts = { element: 'span', className: 'search-highlight' };
 
+  lunr.tokenizer = function (obj) {
+	  if (!arguments.length || obj == null || obj == undefined) return []
+		  if (Array.isArray(obj)) return obj.map(function (t) { return t.toLowerCase() })
+
+			  var str = obj.toString().replace(/^\s+/, '')
+
+				  for (var i = str.length - 1; i >= 0; i--) {
+					  if (/\S/.test(str.charAt(i))) {
+						  str = str.substring(0, i + 1)
+							  break
+					  }
+				  }
+
+	  return str
+		  .split(/(?:\s+|\-)|[A-Z]|_|:|\./)
+		  .filter(function (token) {
+			  return !!token
+		  })
+	  .map(function (token) {
+		  return token.toLowerCase()
+	  })
+  }
+
   var index = new lunr.Index();
 
   index.ref('id');
-  index.field('title', { boost: 10 });
-  index.field('body');
+  index.field('klass', { boost: 10 });
+  index.field('other');
   index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
 
   $(populate);
   $(bind);
 
   function populate() {
-    $('h1, h2, h3').each(function() {
-      var title = $(this);
-      var body = title.nextUntil('h1, h2, h3');
-      index.add({
-        id: title.prop('id'),
-        title: title.text(),
-        body: body.text()
-      });
-    });
+	  $('h1, h2, h3').each(function() {
+		  var title = $(this).text();
+		  if (!($(this).attr("c_name"))) {
+			  return;
+		  }
+
+		  split = title.split(/\.|:/);
+		  if (split.length == 1) {
+			  return
+		  } else if (split.length == 2) {
+			  index.add({
+				  id: $(this).prop('id'),
+				  klass: title,
+				  other: title
+			  });
+		  } else {
+			  index.add({
+				  id: $(this).prop('id'),
+				  klass: "noklassmydear",
+				  other: title
+			  });
+		  }
+	  });
   }
 
   function bind() {
