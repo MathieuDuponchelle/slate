@@ -79,6 +79,14 @@ under the License.
       var language = $(this).data("language-name");
       pushURL(language);
       activateLanguage(language);
+      $("h1,h2,h3").each (function(index) {
+	    var item = $('.tocify-item[data-unique="' + $(this).attr("id") + '"]');
+	    if ($(this).text()) {
+	    	$(this).text($(this).attr(language + "_name"));
+		console.log ("child is :" + $(item).children("a").first().text());
+		$(item).children("a").first().text($(this).attr(language + "_name"));
+	    }
+      });
       return false;
     });
     window.onpopstate = function(event) {
