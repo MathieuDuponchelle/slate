@@ -17,6 +17,7 @@ under the License.
   'use strict';
 
   var languages = [];
+  var currentLanguage = "";
 
   global.setupLanguages = setupLanguages;
   global.activateLanguage = activateLanguage;
@@ -24,6 +25,7 @@ under the License.
   function activateLanguage(language) {
     if (!language) return;
     if (language === "") return;
+    if (language === currentLanguage) return;
 
     $(".lang-selector a").removeClass('active');
     $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
@@ -32,6 +34,7 @@ under the License.
     }
     $(".highlight." + language).show();
 
+    console.log ("activating language");
     $("h1,h2,h3").each (function(index) {
 	    var item = $('.tocify-item[data-unique="' + $(this).attr("id") + '"]');
 	    if ($(this).text()) {
@@ -42,6 +45,7 @@ under the License.
 
     global.toc.calculateHeights();
 
+    currentLanguage = language;
     // scroll to the new location of the position
     if ($(window.location.hash).get(0)) {
       $(window.location.hash).get(0).scrollIntoView(true);
