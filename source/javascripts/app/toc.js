@@ -1,14 +1,19 @@
 (function (global) {
   'use strict';
 
-  var closeToc = function() {
+  global.makeToc = makeToc;
+  global.closeToc = closeToc;
+
+  function closeToc() {
     $(".tocify-wrapper").removeClass('open');
     $("#nav-button").removeClass('open');
   };
 
-  var makeToc = function() {
+  function makeToc(language) {
+    $("#toc").remove();
+    $('<div id="toc"></div>').insertBefore(".toc-footer");
     global.toc = $("#toc").tocify({
-      selectors: 'h1, h2, h3',
+      selectors: 'h1,h2[' + language + "_name] ,h3[" + language + "_name]",
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
@@ -32,17 +37,5 @@
     $(".page-wrapper").click(closeToc);
     $(".tocify-item").click(closeToc);
   };
-
-  // Hack to make already open sections to start opened,
-  // instead of displaying an ugly animation
-  function animate () {
-    setTimeout(function() {
-      toc.setOption('showEffectSpeed', 180);
-    }, 50);
-  }
-
-  $(makeToc);
-  $(animate);
-
 })(window);
 

@@ -29,20 +29,47 @@ under the License.
 
     $(".lang-selector a").removeClass('active');
     $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
+
+    $("h1,h2,h3:not('.subsection')").each (function(index) {
+	    if ($(this).text()) {
+		var selector = "h1";
+		if ($(this).prop('tagName') == "H2") {
+			selector += ",h2";
+		} else if ($(this).prop('tagName') == "H3") {
+			selector += ",h2,h3";
+		}
+		var body = $(this).nextUntil(selector);
+		if ($(this).attr("c_name") && !($(this).attr(language + "_name"))) {
+			$(this).hide();
+			$(this).prev().hide();
+			body.hide();
+		} else {
+			$(this).show();
+			body.show();
+		}
+	    	$(this).text($(this).attr(language + "_name"));
+	    }
+    });
+
+    $(".subsection").each (function(index) {
+	    var body = $(this).nextUntil("h1,h2," + $(this).prop('tagName').toLowerCase() + ".subsection");
+	    var body_visible = body.is(":visible");
+	    if (body_visible) {
+		    $(this).show();
+		    $(this).attr(language + "_name", $(this).text());
+	    } else {
+		    $(this).hide();
+		    $(this).removeAttr(language + "_name");
+	    }
+    });
+
     for (var i=0; i < languages.length; i++) {
       $(".highlight." + languages[i]).hide();
     }
     $(".highlight." + language).show();
 
-    console.log ("activating language");
-    $("h1,h2,h3").each (function(index) {
-	    var item = $('.tocify-item[data-unique="' + $(this).attr("id") + '"]');
-	    if ($(this).text()) {
-	    	$(this).text($(this).attr(language + "_name"));
-		$(item).children("a").first().text($(this).attr(language + "_name"));
-	    }
-    });
 
+    global.makeToc(language);
     global.toc.calculateHeights();
 
     currentLanguage = language;
