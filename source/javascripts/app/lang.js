@@ -30,6 +30,9 @@ under the License.
     $(".lang-selector a").removeClass('active');
     $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
 
+    if (language != "shell")
+        $(".prototype_start").nextUntil(".prototype_end").show();
+
     $("h1,h2,h3:not('.subsection')").each (function(index) {
 	    if ($(this).text()) {
 		var selector = "h1";
@@ -51,6 +54,10 @@ under the License.
 	    }
     });
 
+    if (language == "shell")
+        $(".prototype_start").nextUntil(".prototype_end").hide();
+
+    $(".prototype_start").hide();
     $(".subsection").each (function(index) {
 	    var body = $(this).nextUntil("h1,h2," + $(this).prop('tagName').toLowerCase() + ".subsection");
 	    var body_visible = body.is(":visible");
