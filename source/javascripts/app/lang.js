@@ -17,10 +17,34 @@ under the License.
   'use strict';
 
   var languages = [];
-  var currentLanguage = "";
+  var currentLanguage = undefined;
+
 
   global.setupLanguages = setupLanguages;
   global.activateLanguage = activateLanguage;
+
+  function hide_if_irrelevant(element, language) {
+	  if (element.text()) {
+		  var selector = "h1";
+		  if (element.prop('tagName') == "H2") {
+			  selector += ",h2";
+		  } else if (element.prop('tagName') == "H3") {
+			  selector += ",h2,h3";
+		  }
+		  var body = element.nextUntil(selector);
+		  if (element.attr("c_name") && !(element.attr(language + "_name"))) {
+			  element.hide();
+			  if (currentLanguage != undefined) {
+				  element.prev().hide();
+			  }
+			  body.hide();
+		  } else {
+			  element.show();
+			  body.show();
+		  }
+		  element.text(element.attr(language + "_name"));
+	  }
+  }
 
   function activateLanguage(language) {
     if (!language) return;
@@ -34,56 +58,46 @@ under the License.
         $(".prototype_start").nextUntil(".prototype_end").show();
 
     $("h1,h2,h3:not('.subsection')").each (function(index) {
-	    if ($(this).text()) {
-		var selector = "h1";
-		if ($(this).prop('tagName') == "H2") {
-			selector += ",h2";
-		} else if ($(this).prop('tagName') == "H3") {
-			selector += ",h2,h3";
-		}
-		var body = $(this).nextUntil(selector);
-		if ($(this).attr("c_name") && !($(this).attr(language + "_name"))) {
-			$(this).hide();
-			$(this).prev().hide();
-			body.hide();
-		} else {
-			$(this).show();
-			body.show();
-		}
-	    	$(this).text($(this).attr(language + "_name"));
-	    }
+	    var self = $(this);
+	    setTimeout (function () {
+		hide_if_irrelevant (self, language);
+	    }, 0);
     });
 
-    if (language == "shell")
-        $(".prototype_start").nextUntil(".prototype_end").hide();
+    setTimeout (function () {
+	    if (language == "shell")
+		    $(".prototype_start").nextUntil(".prototype_end").hide();
 
-    $(".prototype_start").hide();
-    $(".subsection").each (function(index) {
-	    var body = $(this).nextUntil("h1,h2," + $(this).prop('tagName').toLowerCase() + ".subsection");
-	    var body_visible = body.is(":visible");
-	    if (body_visible) {
-		    $(this).show();
-		    $(this).attr(language + "_name", $(this).text());
-	    } else {
-		    $(this).hide();
-		    $(this).removeAttr(language + "_name");
+	    $(".prototype_start").hide();
+
+	    $(".subsection").each (function(index) {
+		    var body = $(this).nextUntil("h1,h2," + $(this).prop('tagName').toLowerCase() + ".subsection");
+		    var body_visible = body.is(":visible");
+		    if (body_visible) {
+			    $(this).show();
+			    $(this).attr(language + "_name", $(this).text());
+		    } else {
+			    $(this).hide();
+			    $(this).removeAttr(language + "_name");
+		    }
+	    });
+
+	    for (var i=0; i < languages.length; i++) {
+		    $(".highlight." + languages[i]).hide();
 	    }
-    });
+	    $(".highlight." + language)..show();
 
-    for (var i=0; i < languages.length; i++) {
-      $(".highlight." + languages[i]).hide();
-    }
-    $(".highlight." + language).show();
+	    global.makeToc(language);
+	    setTimeout (function () {
+	    	global.toc.calculateHeights();
+	    }, 0);
 
-
-    global.makeToc(language);
-    global.toc.calculateHeights();
-
-    currentLanguage = language;
-    // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
+	    currentLanguage = language;
+	    // scroll to the new location of the position
+	    if ($(window.location.hash).get(0)) {
+		    $(window.location.hash).get(0).scrollIntoView(true);
+	    }
+    }, 0);
   }
 
   // if a button is clicked, add the state to the history
