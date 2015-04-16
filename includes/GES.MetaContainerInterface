@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="ges.metacontainerinterface" c_name="GESMetaContainerInterface" python_name="GES.MetaContainerInterface" shell_name="The Meta Container Interface">GES.MetaContainerInterface</h2>
+        <h2 id="ges.metacontainerinterface" c_name="GESMetaContainerInterface">GES.MetaContainerInterface</h2>
 
       </div>
       <div class="dark-box">

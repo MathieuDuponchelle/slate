@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="ges.extractableinterface" c_name="GESExtractableInterface" python_name="GES.ExtractableInterface" shell_name="The Extractable Interface">GES.ExtractableInterface</h2>
+        <h2 id="ges.extractableinterface" c_name="GESExtractableInterface">GES.ExtractableInterface</h2>
 
       </div>
       <div class="dark-box">

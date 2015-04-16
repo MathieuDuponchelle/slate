@@ -28,12 +28,15 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="ges.extractable" c_name="GESExtractable" python_name="GES.Extractable" shell_name="The Extractable">GES.Extractable</h2>
+        <h2 id="ges.extractable" c_name="GESExtractable" python_name="GES.Extractable">GES.Extractable</h2>
 
 <p>FIXME: Long description needed</p>
 
-<p><h3 id='methods'><u>Methods:</u></h3>
-<h3 id="ges.extractable.get_asset" c_name="ges_extractable_get_asset" python_name="GES.Extractable.get_asset" shell_name="GES.Extractable.get_asset">GES.Extractable.get_asset</h3></p>
+<p><h3 id='tyIrzU' class='subsection'><u>Methods:</u></h3></p>
+
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.get_asset" c_name="ges_extractable_get_asset" python_name="GES.Extractable.get_asset">GES.Extractable.get_asset</h3>
 <pre><code class="highlight c"><span class="n">GESAsset</span><span class="o">*</span> <span class="n">ges_extractable_get_asset</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
 </code></pre>
@@ -48,9 +51,13 @@
 
 <p><em>Returns</em>: The <a href="#ges.asset">GES.Asset</a> or <strong>NULL</strong> if none has been set</p>
 
+<div class='prototype_end'></div>
+
 <p>Method for getting an asset from a <a href="#ges.extractable">GES.Extractable</a></p>
 
-<h3 id="ges.extractable.get_id" c_name="ges_extractable_get_id" python_name="GES.Extractable.get_id" shell_name="GES.Extractable.get_id">GES.Extractable.get_id</h3>
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.get_id" c_name="ges_extractable_get_id" python_name="GES.Extractable.get_id">GES.Extractable.get_id</h3>
 <pre><code class="highlight c"><span class="n">gchar</span><span class="o">*</span> <span class="n">ges_extractable_get_id</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
 </code></pre>
@@ -65,7 +72,11 @@
 
 <p><em>Returns</em>: The (FIXME broken link)id of the associated <a href="#ges.asset">GES.Asset</a>, free with (FIXME broken link)g_free</p>
 
-<h3 id="ges.extractable.set_asset" c_name="ges_extractable_set_asset" python_name="GES.Extractable.set_asset" shell_name="GES.Extractable.set_asset">GES.Extractable.set_asset</h3>
+<div class='prototype_end'></div>
+
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.set_asset" c_name="ges_extractable_set_asset" python_name="GES.Extractable.set_asset">GES.Extractable.set_asset</h3>
 <pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">ges_extractable_set_asset</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
                                     <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
@@ -83,13 +94,21 @@
 
 <p><em>Returns</em>: <strong>TRUE</strong> if <strong>asset</strong> could be set <strong>FALSE</strong> otherwize</p>
 
+<div class='prototype_end'></div>
+
 <p>Method to set the asset which instantiated the specified object</p>
 
-<h3 id='vfuncs'><u>Virtual Methods:</u></h3>
+<h3 id='PJvwBA' class='subsection'><u>Virtual Methods:</u></h3>
 
-<h3 id="ges.extractable.do_get_id" c_name="ges_extractable_do_get_id" python_name="GES.Extractable.do_get_id" shell_name="GES.Extractable.do_get_id">GES.Extractable.do_get_id</h3>
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.do_get_id" c_name="GESExtractableClass:get_id" python_name="GES.Extractable.do_get_id">GES.Extractable.do_get_id</h3>
 <pre><code class="highlight c"><span class="n">gchar</span><span class="o">*</span> <span class="n">GESExtractableClass</span><span class="o">-&gt;</span><span class="n">get_id</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">);</span>
 
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Extractable</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">unicode</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">do_get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 </code></pre>
 
@@ -97,27 +116,47 @@
 
 <p><em>Returns</em>: The (FIXME broken link)id of the associated <a href="#ges.asset">GES.Asset</a>, free with (FIXME broken link)g_free</p>
 
-<h3 id="ges.extractable.do_set_asset" c_name="ges_extractable_do_set_asset" python_name="GES.Extractable.do_set_asset" shell_name="GES.Extractable.do_set_asset">GES.Extractable.do_set_asset</h3>
+<div class='prototype_end'></div>
+
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.do_set_asset" c_name="GESExtractableClass:set_asset" python_name="GES.Extractable.do_set_asset">GES.Extractable.do_set_asset</h3>
 <pre><code class="highlight c"><span class="kt">void</span> <span class="n">GESExtractableClass</span><span class="o">-&gt;</span><span class="n">set_asset</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
                       <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Extractable</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">do_set_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">):</span>
 
 </code></pre>
 
-<p><em>self</em>: FIXME empty description
-<em>asset</em>: FIXME empty description
-<em>Returns</em>: FIXME empty description</p>
+<p><em>self</em>: FIXME empty description</p>
 
-<h3 id="ges.extractable.do_set_asset_full" c_name="ges_extractable_do_set_asset_full" python_name="GES.Extractable.do_set_asset_full" shell_name="GES.Extractable.do_set_asset_full">GES.Extractable.do_set_asset_full</h3>
+<p><em>asset</em>: FIXME empty description</p>
+
+<div class='prototype_end'></div>
+
+<div class='prototype_start'></div>
+
+<h3 id="ges.extractable.do_set_asset_full" c_name="GESExtractableClass:set_asset_full" python_name="GES.Extractable.do_set_asset_full">GES.Extractable.do_set_asset_full</h3>
 <pre><code class="highlight c"><span class="n">gboolean</span> <span class="n">GESExtractableClass</span><span class="o">-&gt;</span><span class="n">set_asset_full</span> <span class="p">(</span><span class="n">GESExtractable</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span>
                                <span class="n">GESAsset</span><span class="o">*</span> <span class="n">asset</span><span class="p">);</span>
 
+</code></pre>
+<pre><code class="highlight python"><span class="nd">@accepts</span><span class="p">(</span><span class="n">GES</span><span class="o">.</span><span class="n">Extractable</span><span class="p">,</span> <span class="n">GES</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span>
+<span class="nd">@returns</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">do_set_asset_full</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">):</span>
 
 </code></pre>
 
-<p><em>self</em>: FIXME empty description
-<em>asset</em>: FIXME empty description
-<em>Returns</em>: FIXME empty description</p>
+<p><em>self</em>: FIXME empty description</p>
+
+<p><em>asset</em>: FIXME empty description</p>
+
+<p><em>Returns</em>: FIXME empty description</p>
+
+<div class='prototype_end'></div>
 
       </div>
       <div class="dark-box">
