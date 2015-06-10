@@ -44,7 +44,7 @@
 			  return;
 		  }
 
-		  split = title.split(/\.|:/);
+		  var split = title.split(/\.|:/);
 		  if (split.length == 1) {
 			  return
 		  } else if (split.length == 2) {

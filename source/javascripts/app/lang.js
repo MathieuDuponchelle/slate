@@ -85,7 +85,7 @@ under the License.
 	    for (var i=0; i < languages.length; i++) {
 		    $(".highlight." + languages[i]).hide();
 	    }
-	    $(".highlight." + language)..show();
+	    $(".highlight." + language).show();
 
 	    global.makeToc(language);
 	    setTimeout (function () {
